@@ -1,0 +1,25 @@
+[project]
+name = "vulnlm"
+version = "0.1.0"
+description = "Vulnerability analysis of binary/executable files with LLMs"
+requires-python = ">=3.13,<3.14" # pinned by PyGhidra/JPype
+dependencies = [
+    "typer>=0.15",
+    "pydantic>=2.10",
+    "python-dotenv>=1.0",
+    "rich>=13.0", # transitively via typer, but we import it directly
+]
+
+[project.scripts]
+vulnlm = "vulnlm.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/vulnlm"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"

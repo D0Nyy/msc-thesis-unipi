@@ -1,0 +1,34 @@
+# Secrets
+.env
+
+# Data — large, redistributable from source, or derived.
+# Directories and .gitkeep are re-included so the layout survives a clone.
+data/**
+!data/**/
+!data/**/.gitkeep
+!data/manifest.json
+
+# Results — regenerable; raw model output is expensive but not version-controlled
+results/**
+!results/**/
+!results/**/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Tooling
+.ghidra/
+*.gpr
+*.rep/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+~$*.docx
