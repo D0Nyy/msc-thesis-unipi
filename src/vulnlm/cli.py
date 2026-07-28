@@ -14,6 +14,9 @@ from typing import Annotated
 import typer
 from dotenv import load_dotenv
 from rich.console import Console
+from rich.table import Table
+
+from vulnlm.build.sample import DEFAULT_SEED
 
 load_dotenv()
 
@@ -49,19 +52,228 @@ def _todo(stage: str) -> None:
 
 
 @app.command()
-def build(data_dir: DataDir = Path("data")) -> None:
-    """Prepare the dataset: compile Juliet, write the sample manifest."""
-    _todo("build")
+def build(
+    data_dir: DataDir = Path("data"),
+    survey: Annotated[
+        bool,
+        typer.Option("--survey", help="Report what is in the archives; build nothing."),
+    ] = False,
+    json_out: Annotated[
+        Path,
+        typer.Option("--json", help="Where to write the survey JSON."),
+    ] = Path("results/survey.json"),
+    per_stratum: Annotated[
+        int,
+        typer.Option("--per-stratum", "-n", help="Cases to draw per CWE/lang/flow cell."),
+    ] = 2,
+    seed: Annotated[
+        int, typer.Option("--seed", help="RNG seed. Changing it changes the sample.")
+    ] = DEFAULT_SEED,
+) -> None:
+    """Prepare the dataset: compile Juliet, write the sample manifest.
+
+    `--survey` is the read-only precondition for everything else. It reports
+    what the archives actually contain and reconciles the filename parse
+    against SARD's own manifest. It exits non-zero if either invariant fails,
+    so it can gate a build in CI or in a shell chain.
+    """
+    if survey:
+        _run_survey(data_dir / "raw", json_out)
+        return
+    _draw_sample(data_dir, per_stratum, seed)
+
+
+def _draw_sample(data_dir: Path, per_stratum: int, seed: int) -> None:
+    """Draw the stratified sample and commit data/manifest.json."""
+    from vulnlm.build.sample import build_manifest
+    from vulnlm.build.suites import ArchiveNotFound
+
+    try:
+        manifest = build_manifest(data_dir / "raw", per_stratum=per_stratum, seed=seed)
+    except ArchiveNotFound as exc:
+        err.print(f"[red]{exc}[/red]")
+        raise typer.Exit(2) from exc
+
+    table = Table(box=None, pad_edge=False)
+    table.add_column("stratum", style="dim")
+    table.add_column("CWE")
+    table.add_column("suite")
+    table.add_column("flow")
+    table.add_column("got", justify="right")
+    table.add_column("avail", justify="right")
+    short = {
+        "cross_language": "cross-lang",
+        "memory_safety": "mem-safety",
+        "web_injection": "web-inject",
+    }
+    for s in manifest.strata:
+        style = "red" if s.available == 0 else ("yellow" if s.selected < s.requested else "")
+        table.add_row(
+            short[s.kind],
+            s.cwe_id,
+            s.suite,
+            s.flow_group,
+            f"{s.selected}/{s.requested}",
+            f"{s.available:,}",
+            style=style,
+        )
+    console.print(table)
+
+    # An empty cell is a design hole: the dataset cannot supply something the
+    # sample assumes exists. A short cell is merely small. Both must be visible,
+    # because either one silently unbalances the strata.
+    empty = [s for s in manifest.strata if s.available == 0]
+    short_cells = [s for s in manifest.strata if 0 < s.available < s.requested]
+    if empty:
+        err.print(f"\n[red]{len(empty)} EMPTY cell(s) — no cases exist:[/red]")
+        for s in empty:
+            err.print(f"  {s.cwe_id} {s.suite} {s.flow_group}")
+    if short_cells:
+        err.print(f"\n[yellow]{len(short_cells)} cell(s) came up short:[/yellow]")
+        for s in short_cells:
+            err.print(
+                f"  {s.cwe_id} {s.suite} {s.flow_group}: "
+                f"{s.selected} of {s.requested} (only {s.available} available)"
+            )
+
+    out = data_dir / "manifest.json"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(manifest.model_dump_json(indent=2), encoding="utf-8")
+
+    by_kind: dict[str, int] = {}
+    for c in manifest.cases:
+        by_kind[c.stratum] = by_kind.get(c.stratum, 0) + 1
+    console.print(
+        f"\n[bold]{len(manifest.cases)} cases[/bold] in {len(manifest.strata)} strata "
+        f"({', '.join(f'{k}={v}' for k, v in sorted(by_kind.items()))}), seed {manifest.seed}"
+    )
+    err.print(f"wrote {out}")
+
+
+def _run_survey(raw_dir: Path, json_out: Path | None) -> None:
+    """Render a dataset survey and exit non-zero if it is not clean."""
+    from vulnlm.build.survey import survey_dataset
+    from vulnlm.build.suites import ArchiveNotFound
+
+    try:
+        result = survey_dataset(raw_dir)
+    except ArchiveNotFound as exc:
+        err.print(f"[red]{exc}[/red]")
+        raise typer.Exit(2) from exc
+
+    for s in result.suites:
+        console.print(f"\n[bold]{s.key}[/bold]  {s.archive}")
+        console.print(f"  sha256 {s.archive_sha256[:16]}…")
+
+        table = Table(box=None, pad_edge=False, show_header=False)
+        table.add_column(style="dim")
+        table.add_column(justify="right")
+        table.add_row("source files", f"{s.source_files:,}")
+        table.add_row("  support", f"{s.support_files:,}")
+        table.add_row("  parsed", f"{s.parsed_files:,}")
+        table.add_row("cases", f"{s.cases:,}")
+        table.add_row("  cross-file", f"{s.cross_file_cases:,}")
+        table.add_row("distinct CWEs", f"{s.cwes:,}")
+        table.add_row("headers", f"{s.header_files:,}")
+        table.add_row("windows-only", f"{s.windows_only_files:,}")
+        table.add_row("variant-declaring (§4.1)", f"{s.variant_declaring_files:,}")
+        for name, count in s.flow_types.items():
+            table.add_row(f"flow: {name}", f"{count:,}")
+        if s.manifest_present:
+            table.add_row("manifest overlap", f"{s.manifest_overlap:,}")
+            table.add_row("  agreements", f"{s.manifest_agreements:,}")
+            table.add_row("  flaw lines", f"{s.flaw_lines:,}")
+        console.print(table)
+
+        if s.manifest_repaired_lines:
+            console.print(
+                f"  [yellow]manifest repaired: dropped unmatched tags at lines "
+                f"{s.manifest_repaired_lines}[/yellow]"
+            )
+
+        # The two invariants. Loud, and last, so they are what you read.
+        if s.unexplained_rejects:
+            console.print(
+                f"  [red]FAIL {s.unexplained_rejects:,} unexplained rejects[/red]"
+            )
+            for name in s.reject_examples:
+                console.print(f"    {name}")
+        if s.manifest_disagreements:
+            console.print(
+                f"  [red]FAIL {s.manifest_disagreements:,} CWE disagreements "
+                f"with manifest.xml[/red]"
+            )
+            for line in s.disagreement_examples:
+                console.print(f"    {line}")
+        if s.orphan_flaw_entries:
+            console.print(
+                f"  [red]FAIL {s.orphan_flaw_entries:,} flaw entries with no "
+                f"parsed source file[/red]"
+            )
+        if s.ok:
+            console.print("  [green]OK[/green] parse accounts for every source file")
+
+    # Both sampling arms are visible here: shared feeds the cross-language
+    # stratum, c-cpp-exclusive feeds the memory-safety one.
+    console.print(
+        f"\n[bold]shared[/bold] (in all {len(result.suites)} suites): "
+        f"{len(result.shared_cwes)} CWEs"
+    )
+    console.print(f"  {', '.join(result.shared_cwes)}")
+    # The number that actually constrains CWE selection. Much smaller than
+    # `shared`, because Win32-only and single-flow-group CWEs drop out.
+    console.print(
+        f"\n[bold]sampleable[/bold] (shared, and every cell survives exclusions): "
+        f"[green]{len(result.sampleable_cwes)}[/green] CWEs"
+    )
+    console.print(f"  {', '.join(result.sampleable_cwes)}")
+    for key, ids in sorted(result.exclusive_cwes.items()):
+        console.print(f"\n[bold]{key} only:[/bold] {len(ids)} CWEs")
+        console.print(f"  {', '.join(ids)}")
+
+    # Always written. A survey is cheap and the JSON is the diffable record of
+    # what the dataset looked like on a given day — useful precisely when a
+    # later run disagrees with an earlier one.
+    json_out.parent.mkdir(parents=True, exist_ok=True)
+    json_out.write_text(result.model_dump_json(indent=2), encoding="utf-8")
+    err.print(f"\nwrote {json_out}")
+
+    if not result.ok:
+        raise typer.Exit(1)
 
 
 @app.command()
 def recover(
     data_dir: DataDir = Path("data"),
+    binary: Annotated[
+        Path | None,
+        typer.Option("--binary", help="Analyse one executable (F2, or F1 for bytecode)."),
+    ] = None,
+    source: Annotated[
+        Path | None,
+        typer.Option("--source", help="Analyse source directly (F0). No decompiler."),
+    ] = None,
     tier: Annotated[
         str | None, typer.Option("--tier", help="Restrict to one of F0, F1, F2.")
     ] = None,
 ) -> None:
-    """Stage 1 — decompile, scrub identifiers, chunk. Emits Chunk records."""
+    """Stage 1 — recover code, scrub identifiers, chunk. Emits Chunk records.
+
+    Three entry points, one pipeline (protocol §4.0):
+
+      (no flag)   work through the committed sample manifest — benchmark mode
+      --binary    an arbitrary executable: decompile, then chunk
+      --source    source as written: skip the decompiler, chunk directly
+
+    `--source` is the same F0 path the experiment uses as its control
+    condition, so it costs nothing to expose. Note it makes vulnlm a source
+    scanner, a crowded space where dedicated tools are stronger — the value
+    here is having ONE pipeline that treats source and decompiled output
+    identically, which is what makes the fidelity comparison valid.
+    """
+    if binary and source:
+        err.print("[red]--binary and --source are mutually exclusive.[/red]")
+        raise typer.Exit(2)
     _todo("recover")
 
 

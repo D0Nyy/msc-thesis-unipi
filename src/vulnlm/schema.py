@@ -83,6 +83,30 @@ class Outcome(StrEnum):
     API_ERROR = "api_error"  # transport, quota, timeout — retried later
 
 
+class StratumKind(StrEnum):
+    """Which sample arm a case belongs to (protocol §5.2).
+
+    Never pooled. Each answers a different question, and pooling would let a
+    single-language arm masquerade as a cross-language finding.
+    """
+
+    CROSS_LANGUAGE = "cross_language"  # C/C++ and Java, from the shared CWEs
+    MEMORY_SAFETY = "memory_safety"  # C/C++ only; where F2 hurts most
+    WEB_INJECTION = "web_injection"  # Java only; SQLi, XSS, XPath, reflection
+
+
+class FlowGroup(StrEnum):
+    """The two ends of Juliet's flow-complexity axis (protocol §5.2).
+
+    CROSS_FILE is the group that exercises §4.2's chunk assembly: source and
+    sink live in different files, so a chunk holding only the sink cannot show
+    the input is attacker-controlled.
+    """
+
+    BASELINE = "baseline"  # flow variant 01
+    CROSS_FILE = "cross_file"  # 22, 51-54, 61-68, 71-75, 81-84
+
+
 class Severity(StrEnum):
     """Ordinal only.
 
@@ -100,6 +124,88 @@ class Severity(StrEnum):
 
 
 # --------------------------------------------------------------------------- #
+# Stage 0 output: the sampled dataset
+# --------------------------------------------------------------------------- #
+
+
+class Case(Strict):
+    """One Juliet test case — the unit that gets sampled, built and labelled.
+
+    A case is a set of source files sharing a base name, not a single file:
+    the 5x flow variants split source from sink across `a`/`b`/`c`/`d`/`e`
+    files on purpose. Grouping them here is what lets §4.2 assemble a chunk
+    that actually contains the evidence.
+    """
+
+    case_id: str  # "CWE121_Stack_Based_Buffer_Overflow__CWE193_char_alloca_cpy_01"
+    language: Language
+
+    # THE LABEL. The leading CWE of the filename and nothing else — see the
+    # secondary_cwe_id warning below.
+    cwe_id: str = Field(pattern=r"^CWE-\d+$")
+    cwe_name: str  # "Stack_Based_Buffer_Overflow", from the filename
+
+    # Juliet sometimes embeds a second CWE describing HOW the flaw is reached
+    # rather than WHAT it is. Recorded for analysis, never scored as the label.
+    secondary_cwe_id: str | None = Field(default=None, pattern=r"^CWE-\d+$")
+
+    functional_variant: str  # "char_alloca_cpy" — the sink/source shape
+    flow_variant: str  # "01".."84"; NOT limited to 01-22, see build/juliet.py
+
+    flow_group: FlowGroup  # which end of the complexity axis this came from
+    stratum: StratumKind
+
+    files: list[str]  # archive-relative POSIX paths, sorted
+    source_sha256: str | None = None  # over the concatenated sorted files
+
+    # Functional variants using the Win32 API do not build with gcc. Recorded
+    # so the sample can be filtered by toolchain rather than failing at compile
+    # time halfway through a build run.
+    windows_only: bool = False
+
+
+class Stratum(Strict):
+    """One cell of the stratified sample, and how many cases it contributed.
+
+    Committed so the sample can be audited without re-deriving it: if a stratum
+    came up short, that is visible here rather than hidden in an aggregate.
+    """
+
+    kind: StratumKind
+    cwe_id: str = Field(pattern=r"^CWE-\d+$")
+    # Suite key, not Language. Juliet writes a functional variant in either .c
+    # or .cpp depending on whether it needs C++ features, so stratifying on
+    # Language fragments cells that are one arm for the fidelity question --
+    # CWE-23 has only .cpp cases, CWE-78 has no .cpp baseline. Each Case still
+    # records its own precise Language for provenance.
+    suite: str
+    flow_group: FlowGroup
+    requested: int = Field(ge=0)
+    selected: int = Field(ge=0)
+    available: int = Field(ge=0)  # population size before sampling
+
+
+class Manifest(Strict):
+    """The committed, reproducible sample. Written by `build`, read by everything.
+
+    This file is the reason the experiment can be re-run. `RunMeta.manifest_sha256`
+    ties a result set to exactly one of these, so a manifest must never be edited
+    in place — regenerate it under a new seed and let the hash change loudly.
+    """
+
+    schema_version: int = SCHEMA_VERSION
+    generated_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
+
+    seed: int  # fixed RNG seed; the whole point of committing this file
+    suite_versions: dict[str, str] = Field(default_factory=dict)  # lang -> "1.3"
+    suite_sha256: dict[str, str] = Field(default_factory=dict)  # lang -> archive hash
+
+    strata: list[Stratum] = Field(default_factory=list)
+    cases: list[Case] = Field(default_factory=list)
+    notes: str | None = None
+
+
+# --------------------------------------------------------------------------- #
 # Stage 1-2 output: chunks
 # --------------------------------------------------------------------------- #
 
@@ -111,7 +217,7 @@ class GroundTruth(Strict):
     cwe_id: str | None = Field(default=None, pattern=r"^CWE-\d+$")
     cwe_name: str | None = None
     variant: str | None = None  # Juliet good/bad variant, e.g. "bad", "goodG2B"
-    flow_variant: str | None = None  # Juliet 01-22 flow complexity suffix
+    flow_variant: str | None = None  # Juliet flow complexity suffix, "01".."84"
     sink_symbols: list[str] = Field(default_factory=list)  # for tertiary localisation
     notes: str | None = None
 
@@ -154,7 +260,10 @@ class Chunk(Strict):
 
     schema_version: int = SCHEMA_VERSION
     chunk_id: str  # "CWE121_char_alloca_cpy_01__F2__func_7"
-    case_id: str  # Juliet test case name
+    # Identifies the sample this chunk came from. A Juliet case name in
+    # benchmark mode; any stable identifier (binary name, build id) in
+    # analysis mode.
+    case_id: str
     language: Language
     fidelity_tier: FidelityTier
 
@@ -169,7 +278,13 @@ class Chunk(Strict):
     included_functions: list[str] = Field(default_factory=list)  # callees pulled in
     code: str
 
-    ground_truth: GroundTruth
+    # None in analysis mode: a real binary has no label. Optional rather than
+    # a default-constructed GroundTruth, because `vulnerable=False` on an
+    # unlabelled chunk is indistinguishable from a true negative and would
+    # quietly become a false-negative denominator in `eval`. Absent must stay
+    # absent. `eval` skips unlabelled chunks; `report` does not care.
+    ground_truth: GroundTruth | None = None
+
     fidelity: FidelityMetrics = Field(default_factory=FidelityMetrics)
     provenance: Provenance
 

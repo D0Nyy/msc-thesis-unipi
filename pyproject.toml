@@ -8,6 +8,26 @@ dependencies = [
     "pydantic>=2.10",
     "python-dotenv>=1.0",
     "rich>=13.0", # transitively via typer, but we import it directly
+    # AST parsing for the scrubber and the call-graph chunker. One parser
+    # across all four languages, because 4.1 requires scrubbing to be
+    # IDENTICAL across fidelity tiers -- divergence between per-language
+    # toolchains would be a confound, not just a bug. Error-tolerant parsing
+    # also matters: Ghidra output at F2 is not always valid C.
+    "tree-sitter>=0.23",
+    "tree-sitter-c>=0.23",
+    "tree-sitter-cpp>=0.23",
+    "tree-sitter-c-sharp>=0.23",
+    "tree-sitter-java>=0.23",
+    # Tier A. Open-weight tiers go through Ollama's OpenAI-compatible endpoint
+    # (6.1), so one client covers S/M/L and this covers A.
+    "openai>=1.60",
+    "anthropic>=0.45",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.9",
 ]
 
 [project.scripts]
@@ -23,3 +43,7 @@ packages = ["src/vulnlm"]
 [tool.ruff]
 line-length = 88
 target-version = "py313"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

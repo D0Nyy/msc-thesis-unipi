@@ -1,0 +1,1887 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-28T18:59:12.802367Z",
+  "seed": 20260728,
+  "suite_versions": {
+    "c-cpp": "1.3",
+    "java": "1.3"
+  },
+  "suite_sha256": {
+    "c-cpp": "ada9d7e1c323d283446df3f55bdee0d00bda1fed786785fe98764d58688f38eb",
+    "java": "d985f4177c2bcd7b03455a05c1c8f2e755f55c9eb250accd052f05f877347e60"
+  },
+  "strata": [
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-134",
+      "suite": "c-cpp",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 50
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-134",
+      "suite": "c-cpp",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 1000
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-134",
+      "suite": "java",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 18
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-134",
+      "suite": "java",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 270
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-190",
+      "suite": "c-cpp",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 90
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-190",
+      "suite": "c-cpp",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 1512
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-190",
+      "suite": "java",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 115
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-190",
+      "suite": "java",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 1725
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-23",
+      "suite": "c-cpp",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 50
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-23",
+      "suite": "c-cpp",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 1000
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-23",
+      "suite": "java",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 12
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-23",
+      "suite": "java",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 180
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-369",
+      "suite": "c-cpp",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 18
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-369",
+      "suite": "c-cpp",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 360
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-369",
+      "suite": "java",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 50
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-369",
+      "suite": "java",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 750
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-78",
+      "suite": "c-cpp",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 50
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-78",
+      "suite": "c-cpp",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 1000
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-78",
+      "suite": "java",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 12
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-78",
+      "suite": "java",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 180
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-789",
+      "suite": "c-cpp",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 20
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-789",
+      "suite": "c-cpp",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 400
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-789",
+      "suite": "java",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 43
+    },
+    {
+      "kind": "cross_language",
+      "cwe_id": "CWE-789",
+      "suite": "java",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 630
+    },
+    {
+      "kind": "memory_safety",
+      "cwe_id": "CWE-121",
+      "suite": "c-cpp",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 118
+    },
+    {
+      "kind": "memory_safety",
+      "cwe_id": "CWE-121",
+      "suite": "c-cpp",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 1905
+    },
+    {
+      "kind": "memory_safety",
+      "cwe_id": "CWE-122",
+      "suite": "c-cpp",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 126
+    },
+    {
+      "kind": "memory_safety",
+      "cwe_id": "CWE-122",
+      "suite": "c-cpp",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 2436
+    },
+    {
+      "kind": "memory_safety",
+      "cwe_id": "CWE-401",
+      "suite": "c-cpp",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 42
+    },
+    {
+      "kind": "memory_safety",
+      "cwe_id": "CWE-401",
+      "suite": "c-cpp",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 624
+    },
+    {
+      "kind": "memory_safety",
+      "cwe_id": "CWE-415",
+      "suite": "c-cpp",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 22
+    },
+    {
+      "kind": "memory_safety",
+      "cwe_id": "CWE-415",
+      "suite": "c-cpp",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 400
+    },
+    {
+      "kind": "memory_safety",
+      "cwe_id": "CWE-416",
+      "suite": "c-cpp",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 22
+    },
+    {
+      "kind": "memory_safety",
+      "cwe_id": "CWE-416",
+      "suite": "c-cpp",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 60
+    },
+    {
+      "kind": "web_injection",
+      "cwe_id": "CWE-113",
+      "suite": "java",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 36
+    },
+    {
+      "kind": "web_injection",
+      "cwe_id": "CWE-113",
+      "suite": "java",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 540
+    },
+    {
+      "kind": "web_injection",
+      "cwe_id": "CWE-470",
+      "suite": "java",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 12
+    },
+    {
+      "kind": "web_injection",
+      "cwe_id": "CWE-470",
+      "suite": "java",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 180
+    },
+    {
+      "kind": "web_injection",
+      "cwe_id": "CWE-643",
+      "suite": "java",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 12
+    },
+    {
+      "kind": "web_injection",
+      "cwe_id": "CWE-643",
+      "suite": "java",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 180
+    },
+    {
+      "kind": "web_injection",
+      "cwe_id": "CWE-80",
+      "suite": "java",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 18
+    },
+    {
+      "kind": "web_injection",
+      "cwe_id": "CWE-80",
+      "suite": "java",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 270
+    },
+    {
+      "kind": "web_injection",
+      "cwe_id": "CWE-89",
+      "suite": "java",
+      "flow_group": "baseline",
+      "requested": 2,
+      "selected": 2,
+      "available": 60
+    },
+    {
+      "kind": "web_injection",
+      "cwe_id": "CWE-89",
+      "suite": "java",
+      "flow_group": "cross_file",
+      "requested": 2,
+      "selected": 2,
+      "available": 900
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "CWE113_HTTP_Response_Splitting__Environment_setHeaderServlet_52",
+      "language": "java",
+      "cwe_id": "CWE-113",
+      "cwe_name": "HTTP_Response_Splitting",
+      "secondary_cwe_id": null,
+      "functional_variant": "Environment_setHeaderServlet",
+      "flow_variant": "52",
+      "flow_group": "cross_file",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE113_HTTP_Response_Splitting/s01/CWE113_HTTP_Response_Splitting__Environment_setHeaderServlet_52a.java",
+        "Java/src/testcases/CWE113_HTTP_Response_Splitting/s01/CWE113_HTTP_Response_Splitting__Environment_setHeaderServlet_52b.java",
+        "Java/src/testcases/CWE113_HTTP_Response_Splitting/s01/CWE113_HTTP_Response_Splitting__Environment_setHeaderServlet_52c.java"
+      ],
+      "source_sha256": "52df0ea91f915b60b452631f2fc730ccf5c861166ce01e7aa7daa2c0ac922dd3",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE113_HTTP_Response_Splitting__URLConnection_addCookieServlet_01",
+      "language": "java",
+      "cwe_id": "CWE-113",
+      "cwe_name": "HTTP_Response_Splitting",
+      "secondary_cwe_id": null,
+      "functional_variant": "URLConnection_addCookieServlet",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE113_HTTP_Response_Splitting/s03/CWE113_HTTP_Response_Splitting__URLConnection_addCookieServlet_01.java"
+      ],
+      "source_sha256": "d77fabcfad316555a17c93df3184328bc29b88535fd4dd57bf1189d25e771099",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE113_HTTP_Response_Splitting__URLConnection_addHeaderServlet_71",
+      "language": "java",
+      "cwe_id": "CWE-113",
+      "cwe_name": "HTTP_Response_Splitting",
+      "secondary_cwe_id": null,
+      "functional_variant": "URLConnection_addHeaderServlet",
+      "flow_variant": "71",
+      "flow_group": "cross_file",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE113_HTTP_Response_Splitting/s03/CWE113_HTTP_Response_Splitting__URLConnection_addHeaderServlet_71a.java",
+        "Java/src/testcases/CWE113_HTTP_Response_Splitting/s03/CWE113_HTTP_Response_Splitting__URLConnection_addHeaderServlet_71b.java"
+      ],
+      "source_sha256": "03516c622273b6e6206b0e05918c6423af5111dab1822d7fe842ecc5b9f517de",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE113_HTTP_Response_Splitting__listen_tcp_setHeaderServlet_01",
+      "language": "java",
+      "cwe_id": "CWE-113",
+      "cwe_name": "HTTP_Response_Splitting",
+      "secondary_cwe_id": null,
+      "functional_variant": "listen_tcp_setHeaderServlet",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE113_HTTP_Response_Splitting/s02/CWE113_HTTP_Response_Splitting__listen_tcp_setHeaderServlet_01.java"
+      ],
+      "source_sha256": "d47c16aae08562a680def37b291d71f50de4209b29bceed1aa0b3058068bd107",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01",
+      "language": "c",
+      "cwe_id": "CWE-121",
+      "cwe_name": "Stack_Based_Buffer_Overflow",
+      "secondary_cwe_id": "CWE-805",
+      "functional_variant": "int_declare_memmove",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE121_Stack_Based_Buffer_Overflow/s04/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01.c"
+      ],
+      "source_sha256": "cb48036152a3330848b5b8b57e8b49dd15d259a28ff387ddac4214ee1bf9c439",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74",
+      "language": "cpp",
+      "cwe_id": "CWE-121",
+      "cwe_name": "Stack_Based_Buffer_Overflow",
+      "secondary_cwe_id": "CWE-805",
+      "functional_variant": "wchar_t_alloca_snprintf",
+      "flow_variant": "74",
+      "flow_group": "cross_file",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74a.cpp",
+        "C/testcases/CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74b.cpp"
+      ],
+      "source_sha256": "cdc60abd125643b345253746ceea5422877bec048667396d277ae6e99fdec0ea",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63",
+      "language": "c",
+      "cwe_id": "CWE-121",
+      "cwe_name": "Stack_Based_Buffer_Overflow",
+      "secondary_cwe_id": "CWE-806",
+      "functional_variant": "char_declare_ncpy",
+      "flow_variant": "63",
+      "flow_group": "cross_file",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE121_Stack_Based_Buffer_Overflow/s06/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63a.c",
+        "C/testcases/CWE121_Stack_Based_Buffer_Overflow/s06/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63b.c"
+      ],
+      "source_sha256": "acbe6b7d45602503e6d03c8e0c4d35309d6c948b7886f1460250f90e6a1b3cca",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01",
+      "language": "c",
+      "cwe_id": "CWE-121",
+      "cwe_name": "Stack_Based_Buffer_Overflow",
+      "secondary_cwe_id": null,
+      "functional_variant": "dest_wchar_t_declare_cat",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE121_Stack_Based_Buffer_Overflow/s08/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01.c"
+      ],
+      "source_sha256": "1ad80211027a76cc962cc8bf95e71afdb3ea601a8dc68572a0179721b3721237",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01",
+      "language": "c",
+      "cwe_id": "CWE-122",
+      "cwe_name": "Heap_Based_Buffer_Overflow",
+      "secondary_cwe_id": null,
+      "functional_variant": "c_CWE805_char_ncpy",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE122_Heap_Based_Buffer_Overflow/s07/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01.c"
+      ],
+      "source_sha256": "6a1103ea9aa9b1a87af132db67f5a7a9615158ec812fb0481c80c89eb2fdef47",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01",
+      "language": "cpp",
+      "cwe_id": "CWE-122",
+      "cwe_name": "Heap_Based_Buffer_Overflow",
+      "secondary_cwe_id": null,
+      "functional_variant": "cpp_CWE805_char_snprintf",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE122_Heap_Based_Buffer_Overflow/s02/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01.cpp"
+      ],
+      "source_sha256": "eaaf74cf6cd52c33c76f6efdb57bb6389558a75749868f7593c25f932035c811",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61",
+      "language": "cpp",
+      "cwe_id": "CWE-122",
+      "cwe_name": "Heap_Based_Buffer_Overflow",
+      "secondary_cwe_id": null,
+      "functional_variant": "cpp_CWE806_wchar_t_ncpy",
+      "flow_variant": "61",
+      "flow_group": "cross_file",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE122_Heap_Based_Buffer_Overflow/s05/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61a.cpp",
+        "C/testcases/CWE122_Heap_Based_Buffer_Overflow/s05/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61b.cpp"
+      ],
+      "source_sha256": "d4a24c69e9dd29f7845c5847b1fa31a83e230286f0f11ff0a21e05f85049b49d",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53",
+      "language": "cpp",
+      "cwe_id": "CWE-122",
+      "cwe_name": "Heap_Based_Buffer_Overflow",
+      "secondary_cwe_id": null,
+      "functional_variant": "cpp_CWE806_wchar_t_snprintf",
+      "flow_variant": "53",
+      "flow_group": "cross_file",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE122_Heap_Based_Buffer_Overflow/s05/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53a.cpp",
+        "C/testcases/CWE122_Heap_Based_Buffer_Overflow/s05/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53b.cpp",
+        "C/testcases/CWE122_Heap_Based_Buffer_Overflow/s05/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53c.cpp",
+        "C/testcases/CWE122_Heap_Based_Buffer_Overflow/s05/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53d.cpp"
+      ],
+      "source_sha256": "28518f62cbaaed0abb7dc59bea21d1df6964bf047e581e9b7dec79b073b9590f",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE134_Uncontrolled_Format_String__Environment_format_52",
+      "language": "java",
+      "cwe_id": "CWE-134",
+      "cwe_name": "Uncontrolled_Format_String",
+      "secondary_cwe_id": null,
+      "functional_variant": "Environment_format",
+      "flow_variant": "52",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE134_Uncontrolled_Format_String/s01/CWE134_Uncontrolled_Format_String__Environment_format_52a.java",
+        "Java/src/testcases/CWE134_Uncontrolled_Format_String/s01/CWE134_Uncontrolled_Format_String__Environment_format_52b.java",
+        "Java/src/testcases/CWE134_Uncontrolled_Format_String/s01/CWE134_Uncontrolled_Format_String__Environment_format_52c.java"
+      ],
+      "source_sha256": "e817597e42ba967656228e95d590df083474214b77b5535d3eb1219c4d9800a6",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE134_Uncontrolled_Format_String__Property_format_01",
+      "language": "java",
+      "cwe_id": "CWE-134",
+      "cwe_name": "Uncontrolled_Format_String",
+      "secondary_cwe_id": null,
+      "functional_variant": "Property_format",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE134_Uncontrolled_Format_String/s01/CWE134_Uncontrolled_Format_String__Property_format_01.java"
+      ],
+      "source_sha256": "173563766bd2012327310daf2737bcac894733a736d78022ccc013f94df67e4c",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74",
+      "language": "cpp",
+      "cwe_id": "CWE-134",
+      "cwe_name": "Uncontrolled_Format_String",
+      "secondary_cwe_id": null,
+      "functional_variant": "char_connect_socket_fprintf",
+      "flow_variant": "74",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE134_Uncontrolled_Format_String/s01/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74a.cpp",
+        "C/testcases/CWE134_Uncontrolled_Format_String/s01/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74b.cpp"
+      ],
+      "source_sha256": "7fd83bded14e0038281ae17472331c3b9f213cd19a1e89ce302a9828ba43b5a5",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE134_Uncontrolled_Format_String__char_console_snprintf_01",
+      "language": "c",
+      "cwe_id": "CWE-134",
+      "cwe_name": "Uncontrolled_Format_String",
+      "secondary_cwe_id": null,
+      "functional_variant": "char_console_snprintf",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE134_Uncontrolled_Format_String/s01/CWE134_Uncontrolled_Format_String__char_console_snprintf_01.c"
+      ],
+      "source_sha256": "52df2abd6de8578ced5e50c03ec8bfc271ce60d13f495aa0cc87972ee87c3aaa",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE134_Uncontrolled_Format_String__char_console_vprintf_01",
+      "language": "c",
+      "cwe_id": "CWE-134",
+      "cwe_name": "Uncontrolled_Format_String",
+      "secondary_cwe_id": null,
+      "functional_variant": "char_console_vprintf",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE134_Uncontrolled_Format_String/s01/CWE134_Uncontrolled_Format_String__char_console_vprintf_01.c"
+      ],
+      "source_sha256": "df5a629a231c55380480b7bda52d2ef50bb65af0f97007eaa83bb03c77f7fb14",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61",
+      "language": "c",
+      "cwe_id": "CWE-134",
+      "cwe_name": "Uncontrolled_Format_String",
+      "secondary_cwe_id": null,
+      "functional_variant": "char_listen_socket_printf",
+      "flow_variant": "61",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE134_Uncontrolled_Format_String/s03/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61a.c",
+        "C/testcases/CWE134_Uncontrolled_Format_String/s03/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61b.c"
+      ],
+      "source_sha256": "cf94331822b2ef25308ba79289ea442b8b539b4dec18a99c64509b4eca10360f",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE134_Uncontrolled_Format_String__connect_tcp_printf_01",
+      "language": "java",
+      "cwe_id": "CWE-134",
+      "cwe_name": "Uncontrolled_Format_String",
+      "secondary_cwe_id": null,
+      "functional_variant": "connect_tcp_printf",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE134_Uncontrolled_Format_String/s01/CWE134_Uncontrolled_Format_String__connect_tcp_printf_01.java"
+      ],
+      "source_sha256": "2d42b8aba9a53797230ec0053443538b8f6fe4f8c8f026e98209b0efbd8b4b04",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE134_Uncontrolled_Format_String__console_readLine_format_68",
+      "language": "java",
+      "cwe_id": "CWE-134",
+      "cwe_name": "Uncontrolled_Format_String",
+      "secondary_cwe_id": null,
+      "functional_variant": "console_readLine_format",
+      "flow_variant": "68",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE134_Uncontrolled_Format_String/s01/CWE134_Uncontrolled_Format_String__console_readLine_format_68a.java",
+        "Java/src/testcases/CWE134_Uncontrolled_Format_String/s01/CWE134_Uncontrolled_Format_String__console_readLine_format_68b.java"
+      ],
+      "source_sha256": "013c68c33492a566ad23a540d8b80c036d39edbd70e7fcc5b6732780e6149b5e",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE190_Integer_Overflow__char_fscanf_add_01",
+      "language": "c",
+      "cwe_id": "CWE-190",
+      "cwe_name": "Integer_Overflow",
+      "secondary_cwe_id": null,
+      "functional_variant": "char_fscanf_add",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE190_Integer_Overflow/s01/CWE190_Integer_Overflow__char_fscanf_add_01.c"
+      ],
+      "source_sha256": "dc765f28a2535f4854724f25f98218b71b7ce944896975f8cb800d507c1c60c1",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE190_Integer_Overflow__int64_t_fscanf_preinc_01",
+      "language": "c",
+      "cwe_id": "CWE-190",
+      "cwe_name": "Integer_Overflow",
+      "secondary_cwe_id": null,
+      "functional_variant": "int64_t_fscanf_preinc",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE190_Integer_Overflow/s07/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01.c"
+      ],
+      "source_sha256": "b94c717d2cd7f1c7fa6c4cd3551489456a0be59b172852e6ab1222d6ccee583c",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE190_Integer_Overflow__int64_t_fscanf_square_73",
+      "language": "cpp",
+      "cwe_id": "CWE-190",
+      "cwe_name": "Integer_Overflow",
+      "secondary_cwe_id": null,
+      "functional_variant": "int64_t_fscanf_square",
+      "flow_variant": "73",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE190_Integer_Overflow/s02/CWE190_Integer_Overflow__int64_t_fscanf_square_73a.cpp",
+        "C/testcases/CWE190_Integer_Overflow/s02/CWE190_Integer_Overflow__int64_t_fscanf_square_73b.cpp"
+      ],
+      "source_sha256": "d6cce7cb57bdfb93dbe02d961d6cd82c25f422f031ef4d337f8e448573e95f9d",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE190_Integer_Overflow__int_URLConnection_preinc_66",
+      "language": "java",
+      "cwe_id": "CWE-190",
+      "cwe_name": "Integer_Overflow",
+      "secondary_cwe_id": null,
+      "functional_variant": "int_URLConnection_preinc",
+      "flow_variant": "66",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE190_Integer_Overflow/s07/CWE190_Integer_Overflow__int_URLConnection_preinc_66a.java",
+        "Java/src/testcases/CWE190_Integer_Overflow/s07/CWE190_Integer_Overflow__int_URLConnection_preinc_66b.java"
+      ],
+      "source_sha256": "85a96e18ed150fcb75ea75774638e078ed543bdbd1032e7a75f5efa57534eeca",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE190_Integer_Overflow__int_getCookies_Servlet_add_71",
+      "language": "java",
+      "cwe_id": "CWE-190",
+      "cwe_name": "Integer_Overflow",
+      "secondary_cwe_id": null,
+      "functional_variant": "int_getCookies_Servlet_add",
+      "flow_variant": "71",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE190_Integer_Overflow/s02/CWE190_Integer_Overflow__int_getCookies_Servlet_add_71a.java",
+        "Java/src/testcases/CWE190_Integer_Overflow/s02/CWE190_Integer_Overflow__int_getCookies_Servlet_add_71b.java"
+      ],
+      "source_sha256": "b363c03fcd4b04a191e74265057d6d7bc5847b5eefe85b9e27c6e1a86d593573",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE190_Integer_Overflow__long_max_square_01",
+      "language": "java",
+      "cwe_id": "CWE-190",
+      "cwe_name": "Integer_Overflow",
+      "secondary_cwe_id": null,
+      "functional_variant": "long_max_square",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE190_Integer_Overflow/s04/CWE190_Integer_Overflow__long_max_square_01.java"
+      ],
+      "source_sha256": "75f7e36fb3c9121eeff1be916d53c7e93696e094b1795299e4485c844ba83bc1",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE190_Integer_Overflow__short_console_readLine_preinc_01",
+      "language": "java",
+      "cwe_id": "CWE-190",
+      "cwe_name": "Integer_Overflow",
+      "secondary_cwe_id": null,
+      "functional_variant": "short_console_readLine_preinc",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE190_Integer_Overflow/s07/CWE190_Integer_Overflow__short_console_readLine_preinc_01.java"
+      ],
+      "source_sha256": "293778522c8bf3d58e2c100cf734f752e16aca727e9688847696b385a1ee9835",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE190_Integer_Overflow__short_max_preinc_68",
+      "language": "c",
+      "cwe_id": "CWE-190",
+      "cwe_name": "Integer_Overflow",
+      "secondary_cwe_id": null,
+      "functional_variant": "short_max_preinc",
+      "flow_variant": "68",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE190_Integer_Overflow/s07/CWE190_Integer_Overflow__short_max_preinc_68a.c",
+        "C/testcases/CWE190_Integer_Overflow/s07/CWE190_Integer_Overflow__short_max_preinc_68b.c"
+      ],
+      "source_sha256": "72f941fe1d82ac8d2623bd0dc074e220caad050d6f9740759ef0cd1f1836a611",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE23_Relative_Path_Traversal__Property_61",
+      "language": "java",
+      "cwe_id": "CWE-23",
+      "cwe_name": "Relative_Path_Traversal",
+      "secondary_cwe_id": null,
+      "functional_variant": "Property",
+      "flow_variant": "61",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE23_Relative_Path_Traversal/CWE23_Relative_Path_Traversal__Property_61a.java",
+        "Java/src/testcases/CWE23_Relative_Path_Traversal/CWE23_Relative_Path_Traversal__Property_61b.java"
+      ],
+      "source_sha256": "14151a6c9ecec7cabf557d3953d655080be7d6f6d88a0c1f969a8e7264ef9db0",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE23_Relative_Path_Traversal__URLConnection_51",
+      "language": "java",
+      "cwe_id": "CWE-23",
+      "cwe_name": "Relative_Path_Traversal",
+      "secondary_cwe_id": null,
+      "functional_variant": "URLConnection",
+      "flow_variant": "51",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE23_Relative_Path_Traversal/CWE23_Relative_Path_Traversal__URLConnection_51a.java",
+        "Java/src/testcases/CWE23_Relative_Path_Traversal/CWE23_Relative_Path_Traversal__URLConnection_51b.java"
+      ],
+      "source_sha256": "7b54925d4790e56925c98e33006c700bcf8a01d2e2eefaf591eac8c43cb1e60b",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01",
+      "language": "cpp",
+      "cwe_id": "CWE-23",
+      "cwe_name": "Relative_Path_Traversal",
+      "secondary_cwe_id": null,
+      "functional_variant": "char_connect_socket_fopen",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE23_Relative_Path_Traversal/s01/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01.cpp"
+      ],
+      "source_sha256": "7b2d82792db9e609410b293be0c7d7da068047b94c7204330c773e9d5bb266fd",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE23_Relative_Path_Traversal__char_file_ifstream_52",
+      "language": "cpp",
+      "cwe_id": "CWE-23",
+      "cwe_name": "Relative_Path_Traversal",
+      "secondary_cwe_id": null,
+      "functional_variant": "char_file_ifstream",
+      "flow_variant": "52",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE23_Relative_Path_Traversal/s02/CWE23_Relative_Path_Traversal__char_file_ifstream_52a.cpp",
+        "C/testcases/CWE23_Relative_Path_Traversal/s02/CWE23_Relative_Path_Traversal__char_file_ifstream_52b.cpp",
+        "C/testcases/CWE23_Relative_Path_Traversal/s02/CWE23_Relative_Path_Traversal__char_file_ifstream_52c.cpp"
+      ],
+      "source_sha256": "743e3352cbef1164026cee173d1df3d91a694fe24d802423779bbfd236f4f37e",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE23_Relative_Path_Traversal__getCookies_Servlet_01",
+      "language": "java",
+      "cwe_id": "CWE-23",
+      "cwe_name": "Relative_Path_Traversal",
+      "secondary_cwe_id": null,
+      "functional_variant": "getCookies_Servlet",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE23_Relative_Path_Traversal/CWE23_Relative_Path_Traversal__getCookies_Servlet_01.java"
+      ],
+      "source_sha256": "08387d9a50a72d2f8ba884877733d996cd947e1b6c2308d1e88a23cedccfe959",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE23_Relative_Path_Traversal__listen_tcp_01",
+      "language": "java",
+      "cwe_id": "CWE-23",
+      "cwe_name": "Relative_Path_Traversal",
+      "secondary_cwe_id": null,
+      "functional_variant": "listen_tcp",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE23_Relative_Path_Traversal/CWE23_Relative_Path_Traversal__listen_tcp_01.java"
+      ],
+      "source_sha256": "ba1c072c8454af891d3b2fe8e09cd7a6455cb23011e00a07078ab1ded7b61f19",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE23_Relative_Path_Traversal__wchar_t_connect_socket_w32CreateFile_01",
+      "language": "cpp",
+      "cwe_id": "CWE-23",
+      "cwe_name": "Relative_Path_Traversal",
+      "secondary_cwe_id": null,
+      "functional_variant": "wchar_t_connect_socket_w32CreateFile",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE23_Relative_Path_Traversal/s03/CWE23_Relative_Path_Traversal__wchar_t_connect_socket_w32CreateFile_01.cpp"
+      ],
+      "source_sha256": "db61b694beaba521c02c541617d0901e004ae8bcc816614d0464cc06206195f6",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE23_Relative_Path_Traversal__wchar_t_listen_socket_ifstream_72",
+      "language": "cpp",
+      "cwe_id": "CWE-23",
+      "cwe_name": "Relative_Path_Traversal",
+      "secondary_cwe_id": null,
+      "functional_variant": "wchar_t_listen_socket_ifstream",
+      "flow_variant": "72",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE23_Relative_Path_Traversal/s04/CWE23_Relative_Path_Traversal__wchar_t_listen_socket_ifstream_72a.cpp",
+        "C/testcases/CWE23_Relative_Path_Traversal/s04/CWE23_Relative_Path_Traversal__wchar_t_listen_socket_ifstream_72b.cpp"
+      ],
+      "source_sha256": "ec36859251712ad4950ccc923db876233479486fee8fe6e9a5b7e2d839b987e1",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE369_Divide_by_Zero__float_connect_tcp_modulo_01",
+      "language": "java",
+      "cwe_id": "CWE-369",
+      "cwe_name": "Divide_by_Zero",
+      "secondary_cwe_id": null,
+      "functional_variant": "float_connect_tcp_modulo",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE369_Divide_by_Zero/s01/CWE369_Divide_by_Zero__float_connect_tcp_modulo_01.java"
+      ],
+      "source_sha256": "c81058184387e7023e82dd29f7e234cc4438b448d24af9f035eabe679e69c680",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE369_Divide_by_Zero__float_fscanf_01",
+      "language": "c",
+      "cwe_id": "CWE-369",
+      "cwe_name": "Divide_by_Zero",
+      "secondary_cwe_id": null,
+      "functional_variant": "float_fscanf",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE369_Divide_by_Zero/s01/CWE369_Divide_by_Zero__float_fscanf_01.c"
+      ],
+      "source_sha256": "8813a9a496e204462408d07f92829af404cd28876df1357aca797fa9f13f3bad",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE369_Divide_by_Zero__int_File_modulo_74",
+      "language": "java",
+      "cwe_id": "CWE-369",
+      "cwe_name": "Divide_by_Zero",
+      "secondary_cwe_id": null,
+      "functional_variant": "int_File_modulo",
+      "flow_variant": "74",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE369_Divide_by_Zero/s02/CWE369_Divide_by_Zero__int_File_modulo_74a.java",
+        "Java/src/testcases/CWE369_Divide_by_Zero/s02/CWE369_Divide_by_Zero__int_File_modulo_74b.java"
+      ],
+      "source_sha256": "e6c59f2fdd759ec69e025086275bc94c7b59392856012043c9cea8869d296607",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE369_Divide_by_Zero__int_URLConnection_divide_01",
+      "language": "java",
+      "cwe_id": "CWE-369",
+      "cwe_name": "Divide_by_Zero",
+      "secondary_cwe_id": null,
+      "functional_variant": "int_URLConnection_divide",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE369_Divide_by_Zero/s03/CWE369_Divide_by_Zero__int_URLConnection_divide_01.java"
+      ],
+      "source_sha256": "ed7fb4beb476f6cf456dd2dac49ceff2e667055cd985217f77da94742af61f68",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE369_Divide_by_Zero__int_URLConnection_modulo_75",
+      "language": "java",
+      "cwe_id": "CWE-369",
+      "cwe_name": "Divide_by_Zero",
+      "secondary_cwe_id": null,
+      "functional_variant": "int_URLConnection_modulo",
+      "flow_variant": "75",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE369_Divide_by_Zero/s03/CWE369_Divide_by_Zero__int_URLConnection_modulo_75a.java",
+        "Java/src/testcases/CWE369_Divide_by_Zero/s03/CWE369_Divide_by_Zero__int_URLConnection_modulo_75b.java"
+      ],
+      "source_sha256": "b297c5f52f620d36ba6b6c4a7d769646ad0beb26f130e86036ed5180ebe2085c",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE369_Divide_by_Zero__int_connect_socket_modulo_81",
+      "language": "cpp",
+      "cwe_id": "CWE-369",
+      "cwe_name": "Divide_by_Zero",
+      "secondary_cwe_id": null,
+      "functional_variant": "int_connect_socket_modulo",
+      "flow_variant": "81",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE369_Divide_by_Zero/s01/CWE369_Divide_by_Zero__int_connect_socket_modulo_81.h",
+        "C/testcases/CWE369_Divide_by_Zero/s01/CWE369_Divide_by_Zero__int_connect_socket_modulo_81_bad.cpp",
+        "C/testcases/CWE369_Divide_by_Zero/s01/CWE369_Divide_by_Zero__int_connect_socket_modulo_81_goodB2G.cpp",
+        "C/testcases/CWE369_Divide_by_Zero/s01/CWE369_Divide_by_Zero__int_connect_socket_modulo_81_goodG2B.cpp",
+        "C/testcases/CWE369_Divide_by_Zero/s01/CWE369_Divide_by_Zero__int_connect_socket_modulo_81a.cpp"
+      ],
+      "source_sha256": "c53bfc2015519783704473ddec51c4a05fb22bbae8fd5e8eca5b1ff58d8eface",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE369_Divide_by_Zero__int_rand_divide_81",
+      "language": "cpp",
+      "cwe_id": "CWE-369",
+      "cwe_name": "Divide_by_Zero",
+      "secondary_cwe_id": null,
+      "functional_variant": "int_rand_divide",
+      "flow_variant": "81",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE369_Divide_by_Zero/s02/CWE369_Divide_by_Zero__int_rand_divide_81.h",
+        "C/testcases/CWE369_Divide_by_Zero/s02/CWE369_Divide_by_Zero__int_rand_divide_81_bad.cpp",
+        "C/testcases/CWE369_Divide_by_Zero/s02/CWE369_Divide_by_Zero__int_rand_divide_81_goodB2G.cpp",
+        "C/testcases/CWE369_Divide_by_Zero/s02/CWE369_Divide_by_Zero__int_rand_divide_81_goodG2B.cpp",
+        "C/testcases/CWE369_Divide_by_Zero/s02/CWE369_Divide_by_Zero__int_rand_divide_81a.cpp"
+      ],
+      "source_sha256": "8054041397093918f5abb957fdd830fa466bc6c52efbcbc91b0d3da39a02ced6",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE369_Divide_by_Zero__int_zero_divide_01",
+      "language": "c",
+      "cwe_id": "CWE-369",
+      "cwe_name": "Divide_by_Zero",
+      "secondary_cwe_id": null,
+      "functional_variant": "int_zero_divide",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE369_Divide_by_Zero/s02/CWE369_Divide_by_Zero__int_zero_divide_01.c"
+      ],
+      "source_sha256": "89815e781195c6b6359cf580e6c79c7850c8d715754edc1de61e677a5b4c065d",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE401_Memory_Leak__int_malloc_62",
+      "language": "cpp",
+      "cwe_id": "CWE-401",
+      "cwe_name": "Memory_Leak",
+      "secondary_cwe_id": null,
+      "functional_variant": "int_malloc",
+      "flow_variant": "62",
+      "flow_group": "cross_file",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE401_Memory_Leak/s01/CWE401_Memory_Leak__int_malloc_62a.cpp",
+        "C/testcases/CWE401_Memory_Leak/s01/CWE401_Memory_Leak__int_malloc_62b.cpp"
+      ],
+      "source_sha256": "5228de498b1cd3a4a225a0c59c6af35eb8bc8fc6055781b0bfe37980808e92ff",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE401_Memory_Leak__new_array_int64_t_01",
+      "language": "cpp",
+      "cwe_id": "CWE-401",
+      "cwe_name": "Memory_Leak",
+      "secondary_cwe_id": null,
+      "functional_variant": "new_array_int64_t",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE401_Memory_Leak/s02/CWE401_Memory_Leak__new_array_int64_t_01.cpp"
+      ],
+      "source_sha256": "c442c24888cebaed7db186176fbfd3b1992cae26c88c8002883dfc46ee6d1cbc",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE401_Memory_Leak__twoIntsStruct_calloc_01",
+      "language": "c",
+      "cwe_id": "CWE-401",
+      "cwe_name": "Memory_Leak",
+      "secondary_cwe_id": null,
+      "functional_variant": "twoIntsStruct_calloc",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE401_Memory_Leak/s03/CWE401_Memory_Leak__twoIntsStruct_calloc_01.c"
+      ],
+      "source_sha256": "9fec3e6cb0e3791cc45fca8dc509afb7198d4cb1b678d54f27561434a6b7ed9c",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE401_Memory_Leak__wchar_t_malloc_74",
+      "language": "cpp",
+      "cwe_id": "CWE-401",
+      "cwe_name": "Memory_Leak",
+      "secondary_cwe_id": null,
+      "functional_variant": "wchar_t_malloc",
+      "flow_variant": "74",
+      "flow_group": "cross_file",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE401_Memory_Leak/s03/CWE401_Memory_Leak__wchar_t_malloc_74a.cpp",
+        "C/testcases/CWE401_Memory_Leak/s03/CWE401_Memory_Leak__wchar_t_malloc_74b.cpp"
+      ],
+      "source_sha256": "affe094dabd59a18db73adcb969c038d903ce2ab0a244fa59641fd3cc59df02a",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE415_Double_Free__malloc_free_int64_t_01",
+      "language": "c",
+      "cwe_id": "CWE-415",
+      "cwe_name": "Double_Free",
+      "secondary_cwe_id": null,
+      "functional_variant": "malloc_free_int64_t",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE415_Double_Free/s01/CWE415_Double_Free__malloc_free_int64_t_01.c"
+      ],
+      "source_sha256": "c7da5fa367c11d053b3c810a2dc82fc836147d7fd892fc6a16ff3cd85ed76dda",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE415_Double_Free__new_delete_array_class_66",
+      "language": "cpp",
+      "cwe_id": "CWE-415",
+      "cwe_name": "Double_Free",
+      "secondary_cwe_id": null,
+      "functional_variant": "new_delete_array_class",
+      "flow_variant": "66",
+      "flow_group": "cross_file",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE415_Double_Free/s01/CWE415_Double_Free__new_delete_array_class_66a.cpp",
+        "C/testcases/CWE415_Double_Free/s01/CWE415_Double_Free__new_delete_array_class_66b.cpp"
+      ],
+      "source_sha256": "23a9b11a6bf20694ac6e176c0e3047692ce6520010206d62f063b066b7268c72",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE415_Double_Free__new_delete_int64_t_01",
+      "language": "cpp",
+      "cwe_id": "CWE-415",
+      "cwe_name": "Double_Free",
+      "secondary_cwe_id": null,
+      "functional_variant": "new_delete_int64_t",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE415_Double_Free/s02/CWE415_Double_Free__new_delete_int64_t_01.cpp"
+      ],
+      "source_sha256": "ab1e15f8e14ec04a41d23b500e4e41d77edb7189866116f6ce7b295c294f8d78",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE415_Double_Free__new_delete_struct_83",
+      "language": "cpp",
+      "cwe_id": "CWE-415",
+      "cwe_name": "Double_Free",
+      "secondary_cwe_id": null,
+      "functional_variant": "new_delete_struct",
+      "flow_variant": "83",
+      "flow_group": "cross_file",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE415_Double_Free/s02/CWE415_Double_Free__new_delete_struct_83.h",
+        "C/testcases/CWE415_Double_Free/s02/CWE415_Double_Free__new_delete_struct_83_bad.cpp",
+        "C/testcases/CWE415_Double_Free/s02/CWE415_Double_Free__new_delete_struct_83_goodB2G.cpp",
+        "C/testcases/CWE415_Double_Free/s02/CWE415_Double_Free__new_delete_struct_83_goodG2B.cpp",
+        "C/testcases/CWE415_Double_Free/s02/CWE415_Double_Free__new_delete_struct_83a.cpp"
+      ],
+      "source_sha256": "1fc3dcb637d09f7dcafcf8957abfcbae7e960cdaf2f60c63b3e1b774e58ebef9",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE416_Use_After_Free__malloc_free_char_64",
+      "language": "c",
+      "cwe_id": "CWE-416",
+      "cwe_name": "Use_After_Free",
+      "secondary_cwe_id": null,
+      "functional_variant": "malloc_free_char",
+      "flow_variant": "64",
+      "flow_group": "cross_file",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE416_Use_After_Free/CWE416_Use_After_Free__malloc_free_char_64a.c",
+        "C/testcases/CWE416_Use_After_Free/CWE416_Use_After_Free__malloc_free_char_64b.c"
+      ],
+      "source_sha256": "c2ea48ba4946042e2ca163e0e538de0d8016efc07f5cc56ad180aed714851bdd",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE416_Use_After_Free__malloc_free_int64_t_01",
+      "language": "c",
+      "cwe_id": "CWE-416",
+      "cwe_name": "Use_After_Free",
+      "secondary_cwe_id": null,
+      "functional_variant": "malloc_free_int64_t",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE416_Use_After_Free/CWE416_Use_After_Free__malloc_free_int64_t_01.c"
+      ],
+      "source_sha256": "d90dee01e1dd1070f227731d41425ac6225a2576463399840fc6d3f621a2a6a7",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE416_Use_After_Free__malloc_free_int_01",
+      "language": "c",
+      "cwe_id": "CWE-416",
+      "cwe_name": "Use_After_Free",
+      "secondary_cwe_id": null,
+      "functional_variant": "malloc_free_int",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE416_Use_After_Free/CWE416_Use_After_Free__malloc_free_int_01.c"
+      ],
+      "source_sha256": "1c16db92aea610f003a26d0dcc597fba24e96d838288dee913d7f396dd9dd751",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE416_Use_After_Free__new_delete_array_int_62",
+      "language": "cpp",
+      "cwe_id": "CWE-416",
+      "cwe_name": "Use_After_Free",
+      "secondary_cwe_id": null,
+      "functional_variant": "new_delete_array_int",
+      "flow_variant": "62",
+      "flow_group": "cross_file",
+      "stratum": "memory_safety",
+      "files": [
+        "C/testcases/CWE416_Use_After_Free/CWE416_Use_After_Free__new_delete_array_int_62a.cpp",
+        "C/testcases/CWE416_Use_After_Free/CWE416_Use_After_Free__new_delete_array_int_62b.cpp"
+      ],
+      "source_sha256": "bb36c7884e9b93c745f12e9da570803dcc7802f88bc20a3eb36b1de3f67ae8d1",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE470_Unsafe_Reflection__Property_01",
+      "language": "java",
+      "cwe_id": "CWE-470",
+      "cwe_name": "Unsafe_Reflection",
+      "secondary_cwe_id": null,
+      "functional_variant": "Property",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE470_Unsafe_Reflection/CWE470_Unsafe_Reflection__Property_01.java"
+      ],
+      "source_sha256": "fb73dbb8f46c6fac39f0ba30865e30de9719f53ebd0fb5865c1b837207067703",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE470_Unsafe_Reflection__getCookies_Servlet_54",
+      "language": "java",
+      "cwe_id": "CWE-470",
+      "cwe_name": "Unsafe_Reflection",
+      "secondary_cwe_id": null,
+      "functional_variant": "getCookies_Servlet",
+      "flow_variant": "54",
+      "flow_group": "cross_file",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE470_Unsafe_Reflection/CWE470_Unsafe_Reflection__getCookies_Servlet_54a.java",
+        "Java/src/testcases/CWE470_Unsafe_Reflection/CWE470_Unsafe_Reflection__getCookies_Servlet_54b.java",
+        "Java/src/testcases/CWE470_Unsafe_Reflection/CWE470_Unsafe_Reflection__getCookies_Servlet_54c.java",
+        "Java/src/testcases/CWE470_Unsafe_Reflection/CWE470_Unsafe_Reflection__getCookies_Servlet_54d.java",
+        "Java/src/testcases/CWE470_Unsafe_Reflection/CWE470_Unsafe_Reflection__getCookies_Servlet_54e.java"
+      ],
+      "source_sha256": "df9cf1f1243df06709ed51a441c82da94363c790da373c4546ed61b4a2e1a066",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE470_Unsafe_Reflection__getParameter_Servlet_01",
+      "language": "java",
+      "cwe_id": "CWE-470",
+      "cwe_name": "Unsafe_Reflection",
+      "secondary_cwe_id": null,
+      "functional_variant": "getParameter_Servlet",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE470_Unsafe_Reflection/CWE470_Unsafe_Reflection__getParameter_Servlet_01.java"
+      ],
+      "source_sha256": "4dfbb8538a0f0041538940b64f294fd5eb51095b76a3d9a3c669345c3d5da41b",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE470_Unsafe_Reflection__getQueryString_Servlet_68",
+      "language": "java",
+      "cwe_id": "CWE-470",
+      "cwe_name": "Unsafe_Reflection",
+      "secondary_cwe_id": null,
+      "functional_variant": "getQueryString_Servlet",
+      "flow_variant": "68",
+      "flow_group": "cross_file",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE470_Unsafe_Reflection/CWE470_Unsafe_Reflection__getQueryString_Servlet_68a.java",
+        "Java/src/testcases/CWE470_Unsafe_Reflection/CWE470_Unsafe_Reflection__getQueryString_Servlet_68b.java"
+      ],
+      "source_sha256": "e6d816ca30ed6257fa03d135f24be6074103486ffbb23b92c5c26c040ce25f63",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE643_Xpath_Injection__File_74",
+      "language": "java",
+      "cwe_id": "CWE-643",
+      "cwe_name": "Xpath_Injection",
+      "secondary_cwe_id": null,
+      "functional_variant": "File",
+      "flow_variant": "74",
+      "flow_group": "cross_file",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE643_Xpath_Injection/CWE643_Xpath_Injection__File_74a.java",
+        "Java/src/testcases/CWE643_Xpath_Injection/CWE643_Xpath_Injection__File_74b.java"
+      ],
+      "source_sha256": "e086accae69e4e06a4f79faf9a1aea465865c5d7a0ad3c402ea5d88d353af1c1",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE643_Xpath_Injection__Property_74",
+      "language": "java",
+      "cwe_id": "CWE-643",
+      "cwe_name": "Xpath_Injection",
+      "secondary_cwe_id": null,
+      "functional_variant": "Property",
+      "flow_variant": "74",
+      "flow_group": "cross_file",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE643_Xpath_Injection/CWE643_Xpath_Injection__Property_74a.java",
+        "Java/src/testcases/CWE643_Xpath_Injection/CWE643_Xpath_Injection__Property_74b.java"
+      ],
+      "source_sha256": "19579ee5236731f548c1c0e78b17929f19696d0b6dfefc611c619673efb223bd",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE643_Xpath_Injection__getQueryString_Servlet_01",
+      "language": "java",
+      "cwe_id": "CWE-643",
+      "cwe_name": "Xpath_Injection",
+      "secondary_cwe_id": null,
+      "functional_variant": "getQueryString_Servlet",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE643_Xpath_Injection/CWE643_Xpath_Injection__getQueryString_Servlet_01.java"
+      ],
+      "source_sha256": "cca4da6f907c42b775eac08497324633f95440c8ba67e76fc1af603ac6b315ed",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE643_Xpath_Injection__listen_tcp_01",
+      "language": "java",
+      "cwe_id": "CWE-643",
+      "cwe_name": "Xpath_Injection",
+      "secondary_cwe_id": null,
+      "functional_variant": "listen_tcp",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE643_Xpath_Injection/CWE643_Xpath_Injection__listen_tcp_01.java"
+      ],
+      "source_sha256": "6611e82e0d772a6fbc6268cedbd0933e838594c7a10e2810fc232f1f8f60f9fc",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE789_Uncontrolled_Mem_Alloc__PropertiesFile_HashMap_61",
+      "language": "java",
+      "cwe_id": "CWE-789",
+      "cwe_name": "Uncontrolled_Mem_Alloc",
+      "secondary_cwe_id": null,
+      "functional_variant": "PropertiesFile_HashMap",
+      "flow_variant": "61",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE789_Uncontrolled_Mem_Alloc/s02/CWE789_Uncontrolled_Mem_Alloc__PropertiesFile_HashMap_61a.java",
+        "Java/src/testcases/CWE789_Uncontrolled_Mem_Alloc/s02/CWE789_Uncontrolled_Mem_Alloc__PropertiesFile_HashMap_61b.java"
+      ],
+      "source_sha256": "76bc149edd6006435e5ae0d1ef439e80e30e6bc62472dd4647c8835fa6ee27e5",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE789_Uncontrolled_Mem_Alloc__console_readLine_HashMap_01",
+      "language": "java",
+      "cwe_id": "CWE-789",
+      "cwe_name": "Uncontrolled_Mem_Alloc",
+      "secondary_cwe_id": null,
+      "functional_variant": "console_readLine_HashMap",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE789_Uncontrolled_Mem_Alloc/s01/CWE789_Uncontrolled_Mem_Alloc__console_readLine_HashMap_01.java"
+      ],
+      "source_sha256": "9709d8398d5ee936de2d601a308ca20607ff0b411a7064592eed0b551eeabae8",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE789_Uncontrolled_Mem_Alloc__getCookies_Servlet_HashSet_01",
+      "language": "java",
+      "cwe_id": "CWE-789",
+      "cwe_name": "Uncontrolled_Mem_Alloc",
+      "secondary_cwe_id": null,
+      "functional_variant": "getCookies_Servlet_HashSet",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE789_Uncontrolled_Mem_Alloc/s02/CWE789_Uncontrolled_Mem_Alloc__getCookies_Servlet_HashSet_01.java"
+      ],
+      "source_sha256": "689b21aa369aa22a82e5097ea990569e6e9fad3f88818841c7ce7bfcd8e6a0eb",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE789_Uncontrolled_Mem_Alloc__getQueryString_Servlet_HashSet_72",
+      "language": "java",
+      "cwe_id": "CWE-789",
+      "cwe_name": "Uncontrolled_Mem_Alloc",
+      "secondary_cwe_id": null,
+      "functional_variant": "getQueryString_Servlet_HashSet",
+      "flow_variant": "72",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE789_Uncontrolled_Mem_Alloc/s02/CWE789_Uncontrolled_Mem_Alloc__getQueryString_Servlet_HashSet_72a.java",
+        "Java/src/testcases/CWE789_Uncontrolled_Mem_Alloc/s02/CWE789_Uncontrolled_Mem_Alloc__getQueryString_Servlet_HashSet_72b.java"
+      ],
+      "source_sha256": "b9344b93aaface53030945adf2ff59d2e7661e685d2760d3649451c90958cb1c",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67",
+      "language": "c",
+      "cwe_id": "CWE-789",
+      "cwe_name": "Uncontrolled_Mem_Alloc",
+      "secondary_cwe_id": null,
+      "functional_variant": "malloc_wchar_t_fgets",
+      "flow_variant": "67",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE789_Uncontrolled_Mem_Alloc/s01/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67a.c",
+        "C/testcases/CWE789_Uncontrolled_Mem_Alloc/s01/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67b.c"
+      ],
+      "source_sha256": "e4050a1ae30be3b667a8ee86592a6c7db1ec5d9dc2da6717d9c301ab166c789b",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51",
+      "language": "cpp",
+      "cwe_id": "CWE-789",
+      "cwe_name": "Uncontrolled_Mem_Alloc",
+      "secondary_cwe_id": null,
+      "functional_variant": "new_char_listen_socket",
+      "flow_variant": "51",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE789_Uncontrolled_Mem_Alloc/s02/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51a.cpp",
+        "C/testcases/CWE789_Uncontrolled_Mem_Alloc/s02/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51b.cpp"
+      ],
+      "source_sha256": "7244338579674cc1526afbf75857b62adf0a26a1b878d70c5dfb3359d0c9062b",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01",
+      "language": "cpp",
+      "cwe_id": "CWE-789",
+      "cwe_name": "Uncontrolled_Mem_Alloc",
+      "secondary_cwe_id": null,
+      "functional_variant": "new_wchar_t_fgets",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE789_Uncontrolled_Mem_Alloc/s02/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01.cpp"
+      ],
+      "source_sha256": "b173f0013ad6e3c525d863931217f2cf2b4e1b88b3a035d7c5bb5094d8175110",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01",
+      "language": "cpp",
+      "cwe_id": "CWE-789",
+      "cwe_name": "Uncontrolled_Mem_Alloc",
+      "secondary_cwe_id": null,
+      "functional_variant": "new_wchar_t_listen_socket",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE789_Uncontrolled_Mem_Alloc/s02/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01.cpp"
+      ],
+      "source_sha256": "756b5a6f4b17c274a0e9a83a3096e98d3e56e02fd9288b1a1da3c35245b87e06",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE78_OS_Command_Injection__Environment_73",
+      "language": "java",
+      "cwe_id": "CWE-78",
+      "cwe_name": "OS_Command_Injection",
+      "secondary_cwe_id": null,
+      "functional_variant": "Environment",
+      "flow_variant": "73",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE78_OS_Command_Injection/CWE78_OS_Command_Injection__Environment_73a.java",
+        "Java/src/testcases/CWE78_OS_Command_Injection/CWE78_OS_Command_Injection__Environment_73b.java"
+      ],
+      "source_sha256": "f2ed514e5a8674adf156722e35d8a7adee19b3331eee444ec9c0d30679aca950",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE78_OS_Command_Injection__Property_01",
+      "language": "java",
+      "cwe_id": "CWE-78",
+      "cwe_name": "OS_Command_Injection",
+      "secondary_cwe_id": null,
+      "functional_variant": "Property",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE78_OS_Command_Injection/CWE78_OS_Command_Injection__Property_01.java"
+      ],
+      "source_sha256": "379f87fd22d50973adb07dcacc9712f408f7c875d244bb845b9afda27187257a",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE78_OS_Command_Injection__char_console_execl_68",
+      "language": "c",
+      "cwe_id": "CWE-78",
+      "cwe_name": "OS_Command_Injection",
+      "secondary_cwe_id": null,
+      "functional_variant": "char_console_execl",
+      "flow_variant": "68",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE78_OS_Command_Injection/s01/CWE78_OS_Command_Injection__char_console_execl_68a.c",
+        "C/testcases/CWE78_OS_Command_Injection/s01/CWE78_OS_Command_Injection__char_console_execl_68b.c"
+      ],
+      "source_sha256": "fde30c35c887dcf37ffee7d801940df1b9571bd37990b385b560656914ced7b3",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE78_OS_Command_Injection__char_listen_socket_popen_01",
+      "language": "c",
+      "cwe_id": "CWE-78",
+      "cwe_name": "OS_Command_Injection",
+      "secondary_cwe_id": null,
+      "functional_variant": "char_listen_socket_popen",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE78_OS_Command_Injection/s04/CWE78_OS_Command_Injection__char_listen_socket_popen_01.c"
+      ],
+      "source_sha256": "925da059c34f6032383f1cfe13d619f5c0377c52dd0166ebb48fffd5013a3a50",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE78_OS_Command_Injection__getParameter_Servlet_73",
+      "language": "java",
+      "cwe_id": "CWE-78",
+      "cwe_name": "OS_Command_Injection",
+      "secondary_cwe_id": null,
+      "functional_variant": "getParameter_Servlet",
+      "flow_variant": "73",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE78_OS_Command_Injection/CWE78_OS_Command_Injection__getParameter_Servlet_73a.java",
+        "Java/src/testcases/CWE78_OS_Command_Injection/CWE78_OS_Command_Injection__getParameter_Servlet_73b.java"
+      ],
+      "source_sha256": "b12d2838481405815fa8307eb3226e338c404220feb37967906c1f4f34536877",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE78_OS_Command_Injection__getQueryString_Servlet_01",
+      "language": "java",
+      "cwe_id": "CWE-78",
+      "cwe_name": "OS_Command_Injection",
+      "secondary_cwe_id": null,
+      "functional_variant": "getQueryString_Servlet",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "Java/src/testcases/CWE78_OS_Command_Injection/CWE78_OS_Command_Injection__getQueryString_Servlet_01.java"
+      ],
+      "source_sha256": "0aded3763627b603fe0b2523bc4fc2ae7505ad0568033cbb32f8bccfad018529",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE78_OS_Command_Injection__wchar_t_environment_execlp_01",
+      "language": "c",
+      "cwe_id": "CWE-78",
+      "cwe_name": "OS_Command_Injection",
+      "secondary_cwe_id": null,
+      "functional_variant": "wchar_t_environment_execlp",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE78_OS_Command_Injection/s06/CWE78_OS_Command_Injection__wchar_t_environment_execlp_01.c"
+      ],
+      "source_sha256": "b8bad4e5c5340c4f9d6e82619f1e769d314995f295ac35d506e004367f986bb4",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE78_OS_Command_Injection__wchar_t_file_execl_22",
+      "language": "c",
+      "cwe_id": "CWE-78",
+      "cwe_name": "OS_Command_Injection",
+      "secondary_cwe_id": null,
+      "functional_variant": "wchar_t_file_execl",
+      "flow_variant": "22",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE78_OS_Command_Injection/s07/CWE78_OS_Command_Injection__wchar_t_file_execl_22a.c",
+        "C/testcases/CWE78_OS_Command_Injection/s07/CWE78_OS_Command_Injection__wchar_t_file_execl_22b.c"
+      ],
+      "source_sha256": "3106978a518bdcc7aa0cd59b252c491a1d4916f58fd5e6d67385831dc2728267",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE80_XSS__CWE182_Servlet_listen_tcp_01",
+      "language": "java",
+      "cwe_id": "CWE-80",
+      "cwe_name": "XSS",
+      "secondary_cwe_id": "CWE-182",
+      "functional_variant": "Servlet_listen_tcp",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE80_XSS/s01/CWE80_XSS__CWE182_Servlet_listen_tcp_01.java"
+      ],
+      "source_sha256": "b3cbb0cb75dffac0040798261bdfaa6306c0b007c013fae2baba6889130eee31",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE80_XSS__CWE182_Servlet_listen_tcp_75",
+      "language": "java",
+      "cwe_id": "CWE-80",
+      "cwe_name": "XSS",
+      "secondary_cwe_id": "CWE-182",
+      "functional_variant": "Servlet_listen_tcp",
+      "flow_variant": "75",
+      "flow_group": "cross_file",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE80_XSS/s01/CWE80_XSS__CWE182_Servlet_listen_tcp_75a.java",
+        "Java/src/testcases/CWE80_XSS/s01/CWE80_XSS__CWE182_Servlet_listen_tcp_75b.java"
+      ],
+      "source_sha256": "17f1ca746722da4c3933ac133ddab950e7f487fce1104bbd5220114d0f909529",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE80_XSS__Servlet_URLConnection_61",
+      "language": "java",
+      "cwe_id": "CWE-80",
+      "cwe_name": "XSS",
+      "secondary_cwe_id": null,
+      "functional_variant": "Servlet_URLConnection",
+      "flow_variant": "61",
+      "flow_group": "cross_file",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE80_XSS/s02/CWE80_XSS__Servlet_URLConnection_61a.java",
+        "Java/src/testcases/CWE80_XSS/s02/CWE80_XSS__Servlet_URLConnection_61b.java"
+      ],
+      "source_sha256": "0ba1b96c1fac9d2ed5f87193b3ee08e2277239f2717fabcfb97ad69feaccab3b",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE80_XSS__Servlet_getQueryString_Servlet_01",
+      "language": "java",
+      "cwe_id": "CWE-80",
+      "cwe_name": "XSS",
+      "secondary_cwe_id": null,
+      "functional_variant": "Servlet_getQueryString_Servlet",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE80_XSS/s01/CWE80_XSS__Servlet_getQueryString_Servlet_01.java"
+      ],
+      "source_sha256": "507cedc29074ff0cfbba05ffbaf63e6cf85ee62a7685ddd08db2c84db442d722",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE89_SQL_Injection__URLConnection_execute_01",
+      "language": "java",
+      "cwe_id": "CWE-89",
+      "cwe_name": "SQL_Injection",
+      "secondary_cwe_id": null,
+      "functional_variant": "URLConnection_execute",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE89_SQL_Injection/s04/CWE89_SQL_Injection__URLConnection_execute_01.java"
+      ],
+      "source_sha256": "5ae4052913adcf4e29441418ee0ec954d856e699366c6579a60b4274d4c9349c",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE89_SQL_Injection__connect_tcp_executeQuery_52",
+      "language": "java",
+      "cwe_id": "CWE-89",
+      "cwe_name": "SQL_Injection",
+      "secondary_cwe_id": null,
+      "functional_variant": "connect_tcp_executeQuery",
+      "flow_variant": "52",
+      "flow_group": "cross_file",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__connect_tcp_executeQuery_52a.java",
+        "Java/src/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__connect_tcp_executeQuery_52b.java",
+        "Java/src/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__connect_tcp_executeQuery_52c.java"
+      ],
+      "source_sha256": "689587635b980bbff202d15b2ae5e3711370b6b3e47084025325c25920e28bf0",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE89_SQL_Injection__console_readLine_executeQuery_01",
+      "language": "java",
+      "cwe_id": "CWE-89",
+      "cwe_name": "SQL_Injection",
+      "secondary_cwe_id": null,
+      "functional_variant": "console_readLine_executeQuery",
+      "flow_variant": "01",
+      "flow_group": "baseline",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE89_SQL_Injection/s01/CWE89_SQL_Injection__console_readLine_executeQuery_01.java"
+      ],
+      "source_sha256": "f8b381bc51fd1ab20bded8a8aa5b08174bccf847ee03ef018f827d58cdfee650",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE89_SQL_Injection__listen_tcp_execute_54",
+      "language": "java",
+      "cwe_id": "CWE-89",
+      "cwe_name": "SQL_Injection",
+      "secondary_cwe_id": null,
+      "functional_variant": "listen_tcp_execute",
+      "flow_variant": "54",
+      "flow_group": "cross_file",
+      "stratum": "web_injection",
+      "files": [
+        "Java/src/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__listen_tcp_execute_54a.java",
+        "Java/src/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__listen_tcp_execute_54b.java",
+        "Java/src/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__listen_tcp_execute_54c.java",
+        "Java/src/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__listen_tcp_execute_54d.java",
+        "Java/src/testcases/CWE89_SQL_Injection/s03/CWE89_SQL_Injection__listen_tcp_execute_54e.java"
+      ],
+      "source_sha256": "6bdd8d1dda3de9f5e64be5e295d5370c4d99f9613c2752118aec11155501ded1",
+      "windows_only": false
+    }
+  ],
+  "notes": null
+}

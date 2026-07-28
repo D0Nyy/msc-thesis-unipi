@@ -141,6 +141,46 @@ ground-truth-leaking identifiers and assembles chunks, uniformly across all
 three tiers. It is presented in the thesis as part of Stage 1 (code recovery),
 not as a fourth stage.
 
+### 4.0 Two modes: the tool, and the experiment that validates it
+
+The brief asks for a **working methodology** — RE extraction, LLM analysis,
+structured report with PoC and mitigation — not merely a benchmark number. The
+pipeline is therefore built to run on any binary, and the Juliet machinery is
+scaffolding whose job is to prove that it works.
+
+| Stage | Analysis mode (any binary) | Benchmark mode (Juliet) |
+|---|---|---|
+| `build` | not used | compiles the suite, writes the sample manifest |
+| `re` | ✔ | ✔ |
+| `analysis` | ✔ | ✔ |
+| `report` | ✔ | ✔ |
+| `eval` | not possible — no labels | ✔ |
+
+**`re → analysis → report` is the deliverable.** `build` and `eval` exist to
+measure it. This is why `analysis` must never import `GroundTruth` (§8) — that
+rule is not only about leakage, it is what keeps the analysis path runnable
+when no label exists at all.
+
+Three things differ in analysis mode, and each is a *narrowing* rather than a
+new code path:
+
+- **No F0.** Without source there is no control condition, so fidelity is
+  whatever the binary gives: F2 for native, F1 for bytecode. The fidelity tier
+  is recorded exactly as in benchmark mode; only the comparison is unavailable.
+- **No ground truth.** `Chunk.ground_truth` is `None`. It is optional rather
+  than default-constructed on purpose: `vulnerable=False` on an unlabelled
+  chunk is indistinguishable from a true negative and would silently enter
+  `eval`'s recall denominator. `eval` skips unlabelled chunks.
+- **Scrubbing is a no-op, not a bug.** §4.1 exists to destroy Juliet's
+  answer-key identifiers. A stripped real binary has no such names — Ghidra
+  already emits `FUN_00401000` — so the pass runs and finds nothing to rename.
+  On an *unstripped* real binary it still applies, and there it is a genuine
+  question whether to scrub: real symbol names are legitimate evidence a human
+  analyst would also see. Default is not to scrub in analysis mode.
+
+Everything downstream — chunking, the constrained-JSON schema, SARIF export,
+PoC and mitigation — is identical in both modes.
+
 ### 4.1 Identifier scrubbing
 
 Juliet encodes the answer in its identifiers:
@@ -195,10 +235,166 @@ reportable finding, not an error.
 - **Primary — NIST Juliet Test Suite (SARD).** Labeled CWE cases in C/C++, C#,
   Java. `good`/`bad` variants give a naturally balanced design: `bad` = positive
   class, `good` = negative class for FPR.
+
+### 5.1 Language scope: C/C++ and Java
+
+**C# is deferred, not dropped.** The quantitative comparison runs on C/C++ and
+Java only.
+
+The deciding argument is that this is the *minimum set that spans the entire
+fidelity axis*. C/C++ is the only source of F2 — native decompilation is the
+whole reason the research question exists. Java supplies F1. Both supply F0.
+Adding C# supplies a second F1 and **no new tier**, so it buys breadth on the
+axis that is not under study while costing a third decompiler, a third build
+toolchain, a third tree-sitter grammar and a third validation pass. Every
+language multiplies work across `build`, `re`, scrubbing and `eval`
+simultaneously; at Phase 1 that multiplier is the difference between reaching
+the Phase 4 checkpoint and not.
+
+Secondary reasons: Ghidra and Vineflower are the two most mature and most
+studied recovery paths, so tooling failures are likelier to be *our* bugs than
+theirs; and the comparable literature is overwhelmingly C/C++ (VulBinLLM,
+BinMetric, REBench) with Java second (Vul4J), while C# has almost no prior work
+to situate a result against.
+
+**The cost, stated plainly.** With one F1 language and one F2 language, the
+F1-versus-F2 contrast is perfectly confounded with language. This does not
+damage RQ1 — §3.1's defence was always the *within-language* walk (F0→F1 for
+Java, F0→F2 for C/C++), which is untouched. What is lost is a robustness check:
+with two F1 languages we could ask whether F1 behaviour is a property of the
+fidelity tier or of the language, and with one we cannot. Any cross-tier claim
+must therefore be phrased as within-language degradation, never as a bare
+"F1 beats F2".
+
+**Re-adding C# is cheap by construction.** The suite uses the same generator
+and the same naming convention, `build/juliet.py` already parses it,
+`ilspycmd` is a single command, and the manifest is regenerated rather than
+edited. If Phase 3 finishes ahead of schedule, C# is the first extension —
+precisely because it restores the robustness check above.
 - **Sampling.** Juliet is far too large to run exhaustively across 4 models × 3
-  fidelity tiers × repetitions (§6.2). Use a **stratified sample**: N CWE classes
-  chosen for cross-language coverage, M cases per class per language, fixed
-  random seed, sample manifest committed to the repo.
+  fidelity tiers × repetitions (§6.2). Use a **stratified sample** with a fixed
+  random seed and the manifest committed to the repo. Structure in §5.2.
+
+### 5.2 Sample structure
+
+A stratum is **CWE × language × flow group**. Two things forced the shape.
+
+**Memory-safety CWEs do not exist outside C/C++.** Of the 59 CWEs present in
+both suites, *zero* are buffer overflows, use-after-free, double-free or memory
+leaks — Java and C# are memory-safe by construction, so those flaw classes have
+no counterpart there. That is inconvenient, because memory safety is what
+binary vulnerability analysis is principally about and where Ghidra's loss of
+types and bounds information should hurt most. The flaws most relevant to RQ1
+are therefore exactly the ones with no cross-language comparison available.
+
+The same is true in reverse. Juliet's C/C++ suite models systems programming —
+libc, sockets, filesystem — so **SQL injection, XSS, XPath injection and unsafe
+reflection have no C/C++ cases at all** (CWE-89: 0 in C/C++, 2,220 in Java).
+Evaluating Java only on CWEs that happen to also exist in C would be a strange
+sample of "Java vulnerabilities", containing no injection classes a Java
+developer would recognise.
+
+The sample is consequently **three strata, each answering the question it can**:
+
+| Stratum | Languages | CWEs | Answers |
+|---|---|---|---|
+| **A — cross-language** | C/C++, Java | shared and sampleable | the language comparison |
+| **B — memory safety** | C/C++ only | buffer overflow, UAF, double free, leak | the F0→F2 fidelity walk, on the flaws that matter most for binaries |
+| **C — web injection** | Java only | SQLi, XSS, XPath, HTTP splitting, reflection | model capability on realistic Java flaws (RQ4, external validity) |
+
+Results are reported per stratum and **never pooled**: pooling would let a
+single-language arm masquerade as a cross-language finding.
+
+**Stratum C does not inform RQ1.** Java's walk is F0→F1, which is near-lossless,
+so varying fidelity there measures little. It exists for external validity and
+RQ4, and is excluded from the fidelity analysis by construction.
+
+> **Deserialization is not available.** CWE-502, and generic XSS (CWE-79), are
+> absent from *both* suites — Juliet 1.3 does not model them. If they are wanted
+> later the source is Vul4J (79 reproducible Java CVEs with proof-of-vulnerability
+> tests), not Juliet.
+
+**Flow groups are `baseline` and `cross_file`.** Rather than sampling the flow
+variants proportionally, take the two ends of the complexity axis:
+
+- **`baseline`** — flow variant `01`, the flaw in its simplest form.
+- **`cross_file`** — variants `22`, `51`–`54`, `61`–`68`, `71`–`75`, `81`–`84`,
+  where source and sink live in different files.
+
+The second group is not decoration. It is the only part of the suite that tests
+whether §4.2's chunk assembly works: a chunk holding only the sink has no
+evidence its input is attacker-controlled, so those cases are undetectable by
+construction if callees are not pulled in. Sampling only `01` would leave the
+central design decision of Stage 1 unexercised. Two discrete groups also report
+more cleanly than a 47-value continuum.
+
+**Exclusions, applied before drawing:**
+
+- **CWE-506 and CWE-510** — Appendix D of the User Guide lists them as having no
+  `good` variant. With no negative class they cannot contribute to precision or
+  FPR (§8.4), and including them silently biases precision upward.
+- **Win32-only functional variants** — 9,395 C/C++ files use the Win32 API and
+  will not build with gcc. Admitting them would mean two compilers in one
+  sample, making the compiler a confound on top of the fidelity axis.
+
+**Strata are keyed on suite, not language.** Juliet writes a functional variant
+in either `.c` or `.cpp` depending on whether it needs C++ features, so
+stratifying on `Language` fragments cells that are one arm for the fidelity
+question — CWE-23 has only `.cpp` cases, CWE-78 has no `.cpp` baseline. Each
+`Case` still records its own precise language for provenance.
+
+Every stratum records `requested`, `selected` and `available`, and **is emitted
+even when empty**. A cell the design assumes exists but the dataset cannot fill
+is the single most important line on the report; skipping it would make the
+hole invisible.
+
+### 5.3 CWE selection
+
+Chosen from data, not intuition. Of the 59 shared CWEs, only **14 are
+sampleable** — every (suite × flow group) cell non-empty after the exclusions.
+Most plausible-sounding picks are unbalanced by construction, and the failure is
+usually Win32: CWE-15, CWE-90 (LDAP injection) and CWE-327 all *look* shared but
+have zero eligible C/C++ cases because 100% of theirs use Windows APIs.
+`build --survey` reports `sampleable_cwes` alongside `shared_cwes` for exactly
+this reason.
+
+| Stratum A — cross-language | Class | Smallest cell |
+|---|---|---|
+| CWE-78 | OS command injection — taint to external process | 12 |
+| CWE-23 | Relative path traversal — taint to filesystem | 12 |
+| CWE-134 | Uncontrolled format string — taint to formatter | 18 |
+| CWE-190 | Integer overflow — numeric | 90 |
+| CWE-369 | Divide by zero — numeric, different failure mode | 18 |
+| CWE-789 | Uncontrolled memory allocation — resource exhaustion | 20 |
+
+| Stratum B — memory safety (C/C++) | Smallest cell |
+|---|---|
+| CWE-121 Stack-based buffer overflow | 118 |
+| CWE-122 Heap-based buffer overflow | 126 |
+| CWE-401 Memory leak | 42 |
+| CWE-415 Double free | 22 |
+| CWE-416 Use after free | 22 |
+
+| Stratum C — web injection (Java) | Smallest cell |
+|---|---|
+| CWE-89 SQL injection | 60 |
+| CWE-80 Cross-site scripting | 18 |
+| CWE-113 HTTP response splitting | 36 |
+| CWE-643 XPath injection | 12 |
+| CWE-470 Unsafe reflection | 12 |
+
+The smallest cell caps how far `--per-stratum` can usefully be raised: at
+`n = 12` every cell is still full, beyond that CWE-78 and CWE-23 start to
+short.
+
+> **Crypto and hardcoded credentials had to be dropped.** CWE-327 (broken
+> crypto) and CWE-259 (hardcoded password) were the obvious picks for a
+> security thesis. **100% of their C/C++ cases are Win32-only** — all 54 and
+> all 96 respectively use `CryptGenRandom`, `LogonUser` and similar. Excluding
+> Win32 to keep a single compiler therefore leaves them with no C/C++ arm at
+> all, and they would have appeared as Java-only strata masquerading as
+> cross-language ones. Worth stating in the thesis: the Win32 exclusion is not
+> cost-free, and it removes two entire weakness classes from the C/C++ side.
 - **Secondary (optional).** Known-CVE real binaries to test rediscovery on
   non-synthetic code; a small hand-authored set for controlled edge cases.
 - **Python.** Juliet has no Python. Python is therefore **out of the
@@ -230,20 +426,32 @@ below, reported separately.
 
 | Tier | Model | Q4_K_M VRAM | Serving |
 |---|---|---|---|
-| **S — Constrained edge** | Qwen3-Coder-7B-Instruct | ~5 GB | **Local**, RX 6650 XT 8 GB |
-| **M — Mid open-weight** | Qwen3-Coder-14B-Instruct | ~9 GB | Rented 24 GB GPU |
-| **L — Large open-weight** | Qwen3-Coder-32B-Instruct | ~20 GB | Rented 24 GB GPU |
+| **S — Constrained edge** | Qwen2.5-Coder-7B-Instruct | 4.7 GB | **Local**, RX 6650 XT 8 GB |
+| **M — Mid open-weight** | Qwen2.5-Coder-14B-Instruct | 9.0 GB | Rented 24 GB GPU |
+| **L — Large open-weight** | Qwen2.5-Coder-32B-Instruct | 20 GB | Rented 24 GB GPU |
 | **A — Flagship API** | Claude Sonnet 5 (main run) · Claude Opus 5 (subset) | — | Anthropic API |
 
-> **Tag verification required before Phase 2.** Confirm the exact Ollama tags
-> for all three dense variants exist and pull cleanly. If any rung is missing,
-> the fallback ladder is **Qwen2.5-Coder 7B / 14B / 32B** — older, but a
-> complete and fully dense family, which matters more here than raw capability.
-> A missing rung breaks the ladder; a slightly dated family does not.
+> **Why Qwen2.5-Coder and not Qwen3-Coder** (verified against the Ollama
+> registry, 2026-07-27). Qwen3-Coder publishes only `30b-a3b` and `480b-a35b` —
+> both Mixture-of-Experts, and therefore both excluded by the no-MoE rule above.
+> There is no dense Qwen3-Coder rung at *any* size, so this is not a case of one
+> missing rung: the family cannot furnish a dense ladder at all. Qwen2.5-Coder
+> is complete and fully dense at 7B / 14B / 32B under a single quantization,
+> which is what RQ4 requires. A generation-older family is the cheaper price;
+> the alternative would be either an MoE-vs-dense comparison or a mixed-family
+> one, and both measure something other than scale.
+>
+> Two consequences worth recording. First, the **context window is 32K on every
+> rung** — Qwen3-Coder's 256K does not apply, so `context_overflow` (§8.2) is a
+> live constraint at tier S rather than a theoretical one. Second, Ollama
+> publishes **no `32b-instruct-q4_K_M` tag**: the bare `qwen2.5-coder:32b` is
+> the instruct build at Q4_K_M size, distinguishable from `32b-base` only by
+> digest. The L rung is therefore pinned by digest, not by tag string.
 
 **Rules:**
-- Exact model version strings and quantization are **pinned and recorded** in
-  every result row. "Qwen3-Coder-7B" is not sufficient provenance.
+- Exact model version strings, quantization **and Ollama digest** are **pinned
+  and recorded** in every result row. "Qwen2.5-Coder-7B" is not sufficient
+  provenance, and at the L rung the tag string alone is actively misleading.
 - **Q4_K_M for every open-weight tier.** Quantization must not co-vary with
   size, or it becomes an uncontrolled confound.
 - All models served through an **OpenAI-compatible interface** (Ollama locally
@@ -318,6 +526,16 @@ if left to drift.
 - **`-DOMITGOOD` / `-DOMITBAD`.** Juliet places the flawed and fixed variants in
   one translation unit. Built naively, a single binary contains both and the
   `good`-chunk-as-negative-class accounting collapses. One variant per binary.
+- **`-DINCLUDEMAIN`, and ignore the shared `main.cpp`.** Juliet supports two
+  build modes. The 350 `main.cpp` / `main_linux.cpp` files call dozens of cases
+  into one application — that is the mode for testing *source* analysers over a
+  whole tree, and it is not ours. Each case instead carries its own `main()`
+  behind `#ifdef INCLUDEMAIN`, which the suite documents as the mode "for
+  building a binary to use in testing binary analysis tools". Compile a case's
+  files together with `-DINCLUDEMAIN`; without it the case has no entry point
+  and will not link. Verified: 64,122 case files carry one, always on the
+  single-file part or the `a` part of a multi-file case — exactly one entry
+  point per case.
 - **Build every C/C++ case twice** — once with symbols to derive the
   ground-truth function mapping out-of-band, once stripped for the model. At F2
   there is otherwise no way to know which recovered function holds the flaw.
@@ -405,7 +623,8 @@ The exporter is deterministic and adds no information the model did not supply.
   `<case_id>/<fidelity_tier>/<model>/run-<k>`, so individual runs are addressable.
 - **`invocations[]`** with `startTimeUtc` / `endTimeUtc` — captures latency in-band.
 - **Model provenance in `tool.driver.properties`** must be complete:
-  `qwen3-coder:7b-instruct-q4_K_M` plus the Ollama digest. Not `qwen3-coder:7b`.
+  `qwen2.5-coder:7b-instruct-q4_K_M` plus the Ollama digest. Not
+  `qwen2.5-coder:7b`.
 - **Tier labels use the F0/F1/F2 glossary** (§3.1). Not `T1`/`T2`/`T3`.
 
 ### 8.4 Scoring rules
@@ -467,6 +686,14 @@ requirement without inflating the experiment.
 ## 10. Environment
 
 **Hardware:** Ryzen 5 5600X · 16 GB RAM · Radeon RX 6650 XT (8 GB, gfx1032).
+
+**Local GPU serving caveat.** gfx1032 is not on ROCm's officially supported
+target list, so Ollama requires `HSA_OVERRIDE_GFX_VERSION=10.3.0` to map the
+card onto gfx1030 (RDNA 2, binary-compatible for this purpose). A SIGSEGV
+regression affecting gfx1031/gfx1032 is reported on ROCm 6.4.3 and later, with
+6.4.1 as the working version. The ROCm version in use is recorded alongside the
+build settings, because it determines whether tier S ran on GPU at all — a
+silent CPU fallback would make tier-S latency incomparable to M and L.
 
 ## 11. Scope & ethics
 
