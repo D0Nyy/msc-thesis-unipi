@@ -16,15 +16,21 @@ plus Vineflower, and with no optimiser there is nothing for a survival gate to
 catch.
 
 Layout under the build directory (`--build-dir`, default `data/processed`).
-Both arms are split by SUITE rather than by language, because a Juliet C/C++
-case can be either `.c` or `.cpp` and the two share one include tree — the
-compiler is chosen per case, not per directory:
+Sources keep their archive layout; binaries are split by suite. A Juliet C/C++
+case can be either `.c` or `.cpp` and the two share one include tree, so the
+compiler is chosen per case rather than per directory:
 
-    src/c-cpp/    sources extracted from the C/C++ archive, archive-relative
-                  so the 5x family's sibling includes resolve
-    src/java/     sources from the Java archive, plus the jars it ships
+    src/C/        sources from the C/C++ archive
+    src/Java/     sources from the Java archive, plus the jars it ships
     bin/c-cpp/    one directory per case: {bad,good}-O{0,2}.{sym,stripped}
     bin/java/     one directory per case: the .class files javac emitted
+
+`src/` keeps each archive's own top-level directory rather than adding a suite
+layer of its own — `C/` and `Java/` already distinguish them, and preserving
+the archive-relative path means a path in `manifest.json` is literally the path
+on disk. It is also what makes the 5x family's sibling `#include`s resolve.
+`bin/` does need the suite split, because there the two arms produce different
+kinds of artifact into flat per-case directories.
 
 Everything here is regenerable and gitignored; `data/build-report.json` is the
 committed record of what was produced, with paths relative to the build root.
@@ -529,7 +535,7 @@ def build_corpus(
 
         jvm.javac_version()
 
-    work = (out_dir / "src" / _CCPP_SUITE.key).resolve()
+    work = (out_dir / "src").resolve()
     bin_root = (out_dir / "bin" / _CCPP_SUITE.key).resolve()
     for directory in (work, bin_root):
         if (problem := clear_dir(directory)) is not None and warn is not None:
@@ -548,8 +554,10 @@ def build_corpus(
         # module, and --no-java must not require a JDK to be discoverable.
         from vulnlm.build import jvm
 
+        # `clear_src=False`: both arms extract into one `src/` tree, and the
+        # C/C++ half is already there. Clearing again would delete it.
         java_builds, java_version, classpath = jvm.build_java(
-            java_cases, raw_dir, out_dir, warn=warn
+            java_cases, raw_dir, out_dir, warn=warn, clear_src=False
         )
         builds.extend(java_builds)
 

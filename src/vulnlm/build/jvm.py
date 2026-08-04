@@ -250,6 +250,7 @@ def build_java(
     raw_dir: Path,
     out_dir: Path,
     warn: Callable[[str], None] | None = None,
+    clear_src: bool = True,
 ) -> tuple[list[CaseBuild], str, list[str]]:
     """Compile every Java case. Returns (builds, javac version, classpath)."""
     if not cases:
@@ -259,9 +260,11 @@ def build_java(
     release = detect_release()
     archive = find_archive(_JAVA_SUITE, raw_dir)
 
-    work = (out_dir / "src" / _JAVA_SUITE.key).resolve()
+    work = (out_dir / "src").resolve()
     class_root = (out_dir / "bin" / _JAVA_SUITE.key).resolve()
-    for directory in (work, class_root):
+    # `src/` is shared with the C/C++ arm and cleared by whoever runs first.
+    to_clear = (work, class_root) if clear_src else (class_root,)
+    for directory in to_clear:
         if (problem := clear_dir(directory)) is not None and warn is not None:
             warn(problem)
 
