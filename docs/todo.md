@@ -8,6 +8,24 @@ settled move into `protocol.md` and out of this file.
 - [ ] **Prompt design: single-shot vs chain-of-thought.** Must be fixed before
       the main run and identical across all models, or RQ4 is invalid. Decide
       from the pilot.
+- [ ] **Contamination perturbation probe (§11.2).** Semantics-preserving
+      rewrites on a stratified subset — buffer sizes, `char`→`wchar_t`,
+      statement reordering, renaming Juliet's support functions. Run alongside
+      the pilot. This is the largest threat to RQ1 and the probe is what turns
+      it from a hedging paragraph into a reported number.
+- [ ] **Check whether `-O2` erases the `good` variants at F2.** `goodG2B`
+      replaces the tainted source with a constant, so the compiler can fold the
+      whole thing away — `data = 2; result = data + 1; printIntLine(result)`
+      becomes `printIntLine(3)`. The decompiled negative case would then contain
+      no arithmetic at all and be trivially separable from `bad`, giving a
+      flattering F2 false-positive rate that measures optimisation rather than
+      the model. Diff decompiled `bad` vs `goodG2B` on a few pilot cases. This
+      is a concrete argument for the `-O0` sensitivity subset in §7.1.
+- [ ] **Audit the scrubber allowlist for Juliet scaffolding.** §4.1 preserves
+      "standard library and API calls", but `printLine`, `globalReturnsTrue`,
+      `CHAR_ARRAY_SIZE` and `std_testcase.h` are Juliet support, not stdlib. If
+      the allowlist admits them the corpus stays identifiable even after
+      scrubbing, which defeats §11.1.
 - [ ] **Get Ollama serving on the local card.** gfx1032 needs
       `HSA_OVERRIDE_GFX_VERSION=10.3.0`, and ROCm ≥6.4.3 has a reported SIGSEGV
       regression on gfx1031/1032 (6.4.1 works). Budget a day, not an hour.

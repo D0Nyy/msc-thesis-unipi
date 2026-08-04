@@ -695,7 +695,98 @@ regression affecting gfx1031/gfx1032 is reported on ROCm 6.4.3 and later, with
 build settings, because it determines whether tier S ran on GPU at all — a
 silent CPU fallback would make tier-S latency incomparable to M and L.
 
-## 11. Scope & ethics
+## 11. Threats to validity
+
+Each threat below is paired with either a mitigation already in the design or a
+measurement that converts it from a caveat into a number. Threats with neither
+are stated plainly as limits on what the results can claim.
+
+### 11.1 Training-data contamination (the most serious)
+
+Juliet has been public since 2010, v1.3 since 2017, mirrored widely on GitHub
+and used in hundreds of papers. **It is almost certainly in the training data of
+every model on the ladder, including the flagship.** Three mechanisms, in
+increasing difficulty of exclusion:
+
+| Mechanism | Status |
+|---|---|
+| **Filename recall** — `CWE121_..._bad.c` states the answer | Eliminated by §4.1 scrubbing |
+| **Scaffolding fingerprints** — `printLine()`, `globalReturnsTrue()`, `CHAR_ARRAY_SIZE`, the `do {...} while(0)` idiom identify the corpus without the filename | Must be scrubbed. These are Juliet support symbols, **not** standard library, so §4.1's "preserve stdlib and API calls" rule must not admit them. Verify the allowlist. |
+| **Body memorisation** — the model has seen the file | Not eliminable. Measured by §11.2. |
+
+**The asymmetry is what threatens RQ1.** Contamination inflates F0 far more than
+F2: the original source is in the training data, Ghidra's decompilation of it
+almost certainly is not. Memorisation would therefore make F0 look artificially
+strong and **exaggerate the F0→F2 drop, which is the headline result**.
+
+**It also threatens H2.** Larger models memorise more. If the flagship's F0
+advantage is partly recall, the "capability gap widens as fidelity falls"
+interaction is partly an artefact of the flagship having more to lose.
+
+**What the design already mitigates, and it is more than it first appears.**
+Juliet's `good` and `bad` variants are near-identical code sharing a filename
+stem. Recalling "this case is CWE-121" does not reveal *which variant* is in
+front of you. Since the primary metric is per-chunk detection scored against
+both variants (§8.4), filename-level memorisation earns nothing — the model
+would have to have memorised the variant, a far stronger claim.
+
+### 11.2 Perturbation probe — measuring contamination
+
+Take a stratified subset and apply **semantics-preserving rewrites**: change
+buffer sizes, swap `char` for `wchar_t`, reorder independent statements, rename
+the Juliet support functions, alter literal values. Re-run and compare.
+
+- Detection holds → the result reflects analysis.
+- Detection drops sharply → memorisation was carrying part of it, and the drop
+  size is the estimate of how much.
+
+Cheap, runs on the pilot, and turns the largest threat into a reported
+quantity rather than a paragraph of hedging. Hand-authored cases (§5) serve the
+same purpose from the other direction: they are guaranteed uncontaminated.
+
+### 11.3 Synthetic data
+
+Juliet cases are generated, small, single-purpose, and contain exactly one
+seeded flaw in a program that does nothing else. Real code is large, has many
+interacting concerns, and its bugs are not templated. **Results transfer to
+real binaries only as an upper bound.** The secondary ARVO/Vul4J track (§5)
+exists to probe this; it is not a substitute for it.
+
+### 11.4 Base-rate shift at deployment
+
+Juliet is roughly balanced — about half of all chunks contain a flaw. A real
+binary may hold one vulnerability per several hundred functions. Precision
+collapses under that shift by arithmetic alone, with no change in the model: a
+detector at 80% precision on balanced data can fall below 10% at a 1:100 base
+rate. **Reported precision is not a deployment estimate**, and the thesis must
+say so wherever a precision figure appears.
+
+### 11.5 Toolchain monoculture
+
+One compiler, one optimisation level (`-O2`, with an `-O0` subset), one
+decompiler per language, one architecture. Every result is conditional on that
+stack. The `-O0` sensitivity check (§7.1) partially separates decompilation
+loss from optimisation loss, but architecture and decompiler remain fixed.
+REBench (x86/x64/ARM/MIPS, O0–O3) is the natural extension if scope allows.
+
+### 11.6 Model drift
+
+Open-weight rungs are pinned by digest and are stable. **The flagship API is
+not** — the model behind `claude-sonnet-5` can change without notice, so
+tier A results are reproducible only in the weaker sense of "same tag, later
+date". Record run dates; treat a re-run months later as a new observation, not
+a replication. This is a further argument against putting Ollama cloud models
+in the ladder (§6.1), where retirement makes it worse still.
+
+### 11.7 Chunking as a confound
+
+The chunk assembly policy (§4.2) determines what the model can possibly see,
+so every result is a joint measurement of the model and the policy. The policy
+is held identical across all tiers and models, which makes *comparisons* valid,
+but absolute detection rates would move under a different policy. Reported
+`context_overflow` rates (§8.2) are the visible edge of this.
+
+## 12. Scope & ethics
 
 - Fully aligned with the assigned brief: RE extraction → LLM analysis →
   structured reporting. Fidelity is the analytical lens, not added scope.
