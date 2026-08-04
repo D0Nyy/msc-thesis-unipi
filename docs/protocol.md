@@ -561,6 +561,17 @@ if left to drift.
   **flags any case retaining under 15%**. Flagged cases are excluded from the
   F2 arm and reported as their own rate, never silently dropped.
 
+  **Size is a proxy, and its error rate is measured rather than assumed.**
+  Disassembling the `-O2` bad path of all 43 buildable cases (gcc 11.4) finds
+  four with the flaw genuinely deleted; the gate catches three. Precision is
+  perfect — every excluded case is confirmed erased at the instruction level —
+  but recall is 3/4: a leaked `new[]` in CWE-401 retains 22% of its bytes while
+  containing no allocation, because C++14 permits eliding unused allocations.
+  The reported erasure rate is therefore a **lower bound**, and a per-CWE
+  semantic check is needed alongside the ratio before it can be quoted as
+  exact. Threshold and method are recorded per case so the number can be
+  recomputed rather than re-measured.
+
   Implemented in `build/compile.py`; `vulnlm build --compile` writes
   `data/build-report.json`, which carries the per-case sizes, the gate outcome,
   the oracle's symbol names and the exact compiler and flags used. That file is

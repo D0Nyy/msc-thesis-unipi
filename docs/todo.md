@@ -1,7 +1,8 @@
 # Open questions & pending decisions
 
 The live agenda. Everything here is undecided or unverified — decisions that get
-settled move into `protocol.md` and out of this file.
+settled move into `protocol.md` and out of this file, and things that turned
+out to be *true and worth reporting* move into `findings.md`.
 
 ## Blocking Phase 2
 
@@ -32,6 +33,34 @@ settled move into `protocol.md` and out of this file.
       which is a size-based shortcut a model could in principle exploit. Worth
       a line in §11 and worth checking against the F2 false-positive rate once
       the pilot exists. `FlawSurvival` records both sides on every case.
+- [ ] **Java F1 leaks the label structurally, and stripping cannot help.** A
+      Juliet Java case is, verbatim:
+
+          package testcases.CWE89_SQL_Injection.s04;
+          import testcasesupport.*;
+          public class CWE89_SQL_Injection__URLConnection_execute_01
+                 extends AbstractTestCase
+              public void bad()
+              private void goodG2B()
+
+      Five separate giveaways: the package path names the CWE, the class name
+      carries CWE id + weakness name + source + sink, `extends AbstractTestCase`
+      and `import testcasesupport` announce it is a benchmark, and **`bad()` /
+      `goodG2B()` are the ground-truth label itself**. All of it survives javac
+      and comes back out of Vineflower, because the class-file format carries
+      names as structure rather than as an optional symbol table.
+
+      This is not the same problem as the C/C++ side and is more severe. At F2,
+      `objcopy --strip-all` removes the equivalent leakage for free. At F1
+      there is nothing to strip, so **scrubbing is the only defence** — and
+      §4.1 requires the scrubbing procedure be identical across tiers, so it
+      cannot be a Java-specific hack.
+
+      Unaddressed, the Java arm measures nothing: a model that reads
+      `void bad()` and answers "CWE-89" scores perfectly without analysing a
+      line. Note the same applies to C/C++ **F0**, where the source has
+      `namespace CWE121_...` and `void bad()`. Scrubbing is what makes F0 a
+      control rather than a giveaway; it is not a refinement.
 - [ ] **Audit the scrubber allowlist for Juliet scaffolding.** §4.1 preserves
       "standard library and API calls", but `printLine`, `globalReturnsTrue`,
       `CHAR_ARRAY_SIZE` and `std_testcase.h` are Juliet support, not stdlib. If
@@ -50,6 +79,37 @@ settled move into `protocol.md` and out of this file.
       automatically a bug.
 
 ## Blocking the build — new, from implementing `build`
+
+- [ ] **The survival gate misses erasures. Verified by disassembly, not
+      assumed.** The gate uses code size as a proxy for "the flaw is still
+      there", and the proxy is directionally right but not tight. Checking the
+      `-O2` bad path of all 43 buildable cases by hand (gcc 11.4):
+
+      * **4 cases have genuinely had the flaw deleted.** Confirmed at the
+        instruction level — `xor %edi,%edi; jmp printIntLine` (CWE-121), a bare
+        `ud2` where the division was (CWE-369), an empty `ret` where new/delete
+        used to be (CWE-415), and `mov $0x5; jmp printLongLongLine` where a
+        leaked `new[]` used to be (CWE-401).
+      * **The gate catches 3 of those 4.** No false exclusions — every case it
+        dropped is genuinely erased. But `CWE401_Memory_Leak__new_array_int64_t_01`
+        retains 22%, passes the gate, and contains no allocation at all.
+      * So on this sample: precision 3/3, **recall 3/4**.
+
+      Raising the threshold to ~25% would catch this one, but that is fitting
+      to a single observation and risks excluding cases that are merely small.
+      The real fix is a semantic check to sit alongside the size ratio: does
+      the `-O2` bad path still contain the operation the CWE is *about*? A
+      naive "does it still call a dangerous libc function" version was tried
+      and flags 8 of 43 — 4 of them false alarms, because CWE-190 and CWE-369
+      are arithmetic with no library call, CWE-121's `strncpy` gets inlined
+      into `rep movs`, and CWE-415's `new`/`delete` migrate into a constructor
+      whose symbol the oracle does not track. So the check has to be per-CWE,
+      not one keyword list.
+
+      Worth noting the category effect: C++14 explicitly permits eliding
+      unused allocations, so CWE-401 and CWE-789 are structurally the most
+      exposed to this. Until it is fixed, §7.1's erasure rate is a **lower
+      bound**.
 
 - [ ] **Re-run the Java arm.** First run failed all 44 cases with
       `invalid flag: -release` — the single-dash spelling is not javac syntax.
@@ -159,6 +219,15 @@ settled move into `protocol.md` and out of this file.
 - [ ] **Tests for `eval/`** at Phase 3. A bug there does not crash — it produces
       plausible wrong numbers that reach the thesis. The one module worth
       testing.
+- [ ] **A CWE-14 case, hand-authored.** *Compiler Removal of Code to Clear
+      Buffers* — a `memset` scrubbing a key, deleted as a dead store. Confirmed
+      absent from Juliet 1.3's C/C++ suite (0 files, as is CWE-733; the nearest
+      are CWE-226 and CWE-244, which model the programmer failing to clear a
+      buffer, not the compiler removing the clear). This is the strongest
+      single case for binary-level analysis in the whole project: the
+      vulnerability **does not exist in the source at all** and appears only
+      after optimisation, so no source scanner can find it and F0 is guaranteed
+      to miss it. About five lines to write. See `findings.md` F1.4.
 - [ ] **Hand-authored cases for the classes Juliet does not model.** CWE-502
       (unsafe deserialization) and CWE-79 (generic XSS) are absent from *both*
       suites. Analysis mode (`recover --source` / `--binary`, §4.0) already runs

@@ -1,0 +1,147 @@
+# Findings
+
+Observations worth reporting, kept apart from the two files either side of it:
+`protocol.md` records decisions that are settled, `todo.md` records questions
+that are open. This file records things that turned out to be *true* and that
+the write-up should say.
+
+Each entry states what was measured, on what, and what it does and does not
+license as a claim. Anything not yet measured is marked as such — an entry here
+is meant to be citable.
+
+---
+
+## F1. The compiler is a semantic actor in the pipeline
+
+**Measured.** gcc 11.4 and 15.2, `-O2`, all 43/41 buildable C/C++ cases in the
+committed sample. Verified at the instruction level by disassembly, not
+inferred from code size.
+
+Four cases have their vulnerability **removed outright** by optimisation:
+
+| CWE | flaw at `-O0` | what `-O2` leaves |
+|---|---|---|
+| CWE-121 | stack overflow via `memmove` | `xor %edi,%edi ; jmp printIntLine` |
+| CWE-369 | divide by zero | a bare `ud2` |
+| CWE-415 | double free | an empty `ret` |
+| CWE-401 | leaked `new[]` | `mov $0x5 ; jmp printLongLongLine` |
+
+This matters to the thesis in three separate ways, and they should not be
+collapsed into one sentence.
+
+### F1.1 Most of it is dead-code elimination, which is a fact about *benchmarks*
+
+In three of the four, the compiler proved the flawed computation had no
+observable effect and deleted it. That is ordinary dead-code elimination, and
+it fires here because Juliet's cases are synthetic: the input is a literal, the
+result is unused, nothing escapes the translation unit. Real vulnerable code
+almost always has the tainted value flow somewhere the compiler cannot see —
+across a library boundary, into a syscall, out of the process.
+
+So the honest reading is **not** "compilers fix bugs." It is that a synthetic
+benchmark can present a flaw the optimiser is allowed to notice is pointless,
+and a benchmark result at `-O2` therefore measures something slightly different
+from what the same tool would find on production code. This belongs in §11 as a
+limitation on external validity, and it applies to any binary-analysis
+evaluation built on Juliet — not just to this one.
+
+### F1.2 One of them is standard-sanctioned, and does happen in real code
+
+The CWE-401 case is different in kind. C++14 (N3664) explicitly permits an
+implementation to elide an allocation whose result is unused, so gcc deleting a
+leaked `new[]` is not the optimiser exploiting synthetic-ness — it is the
+language standard saying the leak need not exist. Unused-allocation leaks
+really can vanish between a debug and a release build.
+
+Consequence: **CWE-401 and CWE-789 are structurally the most exposed classes**
+in this corpus, and a low F2 recall on them should not be read as a model
+failure without checking the binary first. This is exactly what the §7.1 gate
+exists to prevent, and exactly the case the current size-based gate misses.
+
+### F1.3 The CWE-369 case is not removal at all — it is substitution
+
+`ud2` is not "the division was deleted." It is gcc recognising that the divisor
+is provably zero, concluding the program has undefined behaviour, and emitting
+an instruction guaranteed to fault. The vulnerability has been *transformed*:
+a divide-by-zero became an unconditional illegal-instruction trap.
+
+Whether that counts as removing a vulnerability is a genuinely interesting
+question for the write-up. A defender might call it a mitigation — the fault is
+now deterministic and immediate rather than dependent on input. An analyst
+would call it a different bug. For scoring purposes it is neither: the CWE-369
+signature the model was asked to find is not present in the binary, so the case
+has to leave the F2 arm regardless of how one labels the result.
+
+### F1.4 The inverse problem exists and Juliet cannot show it
+
+The well-known form of this effect runs the other way: the compiler removing a
+security *mitigation* rather than a flaw. The canonical case is a `memset` that
+scrubs a key or password being deleted as a dead store, since the buffer is
+never read afterwards — CWE-14, *Compiler Removal of Code to Clear Buffers*.
+
+**Checked: CWE-14 and CWE-733 have zero cases in Juliet 1.3's C/C++ suite.**
+The nearest neighbours are CWE-226 (*Sensitive Information Uncleared Before
+Release*, 72 files) and CWE-244 (*Heap Inspection*, 72 files), which model the
+programmer failing to clear a buffer — not the compiler removing the clear that
+was written. So this corpus cannot exhibit the inverse effect at all.
+
+That is a coverage gap, not a flaw in the work, and it is a natural candidate
+for the hand-authored cases already planned in `todo.md`: a CWE-14 case is
+about five lines, its whole point is that it only manifests after optimisation,
+and it demonstrates something the F2 pipeline is uniquely positioned to catch —
+a vulnerability that *does not exist in the source at all* and appears only in
+the binary. That is a strong argument for binary-level analysis over source
+analysis, made with evidence rather than assertion.
+
+### What this licenses as a claim
+
+Supported: *optimisation materially changes which vulnerabilities are present
+in a binary, in both directions, and a fidelity study that compares source
+against decompiled output must control for it or it will attribute compiler
+behaviour to the model.*
+
+Not yet supported: any rate. The gate's measured recall is 3/4 (see `todo.md`),
+so the 10% erasure figure in §7.1 is a lower bound until the semantic check
+lands.
+
+---
+
+## F2. The optimiser sometimes does the chunker's job
+
+**Measured**, same runs. Five of 41 cases *grow* at `-O2`, one to 315% of its
+`-O0` size. The cause is inlining across the source/sink split: in a 5x-family
+case, `badSource` and `badSink` live in different files, and `-O2` pulls the
+callee into the caller so one function ends up containing the whole data flow.
+
+§4.2 exists because per-function chunking would make cross-file cases
+undetectable by construction — the chunk holding the sink has no evidence its
+input is attacker-controlled. The measurement above says the compiler
+*sometimes performs that assembly itself*, which means the cross-file penalty
+at F2 is smaller than at F0 for reasons that have nothing to do with the model.
+
+Worth reporting because it cuts against the intuitive expectation. Optimisation
+is usually framed as pure loss of information; here it partially reconstructs a
+data flow that the source deliberately split apart.
+
+---
+
+## F3. Juliet 1.3 does not build cleanly on a modern toolchain
+
+**Measured**, gcc 15.2 / Ubuntu 26.04 against the committed sample.
+
+Three failure families, all of them Juliet's, not the toolchain's:
+
+1. **Win32-only functional variants** (3,372 files in the eligible population).
+   Marked `w32` in the filename, but as a *prefix* on the API name
+   (`w32CreateFile`, `w32spawnl`), which a token-boundary rule misses.
+2. **A broken POSIX `#else` branch** — `getenv` returning `char *` into a
+   `wchar_t *`, `popen`/`execl`/`fopen` receiving `wchar_t *`. Compiled with a
+   warning on gcc 11; a hard error from gcc 14 onward, which promoted
+   `-Wincompatible-pointer-types` to an error independently of `-std`.
+   Confirmed to span at least CWE-23 and CWE-78.
+3. **Duplicate `main`** in the 23 flow-01 cases that state the variant in the
+   filename, where `-DOMITGOOD` empties the body but leaves the entry point.
+
+Relevant to anyone reproducing this work, and a small contribution in its own
+right: the suite is fourteen years old and the standard build instructions
+assume a compiler generation that no longer exists on current distributions.
