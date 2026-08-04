@@ -108,6 +108,12 @@ out to be *true and worth reporting* move into `findings.md`.
       `jvm.py` just gained: scrub each case into `src-scrubbed/`, record the
       mapping. Cheaper than the Java version, because nothing has to compile
       afterwards — the binaries are built from unmodified source by design.
+- [ ] **Does Ghidra recover `main` in a stripped binary?** Almost certainly yes
+      — `__libc_start_main` takes it as an argument and the ELF analyser knows
+      the pattern — but it has not been checked, and it decides whether §4.1's
+      new `RUNTIME_CONTRACT` rule makes the tiers *more* symmetric or merely
+      restores runnability. Free to answer once `recover` runs its first
+      binary. See `findings.md` F4.1.
 - [ ] **Verify the scrubbed Java actually compiles.** The layout invariants
       javac cares about are asserted directly (`test_jvm.py::TestScrubbedTree`)
       and hold on all 44, but no JDK was available where this was written, so

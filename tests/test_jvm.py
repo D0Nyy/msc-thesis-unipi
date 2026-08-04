@@ -295,3 +295,33 @@ class TestScrubRecord:
         sources = sorted(f for f in case["files"] if f.endswith(".java"))
         record = scrub_record(_scrub(case, archive), sources)
         assert set(record.paths) == set(sources)
+
+
+@needs_corpus
+class TestRunnability:
+    """The scrubbed artifacts have to be executable.
+
+    Not a stylistic preference: the thesis requires working proof-of-concept
+    code to establish exploitability, and a PoC run against the unscrubbed twin
+    is a PoC against different bytecode from the one the model analysed.
+    """
+
+    def test_every_case_keeps_an_entry_point(
+        self, java_cases: list[dict], archive: zipfile.ZipFile
+    ) -> None:
+        entry = re.compile(r"static\s+void\s+main\s*\(\s*String")
+        for case in java_cases:
+            result = _scrub(case, archive)
+            sources = sorted(f for f in case["files"] if f.endswith(".java"))
+            text = "\n".join(result.files[s] for s in sources)
+            assert entry.search(text), case["case_id"]
+
+    def test_servlet_handlers_are_not_renamed(
+        self, java_cases: list[dict], archive: zipfile.ZipFile
+    ) -> None:
+        # Renamed, these still compile but stop overriding HttpServlet, and all
+        # 18 servlet cases go silently dead inside a container.
+        for case in java_cases:
+            mapping = _scrub(case, archive).mapping
+            assert "doGet" not in mapping, case["case_id"]
+            assert "doPost" not in mapping, case["case_id"]

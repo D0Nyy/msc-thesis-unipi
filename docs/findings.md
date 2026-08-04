@@ -196,3 +196,36 @@ One residual, recorded so it is not mistaken for an oversight: the build
 report's own artifact paths are rooted at `bin/java/<case_id>/`, and the case
 ID names the CWE. That is the report's index into the manifest, never prompt
 text, and renaming it would cost the traceability it exists for.
+
+### F4.1 A scrubbing rule has a blast radius, and the default is silence
+
+The same structural rule that removes `bad()` also removed `main`, `doGet` and
+`doPost` — in all 44 Java cases — because all three are *declared by the file*
+and that is the only question the rule asks. Nobody decided to rename `main`.
+Nobody decided not to. §4.1 sorted names into "declared here" and "stdlib or
+API", and these belong to a third category the split does not name: **names
+fixed by a runtime contract rather than chosen by an author.**
+
+The two failures are different in kind, and the second is the instructive one.
+
+Renaming `main` is *loud*: no entry point, nothing runs, and you find out the
+first time you try. Renaming `doGet` is *silent*. The class still compiles,
+because Java does not require `@Override` — it simply stops overriding
+`HttpServlet.doGet`, so a container calls the inherited handler, returns 405,
+and the case's code never executes. Every test still passes. The corpus still
+builds. Eighteen servlet cases are dead.
+
+Worth reporting for two reasons beyond this project. First, it is a concrete
+cost of scrubbing that the contamination literature does not discuss: the
+control introduced to protect validity can quietly destroy the artifact's
+semantics, and "it compiled" does not detect it. Second, it bears directly on
+the thesis's own requirement for working proof-of-concept code — a PoC has to
+run against the artifact the model analysed, not a differently-compiled twin,
+so scrubbed artifacts being executable is a precondition of the exploitability
+work rather than a convenience.
+
+Also worth checking, and not yet checked: Ghidra generally recovers `main` in a
+stripped binary, because `__libc_start_main` receives it as an argument and the
+ELF analyser knows the pattern. If that holds here, then renaming `main` at F0
+created an asymmetry running the *opposite* direction to the one §4.1 exists to
+prevent — the decompiled tier keeping a name the source tier had removed.

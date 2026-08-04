@@ -144,6 +144,44 @@ _IDENTIFIER_LEAVES: Final[frozenset[str]] = frozenset({
 
 _COMMENT_NODES: Final[frozenset[str]] = frozenset({"comment", "line_comment", "block_comment"})
 
+# Names fixed by a runtime contract rather than chosen by an author. §4.1 sorts
+# every identifier into "declared here" (rename) and "stdlib or API" (preserve),
+# and these fall in neither: they ARE declared by the file, but their spelling
+# is dictated by the C standard, the JVM spec, the servlet spec or a core
+# interface, so they are identical in every program ever written and carry
+# exactly zero information about *this* case. By §4.1's own test — a human
+# analyst reads these too, so they are signal — they belong on the preserve
+# side with `strcpy` and `Runtime.exec`.
+#
+# Left renamed, two things break. `main` disappears, so no scrubbed artifact
+# has an entry point and nothing can be executed — which matters, because
+# establishing exploitability needs a runnable artifact of the code the model
+# actually analysed. And `doGet`/`doPost` stop overriding `HttpServlet`, which
+# still COMPILES (Java does not require `@Override`) but leaves all 18 servlet
+# cases silently dead: a container would call the inherited handler, return
+# 405, and never reach the case.
+#
+# Checked BEFORE the structural rule and unconditionally, not via the denylist:
+# the denylist is Juliet knowledge and switches off in the §4.0 analysis mode,
+# whereas renaming `main` on an arbitrary binary is wrong for the same reason
+# it is wrong here.
+#
+# Preserving a name is the safe direction. If a case happened to call something
+# `run` or `close` of its own accord, keeping that name leaks nothing — none of
+# these is a variant name, so none can carry the label.
+RUNTIME_CONTRACT: Final[frozenset[str]] = frozenset({
+    # Process entry point. C, C++ and Java alike.
+    "main",
+    # Servlet spec. `doGet` in particular is the taint SOURCE for the whole
+    # web-injection stratum: it is what says `request` is attacker-controlled.
+    "doGet", "doPost", "doPut", "doDelete", "doHead", "doOptions", "doTrace",
+    "service", "init", "destroy", "doFilter",
+    # Core JDK interfaces an analyst reads as structure, not as vocabulary.
+    "run", "call", "toString", "equals", "hashCode", "compareTo", "clone",
+    "readObject", "writeObject", "readResolve", "writeReplace",
+    "serialVersionUID",
+})
+
 # The text inside a quoted string, without the quotes. C and Java spell it
 # differently; `system_lib_string` (`<stdio.h>`) is absent on purpose.
 _STRING_BODY_NODES: Final[frozenset[str]] = frozenset({
@@ -297,6 +335,12 @@ class _Renamer:
         self.mapping: dict[str, str] = {}
 
     def kind_of(self, name: str) -> str | None:
+        # Before the structural rule, and before the denylist. `main` is
+        # declared by the file, so rule 1 would otherwise rename it; that is
+        # how it came to be renamed in the first place, rather than by anyone
+        # deciding it should be.
+        if name in RUNTIME_CONTRACT:
+            return None
         if (prefix := self.kinds.get(name)) is not None:
             return prefix
         if name in self.deny:

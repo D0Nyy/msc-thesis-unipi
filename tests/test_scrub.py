@@ -28,6 +28,7 @@ from vulnlm.build.scrub import (
     FUNCTION_PREFIX,
     MACRO_PREFIX,
     PACKAGE_PREFIX,
+    RUNTIME_CONTRACT,
     VARIABLE_PREFIX,
     language_of,
     mapping_is_reversible,
@@ -230,6 +231,60 @@ class TestCaseIsTheUnit:
             [("C/testcases/CWE121_x/s04/CWE121_x_01.c", "void bad() {}", Language.C)]
         )
         assert "/" not in result.paths["C/testcases/CWE121_x/s04/CWE121_x_01.c"]
+
+
+class TestRuntimeContract:
+    """Names dictated by a spec, not chosen by an author.
+
+    These were renamed for a while, and not by decision — `main` is declared by
+    the case file, so the structural rule that catches `bad()` caught it too.
+    """
+
+    def test_main_survives_in_c_and_java(self) -> None:
+        assert "main" in scrub_juliet("int main(int argc, char **argv) { }", Language.C).text
+        assert "main" in scrub_juliet(
+            "class C { public static void main(String[] a) { } }", Language.JAVA
+        ).text
+
+    def test_a_scrubbed_case_still_has_an_entry_point(self) -> None:
+        # No `main` means no scrubbed artifact can be executed, and
+        # establishing exploitability needs a runnable artifact of the code the
+        # model actually analysed.
+        text = (
+            "public class CWE89_x_01 extends AbstractTestCase {\n"
+            "  public void bad() { }\n"
+            "  public static void main(String[] a) { mainFromParent(a); }\n"
+            "}\n"
+        )
+        out = scrub_juliet(text, Language.JAVA).text
+        assert "static void main(String[]" in out
+        assert "bad" not in out
+
+    def test_servlet_handlers_keep_overriding(self) -> None:
+        # Renamed, these compile but stop overriding HttpServlet: a container
+        # calls the inherited handler, returns 405, and the case never runs.
+        text = (
+            "public class S extends HttpServlet {\n"
+            "  protected void doGet(HttpServletRequest req, HttpServletResponse r) { bad(req); }\n"
+            "  protected void doPost(HttpServletRequest req, HttpServletResponse r) { }\n"
+            "}\n"
+        )
+        out = scrub_juliet(text, Language.JAVA).text
+        assert "doGet" in out
+        assert "doPost" in out
+
+    def test_the_contract_list_holds_no_variant_name(self) -> None:
+        # Preserving a name is the safe direction only while none of them can
+        # carry the label. If a variant name ever landed here it would be
+        # preserved verbatim and the whole scrubber would be pointless.
+        from vulnlm.build.scaffolding import VARIANT_NAMES
+
+        assert not (RUNTIME_CONTRACT & VARIANT_NAMES)
+
+    def test_it_applies_in_analysis_mode_too(self) -> None:
+        # Renaming `main` on an arbitrary binary is wrong for the same reason
+        # it is wrong here, so this is not part of the Juliet denylist.
+        assert "main" in scrub("int main(void) { helper(); }", Language.C).text
 
 
 class TestAnalysisMode:

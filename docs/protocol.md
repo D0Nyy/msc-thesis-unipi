@@ -207,7 +207,22 @@ and RQ1 would be invalid.
 - **Juliet's own support surface is NOT preserved.** `printLine`,
   `globalReturnsTrue`, `ALLOCA`, `AbstractTestCase` are not stdlib; they are
   this benchmark's furniture, and leaving them in keeps the corpus
-  recognisable, which defeats §11.1. Enumerated in `build/scaffolding.py`,
+  recognisable, which defeats §11.1.
+- **Runtime-contract names ARE preserved**, even though the file declares them:
+  `main`, `doGet`/`doPost`/`service`/`init`, `run`, `toString`, `readObject`.
+  Their spelling is dictated by the C standard, the JVM spec, the servlet spec
+  or a core interface, so they are identical in every program ever written and
+  say nothing about *this* case — which is the same test that keeps `strcpy`.
+  This is a third category the two-way "declared here / stdlib" split does not
+  name, and omitting it is not neutral: renaming `main` leaves no scrubbed
+  artifact with an entry point, so nothing can be executed and no
+  proof-of-concept can be run against the code the model actually analysed.
+  Renaming `doGet` is worse, because it still *compiles* — Java does not
+  require `@Override` — while silently ceasing to override `HttpServlet`, so a
+  container returns 405 and the case never runs. Enumerated as
+  `RUNTIME_CONTRACT` in `build/scrub.py`, and unconditional: it applies in
+  §4.0 analysis mode too, where renaming `main` on an arbitrary binary would be
+  wrong for exactly the same reason. Enumerated in `build/scaffolding.py`,
   derived from the archives and re-derived by a test so it cannot drift.
 - Renaming is deterministic; the mapping table is retained out-of-band for
   scoring and never enters a prompt
