@@ -29,7 +29,6 @@ from vulnlm.schema import (
     Case,
     FlowGroup,
     GroundTruth,
-    Language,
     Manifest,
     Stratum,
     StratumKind,

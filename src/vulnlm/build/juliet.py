@@ -55,7 +55,15 @@ _CASE_RE: Final[re.Pattern[str]] = re.compile(
     r"(?:(?P<letter>[a-z])|_(?P<variant>[A-Za-z0-9]+))?$"
 )
 _SECONDARY_RE: Final[re.Pattern[str]] = re.compile(r"^CWE(?P<cwe>\d+)_(?P<rest>.+)$")
-_WINDOWS_RE: Final[re.Pattern[str]] = re.compile(r"(?:^|_)(?:w32|windows)(?:_|$)")
+# `w32` marks a Win32-API functional variant. It is a PREFIX, not a whole
+# token: Juliet writes the API name straight onto it (`w32CreateFile`,
+# `w32spawnl`), and only sometimes leaves it bare (`char_w32_fopen`). Requiring
+# a trailing `_` or end-of-string — as this did until the compile stage caught
+# it — misses 3,372 files that cannot be built with gcc, including 820 each in
+# CWE-78 and CWE-23, both cross-language strata. Verified across all three
+# archives: every `w32*` token is a genuine Win32 API and `windows` never
+# appears at all, so prefix matching adds no false positives.
+_WINDOWS_RE: Final[re.Pattern[str]] = re.compile(r"(?:^|_)(?:w32|windows)")
 
 # Cross-file flow variants (notes §3.4). Confirmed by counting sub-file
 # identifiers across the archives. 22 is the one a range rule misses.

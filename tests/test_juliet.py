@@ -198,10 +198,41 @@ class TestWindowsOnly:
         assert p is not None
         assert p.windows_only is True
 
+    # Regression: `w32` is a prefix on the API name, not a standalone token.
+    # A token-boundary rule left 3,372 unbuildable files in the population and
+    # put one of them in the sample, where it surfaced as a gcc error about
+    # `HANDLE` rather than as an exclusion.
+    @pytest.mark.parametrize(
+        "stem",
+        [
+            "CWE23_Relative_Path_Traversal__wchar_t_connect_socket_w32CreateFile_01",
+            "CWE78_OS_Command_Injection__char_console_w32spawnl_01",
+            "CWE404_Improper_Resource_Shutdown__w32CloseHandle_01",
+            "CWE377_Insecure_Temporary_File__w32GetTempFileName_01",
+        ],
+    )
+    def test_w32_api_suffix_flagged(self, stem: str) -> None:
+        p = parse_name(f"C/testcases/x/{stem}.c")
+        assert p is not None
+        assert p.windows_only is True
+
     def test_portable_not_flagged(self) -> None:
         p = parse_name("CWE476_NULL_Pointer_Dereference__char_01.c")
         assert p is not None
         assert p.windows_only is False
+
+    @pytest.mark.parametrize(
+        "stem",
+        [
+            # `w` and `wchar_t` must not be mistaken for the marker.
+            "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_cpy_01",
+            "CWE134_Uncontrolled_Format_String__char_console_w32_vsnprintf_01",
+        ],
+    )
+    def test_prefix_rule_does_not_overreach(self, stem: str) -> None:
+        p = parse_name(f"C/testcases/x/{stem}.c")
+        assert p is not None
+        assert p.windows_only is ("w32" in stem)
 
 
 class TestFlowType:

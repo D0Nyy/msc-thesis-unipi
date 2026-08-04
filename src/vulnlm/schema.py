@@ -206,6 +206,114 @@ class Manifest(Strict):
 
 
 # --------------------------------------------------------------------------- #
+# Stage 0.5 output: the built corpus
+# --------------------------------------------------------------------------- #
+
+
+class BuildStatus(StrEnum):
+    """Why a case did or did not make it into the built corpus.
+
+    The failure modes are kept apart because they mean different things. A
+    COMPILE_FAILED case is a property of Juliet and the toolchain and should
+    have been excluded from the population; an ERASED case built fine and was
+    then optimised away, which is a finding about `-O2` (§7.1). Collapsing them
+    would hide the second behind the first.
+    """
+
+    OK = "ok"
+    COMPILE_FAILED = "compile_failed"  # gcc refused it — see `error`
+    NO_FLAW_SYMBOLS = "no_flaw_symbols"  # built, but the oracle found no bad path
+    ERASED = "erased"  # built, but `-O2` deleted the flaw. Excluded from F2.
+
+
+class BuildVariant(StrEnum):
+    """Which half of a Juliet case a binary contains. Never both (§7.1)."""
+
+    BAD = "bad"  # -DOMITGOOD
+    GOOD = "good"  # -DOMITBAD
+
+
+class BinaryArtifact(Strict):
+    """One built ELF. Four per case per variant: {-O0,-O2} x {symbols,stripped}."""
+
+    path: str  # repo-relative POSIX
+    variant: BuildVariant
+    optimisation: str  # "-O0" | "-O2"
+    # False = the oracle build, carrying symbols so the ground-truth function
+    # mapping can be derived out of band. True = what the decompiler sees.
+    # Both are produced from ONE compile and differ only by `objcopy`, so the
+    # machine code is identical by construction rather than by assumption.
+    stripped: bool
+    sha256: str
+    text_bytes: int = Field(ge=0)
+
+
+class FlawSurvival(Strict):
+    """Bad- and good-path code size at each optimisation level (§7.1).
+
+    Sizes are summed over the demangled `bad`/`badSink`/`badSource` symbols
+    (and their good-side counterparts), so a case whose sink is inlined into
+    its source reads as growth rather than loss.
+
+    The good side is measured but never gates: whether a collapsed negative
+    class should exclude its case is an analysis decision, and making it here
+    would foreclose it.
+    """
+
+    bad_o0: int = Field(ge=0)
+    bad_o2: int = Field(ge=0)
+    good_o0: int = Field(ge=0)
+    good_o2: int = Field(ge=0)
+
+    bad_retained: float | None = Field(default=None, ge=0.0)  # >1 means it grew
+    good_retained: float | None = Field(default=None, ge=0.0)
+
+    threshold: float = Field(ge=0.0, le=1.0)
+    survived: bool  # bad_retained >= threshold
+
+
+class CaseBuild(Strict):
+    """The build record for one sampled case."""
+
+    case_id: str
+    language: Language
+    status: BuildStatus
+    compiler: str  # "gcc" | "g++" — decided by the case's file extensions
+    sources: list[str] = Field(default_factory=list)  # archive-relative, as compiled
+    binaries: list[BinaryArtifact] = Field(default_factory=list)
+    survival: FlawSurvival | None = None
+    # The oracle. These are the symbol names the F2 ground-truth mapping is
+    # built from, so they are recorded rather than re-derived later.
+    bad_symbols: list[str] = Field(default_factory=list)
+    good_symbols: list[str] = Field(default_factory=list)
+    error: str | None = None  # compiler stderr, truncated
+
+
+class BuildReport(Strict):
+    """Written by `build --compile`. The manifest says what to build; this says
+    what was actually built, and on what.
+
+    Deliberately a separate file from the Manifest. A manifest is a sample and
+    must stay reproducible from a seed alone; a build is a sample plus a
+    toolchain, and the toolchain changes far more often. Folding the two would
+    make every compiler upgrade look like a resampling.
+    """
+
+    schema_version: int = SCHEMA_VERSION
+    generated_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
+
+    manifest_sha256: str  # the sample this corpus was built from
+    compiler_version: str  # full `gcc --version` first line
+    # Every flag is a §7.1 decision, recorded so a rebuilt corpus that differs
+    # can be traced to the flag that changed rather than to the compiler.
+    common_flags: list[str] = Field(default_factory=list)
+    optimisations: list[str] = Field(default_factory=list)
+    survival_threshold: float = Field(ge=0.0, le=1.0)
+
+    cases: list[CaseBuild] = Field(default_factory=list)
+
+
+# --------------------------------------------------------------------------- #
 # Stage 1-2 output: chunks
 # --------------------------------------------------------------------------- #
 

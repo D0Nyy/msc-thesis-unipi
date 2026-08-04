@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-28T18:59:12.802367Z",
+  "generated_at": "2026-08-04T08:27:39.274276Z",
   "seed": 20260728,
   "suite_versions": {
     "c-cpp": "1.3",
@@ -90,7 +90,7 @@
       "flow_group": "baseline",
       "requested": 2,
       "selected": 2,
-      "available": 50
+      "available": 40
     },
     {
       "kind": "cross_language",
@@ -99,7 +99,7 @@
       "flow_group": "cross_file",
       "requested": 2,
       "selected": 2,
-      "available": 1000
+      "available": 800
     },
     {
       "kind": "cross_language",
@@ -162,7 +162,7 @@
       "flow_group": "baseline",
       "requested": 2,
       "selected": 2,
-      "available": 50
+      "available": 40
     },
     {
       "kind": "cross_language",
@@ -171,7 +171,7 @@
       "flow_group": "cross_file",
       "requested": 2,
       "selected": 2,
-      "available": 1000
+      "available": 800
     },
     {
       "kind": "cross_language",
@@ -926,21 +926,38 @@
       "windows_only": false
     },
     {
-      "case_id": "CWE23_Relative_Path_Traversal__char_file_ifstream_52",
+      "case_id": "CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67",
       "language": "cpp",
       "cwe_id": "CWE-23",
       "cwe_name": "Relative_Path_Traversal",
       "secondary_cwe_id": null,
-      "functional_variant": "char_file_ifstream",
+      "functional_variant": "char_connect_socket_fopen",
+      "flow_variant": "67",
+      "flow_group": "cross_file",
+      "stratum": "cross_language",
+      "files": [
+        "C/testcases/CWE23_Relative_Path_Traversal/s01/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67a.cpp",
+        "C/testcases/CWE23_Relative_Path_Traversal/s01/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67b.cpp"
+      ],
+      "source_sha256": "23b3807c55dbea4ee84d0888e91bb3955e2621a6b98cd4efd83a7ed5101a7f6a",
+      "windows_only": false
+    },
+    {
+      "case_id": "CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52",
+      "language": "cpp",
+      "cwe_id": "CWE-23",
+      "cwe_name": "Relative_Path_Traversal",
+      "secondary_cwe_id": null,
+      "functional_variant": "char_listen_socket_fopen",
       "flow_variant": "52",
       "flow_group": "cross_file",
       "stratum": "cross_language",
       "files": [
-        "C/testcases/CWE23_Relative_Path_Traversal/s02/CWE23_Relative_Path_Traversal__char_file_ifstream_52a.cpp",
-        "C/testcases/CWE23_Relative_Path_Traversal/s02/CWE23_Relative_Path_Traversal__char_file_ifstream_52b.cpp",
-        "C/testcases/CWE23_Relative_Path_Traversal/s02/CWE23_Relative_Path_Traversal__char_file_ifstream_52c.cpp"
+        "C/testcases/CWE23_Relative_Path_Traversal/s02/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52a.cpp",
+        "C/testcases/CWE23_Relative_Path_Traversal/s02/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52b.cpp",
+        "C/testcases/CWE23_Relative_Path_Traversal/s02/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52c.cpp"
       ],
-      "source_sha256": "743e3352cbef1164026cee173d1df3d91a694fe24d802423779bbfd236f4f37e",
+      "source_sha256": "cd4b3a9df6ed6c69870dae94b86f56309db34628c23c3d3fd6a080eb4b9d40b7",
       "windows_only": false
     },
     {
@@ -976,36 +993,19 @@
       "windows_only": false
     },
     {
-      "case_id": "CWE23_Relative_Path_Traversal__wchar_t_connect_socket_w32CreateFile_01",
+      "case_id": "CWE23_Relative_Path_Traversal__wchar_t_environment_ifstream_01",
       "language": "cpp",
       "cwe_id": "CWE-23",
       "cwe_name": "Relative_Path_Traversal",
       "secondary_cwe_id": null,
-      "functional_variant": "wchar_t_connect_socket_w32CreateFile",
+      "functional_variant": "wchar_t_environment_ifstream",
       "flow_variant": "01",
       "flow_group": "baseline",
       "stratum": "cross_language",
       "files": [
-        "C/testcases/CWE23_Relative_Path_Traversal/s03/CWE23_Relative_Path_Traversal__wchar_t_connect_socket_w32CreateFile_01.cpp"
+        "C/testcases/CWE23_Relative_Path_Traversal/s04/CWE23_Relative_Path_Traversal__wchar_t_environment_ifstream_01.cpp"
       ],
-      "source_sha256": "db61b694beaba521c02c541617d0901e004ae8bcc816614d0464cc06206195f6",
-      "windows_only": false
-    },
-    {
-      "case_id": "CWE23_Relative_Path_Traversal__wchar_t_listen_socket_ifstream_72",
-      "language": "cpp",
-      "cwe_id": "CWE-23",
-      "cwe_name": "Relative_Path_Traversal",
-      "secondary_cwe_id": null,
-      "functional_variant": "wchar_t_listen_socket_ifstream",
-      "flow_variant": "72",
-      "flow_group": "cross_file",
-      "stratum": "cross_language",
-      "files": [
-        "C/testcases/CWE23_Relative_Path_Traversal/s04/CWE23_Relative_Path_Traversal__wchar_t_listen_socket_ifstream_72a.cpp",
-        "C/testcases/CWE23_Relative_Path_Traversal/s04/CWE23_Relative_Path_Traversal__wchar_t_listen_socket_ifstream_72b.cpp"
-      ],
-      "source_sha256": "ec36859251712ad4950ccc923db876233479486fee8fe6e9a5b7e2d839b987e1",
+      "source_sha256": "0f0d1a5d58dfb30f09100a4cce5df22876bad829dd84a2dcbe6e40a2f0c574a1",
       "windows_only": false
     },
     {
@@ -1648,36 +1648,39 @@
       "windows_only": false
     },
     {
-      "case_id": "CWE78_OS_Command_Injection__char_console_execl_68",
+      "case_id": "CWE78_OS_Command_Injection__char_console_execlp_68",
       "language": "c",
       "cwe_id": "CWE-78",
       "cwe_name": "OS_Command_Injection",
       "secondary_cwe_id": null,
-      "functional_variant": "char_console_execl",
+      "functional_variant": "char_console_execlp",
       "flow_variant": "68",
       "flow_group": "cross_file",
       "stratum": "cross_language",
       "files": [
-        "C/testcases/CWE78_OS_Command_Injection/s01/CWE78_OS_Command_Injection__char_console_execl_68a.c",
-        "C/testcases/CWE78_OS_Command_Injection/s01/CWE78_OS_Command_Injection__char_console_execl_68b.c"
+        "C/testcases/CWE78_OS_Command_Injection/s01/CWE78_OS_Command_Injection__char_console_execlp_68a.c",
+        "C/testcases/CWE78_OS_Command_Injection/s01/CWE78_OS_Command_Injection__char_console_execlp_68b.c"
       ],
-      "source_sha256": "fde30c35c887dcf37ffee7d801940df1b9571bd37990b385b560656914ced7b3",
+      "source_sha256": "0a660b9ca3baf2a077874dc9fbc3d503e8ca5a747c8a9726fa87b4eff27204aa",
       "windows_only": false
     },
     {
-      "case_id": "CWE78_OS_Command_Injection__char_listen_socket_popen_01",
+      "case_id": "CWE78_OS_Command_Injection__char_file_execl_53",
       "language": "c",
       "cwe_id": "CWE-78",
       "cwe_name": "OS_Command_Injection",
       "secondary_cwe_id": null,
-      "functional_variant": "char_listen_socket_popen",
-      "flow_variant": "01",
-      "flow_group": "baseline",
+      "functional_variant": "char_file_execl",
+      "flow_variant": "53",
+      "flow_group": "cross_file",
       "stratum": "cross_language",
       "files": [
-        "C/testcases/CWE78_OS_Command_Injection/s04/CWE78_OS_Command_Injection__char_listen_socket_popen_01.c"
+        "C/testcases/CWE78_OS_Command_Injection/s03/CWE78_OS_Command_Injection__char_file_execl_53a.c",
+        "C/testcases/CWE78_OS_Command_Injection/s03/CWE78_OS_Command_Injection__char_file_execl_53b.c",
+        "C/testcases/CWE78_OS_Command_Injection/s03/CWE78_OS_Command_Injection__char_file_execl_53c.c",
+        "C/testcases/CWE78_OS_Command_Injection/s03/CWE78_OS_Command_Injection__char_file_execl_53d.c"
       ],
-      "source_sha256": "925da059c34f6032383f1cfe13d619f5c0377c52dd0166ebb48fffd5013a3a50",
+      "source_sha256": "3d263caded3487c3d28b8bbeb2b09eec1ee568f8e6faa9f3b7038548547876ab",
       "windows_only": false
     },
     {
@@ -1714,36 +1717,35 @@
       "windows_only": false
     },
     {
-      "case_id": "CWE78_OS_Command_Injection__wchar_t_environment_execlp_01",
+      "case_id": "CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01",
       "language": "c",
       "cwe_id": "CWE-78",
       "cwe_name": "OS_Command_Injection",
       "secondary_cwe_id": null,
-      "functional_variant": "wchar_t_environment_execlp",
+      "functional_variant": "wchar_t_connect_socket_popen",
       "flow_variant": "01",
       "flow_group": "baseline",
       "stratum": "cross_language",
       "files": [
-        "C/testcases/CWE78_OS_Command_Injection/s06/CWE78_OS_Command_Injection__wchar_t_environment_execlp_01.c"
+        "C/testcases/CWE78_OS_Command_Injection/s05/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01.c"
       ],
-      "source_sha256": "b8bad4e5c5340c4f9d6e82619f1e769d314995f295ac35d506e004367f986bb4",
+      "source_sha256": "82c89d142bb08f176026d7d806f1abd9838a8707298817ecfa486d28671415c2",
       "windows_only": false
     },
     {
-      "case_id": "CWE78_OS_Command_Injection__wchar_t_file_execl_22",
+      "case_id": "CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01",
       "language": "c",
       "cwe_id": "CWE-78",
       "cwe_name": "OS_Command_Injection",
       "secondary_cwe_id": null,
-      "functional_variant": "wchar_t_file_execl",
-      "flow_variant": "22",
-      "flow_group": "cross_file",
+      "functional_variant": "wchar_t_listen_socket_execl",
+      "flow_variant": "01",
+      "flow_group": "baseline",
       "stratum": "cross_language",
       "files": [
-        "C/testcases/CWE78_OS_Command_Injection/s07/CWE78_OS_Command_Injection__wchar_t_file_execl_22a.c",
-        "C/testcases/CWE78_OS_Command_Injection/s07/CWE78_OS_Command_Injection__wchar_t_file_execl_22b.c"
+        "C/testcases/CWE78_OS_Command_Injection/s08/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01.c"
       ],
-      "source_sha256": "3106978a518bdcc7aa0cd59b252c491a1d4916f58fd5e6d67385831dc2728267",
+      "source_sha256": "f42a2b72774e6a4c269a637a2bba29352157847d411223ebab0b6b1b0598519c",
       "windows_only": false
     },
     {

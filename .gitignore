@@ -7,6 +7,9 @@ data/**
 !data/**/
 !data/**/.gitkeep
 !data/manifest.json
+# The built corpus itself is regenerable and large; the report describing it is
+# neither, and it is what ties a result set to a toolchain.
+!data/build-report.json
 
 # Results — regenerable; raw model output is expensive but not version-controlled
 results/**

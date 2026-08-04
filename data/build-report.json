@@ -1,0 +1,4081 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-04T09:03:39.530936Z",
+  "manifest_sha256": "6ff3c9aadc85ff8df96cfe122873af561039ee50c5ede845bdb37c19c8f0acb3",
+  "compiler_version": "gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+  "common_flags": [
+    "-std=gnu11|gnu++14",
+    "-w",
+    "-U_FORTIFY_SOURCE",
+    "-no-pie",
+    "-DINCLUDEMAIN",
+    "-g",
+    "-IC/testcasesupport"
+  ],
+  "optimisations": [
+    "-O0",
+    "-O2"
+  ],
+  "survival_threshold": 0.15,
+  "cases": [
+    {
+      "case_id": "CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01",
+      "language": "c",
+      "status": "erased",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE121_Stack_Based_Buffer_Overflow/s04/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "338c82069d7d2e7fe667272029a62d610e4039953ce175bfe94f387c0d8e513b",
+          "text_bytes": 1999
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "656bc9bb74bbeaab19e32af9ba9e1cd1ff232ce13999c3919774b4bfdc04b2c3",
+          "text_bytes": 1999
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "c1ff8971afa385189c1129814c1e2b1cd819ad701b68e06142fffb4f17b0c872",
+          "text_bytes": 1637
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "ff2d637ab93a195b34d3969019176f4cef41bb600ca247a9ad7e55459c1f9c53",
+          "text_bytes": 1637
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "79af7cb8073f9d55bff2e2f32a3d5aa5b992c80f0f7fd1df83e4769535f9a963",
+          "text_bytes": 2020
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "a334bfcd6cfeaa5f43a4b5dcc3430982ff9943b9c8a7ea26cc633db01f7abfd1",
+          "text_bytes": 2020
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "900e9b75f6a9d71639896f63b6c972217bca5fa827a3bc56f515922fc95389cb",
+          "text_bytes": 1637
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "e604e0fc922cc0c0286400b5a85fbf327604ba87a306bdf79dc1a4359b4b748b",
+          "text_bytes": 1637
+        }
+      ],
+      "survival": {
+        "bad_o0": 136,
+        "bad_o2": 11,
+        "good_o0": 21,
+        "good_o2": 11,
+        "bad_retained": 0.08088235294117647,
+        "good_retained": 0.5238095238095238,
+        "threshold": 0.15,
+        "survived": false
+      },
+      "bad_symbols": [
+        "CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01_bad"
+      ],
+      "good_symbols": [
+        "CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74a.cpp",
+        "C/testcases/CWE121_Stack_Based_Buffer_Overflow/s05/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74b.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "19cbe8b84bbec6b830b8d7461e5f7b573db53ad11b67aff7f314ee02965b4615",
+          "text_bytes": 10900
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "7e3b835f95c6817db69b8e053a14c81bbba38f7b945ba480c3b6b7acb698a067",
+          "text_bytes": 10900
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "e2147de48d52d60c19c4c8ec6b6de0df19a770b85d91bd322ab3cb4f700aca13",
+          "text_bytes": 4149
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "5b5c423b26129a34af00c8bdc27d1ea9dea79176b14d8004f10c8b742171f1b3",
+          "text_bytes": 4149
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "3ea603dc04fc7b9c1fda8597800487b9b6672122c1c4f0e32d0e1c52d1355c5a",
+          "text_bytes": 10916
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "bacb1e855d765a7cb897e51ad9d0aae45544d45ac8b95ac813550f4694d73f7c",
+          "text_bytes": 10916
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "00551320211cb3520e9a42dd0e297bb3199b121a3e97e8789389608eb9f0d2ba",
+          "text_bytes": 4165
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "140970f2d82a3adfeb1bd57d084746c736911a680eaf14db803edf80e40c8121",
+          "text_bytes": 4165
+        }
+      ],
+      "survival": {
+        "bad_o0": 776,
+        "bad_o2": 1181,
+        "good_o0": 792,
+        "good_o2": 1182,
+        "bad_retained": 1.5219072164948453,
+        "good_retained": 1.4924242424242424,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74::bad()",
+        "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74::badSink(std::map<int, wchar_t*, std::less<int>, std::allocator<std::pair<int const, wchar_t*> > >)"
+      ],
+      "good_symbols": [
+        "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74::good()",
+        "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74::goodG2B()",
+        "CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74::goodG2BSink(std::map<int, wchar_t*, std::less<int>, std::allocator<std::pair<int const, wchar_t*> > >)"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE121_Stack_Based_Buffer_Overflow/s06/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63a.c",
+        "C/testcases/CWE121_Stack_Based_Buffer_Overflow/s06/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63b.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "1e9788faa784405cb4cfdf50ac88025c1e587c7505b4d2550a572ed6dd06ef4b",
+          "text_bytes": 2135
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "115c4cc061a8932144679630d8ebd9448595947e360190853530f0ccc9c3f5a6",
+          "text_bytes": 2135
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "a53e16f5bfab815e05eb86e572aab30d2a4628e5235ce5ca88b90be14e3f6237",
+          "text_bytes": 1781
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "47278c948567eb9413e7e3fe98f8c57e9d0571f380217d8aeb943131880d70df",
+          "text_bytes": 1781
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "b4faba4a9a554e05780461c965eb756e8a606a1a60ff29f8148295eca8a66e68",
+          "text_bytes": 2156
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "c40a616778ca1c16b5cfc05eb37c1862473039c7845946211fd69042e0191c45",
+          "text_bytes": 2156
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "4bcc39c23581ebeb4bc4f75ba04b7ce682f4d71202295a809b89bb8e96a26f6a",
+          "text_bytes": 1845
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "3d374fc2df70c791a2b0a629f521e0ecbdf7eeb501cc52c53f350feb88c86193",
+          "text_bytes": 1845
+        }
+      ],
+      "survival": {
+        "bad_o0": 103,
+        "bad_o2": 134,
+        "good_o0": 21,
+        "good_o2": 109,
+        "bad_retained": 1.3009708737864079,
+        "good_retained": 5.190476190476191,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63_bad"
+      ],
+      "good_symbols": [
+        "CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE121_Stack_Based_Buffer_Overflow/s08/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "7ab1cce462f366805aeb73d46a68d7a4f0a5070671605df7ab8aa691fd8cb8db",
+          "text_bytes": 2015
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "99e65ff34aa5a460c28c27e12ac42130c391c9cdd6814f37e55c5d55ae656600",
+          "text_bytes": 2015
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "c3ce5cbfc5b1d862048247bda8738d190dc6b4ea726ed2ec2954189078115824",
+          "text_bytes": 1765
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "8b4c733f31d100eb87c99e07879a81815059748661d69853b4db45699a80e7df",
+          "text_bytes": 1765
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "71b00a46a452857fb0117ba1f8d3e72e9cf2a854c240818730f5db1f1645695e",
+          "text_bytes": 2036
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "932cdd54befd78c74e840fb797b1c9475e093bd6ac758cea32762e186ddf0e17",
+          "text_bytes": 2036
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "c9cba262215278ca2e11a114ab3cf766f4c21f9d0a88c690c3339b5ace2b3d8e",
+          "text_bytes": 1781
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "e3c92a088eb8886701a08c9a74bd76e75d3dd52cc8641f3afc464b2ce483a687",
+          "text_bytes": 1781
+        }
+      ],
+      "survival": {
+        "bad_o0": 152,
+        "bad_o2": 134,
+        "good_o0": 21,
+        "good_o2": 11,
+        "bad_retained": 0.881578947368421,
+        "good_retained": 0.5238095238095238,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01_bad"
+      ],
+      "good_symbols": [
+        "CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE122_Heap_Based_Buffer_Overflow/s07/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "b37f858444c3cac707cbb6c2a53eba4ee66c5ed4eab574950e1fd59cff87fec6",
+          "text_bytes": 2044
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "85755d716827810d72c1816ce24cdfb5e777f18b2156f52240fad1bf5661fdf4",
+          "text_bytes": 2044
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "716681d5029d10ccd09b619ebd16b8604a3c475abd12e2f1c89d5df0842ba4b8",
+          "text_bytes": 1797
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "676262f4a89a67b7baee7e069f8dd401971e9bc5b644b1446484ce11fb9a7dea",
+          "text_bytes": 1797
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "ca6934e8998f3963ac44ec7d9d249ef3055a3a10a3bb5299eb91fd4ddf92bb17",
+          "text_bytes": 2065
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "7ce773b3a1fde7b0b116b7486f74da17ef3276cb7483278520a7d75dcad909e2",
+          "text_bytes": 2065
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "7c84b6ae450ca17b38eb0dee856d763f623285b2a4f4268c9f8bb2101d248e95",
+          "text_bytes": 1813
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "41f78c47005ea583b4c0f9cd0b3323363e2a4c629c4293f426ab6ccfd78b75c5",
+          "text_bytes": 1813
+        }
+      ],
+      "survival": {
+        "bad_o0": 181,
+        "bad_o2": 170,
+        "good_o0": 21,
+        "good_o2": 11,
+        "bad_retained": 0.9392265193370166,
+        "good_retained": 0.5238095238095238,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01_bad"
+      ],
+      "good_symbols": [
+        "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE122_Heap_Based_Buffer_Overflow/s02/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "a99c3a27bc928ec71a3a34b3ef4543b5807afa11ba8366958ae102f5fceedafb",
+          "text_bytes": 1992
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "1fa70169e875ad260856e89bc7540c4cbc0bf8322db88d8565b10e314f8376fb",
+          "text_bytes": 1992
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "c775e39b79734141f5aa89fea325a5724e5d652b3ec634ae0f7ae877d2763c74",
+          "text_bytes": 1781
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "539f23614033fa867aebcfd8b26dd1486b2e48829e0b0cdaf3697a5276dba7c1",
+          "text_bytes": 1781
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "9d02df66ce1cf401bca99e60c4c18adb6118f3c13ea390787455d7a56818c3bd",
+          "text_bytes": 2008
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "5ab62b583106b3c079e2128b0153021f31e99779949a58cba917f49898b2bcd5",
+          "text_bytes": 2008
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "6933f92f3b4884379b0c7b99354a60c9bdf01640a655c4bb7ce64195907a417a",
+          "text_bytes": 1797
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "b2d52918f5a9348af438ec00dd839a0889ff46366dfbb86457ca2f91cd7d8a7b",
+          "text_bytes": 1797
+        }
+      ],
+      "survival": {
+        "bad_o0": 172,
+        "bad_o2": 166,
+        "good_o0": 188,
+        "good_o2": 171,
+        "bad_retained": 0.9651162790697675,
+        "good_retained": 0.9095744680851063,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01::bad()"
+      ],
+      "good_symbols": [
+        "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01::good()",
+        "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01::goodG2B()"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE122_Heap_Based_Buffer_Overflow/s05/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61a.cpp",
+        "C/testcases/CWE122_Heap_Based_Buffer_Overflow/s05/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61b.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "01252d6d5451f0190f6b3a359754a707a0c6d09287d54af7129b275d651c1d19",
+          "text_bytes": 2292
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "608480a76a5cbe7a57b43325a35d6b18e0e2de8fcba8edc5db21ceeb7000c082",
+          "text_bytes": 2292
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "1dd6db15eaf39613a0929ede6e9f4ee892f6b0ba5398c00994a1afe25841d925",
+          "text_bytes": 1877
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "e6a48069d6a9f2221cc6b0061e1ef1c190aa9c50ea2bda54d459aa8ae938c9e4",
+          "text_bytes": 1877
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "4ae2dd0d8f831147941ed817f79e203ae52e9d6eae4f633973531a10c5796a4b",
+          "text_bytes": 2308
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "b094e954c5345bb9dc88f922fea3baf9be46e76dccc943c608da273fce0f901a",
+          "text_bytes": 2308
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "03e120d726a634d6337a44fc42d5375b5a0b06ffa067725570439ed57a986f50",
+          "text_bytes": 1893
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "dbc52af2f42d2355d855f7dfb8b72121491463abe1feebc71f0f8516cc697d0f",
+          "text_bytes": 1893
+        }
+      ],
+      "survival": {
+        "bad_o0": 472,
+        "bad_o2": 263,
+        "good_o0": 488,
+        "good_o2": 268,
+        "bad_retained": 0.5572033898305084,
+        "good_retained": 0.5491803278688525,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61::bad()",
+        "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61::badSource(wchar_t*)"
+      ],
+      "good_symbols": [
+        "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61::good()",
+        "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61::goodG2B()",
+        "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61::goodG2BSource(wchar_t*)"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE122_Heap_Based_Buffer_Overflow/s05/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53a.cpp",
+        "C/testcases/CWE122_Heap_Based_Buffer_Overflow/s05/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53b.cpp",
+        "C/testcases/CWE122_Heap_Based_Buffer_Overflow/s05/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53c.cpp",
+        "C/testcases/CWE122_Heap_Based_Buffer_Overflow/s05/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53d.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "d496a2ab8bcb33afa43c96f17e3929990cad75ed0c8784d8c2686d7b98a756c6",
+          "text_bytes": 2346
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "8b9ecc696caffa166dc0d84311d9e1961f6a96112b86a503b01045e7aa8b9335",
+          "text_bytes": 2346
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "cf2bfaac93f5c7f598d6380093e609e74c9f769bbcbadf00e6906f99527a2b3e",
+          "text_bytes": 1909
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "81ad7ffa0483864695d7a3959490598ef6b438fed5750276d8f42b1b35516bca",
+          "text_bytes": 1909
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "38b6a301b639d3cda467752f53c14690ebab08cbd56470de6c60ef438b4a471c",
+          "text_bytes": 2362
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "275965e657140300df4e67dbf155a5414835f19cc6123160d5f12fa1db3346a9",
+          "text_bytes": 2362
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "0ab9f208ba24d7b7863d63f56f4414b11273b602872d549ca18f9aabd9bbd3b9",
+          "text_bytes": 1941
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "231b96de61137ecf3660ac9746b8490090fa64699c2ae3918149b858c6d9074b",
+          "text_bytes": 1941
+        }
+      ],
+      "survival": {
+        "bad_o0": 79,
+        "bad_o2": 55,
+        "good_o0": 95,
+        "good_o2": 55,
+        "bad_retained": 0.6962025316455697,
+        "good_retained": 0.5789473684210527,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53::bad()"
+      ],
+      "good_symbols": [
+        "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53::good()",
+        "CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53::goodG2B()"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE134_Uncontrolled_Format_String/s01/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74a.cpp",
+        "C/testcases/CWE134_Uncontrolled_Format_String/s01/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74b.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "bc338dd0ed6535a3c1237b1a12e0e5cbdaf36899b8a501259c76078cec2bcacb",
+          "text_bytes": 11110
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "3bcaad856950e773185ad28e65e7b8bfc128af603652fdfa8ccaebeb5c4a6b21",
+          "text_bytes": 11110
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "b5a726a9e93c2aced8e87ea95ec59dfc91025ac97086e4876590be2890b3c2d3",
+          "text_bytes": 4389
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "0ea5777e7589028e96f197f4d425fa2d2c43eba4b680684c6a0b90d6a6e6e998",
+          "text_bytes": 4389
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "aadab097fb49af48cf623bfe59c93dec02e5c3689e525a0e4170c94ad772c4a4",
+          "text_bytes": 11735
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "8c8a427f5b6caada6c3a0d54d7f532b6a56510beb1d6a9b0c6a8fc38b5871468",
+          "text_bytes": 11735
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "fd6663d37b06c3a5913c81fb52a16af518ffe3b0eeb489f6a4abdc79491c3f54",
+          "text_bytes": 5557
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "c30aac6e51ee77952ddc4f7e5f84f6c767a8cf33124c8f3096945129fb69c12d",
+          "text_bytes": 5557
+        }
+      ],
+      "survival": {
+        "bad_o0": 986,
+        "bad_o2": 1415,
+        "good_o0": 1612,
+        "good_o2": 2388,
+        "bad_retained": 1.4350912778904665,
+        "good_retained": 1.4813895781637718,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74::bad()",
+        "CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74::badSink(std::map<int, char*, std::less<int>, std::allocator<std::pair<int const, char*> > >)"
+      ],
+      "good_symbols": [
+        "CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74::good()",
+        "CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74::goodB2G()",
+        "CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74::goodB2GSink(std::map<int, char*, std::less<int>, std::allocator<std::pair<int const, char*> > >)",
+        "CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74::goodG2B()",
+        "CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74::goodG2BSink(std::map<int, char*, std::less<int>, std::allocator<std::pair<int const, char*> > >)"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE134_Uncontrolled_Format_String__char_console_snprintf_01",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE134_Uncontrolled_Format_String/s01/CWE134_Uncontrolled_Format_String__char_console_snprintf_01.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "65c6d822e1d9150c0d6f5fdb1f3b70f7012457dbb20cc0d7e56d3bde84f94049",
+          "text_bytes": 2436
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "09857ccc427295b2deacb2586daf4d2c684ebe1c8b89b2b9464bfd8f939c1fc1",
+          "text_bytes": 2436
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "4120da09ba9b8e469181a9929bfa31069b0b9f8c4477698f4c658895f033d7e0",
+          "text_bytes": 1925
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "dbfcbe00de5ffa290a04aa5696a645bceb4cf19d9021a45bc8d570660db069b1",
+          "text_bytes": 1925
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "08da296d27fc58928547375576d1a7333112afe9268f39a7d7f19f2afa27a0a8",
+          "text_bytes": 2861
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "0ae10ac67c3cf7937dc1eb79ee876166da8efd721135f968e8fe4d5aa6408f2d",
+          "text_bytes": 2861
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "f57ae6211a4a8c18e2e729237d930286089f68f0fb725d21e8f6e72f39acc388",
+          "text_bytes": 2197
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "a24e77bdbfdc42a14e91cf507016ebd9378f3b282af720ff392f673d002a0bbf",
+          "text_bytes": 2197
+        }
+      ],
+      "survival": {
+        "bad_o0": 573,
+        "bad_o2": 298,
+        "good_o0": 31,
+        "good_o2": 26,
+        "bad_retained": 0.5200698080279232,
+        "good_retained": 0.8387096774193549,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE134_Uncontrolled_Format_String__char_console_snprintf_01_bad"
+      ],
+      "good_symbols": [
+        "CWE134_Uncontrolled_Format_String__char_console_snprintf_01_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE134_Uncontrolled_Format_String__char_console_vprintf_01",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE134_Uncontrolled_Format_String/s01/CWE134_Uncontrolled_Format_String__char_console_vprintf_01.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "d9182f7e67f8ccfb3ccc2437baec16a8cbdc31557ee349054b51c48b54f4fd30",
+          "text_bytes": 2433
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "cb443872985eae4ebfc8eb42ae4451935fe7f024f455a0371a6cbbf514c48e47",
+          "text_bytes": 2433
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "12e1316000cb27b4a07d2ab462990ae75ac4e315b67f78b346627db750b4ce91",
+          "text_bytes": 2021
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "5a16b5a78a326ad20b7bde5051ac27e29514910183dd90841c42aedf2c575151",
+          "text_bytes": 2021
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "946b6403102c97266679436d22da3bb0bdda569050bb69afa9f9ef1ef3eaf61a",
+          "text_bytes": 2887
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "631fb943fa50b447c3f2376777eae1cb12fb62724eb33a76b0e6d4fc7240f186",
+          "text_bytes": 2887
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "58a0d4f64a636ea9d959a8763663e6364354fa7fcf3627d179229471f175b0d8",
+          "text_bytes": 2453
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "bdff8bb28d80987d7659c8819376fd2aa4abf028d8a733f456859ff7214cc536",
+          "text_bytes": 2453
+        }
+      ],
+      "survival": {
+        "bad_o0": 363,
+        "bad_o2": 183,
+        "good_o0": 31,
+        "good_o2": 116,
+        "bad_retained": 0.5041322314049587,
+        "good_retained": 3.7419354838709675,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE134_Uncontrolled_Format_String__char_console_vprintf_01_bad"
+      ],
+      "good_symbols": [
+        "CWE134_Uncontrolled_Format_String__char_console_vprintf_01_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE134_Uncontrolled_Format_String/s03/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61a.c",
+        "C/testcases/CWE134_Uncontrolled_Format_String/s03/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61b.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "a9703afd414a6a66f892b5bfc538c98b50c2be42dfcac68d975a6ea660240343",
+          "text_bytes": 2505
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "337ee82ffc3be561380d4ec6c87cf021b63f6a2f7570131ee09cfeba5903217b",
+          "text_bytes": 2505
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "84c67e0da1c3b6a8c330a417a77712b44020de03e7ed79b22942f7ea9caeaa16",
+          "text_bytes": 2037
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "50d3a4c63fdfcfbf4c52a523389df7bb86f230819d62bd89425e4cdfa181d8a5",
+          "text_bytes": 2037
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "91c57c5153c7b4327e6cd1ca777833438dd44c9b089293a888b9418f2db1cb85",
+          "text_bytes": 2774
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "ee8e64c6c79c4c248588df3e45e5b26affd45ce811b21b258ffccc416b374825",
+          "text_bytes": 2774
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "d8255e6ff67374bdf7c00411368bbc6e5e1205b1fd392f023870f3eb1536533e",
+          "text_bytes": 2293
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "68047abd0381cec825f6feba6676d1be1ee5fc2e77483e64333e27f873c55125",
+          "text_bytes": 2293
+        }
+      ],
+      "survival": {
+        "bad_o0": 194,
+        "bad_o2": 109,
+        "good_o0": 31,
+        "good_o2": 171,
+        "bad_retained": 0.5618556701030928,
+        "good_retained": 5.516129032258065,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61_bad"
+      ],
+      "good_symbols": [
+        "CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE190_Integer_Overflow__char_fscanf_add_01",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE190_Integer_Overflow/s01/CWE190_Integer_Overflow__char_fscanf_add_01.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "3fd9dbee436193d7b596d33ec9f0fcc7007ea84d9d8f46471c6966f91812ebbc",
+          "text_bytes": 1972
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "ab0ab95c3bee0da0e09a86cb4f4ad83832efe249a00d5efbdefda3fcd7f499d6",
+          "text_bytes": 1972
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "d17f094532368fa6f09130ab4a97cd3234a00a0047840a743ead95bbe60cf5bc",
+          "text_bytes": 1717
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "52716d186bf29fa609b73e897379e2ef1ae26d1363b6c7aa5d79380e316d8106",
+          "text_bytes": 1717
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__char_fscanf_add_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "9992d5cde588499fb74ec7f491f058a186c5e9dc8088103f71842718fe681a63",
+          "text_bytes": 2072
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__char_fscanf_add_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "07f97308db22291023a3bb87b3ad7d1f5276abedb36a4d36550a5705b25074e5",
+          "text_bytes": 2072
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__char_fscanf_add_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "8520e746e1a8836b56ccf437afa04f2ea76d61ffa8a11ece11a4ab859bdf9975",
+          "text_bytes": 1877
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__char_fscanf_add_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "887a48baa6572c1adf63cb7bc54d6cbbce9d3e81c1b8185eb203815a84259581",
+          "text_bytes": 1877
+        }
+      ],
+      "survival": {
+        "bad_o0": 109,
+        "bad_o2": 96,
+        "good_o0": 31,
+        "good_o2": 131,
+        "bad_retained": 0.8807339449541285,
+        "good_retained": 4.225806451612903,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE190_Integer_Overflow__char_fscanf_add_01_bad"
+      ],
+      "good_symbols": [
+        "CWE190_Integer_Overflow__char_fscanf_add_01_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE190_Integer_Overflow__int64_t_fscanf_preinc_01",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE190_Integer_Overflow/s07/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "55b3c0bbc0aaa9cd3376ce17d199d163c1542fdb53d6226f55f3160e52fe1f33",
+          "text_bytes": 1987
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "43a87eae19e2805917efcb1188f4272a4c7b7794d86a81cd1575fab50375c66d",
+          "text_bytes": 1987
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "639a0a396fdfc7acc8b60f3a93d9dc9bf53dbd3a720e5282a353e32f2865a70c",
+          "text_bytes": 1733
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "5ca78ff3fdf1d9564e28af827d47a3e97f280c587d5ed4c44a9838a12a1c581b",
+          "text_bytes": 1733
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "107320e81cb24e7df3c69f699c6125bcf4813567d9b1edd59b1f43c2973b4a7e",
+          "text_bytes": 2110
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "979f5a9d1df0e964b830a7dc7b0d6497b88ab7497330b9d0623aeb63fe1d2928",
+          "text_bytes": 2110
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "1f46bef4ba1535e32d27d3bc23d463a603d9caa2575a0eb81b083d67a7ad7973",
+          "text_bytes": 1909
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "651ca2ee0f645021f91ed2227f8612d9cc23aafb49090677779099e6b9e9e3e0",
+          "text_bytes": 1909
+        }
+      ],
+      "survival": {
+        "bad_o0": 124,
+        "bad_o2": 97,
+        "good_o0": 31,
+        "good_o2": 147,
+        "bad_retained": 0.782258064516129,
+        "good_retained": 4.741935483870968,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE190_Integer_Overflow__int64_t_fscanf_preinc_01_bad"
+      ],
+      "good_symbols": [
+        "CWE190_Integer_Overflow__int64_t_fscanf_preinc_01_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE190_Integer_Overflow__int64_t_fscanf_square_73",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE190_Integer_Overflow/s02/CWE190_Integer_Overflow__int64_t_fscanf_square_73a.cpp",
+        "C/testcases/CWE190_Integer_Overflow/s02/CWE190_Integer_Overflow__int64_t_fscanf_square_73b.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "aae8a4f59480ac3afc01d8fbd7edf5103b2975869df9a302ee0b29e6b7b91617",
+          "text_bytes": 5329
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "66df1a09607b6abd059bf21124d2117b3fc002944f9cc420136b49e221db480c",
+          "text_bytes": 5329
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "3f0220a727e1c777e805067058dbde80158e1e0128faa379bda76716bec113f2",
+          "text_bytes": 2181
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "425186773357aabf2a56b4e12c5118a378282cd5eb89214db7620a857d0d4f17",
+          "text_bytes": 2181
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "6d2b9be88df0aa2bd0a76a1a631eb47d4a9931c92c5a0da32f13aba1e55bf55b",
+          "text_bytes": 5709
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "58677bf528e87b88ab6030b045a592c1a6bf677132bf0dd2b7b5e49eea077d80",
+          "text_bytes": 5709
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "35ba5b1dc526d3ca633e4e6a0a8e245f3c92eacf43df30bf75d0e32fff2bfca2",
+          "text_bytes": 2677
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "24756734cc175ad3c1fa3e00e39c39136d370d635d5d3a4c52cd6b7a54eddd60",
+          "text_bytes": 2677
+        }
+      ],
+      "survival": {
+        "bad_o0": 335,
+        "bad_o2": 478,
+        "good_o0": 715,
+        "good_o2": 953,
+        "bad_retained": 1.4268656716417911,
+        "good_retained": 1.3328671328671329,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE190_Integer_Overflow__int64_t_fscanf_square_73::bad()",
+        "CWE190_Integer_Overflow__int64_t_fscanf_square_73::badSink(std::__cxx11::list<long, std::allocator<long> >)"
+      ],
+      "good_symbols": [
+        "CWE190_Integer_Overflow__int64_t_fscanf_square_73::good()",
+        "CWE190_Integer_Overflow__int64_t_fscanf_square_73::goodB2G()",
+        "CWE190_Integer_Overflow__int64_t_fscanf_square_73::goodB2GSink(std::__cxx11::list<long, std::allocator<long> >)",
+        "CWE190_Integer_Overflow__int64_t_fscanf_square_73::goodG2B()",
+        "CWE190_Integer_Overflow__int64_t_fscanf_square_73::goodG2BSink(std::__cxx11::list<long, std::allocator<long> >)"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE190_Integer_Overflow__short_max_preinc_68",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE190_Integer_Overflow/s07/CWE190_Integer_Overflow__short_max_preinc_68a.c",
+        "C/testcases/CWE190_Integer_Overflow/s07/CWE190_Integer_Overflow__short_max_preinc_68b.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__short_max_preinc_68/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "887bad3e97770a11073633c4f9867befb53061f48c7f1f19f743d12fc45547fb",
+          "text_bytes": 1967
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__short_max_preinc_68/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "ca591b45bc95825f96ba34bd787ef462467398dc7bcfdc6753b158af659ee83f",
+          "text_bytes": 1967
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__short_max_preinc_68/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "5b428bb5d7b40fe2f8443c6f2de793ff44d5e96c85a908ef8bd6ecd8c6369567",
+          "text_bytes": 1701
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__short_max_preinc_68/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "430c604a4e5f6ac598b0cb7c87b6eeb8fd681fea39806bc45671956fb6603143",
+          "text_bytes": 1701
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__short_max_preinc_68/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "df9624dc72433cd0cc0773277e3a7818ab7050f1446b111b01a9186fa0dca167",
+          "text_bytes": 2127
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__short_max_preinc_68/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "815486721a7608451ea8c421c5839bc2dfb13f1a8a249a404f0a9ba1131a8d95",
+          "text_bytes": 2127
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__short_max_preinc_68/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "b76a8f3503a4f02c060ab82de0de726ef9f04c0058cc3d26ce3f933b9fbf1c2b",
+          "text_bytes": 1765
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__short_max_preinc_68/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "1228f2fa3e30b45d8f7de0ad321e18bd93972bd477de7f13fc09ec1a290a10c1",
+          "text_bytes": 1765
+        }
+      ],
+      "survival": {
+        "bad_o0": 48,
+        "bad_o2": 23,
+        "good_o0": 31,
+        "good_o2": 50,
+        "bad_retained": 0.4791666666666667,
+        "good_retained": 1.6129032258064515,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE190_Integer_Overflow__short_max_preinc_68_bad"
+      ],
+      "good_symbols": [
+        "CWE190_Integer_Overflow__short_max_preinc_68_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE23_Relative_Path_Traversal/s01/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "1ef765a3037519914e17e7a8bcd8c126a188a65152280acaf6c00a7d8ad450ec",
+          "text_bytes": 2438
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "0771b9bd201b5df2f8e028af68e38fa1011046cc074ae423b4755cee56735b10",
+          "text_bytes": 2438
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "9ec4f9ac997c0c97ba6adab6b5869b3d90650c94d63546b7db38d509f1c61604",
+          "text_bytes": 1957
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "146d2e00748d0351ea7268168b19d57acdd780e353e35e7268a074dd48904bd2",
+          "text_bytes": 1957
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "c8d82f65c013b3207d3e835d785a8b7184aa23f3df95ba28cb86134434d5d0fe",
+          "text_bytes": 2077
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "5decaad318e99aeb18d9941d6d4d58dadf82bf65d8c08b90bed5d878c95475d9",
+          "text_bytes": 2077
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "e3ba553463fd8edfbbcb6c6abdc30731d58bf17497340f28ac45ec51c08a8337",
+          "text_bytes": 1765
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "49200a7d3a0d7026c74e453d192ce9668d54fddc3c6252c6fe2e559ca4c36673",
+          "text_bytes": 1765
+        }
+      ],
+      "survival": {
+        "bad_o0": 618,
+        "bad_o2": 337,
+        "good_o0": 257,
+        "good_o2": 153,
+        "bad_retained": 0.5453074433656958,
+        "good_retained": 0.5953307392996109,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01::bad()"
+      ],
+      "good_symbols": [
+        "CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01::good()",
+        "CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01::goodG2B()"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE23_Relative_Path_Traversal/s01/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67a.cpp",
+        "C/testcases/CWE23_Relative_Path_Traversal/s01/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67b.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "aa733ab793718cba6bf11248ade7ffd1fd2dc9285c55d8620706aefee20c40d7",
+          "text_bytes": 2479
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "398f76c5afa4957f457e4fcf62d59b999512e424768c018f6afe697799b835c4",
+          "text_bytes": 2479
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "6d80d6e6831fd7b6d09489138c28e8015a6866ca6856be4e9d03c390a0c77522",
+          "text_bytes": 1989
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "a1a5684fba7c1b8fffd010a8fc7ded3588c379d1a3cbdc63bbe58f4dd8c1264c",
+          "text_bytes": 1989
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "95f8ee3fc9095d1e0d6ccb9154a722c27a6ffc3f13ab300506827db339f3255e",
+          "text_bytes": 2118
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "45635f06a42f6b31b01a8f81a0cdc36cf378145c1e3df99ac72794ba69eacd83",
+          "text_bytes": 2118
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "d7c6131d63a28090cf697462b9effa51640d520aba1c9b5c80793957697c8b01",
+          "text_bytes": 1797
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "cbabc5702e1324075a0b024da1d3115765a095a834820bec0384b9e25e1de4f8",
+          "text_bytes": 1797
+        }
+      ],
+      "survival": {
+        "bad_o0": 659,
+        "bad_o2": 360,
+        "good_o0": 298,
+        "good_o2": 172,
+        "bad_retained": 0.5462822458270106,
+        "good_retained": 0.5771812080536913,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67::bad()",
+        "CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67::badSink(CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67::_structType)"
+      ],
+      "good_symbols": [
+        "CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67::good()",
+        "CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67::goodG2B()",
+        "CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67::goodG2BSink(CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67::_structType)"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE23_Relative_Path_Traversal/s02/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52a.cpp",
+        "C/testcases/CWE23_Relative_Path_Traversal/s02/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52b.cpp",
+        "C/testcases/CWE23_Relative_Path_Traversal/s02/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52c.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "7dc38fa5c798013624c88092f08ffbaa67a5aa1b0cdff7c15e667e078fd748b4",
+          "text_bytes": 2589
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "d6d031bbf14eb79429f63a7d894b240dbe03fecb57f3eec5296c633426114271",
+          "text_bytes": 2589
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "b162832b73845aec0e6abf3648e3e84f4cf43c9ae97be2f48d379c68dcb40579",
+          "text_bytes": 2021
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "065add12c6c923994752b3eab5cdacfb9acaefa4aa8cb9dd5a30cad22c823bc5",
+          "text_bytes": 2021
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "4659bc7d6b43bfcf5d4217dcffc8cfbe386ea0a076b84743cc23b215fcb54228",
+          "text_bytes": 2127
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "e366a8d2cafa4c424c1d189d8b9dd4e851ed648c3f3e93e774977a2fa0cd808b",
+          "text_bytes": 2127
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "f787c8cacac27b783f342ebc8c72a21845ef1b446dc430878657b78d1ef61fa2",
+          "text_bytes": 1813
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "76e8b12628e659b46f423801e33611744eb6d16b3c58569d5ede8e1a7b2920be",
+          "text_bytes": 1813
+        }
+      ],
+      "survival": {
+        "bad_o0": 666,
+        "bad_o2": 344,
+        "good_o0": 204,
+        "good_o2": 133,
+        "bad_retained": 0.5165165165165165,
+        "good_retained": 0.6519607843137255,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52::bad()"
+      ],
+      "good_symbols": [
+        "CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52::good()",
+        "CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52::goodG2B()"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE23_Relative_Path_Traversal__wchar_t_environment_ifstream_01",
+      "language": "cpp",
+      "status": "compile_failed",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE23_Relative_Path_Traversal/s04/CWE23_Relative_Path_Traversal__wchar_t_environment_ifstream_01.cpp"
+      ],
+      "binaries": [],
+      "survival": null,
+      "bad_symbols": [],
+      "good_symbols": [],
+      "error": "C/testcases/CWE23_Relative_Path_Traversal/s04/CWE23_Relative_Path_Traversal__wchar_t_environment_ifstream_01.cpp: In function ‘void CWE23_Relative_Path_Traversal__wchar_t_environment_ifstream_01::bad()’:\nC/testcases/CWE23_Relative_Path_Traversal/s04/CWE23_Relative_Path_Traversal__wchar_t_environment_ifstream_01.cpp:26:22: error: cannot convert ‘const wchar_t*’ to ‘const char*’\n   26 | #define ENV_VARIABLE L\"ADD\"\n      |                      ^~~~~~\n      |                      |\n      |                      const wchar_t*\nC/testcases/CWE23_Relative_Path_Traversal/s04/CWE23_Relative_Path_Traversal__wchar_t_environment_ifstream_01.cpp:50:40: note: in expansion of macro ‘ENV_VARIABLE’\n   50 |         wchar_t * environment = GETENV(ENV_VARIABLE);\n      |                                        ^~~~~~~~~~~~\nIn file included from /usr/include/c++/11/cstdlib:75,\n                 from /usr/include/c++/11/stdlib.h:36,\n                 from C/testcasesupport/std_testcase.h:39,\n                 from C/testcases/CWE23_Relative_Path_Traversal/s04/CWE23_Relative_Path_Traversal__wchar_t_environment_ifstream_01.cpp:17:\n/usr/include/stdlib.h:641:34: note:   initializing argument 1 of ‘char* getenv(const char*)’\n  641 | extern char *getenv (const char *__name) __THROW __nonnull ((1)) __wur;\n      |                      ~~~~~~~~~~~~^~~~~~"
+    },
+    {
+      "case_id": "CWE369_Divide_by_Zero__float_fscanf_01",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE369_Divide_by_Zero/s01/CWE369_Divide_by_Zero__float_fscanf_01.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__float_fscanf_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "4a1a7405d29ab0dd4cd8b026ff4b67341b2e51c1ffb44a952ce00bef4444f579",
+          "text_bytes": 1998
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__float_fscanf_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "9180f9a9091e54c13661a34fbdf5533cb57b9a94705aca779413a68dbbf4840a",
+          "text_bytes": 1998
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__float_fscanf_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "9cb5895b806a23758a07ce431d4233badf5429baf31a4307fd942329097657ed",
+          "text_bytes": 1749
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__float_fscanf_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "2c964c7d6a09cd2a35aa875c40fe9cdf837786c56fc3b42137ce0551a4b6b792",
+          "text_bytes": 1749
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__float_fscanf_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "c8f4082360873860a4dbf12ba81435c5a7c5c41b9f9848b3a76efb8b37ae2358",
+          "text_bytes": 2151
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__float_fscanf_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "08f1353276ce2d240b7fc9bef4f5d007c139f0429d9fcbca7482b029c14ca027",
+          "text_bytes": 2151
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__float_fscanf_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "cfe44887e32de3d6d6c2c7cf5039372674f54ca31c983631d98a734862f38432",
+          "text_bytes": 1829
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__float_fscanf_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "24788d6b408f4f44c43a44d2065a006fe19d53fc03830dd42ff7a24079ea2fc3",
+          "text_bytes": 1829
+        }
+      ],
+      "survival": {
+        "bad_o0": 135,
+        "bad_o2": 113,
+        "good_o0": 31,
+        "good_o2": 29,
+        "bad_retained": 0.837037037037037,
+        "good_retained": 0.9354838709677419,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE369_Divide_by_Zero__float_fscanf_01_bad"
+      ],
+      "good_symbols": [
+        "CWE369_Divide_by_Zero__float_fscanf_01_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE369_Divide_by_Zero__int_connect_socket_modulo_81",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE369_Divide_by_Zero/s01/CWE369_Divide_by_Zero__int_connect_socket_modulo_81_bad.cpp",
+        "C/testcases/CWE369_Divide_by_Zero/s01/CWE369_Divide_by_Zero__int_connect_socket_modulo_81a.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "10097f9987d9684ea6ee2f3af2a5d6e15320cd02ebec6539bb6739c78c4b30ce",
+          "text_bytes": 2178
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "b43738cf40285aa9582bac35e84e4da416159dd97f2f36a8e69704407c672df7",
+          "text_bytes": 2178
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "4fc03c8343dfe504daa6c4bcd0fbffbbb6f459d59eda6a5f885b676dc230e21c",
+          "text_bytes": 1909
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "4e2ce1c4bfe420695610885a172702cbfda98dfa9db573e712921b3172c8118f",
+          "text_bytes": 1909
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "faeaa1a1856fd20133cda8584be364518d0252d4c6e11d9b2bdb6c8d351a7a7b",
+          "text_bytes": 2370
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "086c82157c64d74361dc2d180ae96759d0ffd5cfe0659eb28cc16d4629d21bfc",
+          "text_bytes": 2370
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "01fd76d317350cd1d837a28400de9d4c54f52f35ac338f2ba66df8dc8c32adfb",
+          "text_bytes": 1989
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "c0e5f52a4a746ad26fec3f23a5c56c41fb2fe5622e633d6a62e2e49768677c42",
+          "text_bytes": 1989
+        }
+      ],
+      "survival": {
+        "bad_o0": 318,
+        "bad_o2": 271,
+        "good_o0": 446,
+        "good_o2": 303,
+        "bad_retained": 0.8522012578616353,
+        "good_retained": 0.679372197309417,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE369_Divide_by_Zero__int_connect_socket_modulo_81::bad()"
+      ],
+      "good_symbols": [
+        "CWE369_Divide_by_Zero__int_connect_socket_modulo_81::good()",
+        "CWE369_Divide_by_Zero__int_connect_socket_modulo_81::goodB2G()",
+        "CWE369_Divide_by_Zero__int_connect_socket_modulo_81::goodG2B()"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE369_Divide_by_Zero__int_rand_divide_81",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE369_Divide_by_Zero/s02/CWE369_Divide_by_Zero__int_rand_divide_81_bad.cpp",
+        "C/testcases/CWE369_Divide_by_Zero/s02/CWE369_Divide_by_Zero__int_rand_divide_81a.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "4475bf2bdc88255db9497c382c9823e489a7e2b904f296cb6c0dc7ffbfc9b03f",
+          "text_bytes": 2036
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "30b5fdfb03c47b37f804a3e462bab5431de3d8af4507d9dc2180e38b2ed7aa12",
+          "text_bytes": 2036
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "3f0c5a19c34a5fa5d102101642a27c4f734b58a69a6e303112b5304c6fb7424d",
+          "text_bytes": 1797
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "b907f347a4550cf6a27f301dc8303501ae4d048f8a368c013901a4d635b76407",
+          "text_bytes": 1797
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_rand_divide_81/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "2fecff9cfebf60d8e0c19f9ba431660283381737090652d6b67c6f4a44bd53de",
+          "text_bytes": 2226
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_rand_divide_81/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "d9df3d0fb61ae97a00ededd69e1f713be4f04d2f1bf44d3c166d553ba8ed3df1",
+          "text_bytes": 2226
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_rand_divide_81/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "35c81814a2c7151ece633a2fee3b3078737d1ef1e514ceb0cd7681a09fc096b0",
+          "text_bytes": 1861
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_rand_divide_81/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "1f3377717bb854d1a8467a3be0e994fa96b47b53f26c066451d40f748b11e8a1",
+          "text_bytes": 1861
+        }
+      ],
+      "survival": {
+        "bad_o0": 178,
+        "bad_o2": 150,
+        "good_o0": 306,
+        "good_o2": 174,
+        "bad_retained": 0.8426966292134831,
+        "good_retained": 0.5686274509803921,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE369_Divide_by_Zero__int_rand_divide_81::bad()"
+      ],
+      "good_symbols": [
+        "CWE369_Divide_by_Zero__int_rand_divide_81::good()",
+        "CWE369_Divide_by_Zero__int_rand_divide_81::goodB2G()",
+        "CWE369_Divide_by_Zero__int_rand_divide_81::goodG2B()"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE369_Divide_by_Zero__int_zero_divide_01",
+      "language": "c",
+      "status": "erased",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE369_Divide_by_Zero/s02/CWE369_Divide_by_Zero__int_zero_divide_01.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "0e3e7623ca814781fc107b8dec8987e2795d6c40fa837dd8eb4ac7dd4e095d27",
+          "text_bytes": 1908
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "dd2e8d7bda7bdefa614c9b975e9e06544c47559b0de20e11cb7a1bb29e72b93a",
+          "text_bytes": 1908
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "74c99ce7188a83d3255a958372616f739c1b5df213d35aa75c1ffacdc27cf6ed",
+          "text_bytes": 1621
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "e62f675470b32526dac47659641135080ba43d1b70453e537ecb8e9aa919af89",
+          "text_bytes": 1621
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_zero_divide_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "06275cbccd86d52362b92134f97ef7bdd108ba29b2bbb68995b0c37c33ada63b",
+          "text_bytes": 2007
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_zero_divide_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "f0f83591f4a00a645e0f226a16b3278fe93ec9e2686df809c6eefdf29a46ef9d",
+          "text_bytes": 2007
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_zero_divide_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "250f07affdbe79880e2d5617bf4a87416ce87d09f3a32ff6744b93d07f74f76b",
+          "text_bytes": 1669
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_zero_divide_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "0ce2aecb917b48e6c67816018110308c2b379d5db0ffc34f46c95809be9bf904",
+          "text_bytes": 1669
+        }
+      ],
+      "survival": {
+        "bad_o0": 45,
+        "bad_o2": 6,
+        "good_o0": 31,
+        "good_o2": 34,
+        "bad_retained": 0.13333333333333333,
+        "good_retained": 1.096774193548387,
+        "threshold": 0.15,
+        "survived": false
+      },
+      "bad_symbols": [
+        "CWE369_Divide_by_Zero__int_zero_divide_01_bad"
+      ],
+      "good_symbols": [
+        "CWE369_Divide_by_Zero__int_zero_divide_01_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE401_Memory_Leak__int_malloc_62",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE401_Memory_Leak/s01/CWE401_Memory_Leak__int_malloc_62a.cpp",
+        "C/testcases/CWE401_Memory_Leak/s01/CWE401_Memory_Leak__int_malloc_62b.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__int_malloc_62/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "edf7b9ce4cf6b1b3c792ebd5db1e4308e371d0d91a1857c1221e78f4602e3ec3",
+          "text_bytes": 1980
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__int_malloc_62/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "3f32314b1ed6b051b2b1742591bedf570041dc1a2223f65ee319a8903c19ee70",
+          "text_bytes": 1980
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__int_malloc_62/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "134bb91d680a35485c43b0a5aacac33b58691a10fca03565a981c602d0cda2f0",
+          "text_bytes": 1797
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__int_malloc_62/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "498591b02fe98f03075e669d2cd41b29dbb6db3eac1a8d517136f55d46653f64",
+          "text_bytes": 1797
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__int_malloc_62/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "b66c1d2c71c6851631a59755f3b37d018d0e737f5bd71ccf9de6e10e2f0ac61d",
+          "text_bytes": 2304
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__int_malloc_62/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "2308b2e80fd9ae6dcb5a5b6dedc011f5eba6c151bb98e7b23ac811ec5a37848d",
+          "text_bytes": 2304
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__int_malloc_62/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "0d44fd82693dfcab5fb61ddf89b418127a7ad68e134815d5e5d24e3de2ffdb99",
+          "text_bytes": 1893
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__int_malloc_62/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "80c2af771e6aa525a29f68dfe45397e8d3ba4ee0f159eb42491dd68f08acd5d2",
+          "text_bytes": 1893
+        }
+      ],
+      "survival": {
+        "bad_o0": 160,
+        "bad_o2": 117,
+        "good_o0": 484,
+        "good_o2": 267,
+        "bad_retained": 0.73125,
+        "good_retained": 0.5516528925619835,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE401_Memory_Leak__int_malloc_62::bad()",
+        "CWE401_Memory_Leak__int_malloc_62::badSource(int*&)"
+      ],
+      "good_symbols": [
+        "CWE401_Memory_Leak__int_malloc_62::good()",
+        "CWE401_Memory_Leak__int_malloc_62::goodB2G()",
+        "CWE401_Memory_Leak__int_malloc_62::goodB2GSource(int*&)",
+        "CWE401_Memory_Leak__int_malloc_62::goodG2B()",
+        "CWE401_Memory_Leak__int_malloc_62::goodG2BSource(int*&)"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE401_Memory_Leak__new_array_int64_t_01",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE401_Memory_Leak/s02/CWE401_Memory_Leak__new_array_int64_t_01.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__new_array_int64_t_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "f265b5af29dc7a2afea5923bd84050a84c181599cf78d9eb42a69fc0768eb1a4",
+          "text_bytes": 1883
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__new_array_int64_t_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "55e4da2b232e189e200051592e1f2a12edd276e4ba2f3034c006939e890dfe11",
+          "text_bytes": 1883
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__new_array_int64_t_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "e6d169038c745f7cc8d7b6be51301611d1dff5976651f8f3a88742769baf3cae",
+          "text_bytes": 1621
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__new_array_int64_t_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "45f42c70c7a3a96fc71c05a292b6e74c9200adb9c7bc2f7e593b39b0043001b8",
+          "text_bytes": 1621
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__new_array_int64_t_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "2866dead181b202ae1675333c068ae1005de182c5c1bf27a277dc3f526f0960b",
+          "text_bytes": 2033
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__new_array_int64_t_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "d8a7c2e69e45596eea2599be698d4674b9f38ff51456d2163416632d9335f3d6",
+          "text_bytes": 2033
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__new_array_int64_t_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "95ac2c9a933d577ebc36a1c38d2254602584c14cf8119177bca1fe5b9882300f",
+          "text_bytes": 1637
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__new_array_int64_t_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "3c74b436105d750a2b3253780ef60a7120488bf1d17f1bdd5b71a99fc5f393df",
+          "text_bytes": 1637
+        }
+      ],
+      "survival": {
+        "bad_o0": 63,
+        "bad_o2": 14,
+        "good_o0": 213,
+        "good_o2": 32,
+        "bad_retained": 0.2222222222222222,
+        "good_retained": 0.15023474178403756,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE401_Memory_Leak__new_array_int64_t_01::bad()"
+      ],
+      "good_symbols": [
+        "CWE401_Memory_Leak__new_array_int64_t_01::good()",
+        "CWE401_Memory_Leak__new_array_int64_t_01::goodB2G()",
+        "CWE401_Memory_Leak__new_array_int64_t_01::goodG2B()"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE401_Memory_Leak__twoIntsStruct_calloc_01",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE401_Memory_Leak/s03/CWE401_Memory_Leak__twoIntsStruct_calloc_01.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "8f2783ff171a62ddacd6023dee18bd93e61041c89b53e6d6e3c916accb2da989",
+          "text_bytes": 1955
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "a58b98383f57bcf879495c02b241770e557f2d390b7d377eacb8753efd8b3964",
+          "text_bytes": 1955
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "99c1603e412ca96a74bac2b35371af2cbff3433890befae979ec5510269c0b7b",
+          "text_bytes": 1669
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "2711fdb25f522797be564bd3dbf273b62b39038142e23c6b61147995ab28f144",
+          "text_bytes": 1669
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "cb44d4495e038a7d1aaf5f5d7268428ca4b4acd8e56833e95dfd7bc02090d767",
+          "text_bytes": 2221
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "16c1f30001f360ad475a5778701b7b7e942707b0e12c9606e4151da357fccc0d",
+          "text_bytes": 2221
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "52e123e08130b84b254b553b496a1234d08e9b1649f7abbebe1653409751696c",
+          "text_bytes": 1845
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "e1fdc7a2764a795ffe57d43916c4787a0e8e6bb3724bf0c54db3165fdc33f190",
+          "text_bytes": 1845
+        }
+      ],
+      "survival": {
+        "bad_o0": 92,
+        "bad_o2": 48,
+        "good_o0": 31,
+        "good_o2": 60,
+        "bad_retained": 0.5217391304347826,
+        "good_retained": 1.935483870967742,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE401_Memory_Leak__twoIntsStruct_calloc_01_bad"
+      ],
+      "good_symbols": [
+        "CWE401_Memory_Leak__twoIntsStruct_calloc_01_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE401_Memory_Leak__wchar_t_malloc_74",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE401_Memory_Leak/s03/CWE401_Memory_Leak__wchar_t_malloc_74a.cpp",
+        "C/testcases/CWE401_Memory_Leak/s03/CWE401_Memory_Leak__wchar_t_malloc_74b.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "5286582f3b87bfa8a93ca7e2c43033d88e02b7ba24fab6b27a406255102fb123",
+          "text_bytes": 10583
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "1bc0cb799ee7017071809aa23514048bfbd0cba3c69a990c4a11879637535713",
+          "text_bytes": 10583
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "01e5a6ee32a0db92fc8a8b448cb6f97ca9be531b939dceec4e49c616e82f5f7f",
+          "text_bytes": 4117
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "bd7933d1fb41a2936fd06532c92fe8e3d56498100b8dd0838dda8f19abd654e3",
+          "text_bytes": 4117
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__wchar_t_malloc_74/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "b6e04cde8e3ee8ee3ceb8225f79b529d1286daab05729e712df2fa2078192518",
+          "text_bytes": 11174
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__wchar_t_malloc_74/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "095e0e86f624dead044ff7be37c14ca24a7ebc9646b26a4bdac90abe1ebb9ece",
+          "text_bytes": 11174
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__wchar_t_malloc_74/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "d2c32b670623db33389a0834b5f70c92eb0d67630fd0acce4a3c8ebcb3fcedeb",
+          "text_bytes": 5429
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__wchar_t_malloc_74/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "3785f29c22dacbcb21d7ea3f4d4e7c8b0cfb90761f5372fd2e336446496cd678",
+          "text_bytes": 5429
+        }
+      ],
+      "survival": {
+        "bad_o0": 460,
+        "bad_o2": 1148,
+        "good_o0": 1051,
+        "good_o2": 2255,
+        "bad_retained": 2.4956521739130433,
+        "good_retained": 2.1455756422454804,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE401_Memory_Leak__wchar_t_malloc_74::bad()",
+        "CWE401_Memory_Leak__wchar_t_malloc_74::badSink(std::map<int, wchar_t*, std::less<int>, std::allocator<std::pair<int const, wchar_t*> > >)"
+      ],
+      "good_symbols": [
+        "CWE401_Memory_Leak__wchar_t_malloc_74::good()",
+        "CWE401_Memory_Leak__wchar_t_malloc_74::goodB2G()",
+        "CWE401_Memory_Leak__wchar_t_malloc_74::goodB2GSink(std::map<int, wchar_t*, std::less<int>, std::allocator<std::pair<int const, wchar_t*> > >)",
+        "CWE401_Memory_Leak__wchar_t_malloc_74::goodG2B()",
+        "CWE401_Memory_Leak__wchar_t_malloc_74::goodG2BSink(std::map<int, wchar_t*, std::less<int>, std::allocator<std::pair<int const, wchar_t*> > >)"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE415_Double_Free__malloc_free_int64_t_01",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE415_Double_Free/s01/CWE415_Double_Free__malloc_free_int64_t_01.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__malloc_free_int64_t_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "c2c99a24738dc7583fd6c56446d371bfd2d4bb982252d4661c31f99b08d25e4b",
+          "text_bytes": 1941
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__malloc_free_int64_t_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "a9156352da38bf461d8d5ceb728e8d7221cb2b8582bc7f04ad5a2c3a033ce112",
+          "text_bytes": 1941
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__malloc_free_int64_t_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "a330126494d7e63a0b909192c76fe348e6777185ec17ed6fd231fee09da8126f",
+          "text_bytes": 1669
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__malloc_free_int64_t_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "93589bb4e672560546196b0a3ef5d114b90f636dee150c8f53af6aecfdaa1328",
+          "text_bytes": 1669
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__malloc_free_int64_t_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "f8209aa09b540b1f9c2c7dae3622677363ab32e20454d2cb35c3091f35fc704a",
+          "text_bytes": 2026
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__malloc_free_int64_t_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "8dccda16b8ed14eb1b58dc35ef85f9eb60292888e432b646c3829917c578f33b",
+          "text_bytes": 2026
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__malloc_free_int64_t_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "fc7a30ffd5d1fa2cfc6c393997c09ca352744e6a42b31b8a6bf948681ad3c70f",
+          "text_bytes": 1765
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__malloc_free_int64_t_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "0566b2bb7beded40ab1f2da70893db180685f9b2e362185334cc6dc6578b81b9",
+          "text_bytes": 1765
+        }
+      ],
+      "survival": {
+        "bad_o0": 78,
+        "bad_o2": 48,
+        "good_o0": 31,
+        "good_o2": 66,
+        "bad_retained": 0.6153846153846154,
+        "good_retained": 2.129032258064516,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE415_Double_Free__malloc_free_int64_t_01_bad"
+      ],
+      "good_symbols": [
+        "CWE415_Double_Free__malloc_free_int64_t_01_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE415_Double_Free__new_delete_array_class_66",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE415_Double_Free/s01/CWE415_Double_Free__new_delete_array_class_66a.cpp",
+        "C/testcases/CWE415_Double_Free/s01/CWE415_Double_Free__new_delete_array_class_66b.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_array_class_66/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "abf1ebcea5a81884c4c92fee92ff2e9f76106a463b79dba6d16f4ca3d18135b8",
+          "text_bytes": 1981
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_array_class_66/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "d725906420b0b272d398616081448910e6b36a7ec69b9a2313a6175abedd9f80",
+          "text_bytes": 1981
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_array_class_66/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "6317a4f34bf439c50b759416cbc03d0a6c62c1a45845f7b975e2bdcd836a63f0",
+          "text_bytes": 1733
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_array_class_66/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "bac1ec74cb06e4a3f1fe0235490289c7967d9041b79bc8df5d4c8a26b215618d",
+          "text_bytes": 1733
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_array_class_66/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "985d91f5e06f9435baa9e83de89f3a819af04f91bf575e24ffce86e8bb4b39a6",
+          "text_bytes": 2121
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_array_class_66/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "3271ac2caa1f41a2dd5e395409b246ee31a8e65d4902f8f466aeb329577a54d6",
+          "text_bytes": 2121
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_array_class_66/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "58b69315229da86592bb0a2df9c5b2cd37f8434a8e60a0803b2b86915528972a",
+          "text_bytes": 1877
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_array_class_66/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "a12221a3a47a742184f2d659fba749d0f754f3b5ee676198055c02def3d0b77f",
+          "text_bytes": 1877
+        }
+      ],
+      "survival": {
+        "bad_o0": 161,
+        "bad_o2": 111,
+        "good_o0": 301,
+        "good_o2": 144,
+        "bad_retained": 0.6894409937888198,
+        "good_retained": 0.47840531561461797,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE415_Double_Free__new_delete_array_class_66::bad()",
+        "CWE415_Double_Free__new_delete_array_class_66::badSink(TwoIntsClass**)"
+      ],
+      "good_symbols": [
+        "CWE415_Double_Free__new_delete_array_class_66::good()",
+        "CWE415_Double_Free__new_delete_array_class_66::goodB2G()",
+        "CWE415_Double_Free__new_delete_array_class_66::goodB2GSink(TwoIntsClass**)",
+        "CWE415_Double_Free__new_delete_array_class_66::goodG2B()",
+        "CWE415_Double_Free__new_delete_array_class_66::goodG2BSink(TwoIntsClass**)"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE415_Double_Free__new_delete_int64_t_01",
+      "language": "cpp",
+      "status": "erased",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE415_Double_Free/s02/CWE415_Double_Free__new_delete_int64_t_01.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_int64_t_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "1898837113c2d15d19fe7a2b19f669ad4d91f7f194618fd67f43301428ad32f8",
+          "text_bytes": 1901
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_int64_t_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "038fd9b24ed0104c5b42b429d5c7bee7aa796e734e373d5c239913d960840413",
+          "text_bytes": 1901
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_int64_t_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "eb621880e7ba82ad5e903a5d4d6a000b9392ae9218dc61e71e8e5311b280bb30",
+          "text_bytes": 1621
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_int64_t_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "c123a2a98dc1403769adf4757102c257649dc12d17820c6e14a2ad7a154c31c9",
+          "text_bytes": 1621
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_int64_t_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "2afbba6cb98e2930ace7daa6a72ed1ec3d393c5e11dac894c611e1718448044b",
+          "text_bytes": 1959
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_int64_t_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "0abef8968a4a4c3a51f768fef260ad5cd9a3bfc95ad45b8666956e787985808d",
+          "text_bytes": 1959
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_int64_t_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "a3776fc46be094781cd0a043b66f4a282715f6ba74ba3617cbd97b4be9ea5dfd",
+          "text_bytes": 1621
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_int64_t_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "079d1470a8a84d6c7c6ccfa9b96fa30542b5b4476312304e9e45f850b82d7b88",
+          "text_bytes": 1621
+        }
+      ],
+      "survival": {
+        "bad_o0": 81,
+        "bad_o2": 5,
+        "good_o0": 139,
+        "good_o2": 5,
+        "bad_retained": 0.06172839506172839,
+        "good_retained": 0.03597122302158273,
+        "threshold": 0.15,
+        "survived": false
+      },
+      "bad_symbols": [
+        "CWE415_Double_Free__new_delete_int64_t_01::bad()"
+      ],
+      "good_symbols": [
+        "CWE415_Double_Free__new_delete_int64_t_01::good()",
+        "CWE415_Double_Free__new_delete_int64_t_01::goodB2G()",
+        "CWE415_Double_Free__new_delete_int64_t_01::goodG2B()"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE415_Double_Free__new_delete_struct_83",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE415_Double_Free/s02/CWE415_Double_Free__new_delete_struct_83_bad.cpp",
+        "C/testcases/CWE415_Double_Free/s02/CWE415_Double_Free__new_delete_struct_83a.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_struct_83/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "a3b59780a17ea2b89468eabe785aa9c02ff639e63e48e1bae37fbaec30ba45e5",
+          "text_bytes": 2032
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_struct_83/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "b9e3827c78a9812cf0e4832f8a114789d7db5e17b32f85576e187d97d10d91ba",
+          "text_bytes": 2032
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_struct_83/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "50ff1051f2bd247b457afd5f4c72ab461a94b2b4afe12ed7cfde876b3ecc8909",
+          "text_bytes": 1781
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_struct_83/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "eca05cd65af411d2e00581df337dd7a524ea10d46a2c956c0ce002f6f75d233e",
+          "text_bytes": 1781
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_struct_83/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "69ae7384ab0e4e3e3c2187f528d7e2628d69c23f925c07e01146243032389af4",
+          "text_bytes": 2211
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_struct_83/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "2e1f734a337c8a96f16ffcbb55d81c6f7a4d8c88c3a6d41b86af8e4c728df12c",
+          "text_bytes": 2211
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_struct_83/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "46e54e159387b110e61092b2428221ce958ae83c7373a0ab6bb1a85b9ce50dbe",
+          "text_bytes": 1925
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_struct_83/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "d13810fcd49698a6fc6792543ea7b1d76fd445d5d60565aaf6ea1c6ce2a44596",
+          "text_bytes": 1925
+        }
+      ],
+      "survival": {
+        "bad_o0": 88,
+        "bad_o2": 73,
+        "good_o0": 197,
+        "good_o2": 91,
+        "bad_retained": 0.8295454545454546,
+        "good_retained": 0.4619289340101523,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE415_Double_Free__new_delete_struct_83::bad()"
+      ],
+      "good_symbols": [
+        "CWE415_Double_Free__new_delete_struct_83::good()",
+        "CWE415_Double_Free__new_delete_struct_83::goodB2G()",
+        "CWE415_Double_Free__new_delete_struct_83::goodG2B()"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE416_Use_After_Free__malloc_free_char_64",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE416_Use_After_Free/CWE416_Use_After_Free__malloc_free_char_64a.c",
+        "C/testcases/CWE416_Use_After_Free/CWE416_Use_After_Free__malloc_free_char_64b.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_char_64/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "365cac1dc69ec05b89598a61d8960b70739d246a01eac43fb15c2ec8327c395b",
+          "text_bytes": 2061
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_char_64/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "28b333e1e56cb4b1f97bb7462f377e30e9ab79b2d63e13d35aa1f5cdcb9e1169",
+          "text_bytes": 2061
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_char_64/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "7b520a4ff5b6ee223b194ee15c1fa01659488cede1b98cfd1ad203b456f5ebf4",
+          "text_bytes": 1733
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_char_64/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "15c42f403d7b0403f487ef4318db37dfb3f5bc7386fe8de424900b5a0cbd7966",
+          "text_bytes": 1733
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_char_64/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "73038dc4c92508007090e6d821b37ffdd595eb3595cb85410f4cac37d4bd7a53",
+          "text_bytes": 2262
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_char_64/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "4553f620f831aa990d81fe518b286431874ce7a0fa36b41591a22bfdeb9e6558",
+          "text_bytes": 2262
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_char_64/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "f1e13dd36d148daeaaeb3245fcf78751f446eff73397394f314d46c78bba981c",
+          "text_bytes": 1989
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_char_64/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "c1d2bf8b9772ce7fd3edd5ee7d2bd7d17b1ccb16a08586917e9c84c1b5e2656b",
+          "text_bytes": 1989
+        }
+      ],
+      "survival": {
+        "bad_o0": 148,
+        "bad_o2": 93,
+        "good_o0": 31,
+        "good_o2": 174,
+        "bad_retained": 0.6283783783783784,
+        "good_retained": 5.612903225806452,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE416_Use_After_Free__malloc_free_char_64_bad"
+      ],
+      "good_symbols": [
+        "CWE416_Use_After_Free__malloc_free_char_64_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE416_Use_After_Free__malloc_free_int64_t_01",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE416_Use_After_Free/CWE416_Use_After_Free__malloc_free_int64_t_01.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "5597a2edd66e93ec3db776cfa88f9a84504c159baa7d63a912752c061249f2b4",
+          "text_bytes": 1992
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "2a106725c6fe89730d9f25eaa7e07e8a1ada4ac5449ea178c1d471c93bcede11",
+          "text_bytes": 1992
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "4353f391c41a58dd7161c769155ccf9efac5345a5565b703ab93153f88e217fd",
+          "text_bytes": 1717
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "57e7de49c3af4a7bf9c566e25083d88dbb3b868a5cca09f9bf06f4889753b400",
+          "text_bytes": 1717
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "f63af1b8804a01cc633838095a979b81dc88f8b35f9b04201304373e988e42e3",
+          "text_bytes": 2125
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "4a70e405a0162913eba35a72de8f6fcd4dd90fb23d890c28b6ccee4b39cddaa4",
+          "text_bytes": 2125
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "7bc75b36f46e453aee7e10a8945c2b6bb1d5020e52386ea1d411655c91b2566b",
+          "text_bytes": 1797
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "1de71eb3bd08474013ccc30069bbd0cf7bf6a42a854e9aed3e0ffe7e78df215e",
+          "text_bytes": 1797
+        }
+      ],
+      "survival": {
+        "bad_o0": 129,
+        "bad_o2": 81,
+        "good_o0": 31,
+        "good_o2": 50,
+        "bad_retained": 0.627906976744186,
+        "good_retained": 1.6129032258064515,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE416_Use_After_Free__malloc_free_int64_t_01_bad"
+      ],
+      "good_symbols": [
+        "CWE416_Use_After_Free__malloc_free_int64_t_01_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE416_Use_After_Free__malloc_free_int_01",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE416_Use_After_Free/CWE416_Use_After_Free__malloc_free_int_01.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "cf5d82e7665bab31296c5bdce4a8595dbad463c5769062dabd2c986eb59dc6af",
+          "text_bytes": 1989
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "bd6f3a26eb080f5d31099734c85ac1d3a643894babe9f09e6bb681f1b6905491",
+          "text_bytes": 1989
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "ace3f6d4cc18bba8abfaa723e3a5490ec58cc3353fb9d152ea3c47f90bccd0a7",
+          "text_bytes": 1701
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "b043eb3c36f319815d67b4f12135378b09ecf94b058029ce95d8fe962e91c1c3",
+          "text_bytes": 1701
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "f78dd1d1070bfa9d48c8a9c6e5e87e16eedd3c27102851a53a70bcacceb59c45",
+          "text_bytes": 2121
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "b44c9a86f191e083caa00e0d77dc23331a037984aca82386cec8298d7724c1aa",
+          "text_bytes": 2121
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "e2a7efd39f160ee998e433bb8d7ba38b7960862bc92061265141e4e46c661b2b",
+          "text_bytes": 1797
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "009a0068990f1888cb43a4f355be5189ce17a1e97e01e335eb7a3006d2868014",
+          "text_bytes": 1797
+        }
+      ],
+      "survival": {
+        "bad_o0": 126,
+        "bad_o2": 79,
+        "good_o0": 31,
+        "good_o2": 50,
+        "bad_retained": 0.626984126984127,
+        "good_retained": 1.6129032258064515,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE416_Use_After_Free__malloc_free_int_01_bad"
+      ],
+      "good_symbols": [
+        "CWE416_Use_After_Free__malloc_free_int_01_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE416_Use_After_Free__new_delete_array_int_62",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE416_Use_After_Free/CWE416_Use_After_Free__new_delete_array_int_62a.cpp",
+        "C/testcases/CWE416_Use_After_Free/CWE416_Use_After_Free__new_delete_array_int_62b.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__new_delete_array_int_62/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "216fc8fd4657365b2e2c005e69665678b9ebad95d62fb387dc30728fafdd401f",
+          "text_bytes": 2015
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__new_delete_array_int_62/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "c53723c6c66cbfc04529f684dc65e2fe54582af992c64ba7648023d366344517",
+          "text_bytes": 2015
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__new_delete_array_int_62/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "9808d7be71d6844303afe3d6f7f85044177b8bb627ceeac778dfdb232f0e75eb",
+          "text_bytes": 1749
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__new_delete_array_int_62/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "2330ce572d3e7f553b720142495e48321d74870e38bea1f2006e2b2df51093df",
+          "text_bytes": 1749
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__new_delete_array_int_62/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "ba8b8c9001fd283d2e854a8b9057c0b2b150f0ce913cb36c537d31d61aa9d2a2",
+          "text_bytes": 2192
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__new_delete_array_int_62/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "bbe672f40d49e6c9cae90078c16467a15c592ce182f8aff351c0315b0b623c04",
+          "text_bytes": 2192
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__new_delete_array_int_62/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "5237c69360f1148e9c5c91638da8d84073f486387f451442c5f66e81db73c0ff",
+          "text_bytes": 1845
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__new_delete_array_int_62/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "4a73bf33a02b24390d55fc3904a4321a111e0c4736043e8319500f1f39fa1689",
+          "text_bytes": 1845
+        }
+      ],
+      "survival": {
+        "bad_o0": 195,
+        "bad_o2": 138,
+        "good_o0": 372,
+        "good_o2": 208,
+        "bad_retained": 0.7076923076923077,
+        "good_retained": 0.5591397849462365,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE416_Use_After_Free__new_delete_array_int_62::bad()",
+        "CWE416_Use_After_Free__new_delete_array_int_62::badSource(int*&)"
+      ],
+      "good_symbols": [
+        "CWE416_Use_After_Free__new_delete_array_int_62::good()",
+        "CWE416_Use_After_Free__new_delete_array_int_62::goodB2G()",
+        "CWE416_Use_After_Free__new_delete_array_int_62::goodB2GSource(int*&)",
+        "CWE416_Use_After_Free__new_delete_array_int_62::goodG2B()",
+        "CWE416_Use_After_Free__new_delete_array_int_62::goodG2BSource(int*&)"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE789_Uncontrolled_Mem_Alloc/s01/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67a.c",
+        "C/testcases/CWE789_Uncontrolled_Mem_Alloc/s01/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67b.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "c7296a96bdc11b8d29e09cd613c71bc5cd38e73666ec008643c936b205d21034",
+          "text_bytes": 2191
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "e7c38c3ec2a28299957f5671736a81926f1087c860361dace690883753458c76",
+          "text_bytes": 2191
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "d761984f0fc699638dd1af4266bdbf5589aca814df5256869e087115d2886b0f",
+          "text_bytes": 1893
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "ea3e7fc623c8bdef879a5cde3c37b53a6813689fa1e273b27dade2be7c154581",
+          "text_bytes": 1893
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "c67f37b287bf7142aecb93ac7bca787e2285a63dd7eaacce3a19e04e91b034c8",
+          "text_bytes": 2429
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "a9762b05cb81b01465ae3fff9b86646723e8caa103779392157de0d28e2b2a0a",
+          "text_bytes": 2429
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "11a3ee1800342e5a63eb20f00cd419ffdc7702236b699024c8329f15819abdf9",
+          "text_bytes": 2021
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "d7847370e8fce15ace059ae8881ed8d4e3815646838ca6d7b1c0b51a9957e5b3",
+          "text_bytes": 2021
+        }
+      ],
+      "survival": {
+        "bad_o0": 180,
+        "bad_o2": 149,
+        "good_o0": 31,
+        "good_o2": 149,
+        "bad_retained": 0.8277777777777777,
+        "good_retained": 4.806451612903226,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67_bad"
+      ],
+      "good_symbols": [
+        "CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE789_Uncontrolled_Mem_Alloc/s02/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51a.cpp",
+        "C/testcases/CWE789_Uncontrolled_Mem_Alloc/s02/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51b.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "5c0ba04f583508d5c76d4fbaa0a016b31d323cf3ea33676e14134849a47a7604",
+          "text_bytes": 2301
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "3bcb5506bd68c5b444e607262c5c1e0529b8837f50712e000cd5d561a1c3f2d0",
+          "text_bytes": 2301
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "11d26a81bfe9ca071f118a5b840ab658d6162102c320d9884a22dd7d18c40332",
+          "text_bytes": 1973
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "998532ef72e04e298ec878cc3b6e2f2ddc096eed23fa089078acfeba9b90a510",
+          "text_bytes": 1973
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "0550ade1ab87837b448521a4e3c7562c5f8e01bac5cf78a1fc6aeb43a8de0c08",
+          "text_bytes": 2479
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "f55dddde6c1c2ec2bcbd66effb3619d5f52b04cb4abe691155c6b7beddf3b8e8",
+          "text_bytes": 2479
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "e7487f50f75e0295c6368fd70ae47f935863acb548d0e463a36b7cabedf616ac",
+          "text_bytes": 2085
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "7c73245e5334884b9fef7da1571e8549d24e58075003cb58bc40cf0fe23b10da",
+          "text_bytes": 2085
+        }
+      ],
+      "survival": {
+        "bad_o0": 481,
+        "bad_o2": 345,
+        "good_o0": 659,
+        "good_o2": 432,
+        "bad_retained": 0.7172557172557172,
+        "good_retained": 0.6555386949924128,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51::bad()",
+        "CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51::badSink(unsigned long)"
+      ],
+      "good_symbols": [
+        "CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51::good()",
+        "CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51::goodB2G()",
+        "CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51::goodB2GSink(unsigned long)",
+        "CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51::goodG2B()",
+        "CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51::goodG2BSink(unsigned long)"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE789_Uncontrolled_Mem_Alloc/s02/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "8c96a498de944696114cd624be76dfbdf183dc1f49e621db1337066f87ca6219",
+          "text_bytes": 2118
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "cec00ccc8b27a5b72b202a80e86ad5d636e6fac26c333520f69c843bb52e1b5e",
+          "text_bytes": 2118
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "9498c7dc23d7f5fa0f7e25598a1d936da4ffedc32b6b66d9623d704a63ac41c1",
+          "text_bytes": 1893
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "883013c4b3ca84d711d3d919e34f934b1b8b22abfc56b6fdde08c2dfc3418cb4",
+          "text_bytes": 1893
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "1814a1fcb63afaff2d13a2d4fa809279fe0a106780cc45d01fbee32acfdf34b2",
+          "text_bytes": 2310
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "d935d5df4dcda630f374b8e1670d74a77801c0522653216f653259ae29add2c6",
+          "text_bytes": 2310
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "ead254b71d3c1f1593aeaa04f6cf2043981e18d7fb331a66e2d13758b1112be9",
+          "text_bytes": 2005
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "c4a6d207f2e094af4f68f4d7c72a88029cee65ac611a2b989a3bb786c648379b",
+          "text_bytes": 2005
+        }
+      ],
+      "survival": {
+        "bad_o0": 298,
+        "bad_o2": 266,
+        "good_o0": 490,
+        "good_o2": 372,
+        "bad_retained": 0.8926174496644296,
+        "good_retained": 0.7591836734693878,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01::bad()"
+      ],
+      "good_symbols": [
+        "CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01::good()",
+        "CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01::goodB2G()",
+        "CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01::goodG2B()"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01",
+      "language": "cpp",
+      "status": "ok",
+      "compiler": "g++",
+      "sources": [
+        "C/testcases/CWE789_Uncontrolled_Mem_Alloc/s02/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01.cpp"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "3fa4c1b2346f119a74abd7f4ff0eb4cf46a026d75131aaf35d7c04c4300e70f7",
+          "text_bytes": 2316
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "c7f71b9815a4feeb4f5d61e87358009402c27d4cf9849f2728813984924ef9a4",
+          "text_bytes": 2316
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "c5fc2296eff5a0da334141891d965a6c2b3df60eb5bb12ee759b78e1f2ad07a0",
+          "text_bytes": 2037
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "e4a49517462047bfa90c8027a4cb7db2d1ddc427aebe60d2f1c8ca7f2ec828b3",
+          "text_bytes": 2037
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "9b5e708830acedadc8dbff71bddd2d0cca58b0744cc44261eb644d925df451bb",
+          "text_bytes": 2508
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "2646d570b354121c6a9854d7f4ff7154e61f1280b9f23e79caf03c65bbd21f0b",
+          "text_bytes": 2508
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "df518ef8c7484c248e048f9a890d4b001e2ee7e8c359792f03d51d87b41c1614",
+          "text_bytes": 2133
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "be52305c9cd75e0f908e63132798325b01aab438549e5828aa6f5c17b190e8bc",
+          "text_bytes": 2133
+        }
+      ],
+      "survival": {
+        "bad_o0": 496,
+        "bad_o2": 407,
+        "good_o0": 688,
+        "good_o2": 498,
+        "bad_retained": 0.8205645161290323,
+        "good_retained": 0.7238372093023255,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01::bad()"
+      ],
+      "good_symbols": [
+        "CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01::good()",
+        "CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01::goodB2G()",
+        "CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01::goodG2B()"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE78_OS_Command_Injection__char_console_execlp_68",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE78_OS_Command_Injection/s01/CWE78_OS_Command_Injection__char_console_execlp_68a.c",
+        "C/testcases/CWE78_OS_Command_Injection/s01/CWE78_OS_Command_Injection__char_console_execlp_68b.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "aa7b9426f7ffff17b6d6e218ad7722928cbe169f937d250ca1d551cf3d07b3a8",
+          "text_bytes": 2302
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "601d2cf84d3be3ee88635d291eb7c81ebd93829a99343cc972a7e180fb59f808",
+          "text_bytes": 2302
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "887e84384746247648821f0389e973c10a32ca0c94c995cb066329104521f126",
+          "text_bytes": 1877
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "fbed2b9f5e0803b04b70f7c96c4678814854bdcc5762a2e4b73e5f55b90c8ee1",
+          "text_bytes": 1877
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_console_execlp_68/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "51b299ee931f15c2cc4d8b8cccfcc33e0b528f3d39ef2ff90f8e228be7272f49",
+          "text_bytes": 2173
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_console_execlp_68/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "daabf245735eb6c44f0615ece0d09a7547339c3cc736aa2998ec90e4652c7bc9",
+          "text_bytes": 2173
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_console_execlp_68/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "84cc3e906ea8f37203f890543b5e78e0fd1c1dae4ddcfd55c1dc70dd9cf40ce4",
+          "text_bytes": 1925
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_console_execlp_68/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "100ea34d5fb8d317dfa3945876b972f4794e8c2b1c584218d56be99c691a0321",
+          "text_bytes": 1925
+        }
+      ],
+      "survival": {
+        "bad_o0": 360,
+        "bad_o2": 200,
+        "good_o0": 21,
+        "good_o2": 129,
+        "bad_retained": 0.5555555555555556,
+        "good_retained": 6.142857142857143,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE78_OS_Command_Injection__char_console_execlp_68_bad"
+      ],
+      "good_symbols": [
+        "CWE78_OS_Command_Injection__char_console_execlp_68_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE78_OS_Command_Injection__char_file_execl_53",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE78_OS_Command_Injection/s03/CWE78_OS_Command_Injection__char_file_execl_53a.c",
+        "C/testcases/CWE78_OS_Command_Injection/s03/CWE78_OS_Command_Injection__char_file_execl_53b.c",
+        "C/testcases/CWE78_OS_Command_Injection/s03/CWE78_OS_Command_Injection__char_file_execl_53c.c",
+        "C/testcases/CWE78_OS_Command_Injection/s03/CWE78_OS_Command_Injection__char_file_execl_53d.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_file_execl_53/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "928bff6645c465f366d8f243f4c2e26250337ebfe738940af0dac05ed0fbd548",
+          "text_bytes": 2347
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_file_execl_53/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "0908d8d5b5f50a5b45991e071280be44d5144ac3d3c3459b52e38756a38821f6",
+          "text_bytes": 2347
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_file_execl_53/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "6af2504983494cdeb850ca1d3bce7ccb605dedfd5244d16410da7503000b7ab5",
+          "text_bytes": 1909
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_file_execl_53/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "310c7785adc565ba735a2da56c4071e46a8f47527a30952d473f93cef8c75597",
+          "text_bytes": 1909
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_file_execl_53/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "331de5cbd17340dbc9d1782b042ed647f594c4cfaecf975d605790baa2ea465d",
+          "text_bytes": 2219
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_file_execl_53/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "fc1eb2d4ba992a740083655008707fdb9b833a3672f5ab123d6965a485d6167c",
+          "text_bytes": 2219
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_file_execl_53/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "6ab56fe258d7dcbe860df8505cee989cf157e5e6c72c9ebd35be3a6762e5b999",
+          "text_bytes": 1925
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_file_execl_53/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "8eade0d80c1f0ec3d57e082e22feb492f203cf8d350557d4afae3ae7fb9df97d",
+          "text_bytes": 1925
+        }
+      ],
+      "survival": {
+        "bad_o0": 350,
+        "bad_o2": 200,
+        "good_o0": 21,
+        "good_o2": 120,
+        "bad_retained": 0.5714285714285714,
+        "good_retained": 5.714285714285714,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE78_OS_Command_Injection__char_file_execl_53_bad"
+      ],
+      "good_symbols": [
+        "CWE78_OS_Command_Injection__char_file_execl_53_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE78_OS_Command_Injection/s05/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "2f18f4d2411b6598c7e5ece621214d77fb59be7990eddbba6c56d82e1064ee5e",
+          "text_bytes": 2492
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "6d8c391745ed1c75cd791d2877735be9d9bc3cd028932f44ec73d80a4026f624",
+          "text_bytes": 2492
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "cf3388527e0b262e7aec9c1ffce3f27a60e14f5ebb453b7372ecea72a14c048b",
+          "text_bytes": 1989
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "f2b8036069ac60dfdca687a294893b97c5bb136092a47dc114a2d204e9d11f48",
+          "text_bytes": 1989
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "b1c9fcd3ac632ff29214eb2bb0b20fb765cf84dc71ab10f551e140434b384766",
+          "text_bytes": 2085
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "1bd76fa72583b2c671214ce3b41acb17f706483b95812c41ca7642d7834a5508",
+          "text_bytes": 2085
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "72d3352cdfcc81ba85840ff14f7e9ec4b6f379860a9643ed49722f8c5a1bda60",
+          "text_bytes": 1781
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "2659801ca60efef16a20d34c62d9a62fc27de4aa84b75072171f9186616ef46e",
+          "text_bytes": 1781
+        }
+      ],
+      "survival": {
+        "bad_o0": 629,
+        "bad_o2": 359,
+        "good_o0": 21,
+        "good_o2": 11,
+        "bad_retained": 0.5707472178060413,
+        "good_retained": 0.5238095238095238,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01_bad"
+      ],
+      "good_symbols": [
+        "CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01_good"
+      ],
+      "error": null
+    },
+    {
+      "case_id": "CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01",
+      "language": "c",
+      "status": "ok",
+      "compiler": "gcc",
+      "sources": [
+        "C/testcases/CWE78_OS_Command_Injection/s08/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01.c"
+      ],
+      "binaries": [
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O0.sym",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "d72d5a43c34449c8ba4741bf1d34e543ae3940a585d8f65d813cfb3e9c1bc6f8",
+          "text_bytes": 2587
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O0.stripped",
+          "variant": "bad",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "54cd0708e337b4e1c68c5764fb18388ac61625edd1d2b92d9a92545bc6810754",
+          "text_bytes": 2587
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O2.sym",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "8df05f785922b25f3212906cc1265dff18ec0857c061c5ac355f4be69e48a564",
+          "text_bytes": 2021
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O2.stripped",
+          "variant": "bad",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "d9600ee63debcce97f05a44c53fd2d217a524935a1b81322380144225e06bc43",
+          "text_bytes": 2021
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O0.sym",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": false,
+          "sha256": "e5255d96ce65f9b4d865dcd60bbd2e544e9bb76eb58ca1b2e47b469c9f496ca0",
+          "text_bytes": 2084
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O0.stripped",
+          "variant": "good",
+          "optimisation": "-O0",
+          "stripped": true,
+          "sha256": "06039d1777af1d7d54363a16a0952ab22f0cca719f9230edf0490322b0e787ba",
+          "text_bytes": 2084
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O2.sym",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": false,
+          "sha256": "cde22499400e73df6311a0474d28698a9671c56c6d66b9c113a8832b519bdf4b",
+          "text_bytes": 1781
+        },
+        {
+          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O2.stripped",
+          "variant": "good",
+          "optimisation": "-O2",
+          "stripped": true,
+          "sha256": "d8c48d54105f00f1f9548d81bf085fae487c451bb8e0ae5f0c9e2f29b5c25f50",
+          "text_bytes": 1781
+        }
+      ],
+      "survival": {
+        "bad_o0": 724,
+        "bad_o2": 390,
+        "good_o0": 21,
+        "good_o2": 11,
+        "bad_retained": 0.5386740331491713,
+        "good_retained": 0.5238095238095238,
+        "threshold": 0.15,
+        "survived": true
+      },
+      "bad_symbols": [
+        "CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01_bad"
+      ],
+      "good_symbols": [
+        "CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01_good"
+      ],
+      "error": null
+    }
+  ]
+}

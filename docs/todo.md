@@ -17,16 +17,21 @@ settled move into `protocol.md` and out of this file.
       43 cases, §7.1): 7% erased, median 69% retained, 2 lose all API imports,
       6 grow through inlining. `-O2` stays as primary; the erased cases need a
       build-time gate.
-- [ ] **Implement the flaw-survival gate in `build`.** Compile at `-O0` and
-      `-O2`, sum bad-path function sizes (demangled — C++ namespaces them as
-      `Case::bad()`), flag anything under 15% retained, exclude from the F2 arm
-      and report the rate. Without this the erased 7% become silent false
-      negatives blamed on the model.
-- [ ] **Also check the `good` side for the same effect.** `goodG2B` replaces the
-      tainted source with a constant, so it is *more* foldable than `bad`. If it
-      collapses while `bad` survives, the negative class becomes trivially
-      separable and the F2 false-positive rate flatters the model. Same
-      measurement, run on the good binaries.
+- [x] ~~**Implement the flaw-survival gate in `build`.**~~ **Done** —
+      `build/compile.py`, `vulnlm build --compile`. Compiles both variants at
+      both levels, sums demangled bad-path symbol sizes, gates at 15%, strips a
+      copy for the model and keeps the symbol-bearing original as the oracle.
+      On the committed sample: 40 of 44 cases enter the F2 corpus, 3 erased,
+      1 unbuildable, 344 binaries. Reproduces the §7.1 table exactly.
+- [x] ~~**Also check the `good` side for the same effect.**~~ **Measured, and
+      the worry was backwards.** The good side retains *more* than the bad
+      side, not less: median 84% against 69%, and 1 of 43 collapses against 3.
+      So the negative class does not become trivially separable, and no
+      exclusion rule is needed. The asymmetry does run the other way, though —
+      bad binaries are systematically the more heavily optimised of the pair,
+      which is a size-based shortcut a model could in principle exploit. Worth
+      a line in §11 and worth checking against the F2 false-positive rate once
+      the pilot exists. `FlawSurvival` records both sides on every case.
 - [ ] **Audit the scrubber allowlist for Juliet scaffolding.** §4.1 preserves
       "standard library and API calls", but `printLine`, `globalReturnsTrue`,
       `CHAR_ARRAY_SIZE` and `std_testcase.h` are Juliet support, not stdlib. If
@@ -43,6 +48,52 @@ settled move into `protocol.md` and out of this file.
       be high enough to force a depth limit decision. Measure in the pilot
       before changing anything — a high overflow rate is a §8.2 result, not
       automatically a bug.
+
+## Blocking the build — new, from implementing `--compile`
+
+- [ ] **Which gcc?** §7.1 records the `-O2` measurements as gcc 11.4, and the
+      numbers in it were reproduced exactly on gcc 11.4. The WSL2 box now has
+      **gcc 15.2.0**. These are not interchangeable: gcc 14 turned implicit
+      declarations and incompatible pointer assignments — both of which Juliet
+      1.3 contains — from warnings into errors, so the *set of buildable cases*
+      is compiler-dependent. `compile.py` pins `-std=gnu11` / `-std=gnu++14`
+      to hold the language fixed. **Partially measured:** on gcc 11.4, building
+      the sample under C23 semantics (`-std=c2x` plus the four `-Werror`s gcc
+      15 turns on by default) costs one further case — 42 of 44 against the
+      pin's 43 — so the pin absorbs most but not all of the difference. That is
+      a simulation of gcc 15 on gcc 11, not gcc 15 itself. The real check is one
+      command on the WSL box: `vulnlm build --compile` and compare
+      `data/build-report.json` against the committed one. Either install gcc-11
+      alongside and pin the compiler too, or adopt 15.2 and reconcile §7.1
+      against what it reports. Whichever is chosen has to be recorded, because
+      `BuildReport.compiler_version` will make a mismatch obvious later.
+- [ ] **Unbuildable cases are in the population, not just the sample.** The
+      `w32` filename rule was wrong — it required a token boundary, but Juliet
+      writes the API name straight onto the marker (`w32CreateFile`,
+      `w32spawnl`), so **3,372 Win32 files** were counted as buildable,
+      including 820 each in CWE-78 and CWE-23. Fixed and regression-tested; the
+      manifest was regenerated and 7 cases changed. But a second family has no
+      filename marker at all: 12 CWE-23 `wchar_t` cases fail because Juliet's
+      own `#else` branch is broken on POSIX (`getenv` returns `char *` into a
+      `wchar_t *`; `fopen`/`open` take `char *`). One is in the committed
+      sample. Decide: probe the eligible population once and commit the
+      failures as data that `is_eligible` reads, or accept that a stratum can
+      come up short after the draw and report the rate. The first is ~25
+      minutes of compiling for the 10,885 eligible C/C++ cases in the 11
+      sampled CWEs, and is toolchain-specific — so it depends on the question
+      above.
+- [ ] **Confirm `-U_FORTIFY_SOURCE`.** Ubuntu's gcc enables `_FORTIFY_SOURCE=2`
+      at `-O1` and above but *not* at `-O0`, so the `-O0`/`-O2` pair would
+      otherwise differ in libc API surface as well as optimisation: `printf`
+      becomes `__printf_chk`, `memcpy` becomes `__memcpy_chk`. Since §4.1
+      treats imported API names as signal and the `-O0` subset exists to
+      isolate optimisation specifically, `compile.py` disables it. The counter
+      argument is §7.1's own "`-O2` is what release binaries actually use" —
+      real Ubuntu release builds *are* fortified. Pick one and say why; the
+      current choice favours a clean contrast over distro realism.
+- [ ] **Confirm `-no-pie`.** Chosen so Ghidra addresses are stable across
+      cases and comparable in write-ups. Real binaries are PIE. Same trade as
+      above, lower stakes.
 
 ## Blocking the main run
 

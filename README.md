@@ -31,13 +31,20 @@ uv run vulnlm --help
 
 | Command | Module | Does |
 |---|---|---|
-| `vulnlm build` | `build/` | compile Juliet, write the sample manifest |
+| `vulnlm build --survey` | `build/` | report what the archives contain; verify the parse |
+| `vulnlm build` | `build/` | draw the stratified sample → `data/manifest.json` |
+| `vulnlm build --compile` | `build/` | compile the C/C++ cases, gate on flaw survival → `data/build-report.json` |
 | `vulnlm recover` | `re/` | decompile, scrub, chunk → `chunks.jsonl` |
 | `vulnlm analyze` | `analysis/` | run the model tiers → `results/raw/` |
 | `vulnlm report` | `report/` | records → SARIF 2.1.0 + Markdown |
 | `vulnlm eval` | `eval/` | score against ground truth → `results/metrics/` |
 
-The middle three are the brief's three mandated stages (protocol §2).
+`recover`, `analyze` and `report` are the brief's three mandated stages
+(protocol §2); `build` prepares their input and `eval` scores their output.
+
+`--compile` needs gcc, g++ and binutils. It writes ~350 binaries, so on a
+Windows checkout point it at a native Linux path:
+`vulnlm build --compile --build-dir ~/vulnlm-build`.
 
 ## Layout
 

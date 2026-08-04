@@ -546,12 +546,61 @@ if left to drift.
   namespace them as `CWE415_...::bad()` rather than suffixing `_bad`), and
   **flags any case retaining under 15%**. Flagged cases are excluded from the
   F2 arm and reported as their own rate, never silently dropped.
+
+  Implemented in `build/compile.py`; `vulnlm build --compile` writes
+  `data/build-report.json`, which carries the per-case sizes, the gate outcome,
+  the oracle's symbol names and the exact compiler and flags used. That file is
+  deliberately separate from `manifest.json`: a manifest is a sample and must
+  stay reproducible from a seed alone, whereas a build is a sample *plus* a
+  toolchain, and the toolchain changes far more often. Folding them would make
+  every compiler upgrade look like a resampling.
+
+  **The good side was measured too, and the expected asymmetry is inverted.**
+  The concern was that `goodG2B` — which replaces the tainted source with a
+  constant — would be more foldable than `bad`, collapsing the negative class
+  and flattering the F2 false-positive rate. It is not: the good path retains a
+  median 84% against the bad path's 69%, and 1 of 43 collapses against 3. The
+  real asymmetry runs the other way, with bad binaries systematically the more
+  heavily optimised of the pair. That is a size-based shortcut a model could in
+  principle exploit, so it belongs in §11 rather than being treated as settled.
 - **Dynamic linking required.** Imported libc names survive stripping through
   the PLT; static linking turns `strcpy` into an unnamed blob and destroys the
   API-call signal §4.1 deliberately preserves.
-- **`-DOMITGOOD` / `-DOMITBAD`.** Juliet places the flawed and fixed variants in
-  one translation unit. Built naively, a single binary contains both and the
-  `good`-chunk-as-negative-class accounting collapses. One variant per binary.
+- **`-DOMITGOOD` / `-DOMITBAD`, and select files by variant as well.** Juliet
+  places the flawed and fixed variants in one translation unit. Built naively, a
+  single binary contains both and the `good`-chunk-as-negative-class accounting
+  collapses. One variant per binary.
+
+  The preprocessor is not sufficient on its own. 4,323 cases state the variant
+  in the *filename* instead (`..._81_bad.cpp` beside `..._81_goodG2B.cpp`). For
+  the 81–84 family those files sit wholly inside `#ifndef OMITBAD`, so the flag
+  empties them and the flag alone would do. For the 23 flow-01 `good1` cases it
+  does not: each variant file carries its own `main()` *outside* the guard, so
+  compiling the pair yields two `main` symbols and the link fails. `build`
+  therefore partitions a case's files by `ParsedName.variant` — bad-side gets
+  `bad` plus the unmarked shared parts, good-side gets `good*` plus the same
+  shared parts — and applies the `-D` flag on top. Correct for both families,
+  so it is unconditional rather than special-cased by flow.
+
+- **Language standard pinned: `-std=gnu11` for C, `-std=gnu++14` for C++.** Not
+  a detail. gcc's default has moved from `gnu17` (gcc 11) to `gnu23` (gcc 15),
+  and the newer default rejects implicit declarations and incompatible pointer
+  assignments that Juliet 1.3 relies on. Left unpinned, the set of buildable
+  cases — and therefore the realised sample — becomes a function of which
+  Ubuntu the build happened to run on.
+
+- **`-U_FORTIFY_SOURCE`.** Ubuntu's gcc enables `_FORTIFY_SOURCE=2` at `-O1` and
+  above but not at `-O0`. Left alone, the `-O0`/`-O2` pair would therefore
+  differ in *libc API surface* as well as optimisation: `printf` becomes
+  `__printf_chk`, `memcpy` becomes `__memcpy_chk`. Since §4.1 treats imported
+  API names as signal and the `-O0` subset exists precisely to isolate
+  optimisation, the fortification is disabled so the contrast stays clean. This
+  trades a little distro realism for interpretability, and is the one build
+  setting where the choice runs against "`-O2` is what release binaries use".
+
+- **Not position-independent (`-no-pie`).** A fixed load address keeps Ghidra's
+  addresses stable across cases and comparable in write-ups. Real binaries are
+  PIE; the same trade as above, at lower stakes.
 - **`-DINCLUDEMAIN`, and ignore the shared `main.cpp`.** Juliet supports two
   build modes. The 350 `main.cpp` / `main_linux.cpp` files call dozens of cases
   into one application — that is the mode for testing *source* analysers over a

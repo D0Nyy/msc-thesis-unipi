@@ -62,6 +62,24 @@ def build(
         Path,
         typer.Option("--json", help="Where to write the survey JSON."),
     ] = Path("results/survey.json"),
+    compile_: Annotated[
+        bool,
+        typer.Option("--compile", help="Build the sampled C/C++ cases from the manifest."),
+    ] = False,
+    jobs: Annotated[
+        int | None, typer.Option("--jobs", "-j", help="Parallel compiles. Default: CPU count.")
+    ] = None,
+    # Default keeps everything under data/, which .gitignore already excludes.
+    # Override it when the repo lives on a Windows drive: building 344 ELFs
+    # across /mnt/c is slow, and DrvFs will not let the tree be cleared.
+    build_dir: Annotated[
+        Path | None,
+        typer.Option(
+            "--build-dir",
+            envvar="VULNLM_BUILD_DIR",
+            help="Where to extract and compile. Default: <data-dir>/processed.",
+        ),
+    ] = None,
     per_stratum: Annotated[
         int,
         typer.Option("--per-stratum", "-n", help="Cases to draw per CWE/lang/flow cell."),
@@ -70,17 +88,139 @@ def build(
         int, typer.Option("--seed", help="RNG seed. Changing it changes the sample.")
     ] = DEFAULT_SEED,
 ) -> None:
-    """Prepare the dataset: compile Juliet, write the sample manifest.
+    """Prepare the dataset: draw the sample, then compile it.
 
-    `--survey` is the read-only precondition for everything else. It reports
-    what the archives actually contain and reconciles the filename parse
-    against SARD's own manifest. It exits non-zero if either invariant fails,
-    so it can gate a build in CI or in a shell chain.
+    Three modes, in the order they are meant to be run:
+
+      --survey    read-only precondition. Reports what the archives contain and
+                  reconciles the filename parse against SARD's own manifest,
+                  exiting non-zero if either invariant fails.
+      (no flag)   draw the stratified sample and commit data/manifest.json
+      --compile   build the C/C++ half of that sample and gate on flaw survival
     """
     if survey:
         _run_survey(data_dir / "raw", json_out)
         return
+    if compile_:
+        _compile_corpus(data_dir, build_dir or data_dir / "processed", jobs)
+        return
     _draw_sample(data_dir, per_stratum, seed)
+
+
+def _compile_corpus(data_dir: Path, build_dir: Path, jobs: int | None) -> None:
+    """Build the sampled C/C++ cases and report the survival gate (§7.1)."""
+    import statistics
+
+    from vulnlm.build.compile import ToolchainError, build_corpus
+    from vulnlm.build.suites import ArchiveNotFound
+    from vulnlm.schema import BuildStatus, Manifest
+
+    manifest_path = data_dir / "manifest.json"
+    if not manifest_path.exists():
+        err.print(f"[red]{manifest_path} not found. Run `vulnlm build` first.[/red]")
+        raise typer.Exit(2)
+
+    manifest = Manifest.model_validate_json(manifest_path.read_text(encoding="utf-8"))
+    try:
+        report = build_corpus(
+            manifest,
+            manifest_path,
+            data_dir / "raw",
+            build_dir,
+            jobs=jobs,
+            warn=lambda msg: err.print(f"[yellow]{msg}[/yellow]"),
+        )
+    except (ArchiveNotFound, ToolchainError) as exc:
+        err.print(f"[red]{exc}[/red]")
+        raise typer.Exit(2) from exc
+
+    console.print(f"[dim]{report.compiler_version}[/dim]")
+    console.print(f"[dim]{' '.join(report.common_flags)}  {' '.join(report.optimisations)}[/dim]\n")
+
+    by_status: dict[str, int] = {}
+    for case in report.cases:
+        by_status[case.status] = by_status.get(case.status, 0) + 1
+
+    # The gate, and the two ways a case can leave the corpus. Both are reported
+    # rates rather than silent drops — an excluded case that nobody counted is
+    # indistinguishable from a case the model failed on.
+    table = Table(box=None, pad_edge=False)
+    table.add_column("case", style="dim")
+    table.add_column("bad -O0", justify="right")
+    table.add_column("-O2", justify="right")
+    table.add_column("kept", justify="right")
+    table.add_column("good kept", justify="right")
+    for case in report.cases:
+        s = case.survival
+        if s is None:
+            table.add_row(case.case_id[:58], "—", "—", "—", "—", style="red")
+            continue
+        style = "" if case.status == BuildStatus.OK else "yellow"
+        if s.bad_retained is not None and s.bad_retained > 1.0:
+            style = "cyan"  # grew: the compiler inlined the sink into the source
+        table.add_row(
+            case.case_id[:58],
+            f"{s.bad_o0:,}",
+            f"{s.bad_o2:,}",
+            f"{s.bad_retained:.0%}" if s.bad_retained is not None else "—",
+            f"{s.good_retained:.0%}" if s.good_retained is not None else "—",
+            style=style,
+        )
+    console.print(table)
+
+    failed = [c for c in report.cases if c.status == BuildStatus.COMPILE_FAILED]
+    erased = [c for c in report.cases if c.status == BuildStatus.ERASED]
+    no_syms = [c for c in report.cases if c.status == BuildStatus.NO_FLAW_SYMBOLS]
+
+    if failed:
+        err.print(f"\n[red]{len(failed)} case(s) did not compile:[/red]")
+        for case in failed:
+            first = next(
+                (ln for ln in (case.error or "").splitlines() if "error:" in ln),
+                (case.error or "").splitlines()[0] if case.error else "",
+            )
+            err.print(f"  {case.case_id}\n    [dim]{first.strip()[:150]}[/dim]")
+    if no_syms:
+        err.print(
+            f"\n[red]{len(no_syms)} case(s) built but exposed no bad-path symbol — "
+            f"the oracle cannot label them at F2:[/red]"
+        )
+        for case in no_syms:
+            err.print(f"  {case.case_id}")
+    if erased:
+        err.print(
+            f"\n[yellow]{len(erased)} case(s) below the "
+            f"{report.survival_threshold:.0%} survival threshold — excluded from "
+            f"the F2 arm:[/yellow]"
+        )
+        for case in erased:
+            assert case.survival is not None
+            err.print(
+                f"  {case.case_id}: {case.survival.bad_retained:.0%} retained "
+                f"({case.survival.bad_o0} → {case.survival.bad_o2} bytes)"
+            )
+
+    measured = [c.survival for c in report.cases if c.survival is not None]
+    if measured:
+        bad = [s.bad_retained for s in measured if s.bad_retained is not None]
+        good = [s.good_retained for s in measured if s.good_retained is not None]
+        console.print(
+            f"\nmedian retained at -O2: [bold]bad {statistics.median(bad):.0%}[/bold]"
+            + (f", good {statistics.median(good):.0%}" if good else "")
+        )
+
+    out = data_dir / "build-report.json"
+    out.write_text(report.model_dump_json(indent=2), encoding="utf-8")
+    console.print(
+        f"[bold]{by_status.get('ok', 0)} of {len(report.cases)} cases[/bold] in the "
+        f"F2 corpus, {sum(len(c.binaries) for c in report.cases)} binaries"
+    )
+    err.print(f"wrote {out}")
+
+    # Non-zero when anything left the corpus, so this can gate a pipeline the
+    # same way --survey does.
+    if failed or no_syms:
+        raise typer.Exit(1)
 
 
 def _draw_sample(data_dir: Path, per_stratum: int, seed: int) -> None:
@@ -152,8 +292,8 @@ def _draw_sample(data_dir: Path, per_stratum: int, seed: int) -> None:
 
 def _run_survey(raw_dir: Path, json_out: Path | None) -> None:
     """Render a dataset survey and exit non-zero if it is not clean."""
-    from vulnlm.build.survey import survey_dataset
     from vulnlm.build.suites import ArchiveNotFound
+    from vulnlm.build.survey import survey_dataset
 
     try:
         result = survey_dataset(raw_dir)
