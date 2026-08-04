@@ -22,6 +22,7 @@ What is left is: put the right jars on the classpath and run javac.
 
 import posixpath
 import subprocess
+import tempfile
 import zipfile
 from collections.abc import Callable
 from pathlib import Path
@@ -51,9 +52,19 @@ SUPPORT_DIR = "Java/src/testcasesupport"
 
 # Juliet 1.3 is 2011-era Java. Pinned for the same reason the C standard is:
 # left to the default, the buildable set becomes a function of which JDK the
-# build happened to run on. 8 is the oldest target modern javac still accepts
-# without warnings escalating to errors.
-JAVA_RELEASE = "8"
+# build happened to run on.
+#
+# Which values are ACCEPTED is itself JDK-dependent, and the floor rises with
+# every few releases — JDK 20 dropped 7, and 8 is deprecated and on its way
+# out. So the preference list is probed against the actual compiler rather
+# than hard-coded, lowest first: the oldest release the JDK still accepts is
+# the one closest to what Juliet was written against.
+RELEASE_PREFERENCE: tuple[str, ...] = ("8", "11", "17", "21")
+
+# `--release`, two dashes. The single-dash spelling is not valid javac syntax
+# and fails with "invalid flag: -release" on every case, which reads like a
+# source problem rather than a command-line one.
+_RELEASE_FLAG = "--release"
 
 _JAVA_SUITE: Suite = next(s for s in SUITES if s.key == "java")
 
@@ -72,6 +83,33 @@ def javac_version() -> str:
         ) from exc
     # Older JDKs print the version to stderr, newer ones to stdout.
     return (proc.stdout or proc.stderr).strip().splitlines()[0]
+
+
+def detect_release(preference: tuple[str, ...] = RELEASE_PREFERENCE) -> str:
+    """The oldest release target this JDK still accepts.
+
+    Probed with a throwaway compile rather than derived from the JDK version,
+    because the mapping from JDK version to supported release floor is a table
+    that changes and would have to be maintained here. One `javac` invocation
+    answers it directly.
+    """
+    with tempfile.TemporaryDirectory() as tmp:
+        probe = Path(tmp) / "Probe.java"
+        probe.write_text("class Probe {}\n", encoding="utf-8")
+        for release in preference:
+            proc = subprocess.run(
+                ["javac", _RELEASE_FLAG, release, "-d", tmp, str(probe)],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            if proc.returncode == 0:
+                return release
+    raise ToolchainError(
+        f"this JDK accepts none of {preference} as a --release target. "
+        f"Juliet 1.3 is 2011-era Java; a JDK this new may no longer be able to "
+        f"target it. Add a higher value to RELEASE_PREFERENCE in build/jvm.py."
+    )
 
 
 def support_members(archive: zipfile.ZipFile) -> list[str]:
@@ -122,7 +160,12 @@ def extract_sources(archive: Path, cases: list[Case], dest: Path) -> list[str]:
 
 
 def build_case(
-    case: Case, work: Path, out_root: Path, classpath: list[str], root: Path
+    case: Case,
+    work: Path,
+    out_root: Path,
+    classpath: list[str],
+    root: Path,
+    release: str,
 ) -> CaseBuild:
     """Compile one Java case. Never raises on a compiler error.
 
@@ -141,7 +184,7 @@ def build_case(
         "javac",
         "-nowarn",
         "-encoding", "UTF-8",
-        "-release", JAVA_RELEASE,
+        _RELEASE_FLAG, release,
         "-cp", cp,
         "-d", str(out_dir),
         *sources,
@@ -213,10 +256,11 @@ def build_java(
         return [], "", []
 
     version = javac_version()
+    release = detect_release()
     archive = find_archive(_JAVA_SUITE, raw_dir)
 
-    work = (out_dir / "java-src").resolve()
-    class_root = (out_dir / "classes").resolve()
+    work = (out_dir / "src" / _JAVA_SUITE.key).resolve()
+    class_root = (out_dir / "bin" / _JAVA_SUITE.key).resolve()
     for directory in (work, class_root):
         if (problem := clear_dir(directory)) is not None and warn is not None:
             warn(problem)
@@ -227,5 +271,7 @@ def build_java(
     # Sequential rather than pooled: javac spends most of its time in JVM
     # startup, and 44 concurrent JVMs on a laptop is worse than 44 sequential
     # ones. Revisit if the sample grows by an order of magnitude.
-    builds = [build_case(c, work, class_root, classpath, out_dir) for c in cases]
-    return sorted(builds, key=lambda b: b.case_id), version, classpath
+    builds = [
+        build_case(c, work, class_root, classpath, out_dir, release) for c in cases
+    ]
+    return sorted(builds, key=lambda b: b.case_id), f"{version} --release {release}", classpath

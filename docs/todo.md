@@ -51,15 +51,14 @@ settled move into `protocol.md` and out of this file.
 
 ## Blocking the build — new, from implementing `build`
 
-- [ ] **Run the Java arm once and confirm it compiles.** `build/jvm.py` is
-      written but has never been executed: the machine it was authored on has a
-      JRE and no `javac`, and no way to install one. Everything about it is
-      reasoned rather than measured, which is the opposite of how the C/C++ arm
-      was built. The classpath is verified against the archive (all four jars
-      ship inside it) and the support-source filter is tested, but the actual
-      `javac` invocation is not. Expect the servlet cases to be where it breaks
-      if anything does. One run of `vulnlm build --compile` on the WSL box
-      settles it.
+- [ ] **Re-run the Java arm.** First run failed all 44 cases with
+      `invalid flag: -release` — the single-dash spelling is not javac syntax.
+      Fixed to `--release`, and the target is now probed against the JDK
+      (8 → 11 → 17 → 21, oldest accepted wins) rather than hard-coded, since
+      the floor rises with each few releases. Untested beyond that: the box it
+      was authored on has a JRE and no `javac`. The classpath is verified
+      against the archive and the support-source filter is tested, but no case
+      has actually compiled. Servlet cases are the likely next failure point.
 - [ ] **Java has no build-time variant split, and that changes `recover`.**
       Juliet's Java cases put `bad()`, `good()`, `goodG2B()` and `goodB2G()` in
       one class with no preprocessor guards, so a single `.class` file holds
@@ -71,22 +70,25 @@ settled move into `protocol.md` and out of this file.
       before implementing `recover`, because getting it wrong yields chunks
       containing both the flaw and its fix.
 
-- [ ] **Which gcc?** §7.1 records the `-O2` measurements as gcc 11.4, and the
-      numbers in it were reproduced exactly on gcc 11.4. The WSL2 box now has
-      **gcc 15.2.0**. These are not interchangeable: gcc 14 turned implicit
-      declarations and incompatible pointer assignments — both of which Juliet
-      1.3 contains — from warnings into errors, so the *set of buildable cases*
-      is compiler-dependent. `compile.py` pins `-std=gnu11` / `-std=gnu++14`
-      to hold the language fixed. **Partially measured:** on gcc 11.4, building
-      the sample under C23 semantics (`-std=c2x` plus the four `-Werror`s gcc
-      15 turns on by default) costs one further case — 42 of 44 against the
-      pin's 43 — so the pin absorbs most but not all of the difference. That is
-      a simulation of gcc 15 on gcc 11, not gcc 15 itself. The real check is one
-      command on the WSL box: `vulnlm build --compile` and compare
-      `data/build-report.json` against the committed one. Either install gcc-11
-      alongside and pin the compiler too, or adopt 15.2 and reconcile §7.1
-      against what it reports. Whichever is chosen has to be recorded, because
-      `BuildReport.compiler_version` will make a mismatch obvious later.
+- [x] ~~**Which gcc?**~~ **Settled: gcc 15.2.0 is the version of record**, since
+      that is what Ubuntu 26.04 ships and gcc-11 is not available there. §7.1
+      has been rewritten around the 15.2 run and the 11.4 figures kept only as
+      a compiler-sensitivity note. The `-std` pin holds the language fixed but
+      does not absorb gcc 14's promotion of `-Wincompatible-pointer-types` to
+      an error, which costs three cases. Corpus is 37 of 44 on 15.2 against 40
+      on 11.4.
+- [ ] **Two cells are now short of 2.** The three cases gcc 15 rejects are two
+      CWE-78 and one CWE-23, all in the cross-language arm, all the same
+      Juliet defect: a `wchar_t *` passed to a `char *` libc function through a
+      broken POSIX `#else` branch. Decided not to force them through with
+      `-fpermissive` — a binary that does not exercise its own flaw scores as a
+      model failure, which is worse than a missing case. So those cells now
+      hold fewer cases than the design asks for. Either accept and report the
+      shortfall, or run the deferred population probe so `is_eligible` excludes
+      the whole `wchar_t`-into-`char *` family and the draw refills the cells
+      from buildable cases. The probe is the better answer and is now cheap to
+      justify: the family is confirmed to span at least CWE-23 and CWE-78, so
+      it is not a one-off.
 - [ ] **Unbuildable cases are in the population, not just the sample.** The
       `w32` filename rule was wrong — it required a token boundary, but Juliet
       writes the API name straight onto the marker (`w32CreateFile`,

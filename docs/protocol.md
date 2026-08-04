@@ -521,18 +521,32 @@ if left to drift.
   *Note:* inlining at `-O2` can merge callee into caller, partly performing the
   §4.2 chunk assembly in the compiler. Expect it in the results.
 
-  **Measured, gcc 11.4, all 43 buildable C/C++ cases in the sample:**
+  **Measured, gcc 15.2.0 (Ubuntu 26.04), all 41 buildable C/C++ cases in the
+  sample:**
 
   | | |
   |---|---|
-  | Flaw body **erased** by `-O2` | **3 / 43 (7%)** |
-  | Median code retained at `-O2` | 69% |
-  | Lost *all* dangerous API imports | 2 / 43 |
-  | *Grew* at `-O2` (inlining) | 6 / 43, up to 253% |
+  | Flaw body **erased** by `-O2` | **4 / 41 (10%)** |
+  | Median bad-path code retained at `-O2` | 74% |
+  | Median good-path code retained at `-O2` | 72% |
+  | *Grew* at `-O2` (inlining) | 5 / 41, up to 315% |
 
-  Two consequences. The inlining prediction above is confirmed rather than
-  anticipated. And §4.1's "API calls are signal" assumption survives `-O2` for
-  41 of 43 cases, which was not obvious in advance.
+  The inlining prediction above is confirmed rather than anticipated: five
+  cases grow, one to more than three times its `-O0` size, because `-O2` pulls
+  the sink into the source and one function absorbs another.
+
+  > **These numbers move with the compiler, and that is itself a result.** The
+  > same measurement on gcc 11.4 gives 3 / 43 erased, median bad 69% and median
+  > good 84%. The erasure rate is therefore a property of the *toolchain*, not
+  > of Juliet, and any comparison against published F2 results that used a
+  > different compiler inherits that variance. gcc 15.2 is the version of
+  > record here because it is what Ubuntu 26.04 ships;
+  > `BuildReport.compiler_version` pins every corpus to the compiler that built
+  > it, so a future disagreement is traceable rather than mysterious.
+  >
+  > One figure from the 11.4 run is *not* carried over: "lost all dangerous API
+  > imports, 2 / 43". `build` does not measure import survival, so that number
+  > has not been reproduced and should not be cited until it is.
 
 - **Gate on flaw survival.** In the erased 7%, the compiler proved the result a
   constant and deleted the vulnerability outright — one case reduced to
@@ -555,14 +569,21 @@ if left to drift.
   toolchain, and the toolchain changes far more often. Folding them would make
   every compiler upgrade look like a resampling.
 
-  **The good side was measured too, and the expected asymmetry is inverted.**
+  **The good side is measured too, and the asymmetry is small and unstable.**
   The concern was that `goodG2B` — which replaces the tainted source with a
-  constant — would be more foldable than `bad`, collapsing the negative class
-  and flattering the F2 false-positive rate. It is not: the good path retains a
-  median 84% against the bad path's 69%, and 1 of 43 collapses against 3. The
-  real asymmetry runs the other way, with bad binaries systematically the more
-  heavily optimised of the pair. That is a size-based shortcut a model could in
-  principle exploit, so it belongs in §11 rather than being treated as settled.
+  constant — would be markedly more foldable than `bad`, collapsing the
+  negative class and flattering the F2 false-positive rate. On gcc 15.2 the two
+  sides are close to level: median 74% bad against 72% good, with the good side
+  marginally the more optimised. On gcc 11.4 the gap ran the other way and was
+  wider (69% against 84%).
+
+  The honest reading is that neither direction is a stable property of the
+  corpus, so no exclusion rule is justified on this evidence and none is
+  applied. What the measurement does establish is the weaker, useful claim: the
+  negative class does not systematically collapse, so `good` chunks are not
+  trivially separable from `bad` ones by size alone. `FlawSurvival` records
+  both sides on every case so the question can be revisited against whatever
+  compiler the final run uses.
 - **Dynamic linking required.** Imported libc names survive stripping through
   the PLT; static linking turns `strcpy` into an unnamed blob and destroys the
   API-call signal §4.1 deliberately preserves.
@@ -584,10 +605,21 @@ if left to drift.
 
 - **Language standard pinned: `-std=gnu11` for C, `-std=gnu++14` for C++.** Not
   a detail. gcc's default has moved from `gnu17` (gcc 11) to `gnu23` (gcc 15),
-  and the newer default rejects implicit declarations and incompatible pointer
-  assignments that Juliet 1.3 relies on. Left unpinned, the set of buildable
-  cases — and therefore the realised sample — becomes a function of which
-  Ubuntu the build happened to run on.
+  and the newer default rejects implicit declarations that Juliet 1.3 relies
+  on. Left unpinned, the set of buildable cases — and therefore the realised
+  sample — becomes a function of which Ubuntu the build happened to run on.
+
+  The pin does not absorb everything. gcc 14 promoted
+  `-Wincompatible-pointer-types` to an error *independently of `-std`*, and
+  three cases fail on gcc 15 that compiled on gcc 11: two CWE-78
+  (`popen(wchar_t *)`, `execl(wchar_t *)`) and one CWE-23
+  (`getenv` into a `wchar_t *`). These are not toolchain pedantry — Juliet's
+  `#else` branch for POSIX is simply wrong, and the binary gcc 11 produced
+  would have passed a wide pointer to a narrow-char API rather than exercising
+  the intended flaw. They are left failing and reported as unbuildable, not
+  forced through with `-fpermissive`: a case that does not exercise its own
+  flaw is worse than a missing case, because it would be scored as one the
+  model failed to find.
 
 - **`-U_FORTIFY_SOURCE`.** Ubuntu's gcc enables `_FORTIFY_SOURCE=2` at `-O1` and
   above but not at `-O0`. Left alone, the `-O0`/`-O2` pair would therefore

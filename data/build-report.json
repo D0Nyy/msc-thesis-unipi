@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-04T10:14:42.233269Z",
+  "generated_at": "2026-08-04T10:22:42.856398Z",
   "manifest_sha256": "8647fa2e8e5e3ee8e9010b4575bfc96338eeb40f4529a9261b062b63bd1376b0",
-  "build_dir": "/tmp/vb6",
+  "build_dir": "/tmp/vb7",
   "compiler_version": "gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
   "java_version": null,
   "classpath": [],
@@ -31,67 +31,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "7af781b0e1d8e1862675ba31ccb9486c8b63f7cf9aa93a11487cd9814a48be04",
+          "sha256": "1325537819e13c45d1cff84ffebc2d90c337c7fd58dc6cf6800d820c20295ea6",
           "text_bytes": 1999
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "ee3a62bc551c48a7170a6e305d5f8c6d7fa4123dc66925d387c1befae14b702a",
+          "sha256": "cfd19b523e4861bf010b35834cf8b80873d654e684e91dd0ea018d3fe03ef098",
           "text_bytes": 1999
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "798bf357967a76ffad3522df9056669d17ef2e8ed4b44e7775b01af807cd2a20",
+          "sha256": "06abba167ff5003409b83e9927a13793eb12bdc42a5c50aa4d409d8111cc7382",
           "text_bytes": 1637
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "9b66ee0ed2eaedcefe1804d43159c90da0c8151ed6e1ac264b8271580245e684",
+          "sha256": "4f43047be6946284b61fe4078151d3e78f2d677753527728d4268e9a8aedb5db",
           "text_bytes": 1637
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "af91413d66170d11905531d1f8d8cbe44769cd7bf536351cd0c6006d7bac1434",
+          "sha256": "3b3dd160b1d261626210ea273a8bad0aa7ccaf1d6546577a0f7367c5661fa0e7",
           "text_bytes": 2020
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "7d58828ba3a4cdf7621b14dc77c6df0b0ce463820a706123d1e280a724067c16",
+          "sha256": "30506ee98b2b95dd27087005a5a56426c1315a3f7c1fd73ed6945d3ffef60dfb",
           "text_bytes": 2020
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "7a442be46e7b9457d6f4406d0ee1fead06777006e5e15772aa76f0c366965b94",
+          "sha256": "ab2fddaad2f44a047169fdc931b6ec0937c4859b24954d162ddf210153e85ffc",
           "text_bytes": 1637
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "a9f3cc69b406e509b5d4eb2d1f42ea030ac2cfa3ebbf4d965302a43c3aa8cb49",
+          "sha256": "3cb22b22cd6c11010d9db09d6231fb27764ba64d2c5ce399d2d4ac6cd3cd132e",
           "text_bytes": 1637
         }
       ],
@@ -124,67 +124,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O0.sym",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "94b62ec586f65b29e8fe293dd9737eda41c80532f884de91b67f7181cd6dac86",
+          "sha256": "42b8df542765f42bd4abbbf15d9ec33970e4a29bbd87e216b81effe1bc18a3dc",
           "text_bytes": 10900
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "5c24bbc3350817a49381268acd94cd7a135123fdc8adf4b565acf3cfaa738933",
+          "sha256": "0b88e60d6c2d0dfb7cd849c93a181f0a70d758e8bde62c6348bd0d09241035ba",
           "text_bytes": 10900
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O2.sym",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "c3e1d232c23643d87d348a53312d9834d68b83b443b91f790f0087967520abc4",
+          "sha256": "5e820300bc49ec3c39fcdb5c2e7d0e2f235c78371cb24f7591f1a8526b3052f9",
           "text_bytes": 4149
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "3a45912a09e16e0f7cad54dd4f8391f698afff17ff0398113426e6d3ef61e236",
+          "sha256": "597270413b3271ff8fa7df2f2a9f7e74b5cd54a396d0bda08270dd4953f413f0",
           "text_bytes": 4149
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O0.sym",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "39d3c09bf35153a203ba6e549ad0bcc1bf698480dd07c5edbdba19e0e5e5c6a9",
+          "sha256": "b393c0059c6cfc84632e52b2fc2aa0a0ce14c4198262fe1a2d208067012d34f0",
           "text_bytes": 10916
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O0.stripped",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "7a86730b902e6a0f2038e345d6b7dda660246db2637a3733bcdb7da1283eaeb0",
+          "sha256": "b852cf782fe9204e9ebb30e74fdf4a44f8faca510239348316c75a693a8e4baa",
           "text_bytes": 10916
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O2.sym",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "347b99bb31cd227ebfc9d93c373688db487feefddbdbb465585f66a1cc5aabf1",
+          "sha256": "59d370be0c3591f0eb4c07b6bf16dca7d1d804344a2328a54941a77c3c10370c",
           "text_bytes": 4165
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O2.stripped",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "63f039eda08a01e1fb04ce2aaddb155ea88de5e933a88e6a8bd8204dccf15ac3",
+          "sha256": "4cf85679ed5026689a4040b9f452d9f016abf0e9d6f6d2f15e30ca774be5f67a",
           "text_bytes": 4165
         }
       ],
@@ -220,67 +220,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O0.sym",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "5ecc63881e13e69d76f11fbc67a59c92cab9e435d12e3e4f8c1a06b451d4433f",
+          "sha256": "4cfbe985f7a84c4b72b0fe817b759d5fca121e7e461376b2165f0f52c948f36b",
           "text_bytes": 2135
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "f5e1d68e0bd7d74ac9c17f17fe999f597c02f1e04470814fbf7e399fbbb0a076",
+          "sha256": "51b071eda4f654960858e6a02c397a9aa8861b559115a21ef2a8d2517cd7c44a",
           "text_bytes": 2135
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O2.sym",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "a814431a7f42d66dc62f66780ba027a165b835f3979cc159237a6adc8f999a2a",
+          "sha256": "44434a164e2b2712be9a870cf9231cf2382d9a638d800073664bf4d813f016f4",
           "text_bytes": 1781
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "219c3b085e23663a5ea22e4f3b588347f25b2ce02d05df67bf52ef1364b53013",
+          "sha256": "0d1f684cd138ca2ef1e22cc2429a022fdffdda6789d051f0f230765669d2746e",
           "text_bytes": 1781
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O0.sym",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "d566da8900c3c61cfda69b95a4d6a5e837bfc40ac74c2f9019c84154c167184d",
+          "sha256": "56641c568a4ceab209f6340840a10d6b4aabbbde7e75fa92daa4094a25aa7551",
           "text_bytes": 2156
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O0.stripped",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "3c30260c22f10f4ca4a6ac330d8aacc0a6c2b6a8aa740bfeee0751e906fe18d3",
+          "sha256": "0c6234da93337462e030916d4c593b3468824efeb00e174d1d1c37d1908df8f8",
           "text_bytes": 2156
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O2.sym",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "82d9ec0bce6218afa1cd5695a2bbf4e2e282a0aff76fc163b1424e1bf15b3413",
+          "sha256": "1f348a9b437268c7010ec0130f05f235bf6528d68290ba205ddaea6f048cad0d",
           "text_bytes": 1845
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O2.stripped",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "0fb88022bfa231dc47f4e772ab77850311faaace02b5731151d110c5d3ca2852",
+          "sha256": "262ebad7dbb13096913a12f51e6782fa4df16900b3446e1ac1fcf25996af886a",
           "text_bytes": 1845
         }
       ],
@@ -312,67 +312,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "529cd1fb130f114e15205cd8a473ef04b81befe8fe9472c5ce34b2f21cf3dd40",
+          "sha256": "8b01f8c5af2228198d4debd93c2e04e9eb35ebcd6bc022db4f7c2e3c5eeebc1f",
           "text_bytes": 2015
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "d45533ece236eccdac85a1eebcdfe437534607703309c130102c4ae281bc5e58",
+          "sha256": "6339c2def5063dbc5ed9daa865a2a5c40b8099d73b6334b8aca4191b4a6dc332",
           "text_bytes": 2015
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "786f95a5d97e549865b2a6e098fa794aa2f6891e1a7bf25ea640a87e4852fd55",
+          "sha256": "84a10895145970ca1130eb8c6d1170f75fa67286c83de6f7373babfd76eb271f",
           "text_bytes": 1765
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "d8483cd1e4f9047d481ab5798d8b149711d856febaa013637d31a7522bc2d5a0",
+          "sha256": "a2d4937910c1be1e086d4df4ddc4b8c959b36bda346e4c806856c05ae27270d1",
           "text_bytes": 1765
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "121b98edde0b583e1d3b6e824e588f079c50dc2b887160af1c20791f7da44c8a",
+          "sha256": "7d82591cca42fe5abcebdc87bfb2afa2e2a98e385c73c0ac0ca250c0e5ea2762",
           "text_bytes": 2036
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "aa607cca1063ca4a219c45d43dac3ced814bbecde4096211cc871d4394bd4f32",
+          "sha256": "40c9257efddbc4a20ddbaa34322f1499fdb70e5922211437afe688bc336b242c",
           "text_bytes": 2036
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "f282082c92f57bbf101dce47f5b3f209f450a3f57989026f000d1b66c727e7c9",
+          "sha256": "63d0b662bfa17b95c2b1689d8b8d070a1fe4d959f8c474c87010b0228fbe777d",
           "text_bytes": 1781
         },
         {
-          "path": "bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "5087ee0a2285cca1536dba827d35d24f9dd671db5480494012c492c6de7e8019",
+          "sha256": "1f6a05914e7e4cbd7e9d5b71db8f79c3a41cfe6c204b36470d582cb1c5082a5c",
           "text_bytes": 1781
         }
       ],
@@ -404,67 +404,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "edb07ec02e3880d20b093fc3bf93637e36cddb4674a717fe9e3de19d9d37162f",
+          "sha256": "dd208e6bcc7bdfdb78572260fa21cc66ec5f6a655808f1ad8cf117082fa2815e",
           "text_bytes": 2044
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "0e4624cc3da1313231ad9bc909180dc38691cfb886d41df01888b562b9f42fee",
+          "sha256": "6c96113d99c44555c62d9564d19d2fbecfb9cbb357164a65fcbcaa7ccb9e23c7",
           "text_bytes": 2044
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "c51a7fb155637135254e20d967d3f734cc4290de237a8a65a9cbdf0047657f65",
+          "sha256": "79f5d50e9c796b30ffabdce784d9e7cd00c985ccf8cb692201c1966abeb5143d",
           "text_bytes": 1797
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "4a7f1df7a55681b97b6fb672ba23e6e50d3435e16cca3631acddb4d1de44c89b",
+          "sha256": "022560a24760dba261d741726b275e0c53bc1ccdfdcba42cad1a4fce7b2c4ace",
           "text_bytes": 1797
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "28eaa0f753f77e2fcaffc2b06bbd955377dc2d21ca5be61ed38bbd781aaed416",
+          "sha256": "9b2ee200f30996bebc2222a638b25d5e9498d332bd63e778e36220f2e82be4ab",
           "text_bytes": 2065
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "4782ea755fa43e759a4e3dca508645ec935db71559892bfcf17bb1c43ea73259",
+          "sha256": "234fd4f5eaf54c4c417b734108a4ea2c450c1ed216f7974cdcc48fb4eea7e784",
           "text_bytes": 2065
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "9bde1096f5c242ca8ad2f12a4ce6da0b1b4ab7166948ccebca1006b509a85840",
+          "sha256": "1f05e84e8b525c4a7e8d08bca821360e8a6f3f57baab7b7a56bdd023be3caf70",
           "text_bytes": 1813
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "292c8a6fc15914c0b2f295483a81707c7bdbb9639a66805735efda87b9b90f20",
+          "sha256": "75fabb3635ca5cce5a3c056005827ba8f8635c5be7237328f2330adb9f51c0f9",
           "text_bytes": 1813
         }
       ],
@@ -496,67 +496,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "45868397737111de8dd869941f14951dbf25443dfeab1e4b80e4e219852d30a7",
+          "sha256": "5c086ec0b6f3f1f83db8fea963cdf5e198451a4f709ffdea88e2971710a67c2b",
           "text_bytes": 1992
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "5c0ad8f0379d9bb0de2798e1e5f1b597200a17a1065bc01bc3ca66e2da9d3ce4",
+          "sha256": "b6c98c9f7a012d3e1fd2a48313cc82086406668a113b53bd813cde72c543a039",
           "text_bytes": 1992
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "187cee7773647aeeb0737b21165a20478c233f2eb663f7d9b946b3942616f724",
+          "sha256": "602e063b9653db2a44dc06c7be36a248cfd11d01b66e14e52c0cc66f3c74ac8a",
           "text_bytes": 1781
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "93b6aba13107ed3f3dfdeb4646cf68c2ee8f448b7faffddcd9dc0b28b29a8fb8",
+          "sha256": "7d41b15625fc99e56f56a476db966d7c82dba5abaab138c1220af5f687af510a",
           "text_bytes": 1781
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "ac759af2a485a0b279db96c9991ec4fb8e856767654cd3572a181abd73cbdd33",
+          "sha256": "207b3b831fa59acda210a4ebf44d22081b1a1e801d522e053b2c6e74bc406747",
           "text_bytes": 2008
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "e1077f6893f52684cd921a7af96a94d95b4da4e701696c5ea68338b72fc2cb64",
+          "sha256": "d4a7b2175847808da606e1a2361d6304afb79a245eb164d2724e7a10c8601df2",
           "text_bytes": 2008
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "5686ad96dcb24a805f91d536809221b40fe5aa3878d813954eea4d2d707bc794",
+          "sha256": "51b223b5908a1c168d143720d3d48d3bfaca8eb3e39f19436ab1e7b513a8d371",
           "text_bytes": 1797
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "e6b74a6403f7b360ab7a410b04cd762a51f9e73a67a822e215124b29e0154703",
+          "sha256": "693346799c17d42303388030dd3b2016774771885227dd3abc78d44d1359fd35",
           "text_bytes": 1797
         }
       ],
@@ -590,67 +590,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O0.sym",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "ec4e025eefdc3cc25d279c40114d2813302041028f1459436f81795f54ae0958",
+          "sha256": "655625fb4a9197fe16f8e345ed02de7b3a21461895ce6883702b472f950fa516",
           "text_bytes": 2292
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "a64b2c30819480d54f0d26fa8139cfc0d8e21b01fbe1be206f5fcc9596c97508",
+          "sha256": "d3004ffe869ae93e9b0d0ebd8356df27f72565bdb6b8f7b3ffcb0d01e075403c",
           "text_bytes": 2292
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O2.sym",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "8a1bf29b1db584bed9fa7f0f6cc2a457e6045613c41369c8ac34e189282b2db6",
+          "sha256": "8699c3f4d270805a3e0dbde648000cf123a082ebaceef8188827b6c1fb4a1419",
           "text_bytes": 1877
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "d44de52d158952b56761c6c35bbe3002fabce920a254098ea1b871106fdf6b9e",
+          "sha256": "a9d7226e28915f47db284051a0da2315120f097082af95484911ff817bd7fd14",
           "text_bytes": 1877
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O0.sym",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "e9fbed188a21314bbcbfcc4824f24d3768ddd0c80d030d1618a3bda7053a35dc",
+          "sha256": "fc6d9dd009bcad0acb1dee69fa2029ca292176379afa27d24f56ef870beb0b67",
           "text_bytes": 2308
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O0.stripped",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "93a1c14f4ea0b7d0a79bb474c946cee9988cc60efb437f0a90622f0a815f5791",
+          "sha256": "da149250fa4f1724745f02463563f5a815ccebb5e5ac66e96a54f40f84144fe1",
           "text_bytes": 2308
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O2.sym",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "327b4094989c68b3d21706ddc562a6b64defaa7fe28be9841b80aedf848febfa",
+          "sha256": "6dc288fc42d9d6c6ac728883cdd8c236ae2138331086ed772260bb55f3c281e7",
           "text_bytes": 1893
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O2.stripped",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "267bf00b6952d36c666fda18bb66428ffc723f43198c09df88b3a9d9c27523fb",
+          "sha256": "70ffd98fabfda8c5b91187fd5fe6ab0344c317cc220e9435a06828d403c76ba8",
           "text_bytes": 1893
         }
       ],
@@ -688,67 +688,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O0.sym",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "b95afd187c753f13ef2b127b58e0ccf1e41ace617e9a29dc2201950b9149c4d8",
+          "sha256": "be3950e745ce4b9790eec39b294fd7a0bb4901750aae68f3d4a64e600e9d3888",
           "text_bytes": 2346
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "f1cae877489975ebc2455778162a3b064a2fbb7c493076a3c99dc319b4c74ae8",
+          "sha256": "cba36918c1543b0ce33d17e5107a3b6eeb2a34ba54c366bca5aea4c9367fd7ee",
           "text_bytes": 2346
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O2.sym",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "d8e1e47c6814a0c2d5c93cbb189c0ac13b2e46f81942011e83fdfef53b5f719b",
+          "sha256": "1b71ee69ed708e513c9c32d53d6d92e7e394de27df4bd7e40794f1342e2358ca",
           "text_bytes": 1909
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "7f637b571c62f1a85faec67ef03f6b4ad74c7a34a2dee09638e2b4cf262344f9",
+          "sha256": "5ce88629c13deb84c4d6519ca7e8c5583bb4ccf28aeef5f490608392d0250694",
           "text_bytes": 1909
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O0.sym",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "15fb52e42dd79777943a03b8cc9c96a6bfd7f6af5c0443156991c9116e408ffc",
+          "sha256": "bf2b66936b3e7c76fa70bb21810246146b39f170d20136b35b20c4ff8ca15a9a",
           "text_bytes": 2362
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O0.stripped",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "d0149c9b4b43d0d404840a0626c8ee58adeaff1e37326863b5fa3b75a9b5aaf7",
+          "sha256": "58d612b9b9b78bc8a224734766734e3fdf536d0a9a6e638faf740d2381ef5f90",
           "text_bytes": 2362
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O2.sym",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "993d872366610745e7323575a512ab629b472620152a28e1d5390663df054343",
+          "sha256": "e7a933716224d5878db5cd1243bc96942d575e31a1336a77712a32672b11fd9a",
           "text_bytes": 1941
         },
         {
-          "path": "bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O2.stripped",
+          "path": "bin/c-cpp/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "c343be75a01ab7154e5743ef140c533574f4531210ed77e8dc64b7177b7ff626",
+          "sha256": "59f9c7d09623bfd5393fadea9c51ea8f06be7d9dc1a27f60bc6106ee7ec753b0",
           "text_bytes": 1941
         }
       ],
@@ -782,67 +782,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O0.sym",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "7b10c1a79c312f102678d109ffe8426a9328a1b1501e83ecfe698c2524080b43",
+          "sha256": "c6e0f7b61d4ab968287849f96ef7eb67d42f9df1086b239bdf23f68aa8d3d881",
           "text_bytes": 11110
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "eb79ebdd6cd1422433b92f6469d453ff1b96b57d8da9d944ca1d4a912472628d",
+          "sha256": "4db7a9409bab8bb5140728945276b6ca7e824bad71a910ccc6d1e5cdf064fa53",
           "text_bytes": 11110
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O2.sym",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "93467f3d67de4351df7f748ed5fefd0d5351d3335bfc9b8b25b637cade5f9360",
+          "sha256": "a54649d54d25c1579bb96d140f47a14d02b01d3d9b58c6decc757554ca145ebf",
           "text_bytes": 4389
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "689752c9d5791a50aa99e3af73283c76c9d39d4d7eaa9679693d54bd5ca24732",
+          "sha256": "9aeabe014556fa901144d5597b3b08a326db25f9ef7217d0fec34c7408cc99ec",
           "text_bytes": 4389
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O0.sym",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "d1fed75436ba01a68f424327e08fadee40c8fd293502101cd0f194a931b6f17c",
+          "sha256": "cc201de2cca83fe9c7f85aaec55e362366d6b875ae2f53092a7c69efa5543322",
           "text_bytes": 11735
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O0.stripped",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "e17bb2866d7205a903b5494e8d68eed328a6a72213ac1dd35c9fff137226dbf0",
+          "sha256": "fdaac1383f0dec28dce67e79ff37345eddbdf019b2764c096885fde5c86ad48b",
           "text_bytes": 11735
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O2.sym",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "acb7327fb7c496435cac9936608a3027b069db0ba9f70199baea6f264558b38c",
+          "sha256": "f2da53c84f6efc70bfc917a2c06f54b34c1489461d44ae0ffcb56344cfb371fc",
           "text_bytes": 5557
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O2.stripped",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "6bfb0813b5b97fe1986068840dd1866a84b435f2e93b02a7d699e0cb0722a7a4",
+          "sha256": "8cbe77aba652c96a0a6b19ca04ad6c191033290cc226d550cc9d9fd8cf661304",
           "text_bytes": 5557
         }
       ],
@@ -879,67 +879,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "6b1fc6282d5ea26318908ed0402201a7ea57624fd5f82f31f682b680fde7117f",
+          "sha256": "270a687ff506d49a75e21d68760fa07f9813d90d7e6d5b48639b9ae0a92954df",
           "text_bytes": 2436
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "bceacc0bcff08cc3670289d028ad2cdd995fa0fd9d4ed65bc098cc8385421477",
+          "sha256": "c065d76d65eef2f1c02248d190d4a80ae94aa4d07f6cc2dca6e233074f4dbd75",
           "text_bytes": 2436
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "46e6e6aaedd9b6aa96f410077e7b72b2a5dbfcbbc5df03873f484a407a385a4e",
+          "sha256": "cdd35cb5e73a2cec34d5d8e6c8b4f052b8acb8fde362132080b83089a1e5d3d1",
           "text_bytes": 1925
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "1c022d7ddf85943cefb61a3f05f32f404aadfe58698b571a175caf0b68f153a2",
+          "sha256": "22835195d4cde55122b5050aab5c1fb6a1a9c86ac13b6f91acab1f469bfcef87",
           "text_bytes": 1925
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "d12eed0824fc67bb4c5424f21b605ac7df2079262e39bd14e037b43e937ac85d",
+          "sha256": "d718147d08ebdb8cfd3edd1d6dc1eef59edca3a0603a7fea4473a017e0046e36",
           "text_bytes": 2861
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "3e863caad73512f4170dde9ba27e559a72a4000321c419f2daaa12329b8bbae9",
+          "sha256": "353043b07bb6f33617e06b379cdbae5c1cd6b92eff42c359491852b31e142960",
           "text_bytes": 2861
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "15e94623b8bea1f6ca64cd13cd9feef29062065ee1f88cf18b8eaf0bf275e42e",
+          "sha256": "7b2879111df36240061ecebee364afc86136d2a7fba013dd42d5b14f5fab8831",
           "text_bytes": 2197
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "f0067876f19ea7d9456e3a8801020fcd16660b635370406a172fbe38b5e14572",
+          "sha256": "ba14dd48ebb76740643396963a9e7ddb41c3f52a9355330d9b53e4b123a9573d",
           "text_bytes": 2197
         }
       ],
@@ -971,67 +971,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "648da5fc79424774030d567f54569ecf38838325a6f69d0db9ce6968264118ca",
+          "sha256": "e660e76ccb341ccb993acacacd543646652e023d66d2830148b52efd7ec7d5c5",
           "text_bytes": 2433
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "da09421e1950ef0f09819aeec1adb8a92ba113ca2861b8b10b62b597b52968c3",
+          "sha256": "98552da88a104796b17f4d374a02f39825166e6a08a4ca78c752d9e3206812ea",
           "text_bytes": 2433
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "21a4cb6caaed7f3fbf68098de0b92c40b7d4d4e1f7118b920953a46d9e89f778",
+          "sha256": "6f00a784d0a7cf8fc719b33df3315f521a2a94b78525f6117b747a773a07ea64",
           "text_bytes": 2021
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "2084920c0c0d24e43f473b2b9f4e31eaa38966a79ef466a349f540ce12595cdd",
+          "sha256": "7adb60a6c05e69ede6904c6e4fcc534b286796e22212847d41d3d332c756ae31",
           "text_bytes": 2021
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "c00fbc79e24bd0d3d0e8cc74e6ae295ac532cbefded9a744c1b5235422ea6a4a",
+          "sha256": "4f86f3f9da476779ba56a30faca7cac4e4c60dd96288c6580fc60ad2da3e3f1a",
           "text_bytes": 2887
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "739d583fb2fa511a21b68834490fc4e4d998949c331f29a017f865961132cefc",
+          "sha256": "bf57242e3868ea60d081de1dfe8497cbf0063022f26083049c0c76c1082728b7",
           "text_bytes": 2887
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "1ff72e2442f8719ce962fedda6ee395a8959bb205e711ca7945b2d9e824fb456",
+          "sha256": "8fe5a95b263b4895cbf3d417aa65b8c83a0a32cf9db3aca8cddc4178450d457b",
           "text_bytes": 2453
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "489fbdc62a481eec5271a471f90d084ddb5571aa60d49ba4a8ba74d3f8d81081",
+          "sha256": "5f49c815ab3e1ae4c274cd1566a5c4cafbce2774513888acfe67e7432e32b94c",
           "text_bytes": 2453
         }
       ],
@@ -1064,67 +1064,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O0.sym",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "a92d0d825981b90de719fdca2b952265443bb7b6adae0f4481208ba9fc0294af",
+          "sha256": "dea6b3e665020b6e354c14e0ea5b60bd4a4b4041427f607395b8c8146e269ebe",
           "text_bytes": 2505
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "278c750c8b94c4416cb68b1cf02ca4bd2ce0082ebdc6e614316a7ebd8caba8d1",
+          "sha256": "e99b906c852df02071445dbef9cf86d7cd27ade5563f96c7eb637cdf677b349e",
           "text_bytes": 2505
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O2.sym",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "4136662da7316a891fdcdbe1fcb574eb997e57eaf6485daee5a4a69bf03a42ab",
+          "sha256": "0563a6150c179978f0ba4586e9d00f9dc3cd29f2a19c609b7697ae5ccfa9eb1f",
           "text_bytes": 2037
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "617d6df9f42d63b8f1af3f03d294eeb7848565a6d52791eab4e4be9705cb46ac",
+          "sha256": "dfa85e5c37baaea67d8f6d8a894b8ae15e2df6e59d05e82ba3a355669372e1b3",
           "text_bytes": 2037
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O0.sym",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "fe2bbfe02fa43eca90d9196751110e293b73912e8cad19476a26245f74e01af7",
+          "sha256": "b9aa1b76cf35b1fec10b8955615cba96b985d9ee6460119bd1e6325e09951001",
           "text_bytes": 2774
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O0.stripped",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "bb7d461a902c7329a658929b39746cd558c7e1f90aae372646adeb3b405b8072",
+          "sha256": "6afb8038c19e2452036457ac2f4e434d27cd2c8e731b8ecfcd36e3b7c950cee2",
           "text_bytes": 2774
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O2.sym",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "75a59b59b2ef11de70d5912c8ce0ae36b0f993a0a02ab7494698b4b3f8123778",
+          "sha256": "fcce805a8841c8564f33f4d976a07435299af83372d5fe5fa9cb564ebb22520b",
           "text_bytes": 2293
         },
         {
-          "path": "bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O2.stripped",
+          "path": "bin/c-cpp/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "1e5763c824a9d55185ec59f2302b03d91b7e83306dcbde98804c25309a3cd7ca",
+          "sha256": "141a23391e30cbe3cc1a80fb239f70be40065b673b7de97d876d5a3f1b717f02",
           "text_bytes": 2293
         }
       ],
@@ -1156,67 +1156,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "82bfb604f46dc8489e70bcae198cc70b182c8c43552952179b30273b29d1b8ae",
+          "sha256": "fb6f9ba3735db4ad6919b7a2f2008200ddc71db55ea10520bdef06e23ffd26f0",
           "text_bytes": 1972
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "b9ad77aae004096544f103cc5ad1099c7ad6b7d2987ac6464655f1cbd4e1d269",
+          "sha256": "a46cf0a8461dd4ef4f94557b274b0bc923657d1a583bf99dafdb0ed1d269e7b7",
           "text_bytes": 1972
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "8cd2debab084f931cc0c13c7023202d84365e608934a2df4eb0cd87ff1b7e90b",
+          "sha256": "47a77583062264d13c54a7318e239c1e0dd48c4bca451f5e10c2677663b098ff",
           "text_bytes": 1717
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "d5105c767b4b4dc209590e1383c43c41d21bf5d7554cc59838fba6d2c24fd4c6",
+          "sha256": "ba52569865edc0f60bac295e750d765ebb8799f4fa8d580bf5e595923a8b11ab",
           "text_bytes": 1717
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__char_fscanf_add_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__char_fscanf_add_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "2dcd0fd9e21525ce6021709e43411aa18bdce14e521a09020153fd3b7a65e65a",
+          "sha256": "8db18ecfc69993a47fb1a3faf980865349bd72053f60df4ed0a55249028db6f5",
           "text_bytes": 2072
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__char_fscanf_add_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__char_fscanf_add_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "e8bb64b4f1a008eb0cd424094e72596c83576afb629092ff4b8619df6ffcec66",
+          "sha256": "b1abe17c91774d8dbe5109afb7e2146e61fbf925243f1fea02d8aa45770be47c",
           "text_bytes": 2072
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__char_fscanf_add_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__char_fscanf_add_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "0a26adcc286782946c12c1925f9652c6eae3ab5e1ebb06c7f8654d41724f33a5",
+          "sha256": "32a550c551decc689a0cc284ab592a435f3e411ff9639de41c8ab4e153016fe6",
           "text_bytes": 1877
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__char_fscanf_add_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__char_fscanf_add_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "e7407c68394e0afad217c5a0a2d3b6069c0fec3d7cfbe6533b0a4d913b71a57e",
+          "sha256": "2ffdc730829fe5a195c8ae03ef6b6cd1664fab8f915ee3f25d08777cf0f76400",
           "text_bytes": 1877
         }
       ],
@@ -1248,67 +1248,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "b06d2f6b5501b92ecae35e1c07a5c9ce6bf82e1b3939fc5ee708ae666d1712a0",
+          "sha256": "88f5c5ce0d7a28cee3d4a1b67eaf551f2d8a11818c4fc150e29b2d660fb2415d",
           "text_bytes": 1987
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "ab01eeac606906beb4dc257d51b265187bc723924c6ea4bd9d95b8501b36157f",
+          "sha256": "98d638d7e913186e78e38529e2d3ad4685499c785a40b1a03dba0880334de774",
           "text_bytes": 1987
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "37989652b5ff6504a854218e2c0483c58cf14f7942223c2fafea0bb62c5cfa46",
+          "sha256": "e2b21184865506840d0f493843b85f737727460160daddb4866bb2c277b4ffa6",
           "text_bytes": 1733
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "530ab522de755dd13d3aae7b8f5bc1b6ecde01e965f3f867cf852f1e0d187ba2",
+          "sha256": "039c06f84bcc4ff2e6e80db67ace4c6aac9836aabeffc771da76079c61e38037",
           "text_bytes": 1733
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "f62bf9159863d4e36ee9e0a75f8b960508fd361d3250cb02d7448c99f0a99681",
+          "sha256": "0e3a34c061d235e40150d28b5bfa2bf3d288c301458bf25ed7ea6804a6ab7e91",
           "text_bytes": 2110
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "243a9b2da2ed4bfd478b49abce30927f5bd49a9e1e5981276753d7b624ad0c05",
+          "sha256": "da5097f72aa818ec29bbcb5304d0db44c3dcde700a3c3aedf7c694d81da60b13",
           "text_bytes": 2110
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "afc4f59a162bcb091f477efd3762600173ff818530d2543bfed551ab11c3a362",
+          "sha256": "1c4993bfed74fc839b805d3f34fc618c6f61f400ecc82547239a915afe090b27",
           "text_bytes": 1909
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "31aa684af9edb52ba31da3a81dfca7a9c96aec56f89382a5efa4e162c1a0278a",
+          "sha256": "a76dad3c988cf20f49dc999d66382ac18e440468ced29370806903c231793096",
           "text_bytes": 1909
         }
       ],
@@ -1341,67 +1341,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O0.sym",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "2b6b34dd4d39faf19995f4f937552bbb51c932fcd24c6bb3eac419393e0afce1",
+          "sha256": "253574d2356318deaea9003c06a8b9d41b2fc6d000fa4d320a4ec392518e14f3",
           "text_bytes": 5329
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "66af7ae55566ccd02c67464d511c7b9d1dc61b2e47bd419245799e4b20331607",
+          "sha256": "bf7c16146e6214a36e7e9cb6f7b817edf3e266b58ca01b8cf72ddc0aab695c39",
           "text_bytes": 5329
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O2.sym",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "983778380bfe0d339f86abd9e4bfbe84950b06608c86caed574a78a632947d5f",
+          "sha256": "926fba76985527bcb61a30255cb79b369e022163d13e9fd2bea080c0e8de6245",
           "text_bytes": 2181
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "f4d0a3ed97892555ad994c8b22cbe9c95588ac2eb89f2288da995ab45204e4f7",
+          "sha256": "0960c060d1a2f601080babb08f864dbab9b8e4fd4949934babe6c46161be10c8",
           "text_bytes": 2181
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O0.sym",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "efbe1db84a756c852e8f41c30adfef100a298ea7eb5842e981e2630e4f209f3e",
+          "sha256": "cd857a34dd97ad2513cd41144e244b738e9997779b1d08f6b1a808b6e21ccae1",
           "text_bytes": 5709
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O0.stripped",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "7645dff77becf6255ea780a8f060a5be95f5bb1ee9d39b7809a948b0ddbbc27b",
+          "sha256": "cc5a92bc9404f63f6167f325a0fa264469410e284386e63df021ba9699a07156",
           "text_bytes": 5709
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O2.sym",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "732d9a32db4b9b92df3791f6cbeb5a096afaaff87e8cc39774f719e8159059c7",
+          "sha256": "f17c3995df9842f0e78d4701a82c8633a25ca5839054fd08f5905da5f2395f6b",
           "text_bytes": 2677
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O2.stripped",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "686ebf88c9673df6b8771c9cde644224d34db370a86a68c8d06fb915cfd941d1",
+          "sha256": "36f9d15172f617d0c315f216d9e7c12bd9cb82f7d693535ae5e94e329ef25a9f",
           "text_bytes": 2677
         }
       ],
@@ -1439,67 +1439,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE190_Integer_Overflow__short_max_preinc_68/bad-O0.sym",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__short_max_preinc_68/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "24d954b7d9fa644be4c436739f22ec1d9f3337aadb833d0a44a1b8e5814591ba",
+          "sha256": "5dea674825a0e38d7958bf97c1f2dcae208f673f098a949bdffbe7d169e9e19a",
           "text_bytes": 1967
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__short_max_preinc_68/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__short_max_preinc_68/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "9034ffa79bf2a8a4192ea40b7eef5c3b8d164d719c266c800013cfd0c4808e5d",
+          "sha256": "2e3930291f22e1129d151e5624371478466f49e36b6bf34dd1c0162b096b411b",
           "text_bytes": 1967
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__short_max_preinc_68/bad-O2.sym",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__short_max_preinc_68/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "0b9a6b0ceaa2e7d54c8c32dcfc69dae441f72f07581d391b526204a655f9b744",
+          "sha256": "311476494aff7557b167b511bf502d982a6248ef381a0b7111316f496cfafd23",
           "text_bytes": 1701
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__short_max_preinc_68/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__short_max_preinc_68/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "b6927a5c9989b3a69b734cf00527661d9847a7437c13b76f69db08c465e5684f",
+          "sha256": "f07c37972de837b1e0223c4d87ead21ac8af577fc0589cd8378cacc597a37b58",
           "text_bytes": 1701
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__short_max_preinc_68/good-O0.sym",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__short_max_preinc_68/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "38a548e1197046e91cdbe64b6f2be4c9e62c969073bf0b15b118e5a83465e5a3",
+          "sha256": "d4880598f097a58dc8e171a826352c1704a48c18604fd99ba120933b9cf41b68",
           "text_bytes": 2127
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__short_max_preinc_68/good-O0.stripped",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__short_max_preinc_68/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "9336f0ea3979e79fcfa45734c342e014b213438c45a422e7565b71300529e499",
+          "sha256": "af1815426cab516d6ad213f70b8696c49f561e40eef1e91b708fbd3ca2473bee",
           "text_bytes": 2127
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__short_max_preinc_68/good-O2.sym",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__short_max_preinc_68/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "3cb93885ae2cf5abff7985124ae480cb0fb6d1c1f9a59656b1c833448fca0084",
+          "sha256": "96f54574480cfd75e74cbdd0ad439892ac0552b0ad97707574d50a4d64c74b8b",
           "text_bytes": 1765
         },
         {
-          "path": "bin/CWE190_Integer_Overflow__short_max_preinc_68/good-O2.stripped",
+          "path": "bin/c-cpp/CWE190_Integer_Overflow__short_max_preinc_68/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "f8904d6c77ba22098bb154551705a0f57319616ed9642cc458527bebdf3fbdfe",
+          "sha256": "c461ba785914646ba1d0865d7c1f657745529a717124c1d6f4c089ee812e91a7",
           "text_bytes": 1765
         }
       ],
@@ -1531,67 +1531,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "7c11bad2c4b7d0c333bda06b894131086812b0eb1385ee386c761ebeb1c0cbfa",
+          "sha256": "97f107691a3ecf25cf2e830e255f322ae41f22e67f70597126358f2518d4dae1",
           "text_bytes": 2438
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "bc15dde5b817863266e433b29287baa8d000c378d551a4a8cb97d01808293db5",
+          "sha256": "6d4df4108e68301a8c6ca929e2787160e9358f19f23babd8fb422d3d842aa62b",
           "text_bytes": 2438
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "060ac2e487a063f6910c18322a13826783173583a080be35575436a5b046bc5d",
+          "sha256": "0ef4661bbf2c928f3ba035405a9f96c728e417604bb1526ac10092d9c32ce821",
           "text_bytes": 1957
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "6ad3d37c85a4a3ee1c9dd47efe488d7d4b28e34f75d6ef5e894d7bad4c0aeb72",
+          "sha256": "bc2c5828f80cdeb1cd38c1e8e306669105077a730aa1f2eeb69ad8e09d13e4a9",
           "text_bytes": 1957
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "1d01a17a63473fe03f938d1889e69dc3a5073bb2d29a657d2d27d0c44c74806a",
+          "sha256": "ee0eabf858939d723c4efe77a668e598b7dba6488bbb87a26aec325ef8ed0bfc",
           "text_bytes": 2077
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "bc398a15646bcf605c9306755ac4d5af637f185c8f54c4d4da8fe407db89eed5",
+          "sha256": "ad2efff6a434381b6a6d63dba706cd26df6de75ba370a79fb4dd8389369a75c6",
           "text_bytes": 2077
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "f5a878990793ccf0a965e0086e715948cdbeddaaefc776fddc3a194ecc385eb2",
+          "sha256": "ffeb6fb480ddef4197b125feba63734a06ab17857a0997a5f52cf48afeb4043a",
           "text_bytes": 1765
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "11b29cd13ca72254775fa3b59b30879ef876cd9d63dd8c42377f841f6a144ad2",
+          "sha256": "2692883745667af31ac8df6068118d7806d98a323632e9fd84b85a589f5c76fa",
           "text_bytes": 1765
         }
       ],
@@ -1625,67 +1625,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O0.sym",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "dc145b83c39a5cd790f21853f2505520ec64c9132736f52f99d78c4fa48bf5f5",
+          "sha256": "523311fa581c49541f1e2a44efc27e581074daa8547a445a1576b4f88a4dd6ae",
           "text_bytes": 2479
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "b2b27ce239b1ecad679375b2d622438b2420088ec5ba6c9ac7b393768e1f6c4a",
+          "sha256": "8a1e3d61d746708dd54e3c705f170820dcb2f6a668aef3bc783ca6e48c18f02d",
           "text_bytes": 2479
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O2.sym",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "c9259afab1ad7a209351c0d7bd6b69fe7e04c2e63334b1c727736a287a2902c3",
+          "sha256": "1768a22fddc4f4449113e1dcbbfff7f053ffb9342ae17667edd382f77ad9ed24",
           "text_bytes": 1989
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "335ae19b89728653f761dac489d9d9c1fdfec365ac779e40cda5d032ce301e6b",
+          "sha256": "ca63281f0e638924bc6bcb505ec718f81fb553662d3f4b85875cd1f6e8bf5e54",
           "text_bytes": 1989
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O0.sym",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "9314171ca8fa42f9f9d17788c7509e646aa5e3dd2911508fe276e79ed339f998",
+          "sha256": "f6518b5e70cb505578ebf87304d6be19ca4daee7e8c5ba42779968f24d796c2b",
           "text_bytes": 2118
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O0.stripped",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "cd1a60ceb6562067ba9f52dce13a4692e42b6e752d2bbb09ec4229ee900b3578",
+          "sha256": "80affe8ef72a13030435d2d0cf9daa96f8452f47157de87b5c304e61891e9ba1",
           "text_bytes": 2118
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O2.sym",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "cf4c7a790a65ff0a230af83d12bdefe22baca11d28d6f8150c00df0c7d3b35e5",
+          "sha256": "5d940eb9641dc1239fa975b64fec49ab6d10c9c5dc8f261a01688c5aa105e4f5",
           "text_bytes": 1797
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O2.stripped",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "d68f523b9545b464496f2f376a3300b8e7b804f141dd082087424f139ffcd755",
+          "sha256": "de0d3f5333a194b551568a15be31fad45009f57b54cc79f2bab188f9c8fc2ff6",
           "text_bytes": 1797
         }
       ],
@@ -1722,67 +1722,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O0.sym",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "6338379f1cad39064fb4603289bcceeb2b3ecd14dd40066e19c6b614f34caae3",
+          "sha256": "b1cdc629e3c4a697a7654b932cc99b65b9bb97d5bfae4b6544040289f3f56c6f",
           "text_bytes": 2589
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "3ba3d99c1f3c000a9b1ac127000dc65c76ede80b2d03a055078c251bc605299c",
+          "sha256": "980253625ac768dabd164219c8afb020cd5d9094add47aa9fcb21e72785e2757",
           "text_bytes": 2589
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O2.sym",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "b455eb9f92bf192d22ef02cb80c0ac8b8ae261260c3f34133ac0994dc026cc41",
+          "sha256": "bc28a89041f73fc23fe0f355fec2a8f788aa2e9c4bd3f7c1133ff3e2e57d45e4",
           "text_bytes": 2021
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "c8f094305d04f9ef06ff5c0bdc396a4be3b16c7636fbc4a36f451d0444d77f1f",
+          "sha256": "0ce0d59fea96b58c73f74cc7d2e6d211f2c336a8f9e6eaf3b023ec55b564cf31",
           "text_bytes": 2021
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O0.sym",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "2d0931168f215fca9d4a9d2d352c5c5767cd738f9bf5610dba9974c17ea5febd",
+          "sha256": "85e2fc57919f57f5e3f606ece5a2cd69359b46ee992b29c6e92292ab73b8a9a6",
           "text_bytes": 2127
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O0.stripped",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "96733b0be5f0d64c07e42c3e6082e717d798ffaaf116675d9dbe29f166638be8",
+          "sha256": "88ef186388c90021304d8101d4ec83e7ee2f4ce65a719b0adef87207c25cc2ed",
           "text_bytes": 2127
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O2.sym",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "b67cc9394d4d90afdff6b12ef9b34ee97e95cc4f011bdd98a5ab6d34884f221e",
+          "sha256": "98023fdb98d0f6604103ff1a6740f985999a1a87c155d8fc4bd4a03adba098fa",
           "text_bytes": 1813
         },
         {
-          "path": "bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O2.stripped",
+          "path": "bin/c-cpp/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "c0916f02f2cba2bebeb463d83189a6ff09f3e2bd842bb26caafacc2d846bdcba",
+          "sha256": "6b960f10a414a1aa67f66ef355de2d48cca3cf37bc543cff5327b4cc359deec0",
           "text_bytes": 1813
         }
       ],
@@ -1829,67 +1829,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE369_Divide_by_Zero__float_fscanf_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__float_fscanf_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "19d15a90297474d33a6d77224f891c63e7455a0fda4f0576d72163cf18a79607",
+          "sha256": "95eb88920a5a8704abdf40693f44ac15ccf0742166ac3215935cd0c81eec0088",
           "text_bytes": 1998
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__float_fscanf_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__float_fscanf_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "319465fe61137ffa3c7c5c4bd33b76b0327cd15a7fc3dc4bcda703a991ec442a",
+          "sha256": "ccd169e4d7f333312db1d1b2695b90ad1d2a33b9e3e5838322fe80d83f5b9617",
           "text_bytes": 1998
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__float_fscanf_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__float_fscanf_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "629ef86a67baaa9d0b541ce70d254b01fd0154cd5152c0b7e6c7c37fcdc7f704",
+          "sha256": "55d6ec6a085703badf7367a1d811dd5c2892c207407e9a058d549826fe308127",
           "text_bytes": 1749
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__float_fscanf_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__float_fscanf_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "56c37a8e84b4bc5c846f82c41cf203e2dddc4dd724c0d722ce6cd0ee9c1af442",
+          "sha256": "a87cf8f001509b8a8baec14d7f19ee9f6eee3dfaca57447b359c2a4db8ef7870",
           "text_bytes": 1749
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__float_fscanf_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__float_fscanf_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "4852ef80ebae0288eb8063fe13376c3b5c70240f10ee50bca3343250887aac03",
+          "sha256": "2e9e4ad3f7b7e217bb60f49126089b977504c66bc70ae8ac63278c92e80c7216",
           "text_bytes": 2151
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__float_fscanf_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__float_fscanf_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "a7937eba1cdd24daf1b2660a0e12dfc20daca19f1e859dcb8077b5e15db30d19",
+          "sha256": "448c777ed1b7d82eb2dfae358ca030618471cf4f724c99922701378110890241",
           "text_bytes": 2151
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__float_fscanf_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__float_fscanf_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "7a6c22eebf93f31f8140682a64fe8f25a9412a0589240108622c56ca0cc7caa1",
+          "sha256": "ea154ba0bbf344a1f511e15628262cea6fe71eff953f57e32dc8e02c221924cf",
           "text_bytes": 1829
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__float_fscanf_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__float_fscanf_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "044d0326686aafcfaf923116f0ec816bcd9b44318ee817f7070c4135f45869c2",
+          "sha256": "fc9532a595e70a9451d5be86fc9c909209a0b984e77fe58632cca8f4f43b0a32",
           "text_bytes": 1829
         }
       ],
@@ -1922,67 +1922,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O0.sym",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "7ae1f01d1677814d55dc56321bc301785d4a123109ce25825cdc2f5e864aa6e9",
+          "sha256": "ae2f7fcae696aba1fa7340310ad5ad0dffa0dbd509b90b4cda75926f55d03f2b",
           "text_bytes": 2178
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "6337e6ee53050bdfac8f0da802dd602b4b7e1702f3ffe6a1a5e9a2bb7bdb42f6",
+          "sha256": "aaf65d1d2f2fa15baf622cfe422223cc72e82ce3d9d89b8e0a4963d0eba80278",
           "text_bytes": 2178
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O2.sym",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "157aa2c593bea3d1f93474de916f6d2b3fa7e89cd885bc4d85d133c521546719",
+          "sha256": "2827546be2e09448efc6d126cb8180eba83b77566a980f4e446b5463964b9be3",
           "text_bytes": 1909
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "42d1fb5ac9f2bbfbd5087521acad7320c13df9727aeb9c367edd655306859574",
+          "sha256": "6ee174fc83f79d16ab1d10fb4efffeca1b69f2ba42ff26363b018bc5b2730c3d",
           "text_bytes": 1909
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O0.sym",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "de6d81c4edd68a5f9f9a14898f95782ff9fefc83474eeb62608fd98367b4682b",
+          "sha256": "3155739b77f06987021c6eff7181837f7a2fedc5aaa82fbe6b6f4178757e0eb4",
           "text_bytes": 2370
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O0.stripped",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "66e490a9956c48a5d8c5cd5d6c57b886261f7c5eae6724a55c3c0d1692623cb1",
+          "sha256": "43748d4800567497165a1576f362c54e3de71406a405bb90281571eb273e82bd",
           "text_bytes": 2370
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O2.sym",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "a89ab5e353d21f1b8cb389c4c84974401ba1cff485570e95014b8c45d8f53fe2",
+          "sha256": "4b863143f17734c36fbc100f4b49499abca80b923eeae77e2a08b9aec12e8283",
           "text_bytes": 1989
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O2.stripped",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "a9f33bb2a4dc1830f22b094219b6ee8a696c7628d9867122468a964fb66e47c8",
+          "sha256": "1f0f22bd62d6719200c339c389becb9a13daac6ae40af73cde33dca24a7902d1",
           "text_bytes": 1989
         }
       ],
@@ -2017,67 +2017,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O0.sym",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "9c6ad0c68405388f326db8946e03d2aaf7cedc7da619fc5ed08e1108e66f6898",
+          "sha256": "4933b37cef7a53441ccdce9d92d465df7f863ab7633f830a6aed0ebfdba25f17",
           "text_bytes": 2036
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "8663ccab72e23744c7696c50bfc339bba645ba916f90adc73cb2d9d9f4916dfd",
+          "sha256": "8ef7afd670147f50fd972fd2522d742b7e70028a678215e62227e1952a94d4d2",
           "text_bytes": 2036
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O2.sym",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "4dd307a33a21cfbfd179d8baa9ff6ff39e4e8c7bfc5f6711b7bc18cbfe20ba0e",
+          "sha256": "216316454628279eaaa97d05b4267862b3090d494194d9f7d7b4f3267fe76e3d",
           "text_bytes": 1797
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "fb12db34422d55bde12fe9ccddbd686538c1c30467a04999be20445f4b19a826",
+          "sha256": "28bc34cba119b794777e1173617813cd8815fbe2419e6e7905d40f857013e775",
           "text_bytes": 1797
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_rand_divide_81/good-O0.sym",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_rand_divide_81/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "79803e8b7abaa32f00c2d48cfc5fadf4bdae3d26adb42451ae60f93797eea85a",
+          "sha256": "faddfa9f420bfdcf317c66f4c610ee336a736656e5d7de30e7fbaa4c15af9a0d",
           "text_bytes": 2226
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_rand_divide_81/good-O0.stripped",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_rand_divide_81/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "ca24dc46b89ae0e183d6aafb5703e3128a35d332ee5c73242a3edff6c2e7ed1a",
+          "sha256": "f8149c00f4e11eb6f6410be0d107754772bea651da28707977ec72e9dbdf5568",
           "text_bytes": 2226
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_rand_divide_81/good-O2.sym",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_rand_divide_81/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "39afd2fff47f5d425147ebd902c5f00848c292613ac6267b9e61a486b768f481",
+          "sha256": "2b6cb43ad00290131b040e531c7475949f0be9eeef058e6a4ad2ea4de5437bc3",
           "text_bytes": 1861
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_rand_divide_81/good-O2.stripped",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_rand_divide_81/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "be878e523d2dd438657ffe8c51f380a428dcc62252da5201f8e34006cf09302d",
+          "sha256": "62277d2826220dfb3f019dc83ce943e7fb922f222e86e2b7c4544337b3e2f6af",
           "text_bytes": 1861
         }
       ],
@@ -2111,67 +2111,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "07dbb87efcc95f4137a84cf2f4e4ad4fb5d90b0575eaf26da2a57229b9c26ea3",
+          "sha256": "10f32ef46dbce5a8cea27f015edd4d6232a9bf5fdfecb492f433f3b1e8d064a0",
           "text_bytes": 1908
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "493b75ccc7ea019d04820a6fec75e033fa11ceef9583068a05777ff52401c487",
+          "sha256": "7aebcbcd2a7f5c2f08d37b1bb6b5e6c81bf4b586e20a837dc0c15681a74aeab5",
           "text_bytes": 1908
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "2952079e452c1595b1c3accb9fcb9863cdb33f85e6fbaac497749e2cb619e980",
+          "sha256": "cceab2f175acb0a718ff700389bec6bac68c866924c9a56a28651f32006a77d9",
           "text_bytes": 1621
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "e62c016fdac79f8d4fb4be42904cd3d873c99f39bb9cd1a493bf3167afc39072",
+          "sha256": "088409a73645607784d672867ad41e78e9a4be2607435040e72060295fdf4a04",
           "text_bytes": 1621
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_zero_divide_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_zero_divide_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "b738b1f832dd4fb8f4bfa8f864bc2cf955694b1033ee9f28ab480040513b1c77",
+          "sha256": "86daf1d473f379952e0c2358e7bdaccb0d448a7df41eead5a639a302c6576a5b",
           "text_bytes": 2007
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_zero_divide_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_zero_divide_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "35b2a8717d765fb0792ed3991730255a70977c84ec7bd1f1990fcf34674c6aab",
+          "sha256": "eead9c440347f2e293d6cb06d8ba6002cde160d1477bebcc1a37d81c04885b7a",
           "text_bytes": 2007
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_zero_divide_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_zero_divide_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "98947de301c8ea031c5a5ec34d4ba17d658e28e5f5c189c56dbfa79319ad4f3a",
+          "sha256": "8493b391092c6cdc7ee40ce8da315eca1d877b81a2d5fd8e12bc9d7e48584f72",
           "text_bytes": 1669
         },
         {
-          "path": "bin/CWE369_Divide_by_Zero__int_zero_divide_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE369_Divide_by_Zero__int_zero_divide_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "3ef8171a8cb15e650dabb6774a66c214f4a6ff100992bb5d5d86a35112150ac9",
+          "sha256": "d96c18092a8bfc53fe35c6b5b58bf71a7f69aa406074bfb09b59463a9e0efa76",
           "text_bytes": 1669
         }
       ],
@@ -2204,67 +2204,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE401_Memory_Leak__int_malloc_62/bad-O0.sym",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__int_malloc_62/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "d2731fc3689800607a13129eb94b29678a695600cc1447d9a83b28ff4c01ff99",
+          "sha256": "044e2ffc42138557bb2ca8dcf0e0b6eb8bf57a64b8a1111f48fb44694d84f45d",
           "text_bytes": 1980
         },
         {
-          "path": "bin/CWE401_Memory_Leak__int_malloc_62/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__int_malloc_62/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "4270e3ec3fed8d95fba3c98b330bff8d05309611ae45d0c2ba2283ec99e45e1c",
+          "sha256": "278a1e6f0dce11255db0a767f4f39a4aedfa269ec075a1bce61a886705a007c0",
           "text_bytes": 1980
         },
         {
-          "path": "bin/CWE401_Memory_Leak__int_malloc_62/bad-O2.sym",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__int_malloc_62/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "e6f3c12fcd4c0b44d185439786a4eea77d935d1f6a7af328e50962611ebadd9c",
+          "sha256": "5ce4ce403185a18d918a3b16f35b5aabe6a6b3a9c812713796f6538cc184ffd4",
           "text_bytes": 1797
         },
         {
-          "path": "bin/CWE401_Memory_Leak__int_malloc_62/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__int_malloc_62/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "7f95d96697ee8b678049c635e6c85436e1af8407e4b3dfcc3d96fa5cb6b16f9a",
+          "sha256": "42d70c7ba777286edafc223a868ed873e7a05960e89f802f2b2e07517a76b58a",
           "text_bytes": 1797
         },
         {
-          "path": "bin/CWE401_Memory_Leak__int_malloc_62/good-O0.sym",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__int_malloc_62/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "963dc846c8e1d21efe24862b9310a8f12ed89b232b762f1d189352ee3786f9a6",
+          "sha256": "a5b2aa31031af775bacb48735a4d95b3221e1996899b1440a26be59646b5a386",
           "text_bytes": 2304
         },
         {
-          "path": "bin/CWE401_Memory_Leak__int_malloc_62/good-O0.stripped",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__int_malloc_62/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "55a8ff14f1bcb1907f3fbf20e6b0bfddf3ea4228180c2bfa5a31dbeb15b554d3",
+          "sha256": "04a3b6dae68227f64ac171cf5c84a69ba46122690e7e0d0138c0b5e62e2ef81d",
           "text_bytes": 2304
         },
         {
-          "path": "bin/CWE401_Memory_Leak__int_malloc_62/good-O2.sym",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__int_malloc_62/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "fa06a9ae84625bbaf3afe61741eb17cbc4067273f056d7d7d438389b5773dd42",
+          "sha256": "dc39bc80c25263c35aaef69e3f4f36f769ef83444973fe70239b6f021b9efa8a",
           "text_bytes": 1893
         },
         {
-          "path": "bin/CWE401_Memory_Leak__int_malloc_62/good-O2.stripped",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__int_malloc_62/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "13c90089921f381ca18b23e36927944b86d8c5a29441b306a475ccbba066a196",
+          "sha256": "3f21621299186419e38337aa6fedb2dc15eff43d48902da5e332e4fc493a76a5",
           "text_bytes": 1893
         }
       ],
@@ -2301,67 +2301,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE401_Memory_Leak__new_array_int64_t_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__new_array_int64_t_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "fb61d6fda31b6ef8b3e17a0ba3e82309026b9eaabc88b47af12722532744b012",
+          "sha256": "254c0347ee1a247e7d6099d48308968663687a339ab7f115ed3d51c859858e6a",
           "text_bytes": 1883
         },
         {
-          "path": "bin/CWE401_Memory_Leak__new_array_int64_t_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__new_array_int64_t_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "16870a2bde7fd21c4152fd5a1f7e8dbd0711303ef9611e709aa98bfa18bd45bc",
+          "sha256": "f39a91d1f7fd018bd993c8b8a5ad9cc59729b7e5c388617e2ec4334a9bc731ab",
           "text_bytes": 1883
         },
         {
-          "path": "bin/CWE401_Memory_Leak__new_array_int64_t_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__new_array_int64_t_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "75eece47d109545b044890505433f7bf36a19e399a3a28c10341246e12c7e4f2",
+          "sha256": "3ce081ba0d9daf50af46851c9bbd8e17755a247552587f1d47618f4c739abeda",
           "text_bytes": 1621
         },
         {
-          "path": "bin/CWE401_Memory_Leak__new_array_int64_t_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__new_array_int64_t_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "07ac90b5c280abafa3451739c7f1845f50e06b95be3dc418f09c12ab10039cf4",
+          "sha256": "8e35b802b4728d34409891c7f5f72076dd03a0320bcae647f1466d713ec46936",
           "text_bytes": 1621
         },
         {
-          "path": "bin/CWE401_Memory_Leak__new_array_int64_t_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__new_array_int64_t_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "328875bb1b1afad94551ad6778b72b81918e0f88da6b9c70351087a3c7560881",
+          "sha256": "85468b7d7a96ecb16abbb910164efe02c750b7998495e58d2f3806cde3d28a4b",
           "text_bytes": 2033
         },
         {
-          "path": "bin/CWE401_Memory_Leak__new_array_int64_t_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__new_array_int64_t_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "fb6068fe2a9359734058531d4290c8797a0ec5799dae67adffdc3112a44dee1d",
+          "sha256": "1b17490f723f03a5e28724628d0d8a18d261a3fb2abbceef4d31352c44033c9d",
           "text_bytes": 2033
         },
         {
-          "path": "bin/CWE401_Memory_Leak__new_array_int64_t_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__new_array_int64_t_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "4c479174bb8bbede96f8047f12305d17ba36f8a6429e2b7da134eccb0d9ed423",
+          "sha256": "909783f7d0f2d9b630a7a9d9d3e9656e2c62d9a711fdde90d71f0196929a5fd3",
           "text_bytes": 1637
         },
         {
-          "path": "bin/CWE401_Memory_Leak__new_array_int64_t_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__new_array_int64_t_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "60085afaf9048e6f1f5c9d60849f839aa8b756d1fc31d0eeecde17569827b6be",
+          "sha256": "f2abbc5c9784abbae2b1590a39037a243704531ed99fb053a1101ba1fc813df8",
           "text_bytes": 1637
         }
       ],
@@ -2395,67 +2395,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "a859acb9f4713a6eb721f0fc57229902e5920e576b820b3e800e85913879f90e",
+          "sha256": "67593bab93c920a1e9697fcaa31fcb904d424d73aee23d2b19bfa640e6d2217d",
           "text_bytes": 1955
         },
         {
-          "path": "bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "c07c582f0f18009f2c95be73eb69da1b2bbee6472977aaff6d761f0014e6ef03",
+          "sha256": "52c4bc56a0701f638419ee241fa965ef934d8b56d4f186118d50b2114170afb6",
           "text_bytes": 1955
         },
         {
-          "path": "bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "7290516c2c15e1b89b7596af3cc4933a4315e947c6c881668626135fa73a06c1",
+          "sha256": "21b705ef2f9db685d3664fcb9b55ac03f0b622f0608f9d0fe95b33009b9760e4",
           "text_bytes": 1669
         },
         {
-          "path": "bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "fbaecc74d7d8cee929e8981f0a3cf9ca16f28ca00f2a39318991a57c92eb5d26",
+          "sha256": "d40ee72353f4eb04410237e4869e335e5172e1faf35e5db3319bfec50016c2b4",
           "text_bytes": 1669
         },
         {
-          "path": "bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "c6386bdafd68e533bb086d15b3f450cefd3850729c621895f0f82602ff83da99",
+          "sha256": "4b9919a46f1d38eb4683e2e48705f6d47f13473c2735f55149389a905536a2c8",
           "text_bytes": 2221
         },
         {
-          "path": "bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "7be42a05568d7a4f85ec710e1a49474519b977137718a81d2c1d3dec7bd2dfd8",
+          "sha256": "2cfe6c4642f620ed090e6d178179b032d79025de569ebd3bc38f85b95a371758",
           "text_bytes": 2221
         },
         {
-          "path": "bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "b17a3737de542f133063828b3f95b5436c47d22afac863f9f678052c31b0cdb9",
+          "sha256": "d776ef7e1ab6360b2ebda2cc110e603aa957fbcc7425c3a334671925f9a1f1dc",
           "text_bytes": 1845
         },
         {
-          "path": "bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "e6446f25faf7b730e8b62762ec2fbcfaee66242c84dfbb8c5d00787f74b5e181",
+          "sha256": "8dc8dd4c0201c4eaa5b31c46230b7b3605137c62b83a5d7a11a91d40aab7e4d9",
           "text_bytes": 1845
         }
       ],
@@ -2488,67 +2488,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O0.sym",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "a1032302ea22ad9947881ca4acdb31214669b2b3652206a2ff9953c4fb5fc3b7",
+          "sha256": "c3b7f69f27c215f47686ec74f16018236b8d2f61aeb9aef3dbd38cab69a848b0",
           "text_bytes": 10583
         },
         {
-          "path": "bin/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "7915bdf1020d46067d48913a61e55df69af6a9d7facfc46463c8a7da0c505642",
+          "sha256": "62b0abf006d85e78b0106d508008289317f83e805799292a924d8b62de3bb3db",
           "text_bytes": 10583
         },
         {
-          "path": "bin/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O2.sym",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "3550adf688bd7d76ce2893b413ddb83257aec25890ffc183699828ef28bc96da",
+          "sha256": "f08aaef56d3419c925491a302f7a2c64716df6b346f2ea46b5db2efde1964e96",
           "text_bytes": 4117
         },
         {
-          "path": "bin/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "dabc325f9ca31c58bebacce28d8e51f18e2d457b0b1e92d541c2178924a9983f",
+          "sha256": "83c456fe88c0696396d81be3c95d236d2f0fe5c776f4e39ef3879457f7719bf1",
           "text_bytes": 4117
         },
         {
-          "path": "bin/CWE401_Memory_Leak__wchar_t_malloc_74/good-O0.sym",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__wchar_t_malloc_74/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "f0d1ad00d74b8556cd4521ece81b2b11e4e10fe178a2f556e2cb2c94ba5cf3e4",
+          "sha256": "b08ce8007552611a28a26acda26a540a306da87fd3a75dbd30aa409f5726ad43",
           "text_bytes": 11174
         },
         {
-          "path": "bin/CWE401_Memory_Leak__wchar_t_malloc_74/good-O0.stripped",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__wchar_t_malloc_74/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "dc978fbf7f4be8105a5fe4a3c6611005b078a3dff6c99d90857533809c71be16",
+          "sha256": "cda0cca1f83572423291122ea8c964c5fe3cdfa90bd1cb0e7f9faf836804b1e6",
           "text_bytes": 11174
         },
         {
-          "path": "bin/CWE401_Memory_Leak__wchar_t_malloc_74/good-O2.sym",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__wchar_t_malloc_74/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "6619dc81140931be5d5f1d2579466ccd8fe2a82162568d9f9d8d0724f8aaab37",
+          "sha256": "f0b2f727bc31b3743101be56dcf93ab19b6c3645a6b5b4afef9969f06d97fe44",
           "text_bytes": 5429
         },
         {
-          "path": "bin/CWE401_Memory_Leak__wchar_t_malloc_74/good-O2.stripped",
+          "path": "bin/c-cpp/CWE401_Memory_Leak__wchar_t_malloc_74/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "6666e4bf733ca8b513c613f7db91480deb423c25083798e3e00e6c68e8b177d0",
+          "sha256": "6cdf523017bea14b67186b5996d05a007e8bfe712396a6dfc6afacb31fd043a7",
           "text_bytes": 5429
         }
       ],
@@ -2585,67 +2585,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE415_Double_Free__malloc_free_int64_t_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE415_Double_Free__malloc_free_int64_t_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "eda4bff3bb0af77458e3b9d72343c09ab5aa4248352058b8bb2aee0307c0acb0",
+          "sha256": "b6e1d254aa34fdee2e71992c226d421a39643776ead5c923d4d627ef4082505a",
           "text_bytes": 1941
         },
         {
-          "path": "bin/CWE415_Double_Free__malloc_free_int64_t_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE415_Double_Free__malloc_free_int64_t_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "e2078a721ba67c6dfe10c12a7b3b778319a230da2bbd5ae36bfb0a020752cd14",
+          "sha256": "59470d9c5c5ba1b52bd80df0620a4855a743a651c95f153e16ac5d3f2003ffa6",
           "text_bytes": 1941
         },
         {
-          "path": "bin/CWE415_Double_Free__malloc_free_int64_t_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE415_Double_Free__malloc_free_int64_t_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "099d507b09f50bbfeaf0e89f5a10e55f06752cb45b1ea2b207bdb349506c2cf9",
+          "sha256": "8129ec14ae0c7f6a385ca48e38e6abeedbf3f7f1071f99ca3339b0698c7986fd",
           "text_bytes": 1669
         },
         {
-          "path": "bin/CWE415_Double_Free__malloc_free_int64_t_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE415_Double_Free__malloc_free_int64_t_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "d411351f5bbefe8d5a7530a05cb78dc31d128a61d81c9b0db58ff64641e0eee5",
+          "sha256": "a164dd9d7678e8780731dfd4b0dae0706b7bafe327002bc4dde714c8ca520a06",
           "text_bytes": 1669
         },
         {
-          "path": "bin/CWE415_Double_Free__malloc_free_int64_t_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE415_Double_Free__malloc_free_int64_t_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "db6177577af3bc1525f3004bd986ac84a186719c2eff3bd8861870ac8092574d",
+          "sha256": "eba8d8a9a426cbac5868865735140cf51906524c337e94cf8dae1d268d35f727",
           "text_bytes": 2026
         },
         {
-          "path": "bin/CWE415_Double_Free__malloc_free_int64_t_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE415_Double_Free__malloc_free_int64_t_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "f3274221ab7e65939e2e27759389a0b112184b02df59297b51db3289ff003e35",
+          "sha256": "783903d012c5a20bc16c6e7dbc71c420fd56f9bdf4b26567b3e2161757df6047",
           "text_bytes": 2026
         },
         {
-          "path": "bin/CWE415_Double_Free__malloc_free_int64_t_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE415_Double_Free__malloc_free_int64_t_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "076a857c0434e96cfdf764167aaa993f01bed23f3b022301fca374d6c8049d10",
+          "sha256": "60a12d99f29ab97943dc5650bc9c0f0c4910a8246f52bfd759e8edfcbab7e65d",
           "text_bytes": 1765
         },
         {
-          "path": "bin/CWE415_Double_Free__malloc_free_int64_t_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE415_Double_Free__malloc_free_int64_t_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "ef0852c3f1d44ba5e635a8df2f68f6e6da301c25cefaa408d9c0d76d7b91f67b",
+          "sha256": "3d3093fef3995aabd698434c67b4878d99ca33d3ce7309723373fd1bfe5046a6",
           "text_bytes": 1765
         }
       ],
@@ -2678,67 +2678,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE415_Double_Free__new_delete_array_class_66/bad-O0.sym",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_array_class_66/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "446c6d2730bc47a5881afd37c11f3d0c2e2465085e2863d99731aa08b7e54f5a",
+          "sha256": "e0273fe654af922ee2c85d21883b793f61e6403ce1bbd4c2568f8cbb7848a3de",
           "text_bytes": 1981
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_array_class_66/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_array_class_66/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "4abcd837d5ca502ba33b8406f5a6426bc2b4900b07e67a3db52c9650429ccff4",
+          "sha256": "5e528358ecb4eb878b444280bcbfe7965195774da483596342996d23b6f16b39",
           "text_bytes": 1981
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_array_class_66/bad-O2.sym",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_array_class_66/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "fbd7c2ee9693559053aa01e63ed4ddd4f76e94168d88a35238e5f7f08c578888",
+          "sha256": "9918e5adf73980cb843c20f623eeeced0d31dc250c6125b22f2d7194dc8102fb",
           "text_bytes": 1733
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_array_class_66/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_array_class_66/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "563ddb570a8d8fa34247d7a0411e4a62fe6cc8314ac192707c3f7ba640eca0da",
+          "sha256": "b5173db8f5dd78c732287fe06e06c0f5a11209ffc0ce5c4a4ce84b2a77f1b5b5",
           "text_bytes": 1733
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_array_class_66/good-O0.sym",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_array_class_66/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "d4b0515005ef113f39deb93b13e38783ef243b8dd96909c9e13fbbce9d17a4ad",
+          "sha256": "5cbc216f1b4a3dffbea3876678da2eb1c5454d25d375ad6f52ebeba41b9c17ab",
           "text_bytes": 2121
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_array_class_66/good-O0.stripped",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_array_class_66/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "6274917e5dc06014410bc120b708e09905473baeb342a7874a812ebbc7a3d1c1",
+          "sha256": "e557ce8e96cdb67693776b772b9cd3dbc27209c0bf2e7ad2c6c0c3ff0a908d68",
           "text_bytes": 2121
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_array_class_66/good-O2.sym",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_array_class_66/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "628b2cc4cd1ebb9872c05be6fb3eff777fe438dcf437b786d3bc4b9966ff806f",
+          "sha256": "d3ab378a2876aa9dc8a57b5563339823a31a50c3a1c585d434fca3ad84bb2fb4",
           "text_bytes": 1877
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_array_class_66/good-O2.stripped",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_array_class_66/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "feec3ec3f782a7640f61be167d6af08ac6fc0be2eefacf462b84407ed75ebce1",
+          "sha256": "6fc2cb579731181f579b9162fa1a5080ba9e0fb35bd2669be24069016c3b3197",
           "text_bytes": 1877
         }
       ],
@@ -2775,67 +2775,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE415_Double_Free__new_delete_int64_t_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_int64_t_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "08b7760d5b4cdfb59edb496bf981f17f61bd562fb0b27003c08a80c98550215f",
+          "sha256": "e70042625bc56c8e30c4fee6d4e7f7ddab7638065fc574b4d883a2e0f3a40f9f",
           "text_bytes": 1901
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_int64_t_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_int64_t_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "1dd4407778c43d59f11c3d633b5e336dc39e6fb64a7de2f5610b5b932ddc1358",
+          "sha256": "e019bbb24e4e15a117a1cff9feae3c8f068802717739c877a87945d1e01d6b61",
           "text_bytes": 1901
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_int64_t_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_int64_t_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "24a5ba82c2d810fe4843b50f991190d70dd32237b8521f852a3fafa714d7120d",
+          "sha256": "46a795a0e7a12606d1996c8d38144a673c8c398c3afa457050aeec7a818a9c2c",
           "text_bytes": 1621
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_int64_t_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_int64_t_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "015be8a797f685e116a1e0ee9939600ed87534abe60ef623dfdd6fb9e10be851",
+          "sha256": "6b06c239e13253b63e2c1a09636b6ec1981c1cbf173357eecb2da8f4922d5ced",
           "text_bytes": 1621
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_int64_t_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_int64_t_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "a39c9e8138ba7fb6c04309673bd0c1a073a4f6602ce0d73f083b7fef2908f5e2",
+          "sha256": "e1c7466833b3fd3ed9702c79c5a5566891eb98dfd20ac27de935d454490100a6",
           "text_bytes": 1959
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_int64_t_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_int64_t_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "a30537806a7433c7b3cc7e26a3be27bd01723e6e7cd87d6baeead16780f0dba5",
+          "sha256": "75e577c8f0cff5d564df468f3b91b3730dcfde4638ec0298487d7b2a50bd3719",
           "text_bytes": 1959
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_int64_t_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_int64_t_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "9889a134bccbfda3b100e231ed848b01cbc9cad64408ee51068be266646c9531",
+          "sha256": "12bf78ea2d4f19361c22b57d69bc7390c08447a0d356fbc5aca912ae0255c3eb",
           "text_bytes": 1621
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_int64_t_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_int64_t_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "0f49ba29de2ff325905b6db5525db5e69f6d3fab2ff035aafb5af5692e4c74be",
+          "sha256": "5d57c175c30bb882ba9626f4406a6a524b28e4eda1a8eae94a3e12ff7cb86e03",
           "text_bytes": 1621
         }
       ],
@@ -2870,67 +2870,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE415_Double_Free__new_delete_struct_83/bad-O0.sym",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_struct_83/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "20a6281f75ef3070175bb62aa734472282c3805e9ea8514dd6e8d488300dc7a5",
+          "sha256": "33b2514ac2f41ab3a23b1b32c6317a66dd52375ebc247084a098a9defbe6aa5c",
           "text_bytes": 2032
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_struct_83/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_struct_83/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "fbe05fdd870dd4c16734ba4a8bab6a979cb22dcd4ff6a4b5e25fe4fc4caca881",
+          "sha256": "e998f53fab2170c88d5fb818852f20a0c6aafd66ac116ab43af3679b45eb9c0e",
           "text_bytes": 2032
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_struct_83/bad-O2.sym",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_struct_83/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "1cabcf10f69cf2b1070088f34d3a41de413209fc03aee2902f41b2418dead3a6",
+          "sha256": "45c705689547d6459edf394fdb663a01c307700b76cba0db52564e4784ebff66",
           "text_bytes": 1781
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_struct_83/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_struct_83/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "172d27693a60f53061c386706243091ae3031e9c5c983b5f32a453bfd6b12c4d",
+          "sha256": "67c4ab831b1ae9ee8c9af5aea5d4bb2390c969bf8d2b167313804107a60fa561",
           "text_bytes": 1781
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_struct_83/good-O0.sym",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_struct_83/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "647a44dd96eb7d0bbfa7dfd3f818ab9406ce32d8376e429609f884d9f02a1208",
+          "sha256": "14551dea5954c42d2d0e61f6cb21fc9b3e552c764c641f13733b0f0d346a59cc",
           "text_bytes": 2211
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_struct_83/good-O0.stripped",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_struct_83/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "9c5de7e5a426f39490548ecf94f6457f1bc551bb118d110ba417dd16882bf482",
+          "sha256": "c0140298771e2e412c2a787870ed6557cbf3ae8502738a474290e58f50f70cd6",
           "text_bytes": 2211
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_struct_83/good-O2.sym",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_struct_83/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "7389999370c8460d7629cf31d34f85b91bb0222216be6e3b3e631dce58112b28",
+          "sha256": "06789db5173d30d90f57fe1b30d4c0f3e657ce609281589310111e295033d4a3",
           "text_bytes": 1925
         },
         {
-          "path": "bin/CWE415_Double_Free__new_delete_struct_83/good-O2.stripped",
+          "path": "bin/c-cpp/CWE415_Double_Free__new_delete_struct_83/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "76cfe9bb7b0e2a7fbbe4d267e963eabee44396753979b5f26f62867e1fb75b85",
+          "sha256": "d3994b25b2fcd4a3ce78da9013d7c52be6703d2894edc3b0c3a29b2506632c91",
           "text_bytes": 1925
         }
       ],
@@ -2965,67 +2965,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_char_64/bad-O0.sym",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_char_64/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "9099bb770ce089232ab96f0a5fa3779ec43d4a7813d67fa6fc2a9b052acec376",
+          "sha256": "e027c52d1ae08853f07843116ac10362463a0b62d4d5ecdd37fe48b21bf89a90",
           "text_bytes": 2061
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_char_64/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_char_64/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "7926015d47d40883bfb38d5ae07457097d4b9877b07541a355de543b0da3a101",
+          "sha256": "50db18e9d9fb3e24b8d1b6a4eb2bd62b4935d366efdc07a4573c57b434753998",
           "text_bytes": 2061
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_char_64/bad-O2.sym",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_char_64/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "47b54079319e501a0a997bdd8905754a5c5bd2d971bb4de72c33a2855cc11566",
+          "sha256": "63fa5519d1e5f38f67ea3dd690ef1906c254e18d63899edc548013258a6a42f3",
           "text_bytes": 1733
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_char_64/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_char_64/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "bf6d7c63cfd6d6676eddff96275e55055b125aaf3fba6505f27430b1f883bb30",
+          "sha256": "e716e0b67a3b81a95ee4d05ed135281169c2ab65d89e8867c4d718f978fcbf7b",
           "text_bytes": 1733
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_char_64/good-O0.sym",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_char_64/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "d91d6b01dfc50be2f9c6fd65edf54e182077cfbacc7c42fae5b375107d7aa428",
+          "sha256": "a714d2c9b7f1ad0260d065ce049ff5c2c4dc0cc276d1b4f7303f90897f0f6a0b",
           "text_bytes": 2262
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_char_64/good-O0.stripped",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_char_64/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "12f174e9d0bbc8cce8a51b2b462414a1732b46aebc92ea1a06add47c125b1ca2",
+          "sha256": "837ae720d3a5b3b931d0bd55cd938c16a013da65010c1a316ae0359d427f7bc4",
           "text_bytes": 2262
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_char_64/good-O2.sym",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_char_64/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "c500e63710bdda0c37ba73088637d9effa1a2f1ddfb9c3de43884ff54dfeb29c",
+          "sha256": "93a840a732ebad8d238125c1f8f314893273b35d3559bed3d4ab9d350e216b23",
           "text_bytes": 1989
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_char_64/good-O2.stripped",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_char_64/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "7b045457fe53aaa4039bbe3f29d75d26ada958a58eb746def2c97f2a6eee79b4",
+          "sha256": "afa1828707f68553e31ccdbfb5531a43d5ef813d396376980563312ef85ff37c",
           "text_bytes": 1989
         }
       ],
@@ -3057,67 +3057,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "f3a8d20a8e827eab1e17df62a2fda565cf03c141a2d74ce1fe0e379b91d2034c",
+          "sha256": "7430f56be57626608242f827af385f08695516b4c848806b5943149ffeba9a25",
           "text_bytes": 1992
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "3cdcc75bda606dc940ddb86ad6aaf424f09edb917fa4a5f8803d1818277cc439",
+          "sha256": "b31a8717fd0e38795eb0dba89ca8ca39fa6bc89d46201e8770803cb62aa8f578",
           "text_bytes": 1992
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "9a9b8217a2313401073a4066f588bf02bc1356b75bffb0ea4cf4b334644b55eb",
+          "sha256": "3293fdcceb89223d9d8ff4f2d107b5a24a1f0ec9d890124d166f95f1d8f0dcbf",
           "text_bytes": 1717
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "2c5336e7f25ed82784b7788cfaaabba1cbe32c867c49e297178add543095f455",
+          "sha256": "5dfec4775680a4bb6ec2d89e4a7d55039f118f2c344f94d241eb3e9f0c19cceb",
           "text_bytes": 1717
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "86ef04256fef44ef6ceca95cb7bac865e07b29703ce4310ec3426af2ff62d623",
+          "sha256": "01420d2590bfe368f5eea63e3ddb49a959d142039eb852dccb24696045e506e0",
           "text_bytes": 2125
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "52e12757e5f7ff42bdcaacc6a782da636d6168a88492ca3c298735f729fb9738",
+          "sha256": "2a7af981c0b8d853d3d383456532d65a7a02f79ef9afbfc43acf3d12d660cfe5",
           "text_bytes": 2125
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "194cf214622d44ca547cc50157e02532412a88cd2259c8b5317377a034c76125",
+          "sha256": "ef6dcd120c972150d13355132ecb748a11ca7f843beb7a8044f875323279ce75",
           "text_bytes": 1797
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "361ba976e0130579ba04f3629845729aa675b2b9dd8e15c5caa357d62ecbd5c9",
+          "sha256": "4e983b426b36425656dd04667402ac1e914e532bd2254c66879beb29095b763d",
           "text_bytes": 1797
         }
       ],
@@ -3149,67 +3149,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_int_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_int_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "0fd915c280d3f6cdd25548dbac34b8b03b7fff0362629782a0a8b8b880cd229b",
+          "sha256": "f7d801a8fc3459dd22b23e4683c77cb8b42b36ede6420fc6a764cb46b64f2bbf",
           "text_bytes": 1989
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_int_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_int_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "afa2254021862f7617f2ffa416ea9e1eeb9410c61f5760242296b13809a1305a",
+          "sha256": "8151f3cb0645854dd8ae3a641c6e401be0117012a42d8d8ad38a7b63cec74b5f",
           "text_bytes": 1989
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_int_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_int_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "344ea071b403b4cdf3de545fb96ca7be5cd334d100062ca1d5feb9eb8c7b091f",
+          "sha256": "0c3439eae803cde630b178f6c846ade702bb86b16ebb45041640893650c68c52",
           "text_bytes": 1701
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_int_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_int_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "29f7d066e8430386b6a7c750a0d2250466ef0f8847f2bdca502a3ccb2c53de2a",
+          "sha256": "8e535b49ac4c6e4d64708cc90604ce571acafeb1127d671da42158994c7dd809",
           "text_bytes": 1701
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_int_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_int_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "79949c37b5e1ad15beb892c56aa1feb75b97f8fd440a581caff928751eba7152",
+          "sha256": "d4fe429e3e08c3ee04c082870a50b7a3c549583c2f304869ac9eeaee7f653f3e",
           "text_bytes": 2121
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_int_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_int_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "4bd1d209ee8b36f4a3ee36f17f4f4ae6ecb5a4c82225439caab4b3a76f13a41c",
+          "sha256": "2ac87e4f130433eb6a27ce709d9eb32192f17264075de1a4c2ca982976eccd33",
           "text_bytes": 2121
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_int_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_int_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "cfddd4ce5d34d991b2acaa12de1591dd47ed947d4ac8715286b1f05566aac7af",
+          "sha256": "f3686e66a6c866312e147171776033ecda5380f01a92d20157d9316c0e552fb0",
           "text_bytes": 1797
         },
         {
-          "path": "bin/CWE416_Use_After_Free__malloc_free_int_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__malloc_free_int_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "c81625799ed0d2a9b1bf7237ad62ed7ef7f8d8220485f5e5ba06e42cf97604d6",
+          "sha256": "725c809a6cd6c75593ed158e74f106519ea6e109a3ff4a4c1fa213b16cba69bb",
           "text_bytes": 1797
         }
       ],
@@ -3242,67 +3242,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE416_Use_After_Free__new_delete_array_int_62/bad-O0.sym",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__new_delete_array_int_62/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "bc08e8cc712e85d70668e4cff2de649fee64eebf0fee03e53bbd6648cc879c43",
+          "sha256": "1fa008ea5cf8685dac880a7b10b319b400ba9788eac7a2d8cb183977d7ebf964",
           "text_bytes": 2015
         },
         {
-          "path": "bin/CWE416_Use_After_Free__new_delete_array_int_62/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__new_delete_array_int_62/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "d08e767d15a92f3069bea373a9c1e3c33ed9811f821120b08541d69f25ec4539",
+          "sha256": "2b142d6bac135072346ed9ae50e7cea5097138c7177d853287bca19bc66c228f",
           "text_bytes": 2015
         },
         {
-          "path": "bin/CWE416_Use_After_Free__new_delete_array_int_62/bad-O2.sym",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__new_delete_array_int_62/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "4cb828be81b6bf2e6098c0e31fbf1a8b456334ccb8bfee80fa632c4ecebf9762",
+          "sha256": "b5b26c7eda6e092d88b2857f8f6750820bc43f6daacc8aec00389f9889b92146",
           "text_bytes": 1749
         },
         {
-          "path": "bin/CWE416_Use_After_Free__new_delete_array_int_62/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__new_delete_array_int_62/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "c1bd098bd9f063fad8b6887ffc4ac9f3fbca91e6b7a56835aa2f09c6a0523a02",
+          "sha256": "fbe93f67250191b0f47ec0ffcacbaed08471d42b52dda2fe81b7f5cacfc80000",
           "text_bytes": 1749
         },
         {
-          "path": "bin/CWE416_Use_After_Free__new_delete_array_int_62/good-O0.sym",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__new_delete_array_int_62/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "0f1d9208edab1627384e27b046a4dfcc0dd1086b9f7315aa752357a347052791",
+          "sha256": "91116c823e042dda3bd6fc4c430c7085ea6fda5081d1722b5bdd5ffab8acc68f",
           "text_bytes": 2192
         },
         {
-          "path": "bin/CWE416_Use_After_Free__new_delete_array_int_62/good-O0.stripped",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__new_delete_array_int_62/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "53f199effe6d77b35ad0f3b5d00af2618a2c19652788d1eadb73039c52aad200",
+          "sha256": "872338b7ff43b751cb747b24afe2463d75a278d9d6c4f04a2762216eac6fb9a4",
           "text_bytes": 2192
         },
         {
-          "path": "bin/CWE416_Use_After_Free__new_delete_array_int_62/good-O2.sym",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__new_delete_array_int_62/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "9258ec95cbfde37501e73d812524a7490285904ab77f7d96f7baccc1b5fff3eb",
+          "sha256": "ce62909fc77bf92c179cabc9ae83b41f73e05257aefb6176be85157372d2916a",
           "text_bytes": 1845
         },
         {
-          "path": "bin/CWE416_Use_After_Free__new_delete_array_int_62/good-O2.stripped",
+          "path": "bin/c-cpp/CWE416_Use_After_Free__new_delete_array_int_62/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "de3a5f9ef8b6c49895984001a7f57251161e34f0ae6884230d98237f48964647",
+          "sha256": "4c1ca93bc8f862d07c596ccc5229fa4428090dae33c3cf7c285d846e1045ef2c",
           "text_bytes": 1845
         }
       ],
@@ -3340,67 +3340,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O0.sym",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "877ae2ce44c05b0ea176139c006ce1b8b25c27fc042908e2f240485d18e2fa6d",
+          "sha256": "daa85c3b7ce77979d489830753e4abab4c79dc2bd21b4c3838bd708262286e23",
           "text_bytes": 2191
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "df8583b222b4eb27cb18dee1f9f8bf3cd1f3c2655f58070b6c751aee3b68b6e3",
+          "sha256": "d4eef3dcee45069bc38691bc548a78573a3d0ccaf5d3aa4159687e604d10f069",
           "text_bytes": 2191
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O2.sym",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "f48fff640ce4dc3e17c18d8aa7d5eb5a8841cf226b7504c9d05e62a45862c289",
+          "sha256": "045159097d80ca1fd8f74ace74b01c618b00b3bc8b614b7867f2cbc1d9e47112",
           "text_bytes": 1893
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "407e4247ddf87c80d29c5d7a923fb436f8073f00fadbe8c90bb4909f4ede0cc6",
+          "sha256": "aa27c75dc5e356cfc559c131dc17d9ae28f917d611617fe15a5c3f846b092611",
           "text_bytes": 1893
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O0.sym",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "338960081ebcf4406cbd12ef2bdede912974d05830e863289c65195ddc1858f4",
+          "sha256": "9d80ffc5a3dbb850bad9f61b8d196a8793936e44cc5d2bed172994a45fa5bd1c",
           "text_bytes": 2429
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O0.stripped",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "c8738df57a472cd03719c03c88393197f4bdd3743d433f3273e28de5d8c43ced",
+          "sha256": "1afd18dc43d3c01a661df3e90b975b3c88d268ac19ce33c6cbdb2a0098f4b5a5",
           "text_bytes": 2429
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O2.sym",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "5cb38641cfb881a866c1e4b5579a8a637f93daa234660031cbca3955fb60051a",
+          "sha256": "f20c143b1bb93b2c33e099a1b2fb4946a0c08266d801f7f039daf7807dc35005",
           "text_bytes": 2021
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O2.stripped",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "9fc5e5974134f22ea0a1300b886c4489cd8956c84187f40962a05db198446f75",
+          "sha256": "417da0b3c8e4bfaba2b66ec83579835ff0235dbcedd19f6c9936b04c9bd112c5",
           "text_bytes": 2021
         }
       ],
@@ -3433,67 +3433,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O0.sym",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "f00b6d2812ff3b405f7f5b06d9dc6f028b83c58ca8e759a56aee08f99b8fa052",
+          "sha256": "ac2bc4db8aa555afcdf1e08934aeabb3d7b80d16a04f61823e5e64f3d3d971a6",
           "text_bytes": 2301
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "6a7526d0bf218260e061f72c4b9f385e11e68a43e88ad6e531bfa3718e4c22d6",
+          "sha256": "9a90d5ad0b81bd907bf9914852bad14a95152bd40b7aa0907611c933df052b30",
           "text_bytes": 2301
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O2.sym",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "84969d710d49e0b16064407ea0644bdcca311792f1eeb7e506fd5e318697fa1b",
+          "sha256": "56671d038770d300776f9b8b266b5ef76bb6b7e0913257481f804c55c1f9849f",
           "text_bytes": 1973
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "ad7852d86022e6ed5f3fb45994434bf8e1313879dd649156e753ec678943c95e",
+          "sha256": "520b0d2f90e3238b1b0e475e93c1949893874cddd7a08a63f5d9c5a8d452449f",
           "text_bytes": 1973
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O0.sym",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "13fc4c51d6598be0f30474d627f805156f3ee3dd8ce93e8f44c601ca5624e76b",
+          "sha256": "902d3938889d9a051f5f6d890612745175cf9f6a06530d36a1d1a75a3c989b0f",
           "text_bytes": 2479
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O0.stripped",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "5a6ad3d8656c8af357f85a08aaa52c60eeeca6ed00cf37005b848ea7fb6579e2",
+          "sha256": "c98cb820c90351528ca9899f64f92d1366272ee750702b65f2c8d0c163c5169d",
           "text_bytes": 2479
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O2.sym",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "e427f193d1cba322eb4db5864b26b95163a575df114fa07112bbd02711deff03",
+          "sha256": "d0a0a8c427d1304563290557212120a0458a1ae2c471a67dc5acf53f7c513c7f",
           "text_bytes": 2085
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O2.stripped",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "97fd2b970918156325cf2cb8a491c4b59b0d221bfc4b1ee4b00c7ae3f3da02a6",
+          "sha256": "a81039095e54ff4ea5c78bafcf53682ed0fbed98179b0ebd351369d8646ed8a0",
           "text_bytes": 2085
         }
       ],
@@ -3530,67 +3530,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "14e02ad734fa0348461a090954d3d44d3c79576de7ccde3fbcd72ebcf05e3a43",
+          "sha256": "d09a699f0bc04eb40b05ec7bb6829881e960a698606b08e77c74a4bdc7f7ebf3",
           "text_bytes": 2118
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "6ad29738f2ac2e3fdecb8e7b3292abd08cfe7e3a0c654cbba0dba093e016a7da",
+          "sha256": "ab90c0e01560a86a3ca4b0375829430d4aa9478cb61e742e7168d787d70e138e",
           "text_bytes": 2118
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "ff0374e0fd1f2db7b5e67c1f658ad2c0890c9be82e1c75ab35dfe0de2abbd253",
+          "sha256": "462f88c7c6576acf21dc6fe25b02a2a985b0f2ab3572f1c3a51c29d5cfd06702",
           "text_bytes": 1893
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "756671b0db9409b36971bdd2aa0456938117bc9c91b43fe4e6bea02efb44d188",
+          "sha256": "524736815af7fd850fbab412ed89cb15d5d274e8d3212d7a38c27e56ad2e2404",
           "text_bytes": 1893
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "64d686b2dd290fbc996d02830f4e59622e21a1088bc9523659c50f13b20c51b0",
+          "sha256": "ae2aac3dd667ef42e8869207e8ed80583c444b72f1bb9e327d5454b7bd7ababf",
           "text_bytes": 2310
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "c7970932d3df6d8b0800675243d29e3bc57aa604e902cf0e41a33cc668452561",
+          "sha256": "893b091cef38291b048a55165c39884db827563ef827eb32da99646203fd5f76",
           "text_bytes": 2310
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "a56760106ae20daeebf6e0430be7e2310f102305debe5aefde376772d69f68af",
+          "sha256": "2a7aee8bab7f80a753d4d8e444eb0205daef8799c111ad2854671530da891acd",
           "text_bytes": 2005
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "bdac5a57aac09a801937553a3209c9b309c7cc7bf297b6f8f6e94132e77c7971",
+          "sha256": "05df04113fe23ea9aa0cce4b9303c8fbeda23b82da555783975a727088afd668",
           "text_bytes": 2005
         }
       ],
@@ -3624,67 +3624,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "ea4f544bc81d67a95cf78dd3fd5b33319eeee242db8876aa87d74a6545bfd248",
+          "sha256": "b76fdf0615039910da9778ddd00641fec3503e7ac03a5e87ce4565f935fb2dfe",
           "text_bytes": 2316
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "910b5ea0cf23ad731be6c3b4f0cd98edf46eb63d66831def6a8370109d71b0d7",
+          "sha256": "e19ac775d68ceea6ad60ef60cb693a59a288014df503cd6cf2a5564d8714b0fd",
           "text_bytes": 2316
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "f39eb1a475c551bdfbf894633ddb8682d59a893ec504ed31f1b80244f29323ae",
+          "sha256": "905305c181531ce95e78b286f652884a679baa10cebe6303c40d0f859cceadcb",
           "text_bytes": 2037
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "4fb10501274f61d26abef0be67d14d8dbfcd1cc80e1da4dfa3d78770f870905e",
+          "sha256": "f61a1e2c27541622a699b4abe308bd8add09b389c81bd5226dc880b367d78359",
           "text_bytes": 2037
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "a54a2a6213f902be86d86549797679c4315709eb3c1802784e94de8815c785d4",
+          "sha256": "76528f48c47d2ea5467e521b7150c1a1cd01c87c7de88be9e458c9d67f5edb1f",
           "text_bytes": 2508
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "802315f6f49435eb77a4dab63e1abaca7bc0aa02862f6caf5618a83f5535d0fc",
+          "sha256": "10ed790ac5601207c003674fbeea941bfcb6f3fd8315fb94e748c227416bec5a",
           "text_bytes": 2508
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "11c094ec09fc3fda872b31c600eed2523467bb2676993fb7f35cb256e0f2cc9c",
+          "sha256": "851a45ec02375e07f9c8f8b07b8bc16c59e4f6adf8ce84a2d04758f6aed8f84d",
           "text_bytes": 2133
         },
         {
-          "path": "bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "28015067b95f07864c5af477ce906a4fe975d7f1dde413559ab5ad38255a3957",
+          "sha256": "c70dcba9445edd062837412250c97a417f3031b45fd077bcb1e27f6de04f0344",
           "text_bytes": 2133
         }
       ],
@@ -3719,67 +3719,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O0.sym",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "a94a99613bb914d87768c1a1057cddcb39e51cf05c87622e9d3fb7bcfd178ccb",
+          "sha256": "393f847216f6939cd5bccf7326d63516fa680b4538b0e17723decb404f96049e",
           "text_bytes": 2302
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "ed8ebf4c253ac786d1d8e9c62194ce1b6c4d459a7e64ea6d05b0c7ed2bc926f2",
+          "sha256": "c9645084b46fcebff4961ff935ecea02fe69f002a0f1e050e1d2aaca0ec8bf33",
           "text_bytes": 2302
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O2.sym",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "9bb2362da0b276fb2cf0cbccbafb6a2e74d739ee37e146b32a85baa4e8f7a9cf",
+          "sha256": "dc7ad8f6a6632e4a7cdf5e8b97d186e67f6f356bd1cad23446cab7177c93f949",
           "text_bytes": 1877
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "dc323a3baa3ee8ef573e54a3481a66c84c685d009cf5a059ada51d723aa45ff4",
+          "sha256": "4c47a070afaf1add09cd056172e9dd70f28c01402d7f8309f3c4f5c095064477",
           "text_bytes": 1877
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__char_console_execlp_68/good-O0.sym",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__char_console_execlp_68/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "5de497be4cfe4b25c655e80736ed193c132734a1dc1cfe59335cc75a6ef4ba5d",
+          "sha256": "a33d0172790fe364573b5426de4b815116f59bbb00c50facc0a85f9f16fdd1e7",
           "text_bytes": 2173
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__char_console_execlp_68/good-O0.stripped",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__char_console_execlp_68/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "3f6891bff1528552ee9493491d410ae3ebb7e2000df8c96039cbe7a3a762c706",
+          "sha256": "c669d2cb3f4ff1f8e93f82271b0bd887673bf41d57100b17045c680e84d7a13e",
           "text_bytes": 2173
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__char_console_execlp_68/good-O2.sym",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__char_console_execlp_68/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "f4def557e13aaa64d7b9ddccca4aca085031d14730d65765d7d288fbd4338956",
+          "sha256": "4d9c6a30a03b290f5a5479a009fdba5e0ebd8a700b6dbf26d7b8077b5677ea79",
           "text_bytes": 1925
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__char_console_execlp_68/good-O2.stripped",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__char_console_execlp_68/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "3bcc4ec3b777749cff8e571a917433d4668ff62d9d8c1a9e60c808c4a74719d0",
+          "sha256": "a898610d6edbf717f23c321c7776bce584c8c6979d695fae04073ca3581c733c",
           "text_bytes": 1925
         }
       ],
@@ -3814,67 +3814,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE78_OS_Command_Injection__char_file_execl_53/bad-O0.sym",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__char_file_execl_53/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "971b99a4f989d9cfa3543ddeff07d85ba23de1818b36f63cc62a06c07eb05f36",
+          "sha256": "a9f7f7c848e38d04b6797ec7de3c6565f5ede5b29c3b9569c29b643ae48249ab",
           "text_bytes": 2347
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__char_file_execl_53/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__char_file_execl_53/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "94839824730f1b25d8e258f728a39bfc32fcee63b24f00fa0b1c34664f6d1c05",
+          "sha256": "e7db24ed97018f8568baea73b858a14328162f2f91b04d3ba877cabc12bab15c",
           "text_bytes": 2347
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__char_file_execl_53/bad-O2.sym",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__char_file_execl_53/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "81a1b8db5dea345f86478ead0a21dc154c2d7f4008bd45a67700173337c0c40d",
+          "sha256": "a8ffe266aa622011da665e391d58cebf823975d2778a10954da51220e954fafc",
           "text_bytes": 1909
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__char_file_execl_53/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__char_file_execl_53/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "a2e3845ea60c1c0102092c563fb4e29931d8033e38c1ea442d1dec71116d5a6d",
+          "sha256": "99bccb3acf81c187441cfc66820397fd46f0bcbe739979f110ae5bcd40377fa1",
           "text_bytes": 1909
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__char_file_execl_53/good-O0.sym",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__char_file_execl_53/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "afaef7651377a685da97ed692a4230792983a3d6a60ab08f974fc2336afdf3dc",
+          "sha256": "87e4591b8e1e2fc238af2391f877dc35b706ff393ea993e0d3d8021a5eec00e3",
           "text_bytes": 2219
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__char_file_execl_53/good-O0.stripped",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__char_file_execl_53/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "6d2f1d39d2fb855625b09066e052f110a76cf3b4b87178a3c4d9c33162e21eaa",
+          "sha256": "d587d56f659e347e5a37a46f7fb45afd80930bdfef2cd7ca48d911883fdc0b50",
           "text_bytes": 2219
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__char_file_execl_53/good-O2.sym",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__char_file_execl_53/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "4ad72e16b9bea700975a6ad1d2433ff21ad8f7fb5903417de0632d547ef06d8b",
+          "sha256": "e5fa0c3ce2f86b32e36341e3fef4e429e0a21cf87c285cf819f534a10473fb35",
           "text_bytes": 1925
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__char_file_execl_53/good-O2.stripped",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__char_file_execl_53/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "b650ca6ce10f41b4f68311dd9557fbb8525e00e42efbce9979af00ef78a3eb3d",
+          "sha256": "ce880e652bae20abbb238807851aa24a974172a4e4a953dbda75bb8ae6df42a3",
           "text_bytes": 1925
         }
       ],
@@ -3906,67 +3906,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "1a77252dbb4c51f75f22db52e7a9c6334fea66734efd20dc366ccd4bc722e371",
+          "sha256": "ad747ad3e348a69a4ca8326a7007318dec6b1be0a464f75f89d868fa82fc18e8",
           "text_bytes": 2492
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "f5417efbcbe3bf47dd5e05794fd9118c5747d5fe9c1ba33eec07d1fac6c62fd1",
+          "sha256": "1515e2e5b9c449f22679dfd20d9c06070193400e0b137a6f49fb827a3d5f8e31",
           "text_bytes": 2492
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "8a93918fe4224faa18dee12f0601d6c067ebaafc43c96fae28871993b975f87f",
+          "sha256": "da34230bb9eb11772516caf9066e9052c002bb397cd84629ac4a4098ff81d101",
           "text_bytes": 1989
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "d6c598606e41972a53fc042751775f5358730dfe86679919e165a514e2870b13",
+          "sha256": "af031e8580ee64c9c018b210642d78892401b4fc6242c4cee04209a0e5736f35",
           "text_bytes": 1989
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "54b1a9a40f93d712b4292e4fb9ba88dca4e810c5735e089aacb9e5215180444c",
+          "sha256": "abc5a83959d0da53760fac4d41c0235e1ba1e3653dc4e10d5e8b7304d1af333f",
           "text_bytes": 2085
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "c7c79dcb690d33d0134428a28a9cc99a8954881f684ba770e78b777ff83e2c14",
+          "sha256": "4a0e9daa0d080d51309ac3e2b34bc33398ef84217214d32445e4186436b26ab7",
           "text_bytes": 2085
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "cba767817fee5205be69d8a962e90389de10a2b0fbd5a742b792eb6b90278344",
+          "sha256": "6ea9d8293269bfc67498efaf192c50ac526fc93c21346bdffcac7f6460a91bf1",
           "text_bytes": 1781
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "1e3ad25412ac3bc8d73881f4c0ace2be8c46ea39eaac80896d737c1609cf9fb0",
+          "sha256": "2ba3d8f021ff8303b5e033c91a5b79b2ddf12b33a2c7431f32b9a516363be4b8",
           "text_bytes": 1781
         }
       ],
@@ -3998,67 +3998,67 @@
       ],
       "binaries": [
         {
-          "path": "bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O0.sym",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "f9e5c1dc1470bd55605e071dabf980374b162130a316ef09ca505349b079a13b",
+          "sha256": "8d45629d049a03a2d2d785de52da852f88da7ff2838075d15a37aa700f333d82",
           "text_bytes": 2587
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O0.stripped",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "1b5121fe39e6288d123664c968c08ade7125f04451e791f66f12a5063a5ddd85",
+          "sha256": "9c2c79b6de50c3da926ef1ad012b6b23d97437b6c690a1b0cedf12948bbdbbc2",
           "text_bytes": 2587
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O2.sym",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "1f2ff2a552ae55955d4e269ceccb596e2331a2c7d77986b1bcb7c4aec6d5a67d",
+          "sha256": "42773eeb7054d82c9a6805596a7dbe4f5e6c2d88c91cd5c003369901130b7e93",
           "text_bytes": 2021
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O2.stripped",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "f5bf0b86aa1d19816c56d02f22658db300d9ff30e136bbef3e8273cfc65cab3d",
+          "sha256": "4f236678af1a5d5a267c3ebd4da2a28335ec93549a79b5ae0d913f51db59bb25",
           "text_bytes": 2021
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O0.sym",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "7e0e667e4b5dad91c9ea65afd042a8b93aff6d286f3b9351e3dbc540f4ea74cc",
+          "sha256": "3d3d20fa071dbc3fda9fbf75f4b58eec06c53b31407272b488f5aa0320b14d6b",
           "text_bytes": 2084
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O0.stripped",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "4f2cab8bba38c99b81cff0b925ad71bee21fe4cb53dce9b2170e6ae88bcf6ac3",
+          "sha256": "f409fcc9f8c900aa29e49da18244127556adf6829760498d3decf9c086f4a668",
           "text_bytes": 2084
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O2.sym",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "575b4e70d123f40bb4645fbcab4491d491bd067fb4c408ea4efec48b13df5e19",
+          "sha256": "5e7f44455b83e97f29ebe1a08fed97fffb55a97dedd70fb6896306dbf3a43515",
           "text_bytes": 1781
         },
         {
-          "path": "bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O2.stripped",
+          "path": "bin/c-cpp/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "e74d1bc7337a3bdd3a1b983face4fe46d868f90983dde57557d9d20fd24a2a6b",
+          "sha256": "1df660c2ea3850571beae421a133590bff59bb955769025b6f043c9518ae209f",
           "text_bytes": 1781
         }
       ],

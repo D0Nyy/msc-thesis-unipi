@@ -158,7 +158,7 @@ def _compile_corpus(
     console.print(f"[dim]{report.compiler_version}[/dim]")
     console.print(f"[dim]{' '.join(report.common_flags)}  {' '.join(report.optimisations)}[/dim]")
     if report.java_version:
-        console.print(f"[dim]{report.java_version}  -release 8[/dim]")
+        console.print(f"[dim]{report.java_version}[/dim]")
     console.print()
 
     by_status: dict[str, int] = {}

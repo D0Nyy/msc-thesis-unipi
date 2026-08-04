@@ -11,9 +11,23 @@ function with no flaw in it and the model is scored against a bug that is not
 there. Those are guaranteed false negatives, and without this stage they would
 be silently attributed to the model rather than to the compiler.
 
-Java is out of scope here (protocol §5.1): its F0->F1 walk is javac plus
-Vineflower, and with no optimiser there is nothing for a survival gate to
+Java is handled by `jvm`, which this module calls: its F0->F1 walk is javac
+plus Vineflower, and with no optimiser there is nothing for a survival gate to
 catch.
+
+Layout under the build directory (`--build-dir`, default `data/processed`).
+Both arms are split by SUITE rather than by language, because a Juliet C/C++
+case can be either `.c` or `.cpp` and the two share one include tree — the
+compiler is chosen per case, not per directory:
+
+    src/c-cpp/    sources extracted from the C/C++ archive, archive-relative
+                  so the 5x family's sibling includes resolve
+    src/java/     sources from the Java archive, plus the jars it ships
+    bin/c-cpp/    one directory per case: {bad,good}-O{0,2}.{sym,stripped}
+    bin/java/     one directory per case: the .class files javac emitted
+
+Everything here is regenerable and gitignored; `data/build-report.json` is the
+committed record of what was produced, with paths relative to the build root.
 """
 
 import posixpath
@@ -515,8 +529,8 @@ def build_corpus(
 
         jvm.javac_version()
 
-    work = (out_dir / "src").resolve()
-    bin_root = (out_dir / "bin").resolve()
+    work = (out_dir / "src" / _CCPP_SUITE.key).resolve()
+    bin_root = (out_dir / "bin" / _CCPP_SUITE.key).resolve()
     for directory in (work, bin_root):
         if (problem := clear_dir(directory)) is not None and warn is not None:
             warn(problem)

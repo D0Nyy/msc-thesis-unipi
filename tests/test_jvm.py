@@ -17,9 +17,11 @@ import pytest
 
 from vulnlm.build.compile import ToolchainError
 from vulnlm.build.jvm import (
+    _RELEASE_FLAG,
     CLASSPATH_JARS,
-    JAVA_RELEASE,
+    RELEASE_PREFERENCE,
     SUPPORT_DIR,
+    detect_release,
     javac_version,
     support_members,
 )
@@ -77,10 +79,38 @@ class TestSupportMembers:
 
 
 class TestRelease:
-    def test_release_is_pinned_old(self) -> None:
-        # Juliet 1.3 is 2011-era Java. Same argument as the C standard pin:
-        # unpinned, the buildable set becomes a function of the host JDK.
-        assert int(JAVA_RELEASE) <= 11
+    def test_flag_spelling(self) -> None:
+        # Regression: the single-dash `-release` is not javac syntax. It fails
+        # with "invalid flag: -release" on EVERY case, which reads like 44
+        # source problems rather than one command-line problem — the failure
+        # mode that cost a whole build run.
+        assert _RELEASE_FLAG == "--release"
+
+    def test_preference_is_oldest_first(self) -> None:
+        # Juliet 1.3 is 2011-era Java, so the oldest accepted target is the
+        # closest to what it was written against.
+        assert [int(r) for r in RELEASE_PREFERENCE] == sorted(
+            int(r) for r in RELEASE_PREFERENCE
+        )
+        assert RELEASE_PREFERENCE[0] == "8"
+
+    @needs_jdk
+    def test_detect_picks_something_the_jdk_accepts(self) -> None:
+        assert detect_release() in RELEASE_PREFERENCE
+
+    def test_detect_reports_when_nothing_is_accepted(
+        self, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        # A JDK new enough to reject every target in the list should say so,
+        # not fail 44 times with a confusing per-case error.
+        import subprocess as sp
+
+        monkeypatch.setattr(
+            sp, "run", lambda *a, **k: sp.CompletedProcess(a, 1, "", "bad target")
+        )
+        with pytest.raises(ToolchainError) as exc:
+            detect_release(("8",))
+        assert "RELEASE_PREFERENCE" in str(exc.value)
 
 
 @needs_jdk
