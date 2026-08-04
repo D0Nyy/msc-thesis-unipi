@@ -520,6 +520,32 @@ if left to drift.
   it separates how much of "F2 is hard" is decompilation versus optimisation.
   *Note:* inlining at `-O2` can merge callee into caller, partly performing the
   §4.2 chunk assembly in the compiler. Expect it in the results.
+
+  **Measured, gcc 11.4, all 43 buildable C/C++ cases in the sample:**
+
+  | | |
+  |---|---|
+  | Flaw body **erased** by `-O2` | **3 / 43 (7%)** |
+  | Median code retained at `-O2` | 69% |
+  | Lost *all* dangerous API imports | 2 / 43 |
+  | *Grew* at `-O2` (inlining) | 6 / 43, up to 253% |
+
+  Two consequences. The inlining prediction above is confirmed rather than
+  anticipated. And §4.1's "API calls are signal" assumption survives `-O2` for
+  41 of 43 cases, which was not obvious in advance.
+
+- **Gate on flaw survival.** In the erased 7%, the compiler proved the result a
+  constant and deleted the vulnerability outright — one case reduced to
+  `xor %edi,%edi; jmp printIntLine`. Ghidra then decompiles a function with no
+  flaw in it, and the model is scored against a bug that is not there. These are
+  guaranteed false negatives that would depress F2 recall and be misattributed
+  to the model.
+
+  So `build` compiles each case at both `-O0` and `-O2`, sums the sizes of the
+  bad-path functions (`bad`, `badSink`, `badSource`, demangled — C++ cases
+  namespace them as `CWE415_...::bad()` rather than suffixing `_bad`), and
+  **flags any case retaining under 15%**. Flagged cases are excluded from the
+  F2 arm and reported as their own rate, never silently dropped.
 - **Dynamic linking required.** Imported libc names survive stripping through
   the PLT; static linking turns `strcpy` into an unnamed blob and destroys the
   API-call signal §4.1 deliberately preserves.

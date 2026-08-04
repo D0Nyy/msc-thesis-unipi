@@ -13,14 +13,20 @@ settled move into `protocol.md` and out of this file.
       statement reordering, renaming Juliet's support functions. Run alongside
       the pilot. This is the largest threat to RQ1 and the probe is what turns
       it from a hedging paragraph into a reported number.
-- [ ] **Check whether `-O2` erases the `good` variants at F2.** `goodG2B`
-      replaces the tainted source with a constant, so the compiler can fold the
-      whole thing away — `data = 2; result = data + 1; printIntLine(result)`
-      becomes `printIntLine(3)`. The decompiled negative case would then contain
-      no arithmetic at all and be trivially separable from `bad`, giving a
-      flattering F2 false-positive rate that measures optimisation rather than
-      the model. Diff decompiled `bad` vs `goodG2B` on a few pilot cases. This
-      is a concrete argument for the `-O0` sensitivity subset in §7.1.
+- [x] ~~**Check whether `-O2` erases the flaw at F2.**~~ **Measured** (gcc 11.4,
+      43 cases, §7.1): 7% erased, median 69% retained, 2 lose all API imports,
+      6 grow through inlining. `-O2` stays as primary; the erased cases need a
+      build-time gate.
+- [ ] **Implement the flaw-survival gate in `build`.** Compile at `-O0` and
+      `-O2`, sum bad-path function sizes (demangled — C++ namespaces them as
+      `Case::bad()`), flag anything under 15% retained, exclude from the F2 arm
+      and report the rate. Without this the erased 7% become silent false
+      negatives blamed on the model.
+- [ ] **Also check the `good` side for the same effect.** `goodG2B` replaces the
+      tainted source with a constant, so it is *more* foldable than `bad`. If it
+      collapses while `bad` survives, the negative class becomes trivially
+      separable and the F2 false-positive rate flatters the model. Same
+      measurement, run on the good binaries.
 - [ ] **Audit the scrubber allowlist for Juliet scaffolding.** §4.1 preserves
       "standard library and API calls", but `printLine`, `globalReturnsTrue`,
       `CHAR_ARRAY_SIZE` and `std_testcase.h` are Juliet support, not stdlib. If
