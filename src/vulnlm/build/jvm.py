@@ -17,7 +17,32 @@ so — almost everything `compile.py` does has no Java counterpart:
   here. Anything that assumes one variant per artifact is a C/C++ assumption
   and does not transfer.
 
-What is left is: put the right jars on the classpath and run javac.
+What Java has instead, and C/C++ does not, is **scrubbing before compilation**.
+`objcopy --strip-all` gives the C/C++ binaries their anonymity for free, so
+§4.1 compiles those from unmodified source. Bytecode has no equivalent: the
+class-file format carries package, class and method names as structure rather
+than as an optional symbol table, so they survive javac and come straight back
+out of Vineflower. Pre-compilation is the only point at which `void bad()` can
+be removed, which makes the scrubber part of this module's job rather than a
+step someone runs afterwards.
+
+So every case is compiled **twice**:
+
+* **scrubbed** — the primary condition. `package pkg_1.pkg_2.pkg_3;`,
+  `class Class_1`, `public void func_3()`.
+* **unscrubbed** — §4.1's leakage-sensitivity arm, which measures how far a
+  model leans on identifier names rather than code semantics. For C/C++ that
+  condition is free (scrub the F0 text or don't); here it costs a second
+  compile, because the condition is baked in at compile time.
+
+The scrub mapping is recorded on `CaseBuild.scrub` and **is the Java arm's
+ground truth**, exactly as `BinaryArtifact.symbols` is for C/C++. After
+scrubbing, nothing else records that `func_3` was `bad`.
+
+The shared `testcasesupport` sources are scrubbed *with* each case and against
+that case's mapping. They have to be: §4.1 does not preserve Juliet's support
+surface, so `AbstractTestCase` becomes `Class_2` in the case, and a case
+importing `pkg_4.*` will not link against an unscrubbed `testcasesupport`.
 """
 
 import posixpath
@@ -28,6 +53,8 @@ from collections.abc import Callable
 from pathlib import Path
 
 from vulnlm.build.compile import ToolchainError, clear_dir, relative_path
+from vulnlm.build.scaffolding import VARIANT_NAMES
+from vulnlm.build.scrub import CaseScrub, language_of, scrub_juliet_case
 from vulnlm.build.suites import SUITES, Suite, find_archive, sha256_file
 from vulnlm.schema import (
     BinaryArtifact,
@@ -35,6 +62,8 @@ from vulnlm.schema import (
     Case,
     CaseBuild,
     Language,
+    ScrubbedSymbol,
+    ScrubRecord,
 )
 
 # The suite ships its own dependencies, so the classpath is self-contained and
@@ -159,6 +188,88 @@ def extract_sources(archive: Path, cases: list[Case], dest: Path) -> list[str]:
     return list(jars)
 
 
+def scrub_case_tree(case: Case, work: Path, dest: Path) -> CaseScrub:
+    """Scrub one case plus the support sources, and write the result to `dest`.
+
+    The case's own files come first in the list because encounter order fixes
+    the numbering, and a mapping dominated by `testcasesupport` would be harder
+    to read in the report for no gain.
+
+    Scrubbing is per CASE, not per file: Juliet's 5x-8x flow variants split
+    source from sink across `a`/`b`/`c` files, and a per-file mapping gives
+    `badSink` two different replacements. That does not merely look untidy —
+    the scrubbed Java does not compile, because `52a` calls a method `52b` no
+    longer has.
+    """
+    sources = sorted(f for f in case.files if f.endswith(".java"))
+    members = sources + [
+        m for m in support_members_on_disk(work) if m not in sources
+    ]
+    files = [
+        (m, (work / m).read_text(encoding="utf-8", errors="replace"), language_of(m))
+        for m in members
+    ]
+    result = scrub_juliet_case(files)
+
+    for member, text in result.files.items():
+        target = dest / result.paths[member]
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(text, encoding="utf-8")
+    return result
+
+
+def scrub_record(result: CaseScrub, sources: list[str]) -> ScrubRecord:
+    """The oracle, pulled out of a `CaseScrub` and narrowed to the case.
+
+    `paths` covers only the case's own sources. The scrubbed support tree is a
+    build input, not something `recover` or `eval` ever has to locate, and
+    carrying ten extra rows per case would bury the three that matter.
+    """
+    return ScrubRecord(
+        mapping=dict(result.mapping),
+        paths={s: result.paths[s] for s in sources if s in result.paths},
+        symbols=[
+            ScrubbedSymbol(name=result.mapping[tail], tail=tail)
+            for tail in sorted(VARIANT_NAMES)
+            if tail in result.mapping
+        ],
+    )
+
+
+def _javac(
+    sources: list[str], cwd: Path, out_dir: Path, classpath: list[str], release: str
+) -> subprocess.CompletedProcess[str]:
+    """Run javac with `sources` relative to `cwd`.
+
+    `classpath` must be absolute. The scrubbed and unscrubbed builds run from
+    different working directories, so the suite-relative jar paths that used to
+    work here silently resolve to nothing in one of them.
+    """
+    out_dir.mkdir(parents=True, exist_ok=True)
+    cmd = [
+        "javac",
+        "-nowarn",
+        "-encoding", "UTF-8",
+        _RELEASE_FLAG, release,
+        "-cp", ":".join([*classpath, str(out_dir)]),
+        "-d", str(out_dir),
+        *sources,
+    ]
+    return subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, check=False)
+
+
+def _artifacts(out_dir: Path, root: Path, *, scrubbed: bool) -> list[BinaryArtifact]:
+    return [
+        BinaryArtifact(
+            path=relative_path(cls, root),
+            scrubbed=scrubbed,
+            sha256=sha256_file(cls),
+            text_bytes=cls.stat().st_size,
+        )
+        for cls in sorted(out_dir.rglob("*.class"))
+    ]
+
+
 def build_case(
     case: Case,
     work: Path,
@@ -166,59 +277,75 @@ def build_case(
     classpath: list[str],
     root: Path,
     release: str,
+    scrub_root: Path,
 ) -> CaseBuild:
-    """Compile one Java case. Never raises on a compiler error.
+    """Compile one Java case twice — scrubbed and unscrubbed. Never raises.
 
-    Every case is compiled into its own output directory. Juliet reuses class
-    names across flow variants, so a shared directory would let one case's
-    `.class` files satisfy another's references and silently mask a failure.
+    Every case gets its own output directory, and each condition its own
+    subdirectory beneath it. Juliet reuses class names across flow variants, so
+    a shared directory would let one case's `.class` files satisfy another's
+    references and silently mask a failure; and after scrubbing, every case's
+    classes are called `Class_1`, which turns that from a risk into a
+    certainty.
     """
     sources = sorted(f for f in case.files if f.endswith(".java"))
+    support = support_members_on_disk(work)
     out_dir = (out_root / case.case_id).resolve()
-    out_dir.mkdir(parents=True, exist_ok=True)
 
-    # The support sources are compiled alongside rather than pre-built into a
-    # jar: they are small, and it keeps every case's build independent.
-    cp = ":".join([*classpath, SUPPORT_DIR, str(out_dir)])
-    cmd = [
-        "javac",
-        "-nowarn",
-        "-encoding", "UTF-8",
-        _RELEASE_FLAG, release,
-        "-cp", cp,
-        "-d", str(out_dir),
-        *sources,
-        *support_members_on_disk(work),
-    ]
-    proc = subprocess.run(
-        cmd, cwd=work, capture_output=True, text=True, check=False
+    def failed(status: BuildStatus, error: str) -> CaseBuild:
+        return CaseBuild(
+            case_id=case.case_id,
+            language=Language.JAVA,
+            status=status,
+            compiler="javac",
+            sources=sources,
+            error=error[:2000],
+        )
+
+    # Unscrubbed first: it is the condition that has been known to work, so a
+    # failure here is a Juliet-or-toolchain problem, while a failure only in
+    # the scrubbed build is the scrubber's.
+    plain = _javac(sources + support, work, out_dir / "unscrubbed", classpath, release)
+    if plain.returncode != 0:
+        return failed(BuildStatus.COMPILE_FAILED, plain.stderr.strip())
+
+    case_scrub = scrub_case_tree(case, work, scrub_root / case.case_id)
+    scrubbed_sources = sorted(case_scrub.paths[m] for m in case_scrub.files)
+    clean = _javac(
+        scrubbed_sources,
+        scrub_root / case.case_id,
+        out_dir / "scrubbed",
+        classpath,
+        release,
     )
-    if proc.returncode != 0:
-        return CaseBuild(
-            case_id=case.case_id,
-            language=Language.JAVA,
-            status=BuildStatus.COMPILE_FAILED,
-            compiler="javac",
-            sources=sources,
-            error=proc.stderr.strip()[:2000],
+    if clean.returncode != 0:
+        # Distinguished in the message rather than the status, because to the
+        # corpus this is still a case that did not build. Worth reading as a
+        # scrubber bug report: the unscrubbed twin compiled fine.
+        return failed(
+            BuildStatus.COMPILE_FAILED,
+            f"scrubbed source failed to compile (the unscrubbed source did "
+            f"not): {clean.stderr.strip()}",
         )
 
-    artifacts = [
-        BinaryArtifact(
-            path=relative_path(cls, root),
-            sha256=sha256_file(cls),
-            text_bytes=cls.stat().st_size,
-        )
-        for cls in sorted(out_dir.rglob("*.class"))
-    ]
+    artifacts = _artifacts(out_dir / "scrubbed", root, scrubbed=True) + _artifacts(
+        out_dir / "unscrubbed", root, scrubbed=False
+    )
     if not artifacts:
-        return CaseBuild(
-            case_id=case.case_id,
-            language=Language.JAVA,
-            status=BuildStatus.NO_FLAW_SYMBOLS,
-            compiler="javac",
-            sources=sources,
-            error="javac reported success but produced no .class files",
+        return failed(
+            BuildStatus.NO_FLAW_SYMBOLS,
+            "javac reported success but produced no .class files",
+        )
+
+    record = scrub_record(case_scrub, sources)
+    if not record.symbols:
+        # `bad` absent from the mapping means nothing records which method
+        # held the flaw. The case built, but it cannot be scored.
+        return failed(
+            BuildStatus.NO_FLAW_SYMBOLS,
+            "the scrub mapping contains no variant name, so the case has no "
+            "ground truth. Check build/scaffolding.py VARIANT_NAMES against "
+            "this case's method names.",
         )
 
     # No survival gate: see the module docstring. `survival` stays None, which
@@ -231,6 +358,7 @@ def build_case(
         compiler="javac",
         sources=sources,
         binaries=artifacts,
+        scrub=record,
     )
 
 
@@ -262,19 +390,30 @@ def build_java(
 
     work = (out_dir / "src").resolve()
     class_root = (out_dir / "bin" / _JAVA_SUITE.key).resolve()
+    # The scrubbed tree is a separate root rather than a sibling inside `src/`,
+    # so that "the sources as Juliet ships them" and "the sources the model
+    # sees" cannot be confused for one another by anything downstream.
+    scrub_root = (out_dir / "src-scrubbed" / _JAVA_SUITE.key).resolve()
     # `src/` is shared with the C/C++ arm and cleared by whoever runs first.
-    to_clear = (work, class_root) if clear_src else (class_root,)
+    to_clear = (work, class_root, scrub_root) if clear_src else (class_root, scrub_root)
     for directory in to_clear:
         if (problem := clear_dir(directory)) is not None and warn is not None:
             warn(problem)
 
     classpath = extract_sources(archive, cases, work)
     class_root.mkdir(parents=True, exist_ok=True)
+    scrub_root.mkdir(parents=True, exist_ok=True)
+    # Absolute, because the two builds run from different working directories.
+    # The suite-relative form is what goes in the report.
+    classpath_abs = [str((work / j).resolve()) for j in classpath]
 
     # Sequential rather than pooled: javac spends most of its time in JVM
     # startup, and 44 concurrent JVMs on a laptop is worse than 44 sequential
-    # ones. Revisit if the sample grows by an order of magnitude.
+    # ones — now 88, which is the same argument twice over rather than a new
+    # reason to parallelise. Revisit if the sample grows by an order of
+    # magnitude.
     builds = [
-        build_case(c, work, class_root, classpath, out_dir, release) for c in cases
+        build_case(c, work, class_root, classpath_abs, out_dir, release, scrub_root)
+        for c in cases
     ]
     return sorted(builds, key=lambda b: b.case_id), f"{version} --release {release}", classpath

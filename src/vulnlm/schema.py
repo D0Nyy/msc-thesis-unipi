@@ -233,6 +233,25 @@ class BuildVariant(StrEnum):
     GOOD = "good"  # -DOMITBAD
 
 
+class FlawSymbol(Strict):
+    """One oracle symbol: what it is called, where it lives, how big it is.
+
+    The address is the load-bearing field. Ghidra reads the STRIPPED binary and
+    names functions after their address (`FUN_00401316`), so an address is the
+    only thing that can join a recovered function back to `bad`/`badSink`. A
+    name alone cannot: the name is precisely what stripping removed.
+
+    Addresses differ between `-O0` and `-O2`, which is why these hang off the
+    artifact rather than the case — the `-O2` oracle cannot label the `-O0`
+    binary or vice versa.
+    """
+
+    name: str  # demangled, e.g. "CWE121_...::badSink(std::map<...>)"
+    tail: str  # normalised: bad | badSink | badSource | goodG2B | ...
+    address: int = Field(ge=0)
+    size: int = Field(ge=0)
+
+
 class BinaryArtifact(Strict):
     """One build output.
 
@@ -256,8 +275,20 @@ class BinaryArtifact(Strict):
     # Both are produced from ONE compile and differ only by `objcopy`, so the
     # machine code is identical by construction rather than by assumption.
     stripped: bool = False
+    # Whether the source this was compiled from had been through §4.1 scrubbing.
+    # Java only, and it is the Java analogue of `stripped`: bytecode carries
+    # method names structurally, so pre-compilation scrubbing is the only point
+    # at which `void bad()` can be removed. Scrubbed is the primary condition;
+    # the unscrubbed twin is the leakage-sensitivity arm. Always False for
+    # C/C++, whose binaries are built from unmodified source because stripping
+    # already anonymises them.
+    scrubbed: bool = False
     sha256: str
     text_bytes: int = Field(ge=0)  # .text for ELF, file size for .class
+    # The ground-truth mapping for THIS binary. Populated on the symbol-bearing
+    # ELF builds; empty on stripped twins (which share their addresses) and on
+    # Java, where `CaseBuild.scrub` carries the equivalent.
+    symbols: list[FlawSymbol] = Field(default_factory=list)
 
 
 class FlawSurvival(Strict):
@@ -284,6 +315,45 @@ class FlawSurvival(Strict):
     survived: bool  # bad_retained >= threshold
 
 
+class ScrubbedSymbol(Strict):
+    """One flaw-carrying method, before and after scrubbing.
+
+    `FlawSymbol` without the address, and for the same reason `FlawSymbol` has
+    one: something has to join a recovered function back to `bad`. For C/C++
+    that join is by address, because stripping removed the name. For Java the
+    name survives — it is just no longer `bad`, it is `func_3` — so the join is
+    by name and no address is needed or available.
+    """
+
+    name: str  # the scrubbed name, e.g. "func_3"
+    tail: str  # the original: bad | badSink | badSource | goodG2B | ...
+
+
+class ScrubRecord(Strict):
+    """The §4.1 scrub mapping for one case. **The Java arm's ground truth.**
+
+    After scrubbing there is nothing else that records which method held the
+    flaw: `bad()` is `func_3`, and the class file, the decompiler output and
+    the chunk all agree on `func_3`. Lose this and the case is unscoreable.
+
+    Held per case rather than per artifact because the mapping is a property of
+    the source, and both the scrubbed and unscrubbed builds of a case are
+    scored against the same one.
+    """
+
+    # original -> replacement, every renamed name in the case. Kept whole
+    # rather than reduced to `symbols`, because §4.1's leakage-sensitivity arm
+    # needs to map an unscrubbed finding onto a scrubbed one and vice versa.
+    mapping: dict[str, str] = Field(default_factory=dict)
+    # archive-relative source path -> path within the scrubbed tree. For Java
+    # this is load-bearing rather than bookkeeping: javac requires the public
+    # class to sit at `<package path>/<ClassName>.java`.
+    paths: dict[str, str] = Field(default_factory=dict)
+    # The flaw-carrying subset of `mapping`, pulled out so scoring does not
+    # have to know Juliet's variant vocabulary.
+    symbols: list[ScrubbedSymbol] = Field(default_factory=list)
+
+
 class CaseBuild(Strict):
     """The build record for one sampled case."""
 
@@ -294,10 +364,13 @@ class CaseBuild(Strict):
     sources: list[str] = Field(default_factory=list)  # archive-relative, as compiled
     binaries: list[BinaryArtifact] = Field(default_factory=list)
     survival: FlawSurvival | None = None
-    # The oracle. These are the symbol names the F2 ground-truth mapping is
-    # built from, so they are recorded rather than re-derived later.
-    bad_symbols: list[str] = Field(default_factory=list)
-    good_symbols: list[str] = Field(default_factory=list)
+    # Java only. The C/C++ oracle is `BinaryArtifact.symbols`; this is its
+    # counterpart, and the two are deliberately not merged — one is addresses
+    # in a stripped ELF, the other is names in a renamed source tree.
+    scrub: ScrubRecord | None = None
+    # The oracle lives on the artifacts (BinaryArtifact.symbols), not here:
+    # addresses are per-binary and differ between -O0 and -O2, so a single
+    # case-level list could only ever be right for one of them.
     error: str | None = None  # compiler stderr, truncated
 
 

@@ -235,14 +235,27 @@ class TestToolchainAgreement:
     """Does the real toolchain behave the way the pure functions assume?"""
 
     def test_oracle_finds_both_paths(self, built: Path) -> None:
-        bad, good, bad_names, good_names = path_sizes(built, _C_CASE)
+        bad, good, bad_syms, good_syms = path_sizes(built, _C_CASE)
         assert bad > 0 and good > 0
-        assert {symbol_tail(n, _C_CASE) for n in bad_names} == {"bad", "badSource"}
-        assert {symbol_tail(n, _C_CASE) for n in good_names} == {"goodG2B"}
+        assert {s.tail for s in bad_syms} == {"bad", "badSource"}
+        assert {s.tail for s in good_syms} == {"goodG2B"}
+
+    def test_oracle_records_addresses(self, built: Path) -> None:
+        # The address is the whole point: it is the only field that survives
+        # into the stripped twin, so it is what joins Ghidra's FUN_<addr> back
+        # to `badSink`. A name-only oracle cannot label an F2 chunk at all.
+        _, _, bad_syms, _ = path_sizes(built, _C_CASE)
+        assert all(s.address > 0 for s in bad_syms)
+        assert all(s.size > 0 for s in bad_syms)
+        # Sorted by address, and distinct — two functions cannot share a start.
+        addrs = [s.address for s in bad_syms]
+        assert addrs == sorted(addrs)
+        assert len(set(addrs)) == len(addrs)
 
     def test_oracle_ignores_libc_and_main(self, built: Path) -> None:
-        _, _, bad_names, good_names = path_sizes(built, _C_CASE)
-        assert not any(n in ("main", "puts", "strcpy") for n in bad_names + good_names)
+        _, _, bad_syms, good_syms = path_sizes(built, _C_CASE)
+        names = [s.name for s in bad_syms + good_syms]
+        assert not any(n in ("main", "puts", "strcpy") for n in names)
 
     def test_strip_preserves_machine_code(self, built: Path, tmp_path: Path) -> None:
         # The whole reason for copy-and-strip rather than a second `-s` link:

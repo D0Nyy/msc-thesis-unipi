@@ -33,8 +33,11 @@ out to be *true and worth reporting* move into `findings.md`.
       which is a size-based shortcut a model could in principle exploit. Worth
       a line in §11 and worth checking against the F2 false-positive rate once
       the pilot exists. `FlawSurvival` records both sides on every case.
-- [ ] **Java F1 leaks the label structurally, and stripping cannot help.** A
-      Juliet Java case is, verbatim:
+- [x] ~~**Java F1 leaks the label structurally, and stripping cannot help.**~~
+      **Closed** — `build/scrub.py` scrubs the case (and the support sources
+      it links against) before javac, `build/jvm.py` compiles each case twice,
+      and the mapping is recorded as `CaseBuild.scrub`. Details below. The
+      original statement of the problem:
 
           package testcases.CWE89_SQL_Injection.s04;
           import testcasesupport.*;
@@ -61,11 +64,57 @@ out to be *true and worth reporting* move into `findings.md`.
       line. Note the same applies to C/C++ **F0**, where the source has
       `namespace CWE121_...` and `void bad()`. Scrubbing is what makes F0 a
       control rather than a giveaway; it is not a refinement.
-- [ ] **Audit the scrubber allowlist for Juliet scaffolding.** §4.1 preserves
-      "standard library and API calls", but `printLine`, `globalReturnsTrue`,
-      `CHAR_ARRAY_SIZE` and `std_testcase.h` are Juliet support, not stdlib. If
-      the allowlist admits them the corpus stays identifiable even after
-      scrubbing, which defeats §11.1.
+- [x] ~~**Audit the scrubber allowlist for Juliet scaffolding.**~~ **Done, and
+      the audit found five leak classes nobody had written down.** The
+      corpus-wide assertion (`tests/test_scrub.py::TestCorpus`) runs the real
+      scrubber over all 88 sampled cases and asserts no `CWE\d+` and no
+      `bad`/`good` token survives in the text *or the path*. Before the fixes
+      it reported 223 surviving tokens; it now reports 0. What it found, in
+      descending order of how badly it would have hurt:
+
+      1. **Scrubbing was per FILE, and 43 of the 44 multi-file cases got
+         divergent mappings** — `badSink` → `func_3` in `52a` and `func_2` in
+         `52b`. The scrubbed Java would not have compiled, and the oracle could
+         not have said which method held the flaw. The unit is now the case.
+      2. **String literals.** `printLine("Calling bad()...")` and
+         `IO.writeLine("bad: 100/" + data)` — ~200 occurrences, sitting
+         directly beside the call site. Rewritten through the same mapping, at
+         word boundaries, and only for names that are functions, classes,
+         packages, macros or files. Locals are excluded so a SQL query or
+         format string mentioning `data` survives intact — those literals are
+         the CWE-89/134/23 evidence.
+      3. **Java package and import paths** (the known one).
+      4. **`#ifndef OMITBAD` / `#ifdef INCLUDEMAIN`.** Spell the label in
+         capitals and bracket the flaw in every C/C++ case. Now denylisted;
+         `_WIN32` deliberately is not.
+      5. **Local `#include` paths.** `#include "CWE369_..._81.h"` carries the
+         whole answer. Mapped by stem, and a sibling header whose stem is also
+         the case's namespace reuses that replacement so the include still
+         resolves. `#include <stdio.h>` untouched.
+
+      Also fixed: `#define` names (an `identifier` node, but under
+      `preproc_def`, which no declaration rule recognised), and scrubbed
+      *paths*, which reach the prompt via the chunk header.
+
+      The verification that matters: all 44 Java cases scrub to a tree that
+      parses without a single ERROR node, whose package declarations match
+      their directories, whose public class names match their filenames, and
+      in which every cross-file `Class_N` reference resolves.
+- [ ] **The C/C++ F0 scrubbed tree is not emitted yet.** §4.1's table says
+      "C/C++ source → F0: yes, at build time", and the scrubber now handles
+      C/C++ correctly — but nothing calls it. `build/compile.py` still writes
+      only the unmodified tree, so the F0 arm would today be scored on source
+      containing `void CWE121_..._bad()`. The work is the C/C++ half of what
+      `jvm.py` just gained: scrub each case into `src-scrubbed/`, record the
+      mapping. Cheaper than the Java version, because nothing has to compile
+      afterwards — the binaries are built from unmodified source by design.
+- [ ] **Verify the scrubbed Java actually compiles.** The layout invariants
+      javac cares about are asserted directly (`test_jvm.py::TestScrubbedTree`)
+      and hold on all 44, but no JDK was available where this was written, so
+      `javac` has not been run against the scrubbed tree. First thing to check
+      on a machine with a JDK. If it fails, `build_case` reports it distinctly:
+      the unscrubbed twin compiles first, so a scrubbed-only failure is
+      labelled as a scrubber bug rather than a Juliet one.
 - [ ] **Get Ollama serving on the local card.** gfx1032 needs
       `HSA_OVERRIDE_GFX_VERSION=10.3.0`, and ROCm ≥6.4.3 has a reported SIGSEGV
       regression on gfx1031/1032 (6.4.1 works). Budget a day, not an hour.

@@ -250,9 +250,12 @@ def _compile_corpus(
     )
     if jvm_cases:
         jvm_ok = sum(1 for c in jvm_cases if c.status == BuildStatus.OK)
+        classes = sum(len(c.binaries) for c in jvm_cases)
+        scrubbed = sum(1 for c in jvm_cases for b in c.binaries if b.scrubbed)
         console.print(
             f"[bold]Java[/bold]  {jvm_ok} of {len(jvm_cases)} cases compiled, "
-            f"{sum(len(c.binaries) for c in jvm_cases):,} class files "
+            f"{classes:,} class files ({scrubbed:,} scrubbed, "
+            f"{classes - scrubbed:,} unscrubbed) "
             f"[dim](no gate — javac has no optimiser)[/dim]"
         )
     elif not java:
@@ -439,7 +442,16 @@ def recover(
         str | None, typer.Option("--tier", help="Restrict to one of F0, F1, F2.")
     ] = None,
 ) -> None:
-    """Stage 1 — recover code, scrub identifiers, chunk. Emits Chunk records.
+    """Stage 1 — recover code and chunk it. Emits Chunk records.
+
+    Scrubbing is NOT here. §4.1 puts every caller at build time — Java before
+    javac, C/C++ source for the F0 condition — so `build` emits the scrubbed
+    tree and `recover` reads whichever tree the run calls for. That leaves this
+    pipeline with no dataset-specific behaviour at all, which is what makes it
+    usable on an arbitrary binary.
+
+    (Currently emitted for Java only; the C/C++ F0 tree is still pending. See
+    `docs/todo.md`.)
 
     Three entry points, one pipeline (protocol §4.0):
 

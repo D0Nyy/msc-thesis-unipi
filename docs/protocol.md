@@ -198,18 +198,60 @@ at F2, while F1 and F0 preserve them intact. Unscrubbed, the headline result
 would largely measure removal of the answer key rather than loss of fidelity,
 and RQ1 would be invalid.
 
-**Rule — applied uniformly to every tier, F0 included:**
+**Rule — one transform, applied wherever names exist:**
 
 - Functions → `func_<n>`, classes → `Class_<n>`, locals and parameters → `v_<n>`
-- Filenames → opaque IDs; comments stripped
+- Filenames and packages → opaque IDs; comments stripped
 - **Standard library and API calls preserved** (`strcpy`, `Runtime.exec`) — a
   human analyst sees these too, so they are signal, not leakage
+- **Juliet's own support surface is NOT preserved.** `printLine`,
+  `globalReturnsTrue`, `ALLOCA`, `AbstractTestCase` are not stdlib; they are
+  this benchmark's furniture, and leaving them in keeps the corpus
+  recognisable, which defeats §11.1. Enumerated in `build/scaffolding.py`,
+  derived from the archives and re-derived by a test so it cannot drift.
 - Renaming is deterministic; the mapping table is retained out-of-band for
   scoring and never enters a prompt
 
+**Where it is applied differs by language, because what leaks differs.** The
+earlier "uniformly to every tier" phrasing was wrong in a way worth stating: it
+implied scrubbing Ghidra's output, which is both unnecessary and risky.
+
+| Artifact | Scrubbed | Why |
+|---|---|---|
+| C/C++ source → F0 | yes, at build time | `..._bad()`, `namespace CWE121_...`, `dataBadBuffer` are the answer key |
+| C/C++ stripped binary → F2 | **no** | `objcopy --strip-all` already removed every name. Scrubbing would be a no-op on input that is often not valid C |
+| Java source → F0, and via javac → F1 | yes, **before compiling** | names are structural in the class file and survive javac and Vineflower. There is no `strip` for bytecode, so pre-compilation is the only point at which the leak can be closed |
+
+The scrubbing *procedure* is one function; only its point of application moves.
+At F2 there is nothing left to scrub, which is a stronger guarantee than
+scrubbing would be — it is checkable with `nm`, and a scrubber that changes
+anything at F2 indicates the binary was not stripped properly.
+
+**All scrubbing happens in `build`; `recover` never scrubs.** Both callers are
+build-time — Java before javac, C/C++ source for the F0 condition — so `build`
+emits two source trees, scrubbed and original, and `recover` simply reads
+whichever the run calls for. That leaves the recovery pipeline with no
+dataset-specific behaviour at all.
+
+Two consequences worth recording. The C/C++ *binaries* are built from
+unmodified source, since F2 gets its anonymity from stripping; that keeps the
+§7.1 symbol oracle matching on Juliet's own names rather than through a scrub
+mapping, and halves the artifact count. And the unscrubbed sensitivity
+condition for C/C++ is free — it is the original tree, already on disk.
+
+**Scrubbing is an experimental control, not a pipeline stage.** In analysis
+mode (§4.0) — an arbitrary binary handed to the tool — there is no answer key
+to hide, and scrubbing would destroy the meaningful identifiers a real analyst
+depends on. Analysis mode never invokes it. Both the mechanism
+(`build/scrub.py`) and the Juliet denylist (`build/scaffolding.py`) therefore
+sit with the dataset code, not in the pipeline the tool shares with real
+targets.
+
 Scrubbed is the **primary condition**. Re-running a subset unscrubbed gives a
 *leakage sensitivity* measurement — how far these models rely on identifier
-names versus code semantics — which is reported as a secondary result.
+names versus code semantics — which is reported as a secondary result. For
+C/C++ that subset is free (scrub the F0 text or don't); for Java it requires a
+second build, since the condition is baked in at compile time.
 
 ### 4.2 Chunking
 

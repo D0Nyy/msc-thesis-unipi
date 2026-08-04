@@ -56,6 +56,7 @@ from vulnlm.schema import (
     Case,
     CaseBuild,
     FlawSurvival,
+    FlawSymbol,
     Language,
     Manifest,
 )
@@ -202,6 +203,7 @@ class ToolchainError(RuntimeError):
 @dataclass(frozen=True)
 class Symbol:
     name: str
+    address: int
     size: int
     kind: str
 
@@ -229,7 +231,12 @@ def _text_symbols(binary: Path) -> Iterator[Symbol]:
         kind = m.group(3)
         if kind not in ("t", "T"):
             continue
-        yield Symbol(name=m.group(4), size=int(m.group(2), 16), kind=kind)
+        yield Symbol(
+            name=m.group(4),
+            address=int(m.group(1), 16),
+            size=int(m.group(2), 16),
+            kind=kind,
+        )
 
 
 def symbol_tail(name: str, case_id: str) -> str | None:
@@ -249,20 +256,38 @@ def symbol_tail(name: str, case_id: str) -> str | None:
     return base[len(prefix):] if base.startswith(prefix) else None
 
 
-def path_sizes(binary: Path, case_id: str) -> tuple[int, int, list[str], list[str]]:
-    """(bad bytes, good bytes, bad symbols, good symbols) for one binary."""
+def path_sizes(
+    binary: Path, case_id: str
+) -> tuple[int, int, list[FlawSymbol], list[FlawSymbol]]:
+    """(bad bytes, good bytes, bad symbols, good symbols) for one binary.
+
+    Addresses are kept, not just names. `nm` reports all three fields and the
+    address is the one that survives into the stripped twin — it is what joins
+    Ghidra's `FUN_00401316` back to `badSink`. Sorted by address so the list
+    reads in load order.
+    """
     bad_bytes = good_bytes = 0
-    bad_names: list[str] = []
-    good_names: list[str] = []
+    bad: list[FlawSymbol] = []
+    good: list[FlawSymbol] = []
     for sym in _text_symbols(binary):
         tail = symbol_tail(sym.name, case_id)
+        if tail is None:
+            continue
+        found = FlawSymbol(
+            name=sym.name, tail=tail, address=sym.address, size=sym.size
+        )
         if tail in BAD_TAILS:
             bad_bytes += sym.size
-            bad_names.append(sym.name)
+            bad.append(found)
         elif tail in GOOD_TAILS:
             good_bytes += sym.size
-            good_names.append(sym.name)
-    return bad_bytes, good_bytes, sorted(bad_names), sorted(good_names)
+            good.append(found)
+    return (
+        bad_bytes,
+        good_bytes,
+        sorted(bad, key=lambda s: s.address),
+        sorted(good, key=lambda s: s.address),
+    )
 
 
 def retained(o0: int, o2: int) -> float | None:
@@ -423,8 +448,6 @@ def build_case(case: Case, work: Path, bin_root: Path, root: Path) -> CaseBuild:
 
     artifacts: list[BinaryArtifact] = []
     sizes: dict[tuple[BuildVariant, str], tuple[int, int]] = {}
-    bad_symbols: list[str] = []
-    good_symbols: list[str] = []
 
     for variant in BuildVariant:
         for opt in OPTIMISATIONS:
@@ -440,14 +463,11 @@ def build_case(case: Case, work: Path, bin_root: Path, root: Path) -> CaseBuild:
                     error=proc.stderr.strip()[:2000],
                 )
 
-            bad_bytes, good_bytes, bad_names, good_names = path_sizes(
+            bad_bytes, good_bytes, bad_syms, good_syms = path_sizes(
                 sym_path, case.case_id
             )
             sizes[(variant, opt)] = (bad_bytes, good_bytes)
-            if variant is BuildVariant.BAD and opt == "-O0":
-                bad_symbols = bad_names
-            if variant is BuildVariant.GOOD and opt == "-O0":
-                good_symbols = good_names
+            oracle = bad_syms if variant is BuildVariant.BAD else good_syms
 
             stripped_path = out_dir / f"{variant.value}{opt}.stripped"
             strip_copy(sym_path, stripped_path)
@@ -460,6 +480,10 @@ def build_case(case: Case, work: Path, bin_root: Path, root: Path) -> CaseBuild:
                         stripped=is_stripped,
                         sha256=sha256_file(path),
                         text_bytes=_text_bytes(path),
+                        # Only the symbol-bearing build carries the mapping.
+                        # The stripped twin shares its addresses, so recording
+                        # them twice would invite the two copies to disagree.
+                        symbols=[] if is_stripped else oracle,
                     )
                 )
 
@@ -502,8 +526,6 @@ def build_case(case: Case, work: Path, bin_root: Path, root: Path) -> CaseBuild:
         sources=sources[BuildVariant.BAD],
         binaries=artifacts,
         survival=survival,
-        bad_symbols=bad_symbols,
-        good_symbols=good_symbols,
     )
 
 

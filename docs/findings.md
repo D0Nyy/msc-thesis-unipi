@@ -145,3 +145,54 @@ Three failure families, all of them Juliet's, not the toolchain's:
 Relevant to anyone reproducing this work, and a small contribution in its own
 right: the suite is fourteen years old and the standard build instructions
 assume a compiler generation that no longer exists on current distributions.
+
+---
+
+## F4. Label leakage in Juliet is not confined to identifiers, and reading the
+## code does not find it
+
+**Measured.** The scrubber run over all 88 sampled cases, with an assertion
+that no `CWE\d+` and no `bad`/`good` token survives. 223 surviving tokens
+before, 0 after.
+
+§4.1 was written against the obvious leak: Juliet names its functions
+`CWE121_..._bad()`. A scrubber that renames declared identifiers closes it, and
+that scrubber passed every unit test written for it. The corpus-wide assertion
+then found **five further leak classes**, none of which anyone had thought to
+write a test for:
+
+| Leak | Where | Occurrences |
+|---|---|---|
+| Java `package testcases.CWE89_SQL_Injection.s04;` | every Java case | 44 |
+| String literals — `printLine("Calling bad()...")`, `IO.writeLine("bad: 100/")` | both suites | ~200 |
+| `#ifndef OMITBAD` / `#ifdef INCLUDEMAIN` | every C/C++ case | 283 |
+| Local `#include "CWE369_..._81.h"` | C/C++ multi-file cases | 12 |
+| `#define` names | C/C++ | 174 |
+
+Plus one that is not leakage but would have broken the Java arm outright:
+scrubbing per *file* gave 43 of the 44 multi-file cases divergent mappings, so
+`badSink` was `func_3` in `52a` and `func_2` in `52b`.
+
+Two things worth saying in the write-up.
+
+**The string-literal class is the interesting one.** `printLine("Calling
+bad()...")` is not an identifier, survives every AST-based renaming rule, and
+sits in the same basic block as the call to the flaw. It is also invisible to
+the intuition that drives scrubber design — one reasons about *names*, and a
+status message is not a name. Any binary-analysis evaluation built on Juliet
+that scrubs identifiers and stops has this leak, and it is not detectable by
+inspecting the scrubber.
+
+**The method generalises past this project.** The check is three lines — run
+the transform over the whole corpus, regex for the answer key — and it is the
+only thing here that found a leak nobody had hypothesised. That is worth
+stating as a recommendation rather than an implementation note: a
+contamination control should be asserted over the corpus, not argued for in
+prose, because the failure mode is silent. A leaked label does not crash. It
+produces a corpus that builds, scores, and quietly measures the model's ability
+to read a function name.
+
+One residual, recorded so it is not mistaken for an oversight: the build
+report's own artifact paths are rooted at `bin/java/<case_id>/`, and the case
+ID names the CWE. That is the report's index into the manifest, never prompt
+text, and renaming it would cost the traceability it exists for.
