@@ -244,7 +244,11 @@ class BinaryArtifact(Strict):
     for C. For Java that separation is a chunking concern, not a build one.
     """
 
-    path: str  # repo-relative POSIX
+    # Relative to BuildReport.build_dir, never absolute. The build directory is
+    # a local choice — ext4 scratch on one machine, data/processed on another —
+    # and baking it into every row would make a committed report machine-
+    # specific. Join the two to get a real path.
+    path: str
     variant: BuildVariant | None = None
     optimisation: str | None = None  # "-O0" | "-O2"; None for bytecode
     # False = the oracle build, carrying symbols so the ground-truth function
@@ -311,6 +315,11 @@ class BuildReport(Strict):
     generated_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
 
     manifest_sha256: str  # the sample this corpus was built from
+    # Where the artifacts were written, as given on the command line. Recorded
+    # rather than assumed: it is the one field in here that is expected to
+    # differ between machines, which is exactly why every artifact path is
+    # stored relative to it.
+    build_dir: str
     compiler_version: str  # full `gcc --version` first line
     java_version: str | None = None  # `javac -version`; None if Java was skipped
     classpath: list[str] = Field(default_factory=list)  # jars shipped by the suite

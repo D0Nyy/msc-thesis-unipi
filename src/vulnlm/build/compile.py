@@ -370,19 +370,22 @@ def clear_dir(path: Path) -> str | None:
     return None
 
 
-def relative_path(path: Path) -> str:
-    """Repo-relative where possible, absolute otherwise.
+def relative_path(path: Path, root: Path) -> str:
+    """An artifact path relative to the build root.
 
-    Run directories have to stay portable between the Windows checkout and the
-    rented Linux GPU, so an absolute path in a persisted record is a defect.
+    Never absolute. A build directory is a local choice — ext4 scratch on one
+    machine, `data/processed` on another — and `build-report.json` is
+    committed, so an absolute path here would make the record machine-specific
+    and defeat the point of committing it. `BuildReport.build_dir` carries the
+    root; consumers join the two.
     """
     try:
-        return path.relative_to(Path.cwd()).as_posix()
-    except ValueError:
-        return path.as_posix()
+        return path.resolve().relative_to(root.resolve()).as_posix()
+    except ValueError:  # pragma: no cover - defensive
+        return path.name
 
 
-def build_case(case: Case, work: Path, bin_root: Path) -> CaseBuild:
+def build_case(case: Case, work: Path, bin_root: Path, root: Path) -> CaseBuild:
     """Compile, measure and gate one case. Never raises on a compiler error.
 
     `bin_root` must be absolute: the compiler runs with its working directory
@@ -431,7 +434,7 @@ def build_case(case: Case, work: Path, bin_root: Path) -> CaseBuild:
             for path, is_stripped in ((sym_path, False), (stripped_path, True)):
                 artifacts.append(
                     BinaryArtifact(
-                        path=relative_path(path),
+                        path=relative_path(path, root),
                         variant=variant,
                         optimisation=opt,
                         stripped=is_stripped,
@@ -522,7 +525,7 @@ def build_corpus(
     bin_root.mkdir(parents=True, exist_ok=True)
 
     with ThreadPoolExecutor(max_workers=jobs) as pool:
-        builds = list(pool.map(lambda c: build_case(c, work, bin_root), cases))
+        builds = list(pool.map(lambda c: build_case(c, work, bin_root, out_dir), cases))
 
     java_version: str | None = None
     classpath: list[str] = []
@@ -538,6 +541,7 @@ def build_corpus(
 
     return BuildReport(
         manifest_sha256=sha256_file(manifest_path),
+        build_dir=out_dir.as_posix(),
         compiler_version=compiler_version(),
         java_version=java_version,
         classpath=classpath,

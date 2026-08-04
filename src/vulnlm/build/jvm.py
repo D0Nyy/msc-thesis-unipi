@@ -122,7 +122,7 @@ def extract_sources(archive: Path, cases: list[Case], dest: Path) -> list[str]:
 
 
 def build_case(
-    case: Case, work: Path, out_root: Path, classpath: list[str]
+    case: Case, work: Path, out_root: Path, classpath: list[str], root: Path
 ) -> CaseBuild:
     """Compile one Java case. Never raises on a compiler error.
 
@@ -162,7 +162,7 @@ def build_case(
 
     artifacts = [
         BinaryArtifact(
-            path=relative_path(cls),
+            path=relative_path(cls, root),
             sha256=sha256_file(cls),
             text_bytes=cls.stat().st_size,
         )
@@ -227,5 +227,5 @@ def build_java(
     # Sequential rather than pooled: javac spends most of its time in JVM
     # startup, and 44 concurrent JVMs on a laptop is worse than 44 sequential
     # ones. Revisit if the sample grows by an order of magnitude.
-    builds = [build_case(c, work, class_root, classpath) for c in cases]
+    builds = [build_case(c, work, class_root, classpath, out_dir) for c in cases]
     return sorted(builds, key=lambda b: b.case_id), version, classpath
