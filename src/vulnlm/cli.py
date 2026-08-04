@@ -128,12 +128,43 @@ def build(
 def _compile_corpus(
     data_dir: Path, build_dir: Path, jobs: int | None, java: bool = True
 ) -> None:
-    """Build the sampled C/C++ cases and report the survival gate (§7.1)."""
-    import statistics
+    """Build the sampled cases and report the survival gate (§7.1)."""
+    from vulnlm.schema import BuildStatus
 
+    report = _run_build(data_dir, build_dir, jobs, java)
+
+    console.print(f"[dim]{report.compiler_version}[/dim]")
+    console.print(
+        f"[dim]{' '.join(report.common_flags)}  {' '.join(report.optimisations)}[/dim]"
+    )
+    if report.java_version:
+        console.print(f"[dim]{report.java_version}[/dim]")
+    console.print()
+
+    console.print(_survival_table(report))
+    _print_exclusions(report)
+    _print_medians(report)
+
+    out = data_dir / "build-report.json"
+    out.write_text(report.model_dump_json(indent=2), encoding="utf-8")
+    _print_totals(report, java)
+    err.print(f"wrote {out}")
+
+    # Non-zero when anything left the corpus, so this can gate a pipeline the
+    # same way --survey does. ERASED is deliberately not counted: it is a §7.1
+    # measurement, not a failure.
+    if any(
+        c.status in (BuildStatus.COMPILE_FAILED, BuildStatus.NO_FLAW_SYMBOLS)
+        for c in report.cases
+    ):
+        raise typer.Exit(1)
+
+
+def _run_build(data_dir: Path, build_dir: Path, jobs: int | None, java: bool):
+    """Load the manifest and build it, turning setup failures into exit codes."""
     from vulnlm.build.compile import ToolchainError, build_corpus
     from vulnlm.build.suites import ArchiveNotFound
-    from vulnlm.schema import BuildStatus, Manifest
+    from vulnlm.schema import Manifest
 
     manifest_path = data_dir / "manifest.json"
     if not manifest_path.exists():
@@ -142,7 +173,7 @@ def _compile_corpus(
 
     manifest = Manifest.model_validate_json(manifest_path.read_text(encoding="utf-8"))
     try:
-        report = build_corpus(
+        return build_corpus(
             manifest,
             manifest_path,
             data_dir / "raw",
@@ -155,25 +186,20 @@ def _compile_corpus(
         err.print(f"[red]{exc}[/red]")
         raise typer.Exit(2) from exc
 
-    console.print(f"[dim]{report.compiler_version}[/dim]")
-    console.print(f"[dim]{' '.join(report.common_flags)}  {' '.join(report.optimisations)}[/dim]")
-    if report.java_version:
-        console.print(f"[dim]{report.java_version}[/dim]")
-    console.print()
 
-    by_status: dict[str, int] = {}
-    for case in report.cases:
-        by_status[case.status] = by_status.get(case.status, 0) + 1
+def _native(report) -> list:
+    """C/C++ cases. Only these have a survival column.
 
-    # The gate, and the two ways a case can leave the corpus. Both are reported
-    # rates rather than silent drops — an excluded case that nobody counted is
-    # indistinguishable from a case the model failed on.
-    # Only the C/C++ arm has a survival column to show. Java is reported as a
-    # count below: javac has no optimisation levels, so there is nothing for
-    # the gate to measure and an empty row would imply a missing measurement
-    # rather than an inapplicable one.
-    native = [c for c in report.cases if c.language != "java"]
-    jvm_cases = [c for c in report.cases if c.language == "java"]
+    Java is reported as a count instead: javac has no optimisation levels, so
+    there is nothing for the gate to measure, and an empty row would imply a
+    missing measurement rather than an inapplicable one.
+    """
+    return [c for c in report.cases if c.language != "java"]
+
+
+def _survival_table(report) -> Table:
+    """One row per C/C++ case: bad-path bytes at each level, and the ratio."""
+    from vulnlm.schema import BuildStatus
 
     table = Table(box=None, pad_edge=False)
     table.add_column("case", style="dim")
@@ -181,7 +207,11 @@ def _compile_corpus(
     table.add_column("-O2", justify="right")
     table.add_column("kept", justify="right")
     table.add_column("good kept", justify="right")
-    for case in native:
+
+    def pct(value: float | None) -> str:
+        return "—" if value is None else f"{value:.0%}"
+
+    for case in _native(report):
         s = case.survival
         if s is None:
             table.add_row(case.case_id[:58], "—", "—", "—", "—", style="red")
@@ -193,32 +223,42 @@ def _compile_corpus(
             case.case_id[:58],
             f"{s.bad_o0:,}",
             f"{s.bad_o2:,}",
-            f"{s.bad_retained:.0%}" if s.bad_retained is not None else "—",
-            f"{s.good_retained:.0%}" if s.good_retained is not None else "—",
+            pct(s.bad_retained),
+            pct(s.good_retained),
             style=style,
         )
-    console.print(table)
+    return table
 
-    failed = [c for c in report.cases if c.status == BuildStatus.COMPILE_FAILED]
-    erased = [c for c in report.cases if c.status == BuildStatus.ERASED]
-    no_syms = [c for c in report.cases if c.status == BuildStatus.NO_FLAW_SYMBOLS]
 
-    if failed:
+def _print_exclusions(report) -> None:
+    """The three ways a case leaves the corpus, each reported as its own rate.
+
+    Never a silent drop: an excluded case nobody counted is indistinguishable
+    from a case the model failed on.
+    """
+    from vulnlm.schema import BuildStatus
+
+    def of(status: BuildStatus) -> list:
+        return [c for c in report.cases if c.status == status]
+
+    if failed := of(BuildStatus.COMPILE_FAILED):
         err.print(f"\n[red]{len(failed)} case(s) did not compile:[/red]")
         for case in failed:
+            lines = (case.error or "").splitlines()
             first = next(
-                (ln for ln in (case.error or "").splitlines() if "error:" in ln),
-                (case.error or "").splitlines()[0] if case.error else "",
+                (ln for ln in lines if "error:" in ln), lines[0] if lines else ""
             )
             err.print(f"  {case.case_id}\n    [dim]{first.strip()[:150]}[/dim]")
-    if no_syms:
+
+    if no_syms := of(BuildStatus.NO_FLAW_SYMBOLS):
         err.print(
             f"\n[red]{len(no_syms)} case(s) built but exposed no bad-path symbol — "
             f"the oracle cannot label them at F2:[/red]"
         )
         for case in no_syms:
             err.print(f"  {case.case_id}")
-    if erased:
+
+    if erased := of(BuildStatus.ERASED):
         err.print(
             f"\n[yellow]{len(erased)} case(s) below the "
             f"{report.survival_threshold:.0%} survival threshold — excluded from "
@@ -231,17 +271,30 @@ def _compile_corpus(
                 f"({case.survival.bad_o0} → {case.survival.bad_o2} bytes)"
             )
 
-    measured = [c.survival for c in report.cases if c.survival is not None]
-    if measured:
-        bad = [s.bad_retained for s in measured if s.bad_retained is not None]
-        good = [s.good_retained for s in measured if s.good_retained is not None]
-        console.print(
-            f"\nmedian retained at -O2: [bold]bad {statistics.median(bad):.0%}[/bold]"
-            + (f", good {statistics.median(good):.0%}" if good else "")
-        )
 
-    out = data_dir / "build-report.json"
-    out.write_text(report.model_dump_json(indent=2), encoding="utf-8")
+def _print_medians(report) -> None:
+    """The §7.1 headline: median bad- and good-path retention at -O2."""
+    import statistics
+
+    measured = [c.survival for c in report.cases if c.survival is not None]
+    if not measured:
+        return
+    bad = [s.bad_retained for s in measured if s.bad_retained is not None]
+    good = [s.good_retained for s in measured if s.good_retained is not None]
+    if not bad:
+        return
+    console.print(
+        f"\nmedian retained at -O2: [bold]bad {statistics.median(bad):.0%}[/bold]"
+        + (f", good {statistics.median(good):.0%}" if good else "")
+    )
+
+
+def _print_totals(report, java: bool) -> None:
+    """Corpus size per language."""
+    from vulnlm.schema import BuildStatus
+
+    native = _native(report)
+    jvm_cases = [c for c in report.cases if c.language == "java"]
 
     native_ok = sum(1 for c in native if c.status == BuildStatus.OK)
     console.print(
@@ -260,12 +313,6 @@ def _compile_corpus(
         )
     elif not java:
         err.print("[dim]Java arm skipped (--no-java).[/dim]")
-    err.print(f"wrote {out}")
-
-    # Non-zero when anything left the corpus, so this can gate a pipeline the
-    # same way --survey does.
-    if failed or no_syms:
-        raise typer.Exit(1)
 
 
 def _draw_sample(data_dir: Path, per_stratum: int, seed: int) -> None:

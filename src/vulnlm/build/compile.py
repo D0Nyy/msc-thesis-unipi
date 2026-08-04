@@ -560,18 +560,24 @@ def build_case(case: Case, work: Path, bin_root: Path, root: Path) -> CaseBuild:
     artifacts: list[BinaryArtifact] = []
     sizes: dict[tuple[BuildVariant, str], tuple[int, int]] = {}
 
+    def record(status: BuildStatus, **extra: object) -> CaseBuild:
+        """One CaseBuild constructor for all four exits from this function."""
+        return CaseBuild(
+            case_id=case.case_id,
+            language=case.language,
+            status=status,
+            compiler=compiler,
+            sources=sources[BuildVariant.BAD],
+            **extra,  # type: ignore[arg-type]
+        )
+
     for variant in BuildVariant:
         for opt in OPTIMISATIONS:
             sym_path = out_dir / f"{variant.value}{opt}.sym"
             proc = _compile(compiler, sources[variant], opt, variant, work, sym_path)
             if proc.returncode != 0:
-                return CaseBuild(
-                    case_id=case.case_id,
-                    language=case.language,
-                    status=BuildStatus.COMPILE_FAILED,
-                    compiler=compiler,
-                    sources=sources[BuildVariant.BAD],
-                    error=proc.stderr.strip()[:2000],
+                return record(
+                    BuildStatus.COMPILE_FAILED, error=proc.stderr.strip()[:2000]
                 )
 
             bad_bytes, good_bytes, bad_syms, good_syms = path_sizes(
@@ -607,36 +613,27 @@ def build_case(case: Case, work: Path, bin_root: Path, root: Path) -> CaseBuild:
         # The case built but the oracle recognised nothing. Either Juliet used a
         # naming convention this module does not know, or the flaw is not in a
         # function at all. Loud, because every downstream F2 label depends on it.
-        return CaseBuild(
-            case_id=case.case_id,
-            language=case.language,
-            status=BuildStatus.NO_FLAW_SYMBOLS,
-            compiler=compiler,
-            sources=sources[BuildVariant.BAD],
+        return record(
+            BuildStatus.NO_FLAW_SYMBOLS,
             binaries=artifacts,
             error="no bad/badSink/badSource symbol found in the -O0 build",
         )
 
     bad_retained = retained(bad_o0, bad_o2)
     survived = bad_retained is not None and bad_retained >= SURVIVAL_THRESHOLD
-    survival = FlawSurvival(
-        bad_o0=bad_o0,
-        bad_o2=bad_o2,
-        good_o0=good_o0,
-        good_o2=good_o2,
-        bad_retained=bad_retained,
-        good_retained=retained(good_o0, good_o2),
-        threshold=SURVIVAL_THRESHOLD,
-        survived=survived,
-    )
-    return CaseBuild(
-        case_id=case.case_id,
-        language=case.language,
-        status=BuildStatus.OK if survived else BuildStatus.ERASED,
-        compiler=compiler,
-        sources=sources[BuildVariant.BAD],
+    return record(
+        BuildStatus.OK if survived else BuildStatus.ERASED,
         binaries=artifacts,
-        survival=survival,
+        survival=FlawSurvival(
+            bad_o0=bad_o0,
+            bad_o2=bad_o2,
+            good_o0=good_o0,
+            good_o2=good_o2,
+            bad_retained=bad_retained,
+            good_retained=retained(good_o0, good_o2),
+            threshold=SURVIVAL_THRESHOLD,
+            survived=survived,
+        ),
     )
 
 

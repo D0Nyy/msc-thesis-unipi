@@ -69,8 +69,9 @@ assertion in `tests/test_scrub.py` rather than by reading the code:
 
 import posixpath
 import re
-from collections.abc import Iterable, Mapping, Sequence
+from collections.abc import Iterable, Iterator, Mapping, Sequence
 from dataclasses import dataclass, field
+from enum import StrEnum
 from pathlib import Path
 from typing import Final
 
@@ -138,6 +139,17 @@ _MACRO_NODES: Final[frozenset[str]] = frozenset({
 # nested `scoped_identifier` spine.
 _PACKAGE_NODES: Final[frozenset[str]] = frozenset({"package_declaration"})
 
+# node type -> the kind of name it declares. Built in priority order so that a
+# type appearing in two sets resolves to the earlier one: a function declarator
+# nested inside a declaration must read as a function, or `void f(void)` is
+# filed as a variable.
+_DECLARING_NODES: Final[dict[str, str]] = {
+    **{t: VARIABLE_PREFIX for t in _VARIABLE_NODES},
+    **{t: CLASS_PREFIX for t in _CLASS_NODES},
+    **{t: FUNCTION_PREFIX for t in _FUNCTION_NODES},
+    **{t: MACRO_PREFIX for t in _MACRO_NODES},
+}
+
 _IDENTIFIER_LEAVES: Final[frozenset[str]] = frozenset({
     "identifier", "type_identifier", "field_identifier", "namespace_identifier",
     "statement_identifier", "scoped_identifier",
@@ -193,6 +205,14 @@ _STRING_BODY_NODES: Final[frozenset[str]] = frozenset({
 # by table rather than by "capitalised means class" keeps `testcasesupport` a
 # package and `OMITBAD` a macro, which is what the replacement has to look like
 # for the scrubbed text to still read as the language it is written in.
+# `CWE\d+` in any casing, and any identifier-shaped token starting `bad`/`good`.
+# The second is deliberately broad: it fires on `badSink`, `goodG2B`, `bad1`
+# and the bare words in `"Calling bad()..."`.
+LEAK_PATTERNS: Final[tuple[re.Pattern[str], ...]] = (
+    re.compile(r"CWE[-_]?\d+", re.IGNORECASE),
+    re.compile(r"(?<![A-Za-z0-9_])(?:bad|good)[A-Za-z0-9_]*", re.IGNORECASE),
+)
+
 _DENY_KINDS: Final[dict[str, str]] = {
     **{n: PACKAGE_PREFIX for n in (JAVA_SUPPORT_PACKAGE,)},
     **{n: CLASS_PREFIX for n in JAVA_SUPPORT_CLASSES | C_TYPES},
@@ -292,54 +312,86 @@ def _classify_declarations(root: Node, source: bytes, kinds: dict[str, str]) -> 
     classified together before any replacement is minted.
     """
 
-    def visit(node: Node) -> None:
+    for node in _descendants(root):
         if node.type in _PACKAGE_NODES:
             # Every segment of the path, not just the last: `testcases`,
             # `CWE89_SQL_Injection` and `s04` are three separate names and only
             # the middle one carries the CWE.
             for name in _identifiers_under(node, source):
                 kinds.setdefault(name, PACKAGE_PREFIX)
-            return
+            continue
 
-        prefix: str | None = None
-        if node.type in _MACRO_NODES:
-            prefix = MACRO_PREFIX
-        elif node.type in _FUNCTION_NODES:
-            prefix = FUNCTION_PREFIX
-        elif node.type in _CLASS_NODES:
-            prefix = CLASS_PREFIX
-        elif node.type in _VARIABLE_NODES:
-            prefix = VARIABLE_PREFIX
-
-        if prefix is not None:
-            target = node.child_by_field_name("name") or node.child_by_field_name(
-                "declarator"
-            )
-            leaf = _leaf_name(target if target is not None else node)
-            if leaf is not None:
-                name = _text_of(leaf, source)
-                # A function declarator inside a declaration wins: the outer
-                # node would otherwise label `void f(void)` as a variable.
-                if name and (prefix != VARIABLE_PREFIX or name not in kinds):
-                    kinds[name] = prefix
-        for child in node.children:
-            visit(child)
-
-    visit(root)
+        prefix = _DECLARING_NODES.get(node.type)
+        if prefix is None:
+            continue
+        target = node.child_by_field_name("name") or node.child_by_field_name(
+            "declarator"
+        )
+        leaf = _leaf_name(target if target is not None else node)
+        if leaf is None:
+            continue
+        name = _text_of(leaf, source)
+        # A function declarator inside a declaration wins: the outer node would
+        # otherwise label `void f(void)` as a variable.
+        if name and (prefix != VARIABLE_PREFIX or name not in kinds):
+            kinds[name] = prefix
 
 
 def _identifiers_under(node: Node, source: bytes) -> list[str]:
     """Every identifier leaf beneath `node`, in source order."""
-    found: list[str] = []
+    return [_text_of(n, source) for n in _descendants(node) if _is_identifier(n)]
 
-    def walk(n: Node) -> None:
-        if n.type in _IDENTIFIER_LEAVES and not n.children:
-            found.append(_text_of(n, source))
-        for child in n.children:
-            walk(child)
 
-    walk(node)
-    return found
+def _descendants(node: Node) -> Iterator[Node]:
+    """Every node at or below `node`, parents before children."""
+    yield node
+    for child in node.children:
+        yield from _descendants(child)
+
+
+def _is_identifier(node: Node) -> bool:
+    # `scoped_identifier` is in the leaf set but has children — `java.io.File`
+    # is three identifiers, and renaming the whole span would rewrite `java.io`
+    # along with the class.
+    return node.type in _IDENTIFIER_LEAVES and not node.children
+
+
+class Role(StrEnum):
+    """What the scrubber does with a node. One node, one role.
+
+    The passes below used to be two hand-written recursive walks that had to
+    visit in exactly the same order, because the first mints replacements in
+    encounter order and the second consumes them. That was true and enforced by
+    a comment. Classifying once and iterating twice makes it structural: there
+    is only one traversal left to get wrong.
+    """
+
+    COMMENT = "comment"
+    INCLUDE_PATH = "include_path"  # the `"..."` of a local #include
+    STRING_BODY = "string_body"
+    IDENTIFIER = "identifier"
+
+
+def _visit(root: Node) -> Iterator[tuple[Role, Node]]:
+    """Every node the scrubber acts on, in source order, classified.
+
+    Comments and include paths are terminal: their subtrees are skipped, which
+    is what keeps a `CWE369_...h` inside an `#include` from also being seen as
+    a string body and rewritten twice.
+    """
+    if root.type in _COMMENT_NODES:
+        yield Role.COMMENT, root
+        return
+    if (path := _include_path_node(root)) is not None:
+        yield Role.INCLUDE_PATH, path
+        return
+    if root.type in _STRING_BODY_NODES:
+        yield Role.STRING_BODY, root
+        return
+    if _is_identifier(root):
+        yield Role.IDENTIFIER, root
+    for child in root.children:
+        yield from _visit(child)
 
 
 class _Renamer:
@@ -369,29 +421,32 @@ class _Renamer:
             )
         return None
 
-    def replacement_for(self, name: str) -> str | None:
-        """Mint or recall the replacement for `name`, or None to leave it."""
+    def replacement_for(self, name: str, fallback: str | None = None) -> str | None:
+        """Mint or recall the replacement for `name`, or None to leave it.
+
+        `fallback` supplies a kind for names the two rules do not classify. It
+        is how filename stems get renamed: a stem is not an identifier, so
+        nothing declares it and nothing denylists it.
+        """
         if name in self.mapping:
             return self.mapping[name]
-        prefix = self.kind_of(name)
+        prefix = self.kind_of(name) or fallback
         if prefix is None:
             return None
         self.counters[prefix] += 1
         self.mapping[name] = f"{prefix}_{self.counters[prefix]}"
         return self.mapping[name]
 
-    def replacement_for_file(self, stem: str) -> str | None:
+    def replacement_for_file(self, stem: str) -> str:
         """A filename stem. Reuses the identifier entry when there is one.
 
         Juliet names a sibling header after the namespace it declares, so
         `CWE369_..._81.h` and `namespace CWE369_..._81` are the same string and
         must land on the same replacement or the include stops resolving.
         """
-        if (existing := self.replacement_for(stem)) is not None:
-            return existing
-        self.counters[FILE_PREFIX] += 1
-        self.mapping[stem] = f"{FILE_PREFIX}_{self.counters[FILE_PREFIX]}"
-        return self.mapping[stem]
+        replacement = self.replacement_for(stem, fallback=FILE_PREFIX)
+        assert replacement is not None  # the fallback guarantees one
+        return replacement
 
     def literal_token(self, token: str) -> str | None:
         """Mint the replacement a token inside a string literal should get.
@@ -440,35 +495,33 @@ def _include_path_node(node: Node) -> Node | None:
 _LITERAL_TOKEN: Final[re.Pattern[str]] = re.compile(r"[A-Za-z0-9_]+")
 
 
-def _mint(tree: Tree, source: bytes, renamer: _Renamer, literals: bool) -> None:
-    """Pass 1 — walk the file and create every replacement it needs.
+def _mint_names(tree: Tree, source: bytes, renamer: _Renamer) -> None:
+    """Pass 1a — create a replacement for every identifier and include path.
 
-    Separate from emitting edits so that a string literal seen early can still
-    be rewritten with a name first declared later in the case. Encounter order
-    fixes the numbering, so this pass must visit in exactly the order pass 2
-    does. Run twice per case: once for identifiers over every file, then once
-    for string literals, so a literal never mints ahead of a real declaration.
+    Minting is separate from editing so that a string literal seen early can
+    still be rewritten with a name first declared later in the case. Encounter
+    order fixes the numbering, which is why all of this goes through `_visit`.
     """
-
-    def walk(node: Node) -> None:
-        if node.type in _COMMENT_NODES:
-            return
-        if (path := _include_path_node(node)) is not None:
-            if not literals:
-                stem, _ = posixpath.splitext(_text_of(path, source))
-                renamer.replacement_for_file(stem)
-            return
-        if node.type in _STRING_BODY_NODES:
-            if literals:
-                for match in _LITERAL_TOKEN.finditer(_text_of(node, source)):
-                    renamer.literal_token(match.group(0))
-            return
-        if not literals and node.type in _IDENTIFIER_LEAVES and not node.children:
+    for role, node in _visit(tree.root_node):
+        if role is Role.IDENTIFIER:
             renamer.replacement_for(_text_of(node, source))
-        for child in node.children:
-            walk(child)
+        elif role is Role.INCLUDE_PATH:
+            renamer.replacement_for_file(
+                posixpath.splitext(_text_of(node, source))[0]
+            )
 
-    walk(tree.root_node)
+
+def _mint_literals(tree: Tree, source: bytes, renamer: _Renamer) -> None:
+    """Pass 1b — the same, for tokens inside string literals.
+
+    A whole pass later than `_mint_names`, over every file, so that a literal
+    never mints ahead of a real declaration: `"Calling bad()..."` should follow
+    whatever `bad` became, not decide it.
+    """
+    for role, node in _visit(tree.root_node):
+        if role is Role.STRING_BODY:
+            for match in _LITERAL_TOKEN.finditer(_text_of(node, source)):
+                renamer.literal_token(match.group(0))
 
 
 def _rewrite_literal(body: str, renamer: _Renamer) -> str:
@@ -488,35 +541,28 @@ def _rewrite_literal(body: str, renamer: _Renamer) -> str:
     return _LITERAL_TOKEN.sub(swap, body)
 
 
+def _replacement_at(role: Role, node: Node, source: bytes, renamer: _Renamer) -> str | None:
+    """What this node becomes, or None to leave it exactly as it is."""
+    text = _text_of(node, source)
+    if role is Role.COMMENT:
+        return ""  # Juliet annotates every flaw: `/* POTENTIAL FLAW: ... */`
+    if role is Role.INCLUDE_PATH:
+        stem, ext = posixpath.splitext(text)
+        new = renamer.mapping.get(stem)
+        return None if new is None else f"{new}{ext}"
+    if role is Role.STRING_BODY:
+        rewritten = _rewrite_literal(text, renamer)
+        return None if rewritten == text else rewritten
+    return renamer.mapping.get(text)
+
+
 def _edits(tree: Tree, source: bytes, renamer: _Renamer) -> list[tuple[int, int, str]]:
     """Pass 2 — (start, end, replacement) for everything this file changes."""
-    out: list[tuple[int, int, str]] = []
-
-    def walk(node: Node) -> None:
-        if node.type in _COMMENT_NODES:
-            out.append((node.start_byte, node.end_byte, ""))
-            return
-        if (path := _include_path_node(node)) is not None:
-            stem, ext = posixpath.splitext(_text_of(path, source))
-            if (new := renamer.mapping.get(stem)) is not None:
-                out.append((path.start_byte, path.end_byte, f"{new}{ext}"))
-            return
-        if node.type in _STRING_BODY_NODES:
-            body = _text_of(node, source)
-            if (rewritten := _rewrite_literal(body, renamer)) != body:
-                out.append((node.start_byte, node.end_byte, rewritten))
-            return
-        if (
-            node.type in _IDENTIFIER_LEAVES
-            and not node.children
-            and (new := renamer.mapping.get(_text_of(node, source))) is not None
-        ):
-            out.append((node.start_byte, node.end_byte, new))
-        for child in node.children:
-            walk(child)
-
-    walk(tree.root_node)
-    return out
+    return [
+        (node.start_byte, node.end_byte, new)
+        for role, node in _visit(tree.root_node)
+        if (new := _replacement_at(role, node, source, renamer)) is not None
+    ]
 
 
 def _apply(source: bytes, edits: list[tuple[int, int, str]]) -> str:
@@ -596,13 +642,13 @@ def scrub_case(
         for name, prefix in here.items():
             renamer.kinds.setdefault(name, prefix)
     for _, source, tree in parsed:
-        _mint(tree, source, renamer, literals=False)
+        _mint_names(tree, source, renamer)
     # The case's own filenames, before literals, so a stem that also appears in
     # a resource path gets one replacement rather than two.
     for path, _, _ in parsed:
         renamer.replacement_for_file(posixpath.splitext(posixpath.basename(path))[0])
     for _, source, tree in parsed:
-        _mint(tree, source, renamer, literals=True)
+        _mint_literals(tree, source, renamer)
 
     result = CaseScrub(mapping=renamer.mapping, declared=declared)
     for path, source, tree in parsed:
@@ -686,14 +732,6 @@ def unresolved_leaks(
     checks = list(patterns) if patterns is not None else list(LEAK_PATTERNS)
     return sorted({m.group(0) for p in checks for m in p.finditer(text)})
 
-
-# `CWE\d+` in any casing, and any identifier-shaped token starting `bad`/`good`.
-# The second is deliberately broad: it fires on `badSink`, `goodG2B`, `bad1`
-# and the bare words in `"Calling bad()..."`.
-LEAK_PATTERNS: Final[tuple[re.Pattern[str], ...]] = (
-    re.compile(r"CWE[-_]?\d+", re.IGNORECASE),
-    re.compile(r"(?<![A-Za-z0-9_])(?:bad|good)[A-Za-z0-9_]*", re.IGNORECASE),
-)
 
 
 def mapping_is_reversible(mapping: Mapping[str, str]) -> bool:
