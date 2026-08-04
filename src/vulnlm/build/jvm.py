@@ -52,9 +52,13 @@ import zipfile
 from collections.abc import Callable
 from pathlib import Path
 
-from vulnlm.build.compile import ToolchainError, clear_dir, relative_path
-from vulnlm.build.scaffolding import VARIANT_NAMES
-from vulnlm.build.scrub import CaseScrub, language_of, scrub_juliet_case
+from vulnlm.build.compile import (
+    ToolchainError,
+    clear_dir,
+    relative_path,
+    scrub_record,
+)
+from vulnlm.build.scrub import CaseScrub, scrub_tree
 from vulnlm.build.suites import SUITES, Suite, find_archive, sha256_file
 from vulnlm.schema import (
     BinaryArtifact,
@@ -62,8 +66,6 @@ from vulnlm.schema import (
     Case,
     CaseBuild,
     Language,
-    ScrubbedSymbol,
-    ScrubRecord,
 )
 
 # The suite ships its own dependencies, so the classpath is self-contained and
@@ -200,40 +202,17 @@ def scrub_case_tree(case: Case, work: Path, dest: Path) -> CaseScrub:
     `badSink` two different replacements. That does not merely look untidy —
     the scrubbed Java does not compile, because `52a` calls a method `52b` no
     longer has.
+
+    The support sources are scrubbed WITH the case and against its mapping.
+    §4.1 does not preserve Juliet's support surface, so `AbstractTestCase`
+    becomes `Class_2` inside the case, and an unscrubbed `testcasesupport` on
+    the classpath would leave the case with nothing to extend.
     """
     sources = sorted(f for f in case.files if f.endswith(".java"))
     members = sources + [
         m for m in support_members_on_disk(work) if m not in sources
     ]
-    files = [
-        (m, (work / m).read_text(encoding="utf-8", errors="replace"), language_of(m))
-        for m in members
-    ]
-    result = scrub_juliet_case(files)
-
-    for member, text in result.files.items():
-        target = dest / result.paths[member]
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(text, encoding="utf-8")
-    return result
-
-
-def scrub_record(result: CaseScrub, sources: list[str]) -> ScrubRecord:
-    """The oracle, pulled out of a `CaseScrub` and narrowed to the case.
-
-    `paths` covers only the case's own sources. The scrubbed support tree is a
-    build input, not something `recover` or `eval` ever has to locate, and
-    carrying ten extra rows per case would bury the three that matter.
-    """
-    return ScrubRecord(
-        mapping=dict(result.mapping),
-        paths={s: result.paths[s] for s in sources if s in result.paths},
-        symbols=[
-            ScrubbedSymbol(name=result.mapping[tail], tail=tail)
-            for tail in sorted(VARIANT_NAMES)
-            if tail in result.mapping
-        ],
-    )
+    return scrub_tree(members, work, dest)
 
 
 def _javac(
@@ -337,7 +316,7 @@ def build_case(
             "javac reported success but produced no .class files",
         )
 
-    record = scrub_record(case_scrub, sources)
+    record = scrub_record(case_scrub, sources, case.case_id)
     if not record.symbols:
         # `bad` absent from the mapping means nothing records which method
         # held the flaw. The case built, but it cannot be scored.

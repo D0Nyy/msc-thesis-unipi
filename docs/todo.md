@@ -100,14 +100,33 @@ out to be *true and worth reporting* move into `findings.md`.
       parses without a single ERROR node, whose package declarations match
       their directories, whose public class names match their filenames, and
       in which every cross-file `Class_N` reference resolves.
-- [ ] **The C/C++ F0 scrubbed tree is not emitted yet.** §4.1's table says
-      "C/C++ source → F0: yes, at build time", and the scrubber now handles
-      C/C++ correctly — but nothing calls it. `build/compile.py` still writes
-      only the unmodified tree, so the F0 arm would today be scored on source
-      containing `void CWE121_..._bad()`. The work is the C/C++ half of what
-      `jvm.py` just gained: scrub each case into `src-scrubbed/`, record the
-      mapping. Cheaper than the Java version, because nothing has to compile
-      afterwards — the binaries are built from unmodified source by design.
+- [x] ~~**The C/C++ F0 scrubbed tree is not emitted yet.**~~ **Done.**
+      `compile.scrub_corpus` writes `src-scrubbed/c-cpp/<case_id>/` and attaches
+      a `ScrubRecord` to every C/C++ case. Zero leaks across 771 scrubbed files.
+      Three things worth recording, all of which only showed up once it ran
+      over the real sample:
+
+      * **It runs over ALL cases, including the ones that fail to compile or
+        are erased at `-O2`.** Those are exclusions from the *F2* arm; a case
+        gcc refuses is still a case a model can be asked to read. Gating the
+        scrub on the compiler would have silently shrunk the control condition
+        to match the treatment — a confound, not a missing file.
+      * **The oracle cannot be read off the mapping.** Every C case's mapping
+        contains a bare `bad`, minted from `printLine("Calling bad()...")`,
+        while the actual function is `CWE121_..._01_bad`. Filtering on the
+        mapping gives two `bad` symbols, one pointing at nothing.
+      * **Nor off a flat set of declared names.** `io.c` defines empty stubs
+        `good1()`..`good9()`, and `good1`/`good2` are *also* real Juliet
+        variant names, so scrubbing the support files alongside the case made
+        io.c's stubs look like the good path of all 44. `CaseScrub.declared` is
+        therefore per file, and symbols come only from the case's own sources.
+        `scaffolding.py` had already predicted this collision in a comment;
+        the comment was right and the code did not act on it.
+
+      One shared implementation now serves both arms: `compile.scrub_record`,
+      which `jvm.py` imports. It handles all three of Juliet's spellings —
+      `CWE121_..._01_bad` (C), `CWE369_...::bad()` (C++) and bare `bad` (Java,
+      and C's inner statics).
 - [ ] **Does Ghidra recover `main` in a stripped binary?** Almost certainly yes
       — `__libc_start_main` takes it as an argument and the ELF analyser knows
       the pattern — but it has not been checked, and it decides whether §4.1's

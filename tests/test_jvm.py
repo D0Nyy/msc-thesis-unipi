@@ -27,7 +27,7 @@ from pathlib import Path
 
 import pytest
 
-from vulnlm.build.compile import ToolchainError
+from vulnlm.build.compile import ToolchainError, scrub_record
 from vulnlm.build.jvm import (
     _RELEASE_FLAG,
     CLASSPATH_JARS,
@@ -35,7 +35,6 @@ from vulnlm.build.jvm import (
     SUPPORT_DIR,
     detect_release,
     javac_version,
-    scrub_record,
     support_members,
 )
 from vulnlm.build.scrub import scrub_juliet_case
@@ -272,7 +271,7 @@ class TestScrubRecord:
         for case in java_cases:
             result = _scrub(case, archive)
             sources = sorted(f for f in case["files"] if f.endswith(".java"))
-            record = scrub_record(result, sources)
+            record = scrub_record(result, sources, case["case_id"])
             tails = {s.tail for s in record.symbols}
             assert "bad" in tails, case["case_id"]
 
@@ -285,15 +284,27 @@ class TestScrubRecord:
             result = _scrub(case, archive)
             sources = sorted(f for f in case["files"] if f.endswith(".java"))
             text = "\n".join(result.files[s] for s in sources)
-            for symbol in scrub_record(result, sources).symbols:
+            for symbol in scrub_record(result, sources, case["case_id"]).symbols:
                 assert symbol.name in text, f"{case['case_id']} {symbol.tail}"
+
+    def test_inverse_round_trips_and_is_lossless(
+        self, java_cases: list[dict], archive: zipfile.ZipFile
+    ) -> None:
+        # `inverse` silently loses an entry if two originals share a
+        # replacement, and the flaw method is what it would lose.
+        for case in java_cases:
+            sources = sorted(f for f in case["files"] if f.endswith(".java"))
+            record = scrub_record(_scrub(case, archive), sources, case["case_id"])
+            assert len(record.inverse) == len(record.mapping), case["case_id"]
+            for symbol in record.symbols:
+                assert record.inverse[symbol.name] == symbol.tail, case["case_id"]
 
     def test_paths_cover_the_case_sources_and_not_the_support_tree(
         self, java_cases: list[dict], archive: zipfile.ZipFile
     ) -> None:
         case = java_cases[0]
         sources = sorted(f for f in case["files"] if f.endswith(".java"))
-        record = scrub_record(_scrub(case, archive), sources)
+        record = scrub_record(_scrub(case, archive), sources, case["case_id"])
         assert set(record.paths) == set(sources)
 
 

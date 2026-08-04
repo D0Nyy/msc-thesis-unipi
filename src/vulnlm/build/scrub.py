@@ -71,6 +71,7 @@ import posixpath
 import re
 from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Final
 
 from tree_sitter import Language as TSLanguage
@@ -226,6 +227,22 @@ class CaseScrub:
     files: dict[str, str] = field(default_factory=dict)
     paths: dict[str, str] = field(default_factory=dict)
     mapping: dict[str, str] = field(default_factory=dict)
+    # Which file DECLARES which names, as opposed to merely mentioning them.
+    # Load-bearing for the oracle, twice over:
+    #
+    #   * `bad` is in the mapping of every C case, because
+    #     `printLine("Calling bad()...")` mints it — but a C case declares
+    #     `CWE121_..._01_bad`, not `bad`. Reading symbols off the mapping alone
+    #     yields a second, spurious `bad` pointing at nothing.
+    #   * `good1` and `good2` are real Juliet variant names AND the names of
+    #     empty stubs in `io.c`. Only the declaring file tells them apart, so
+    #     this is per file rather than a flat set.
+    declared: dict[str, frozenset[str]] = field(default_factory=dict)
+
+    def declared_in(self, paths: Sequence[str]) -> frozenset[str]:
+        """Everything declared by `paths` — the case's own sources, usually."""
+        return frozenset().union(*(self.declared.get(p, frozenset()) for p in paths)) \
+            if paths else frozenset()
 
     @property
     def inverse(self) -> dict[str, str]:
@@ -567,8 +584,17 @@ def scrub_case(
         source = text.encode("utf-8")
         parsed.append((path, source, _parser_for(language).parse(source)))
 
-    for _, source, tree in parsed:
-        _classify_declarations(tree.root_node, source, renamer.kinds)
+    declared: dict[str, frozenset[str]] = {}
+    for path, source, tree in parsed:
+        # Per file first, then merged. The merged view is what renaming needs —
+        # a name means one thing across the case — but the oracle needs to know
+        # WHICH file declared something, to tell a case's `good1` from the
+        # identically named stub in `io.c`.
+        here: dict[str, str] = {}
+        _classify_declarations(tree.root_node, source, here)
+        declared[path] = frozenset(here)
+        for name, prefix in here.items():
+            renamer.kinds.setdefault(name, prefix)
     for _, source, tree in parsed:
         _mint(tree, source, renamer, literals=False)
     # The case's own filenames, before literals, so a stem that also appears in
@@ -578,7 +604,7 @@ def scrub_case(
     for _, source, tree in parsed:
         _mint(tree, source, renamer, literals=True)
 
-    result = CaseScrub(mapping=renamer.mapping)
+    result = CaseScrub(mapping=renamer.mapping, declared=declared)
     for path, source, tree in parsed:
         result.files[path] = _apply(source, _edits(tree, source, renamer))
         result.paths[path] = _scrubbed_path(path, source, tree, renamer)
@@ -608,6 +634,29 @@ def scrub_juliet(text: str, language: Language) -> ScrubResult:
 def scrub_juliet_case(files: Sequence[tuple[str, str, Language]]) -> CaseScrub:
     """Benchmark-mode scrub of a whole case. The form `build` calls."""
     return scrub_case(files, denylist=ALL_SCAFFOLDING)
+
+
+def scrub_tree(members: Sequence[str], work: Path, dest: Path) -> CaseScrub:
+    """Scrub one case's files from `work` and write the result under `dest`.
+
+    `members` is work-relative and ORDER MATTERS: encounter order fixes the
+    numbering, so the case's own sources go first and shared support last. A
+    mapping numbered by whichever support file happened to parse first would
+    still be correct, but it would be much harder to read in the report.
+
+    Both language arms call this. What differs is only what goes in `members`
+    and what happens to the tree afterwards — Java compiles it, C/C++ does not.
+    """
+    files = [
+        (m, (work / m).read_text(encoding="utf-8", errors="replace"), language_of(m))
+        for m in members
+    ]
+    result = scrub_juliet_case(files)
+    for member, text in result.files.items():
+        target = dest / result.paths[member]
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(text, encoding="utf-8")
+    return result
 
 
 def language_of(path: str) -> Language:

@@ -297,3 +297,113 @@ class TestToolchainAgreement:
             check=False,
         ).stdout
         assert "puts" in out
+
+
+# --------------------------------------------------------------------------- #
+# The F0 scrubbed tree
+# --------------------------------------------------------------------------- #
+#
+# §4.1's other half. The binaries get their anonymity from `objcopy`, so they
+# are built from unmodified source; the F0 condition has no `objcopy` and needs
+# a scrubbed source tree instead. These check the tree and the name-based
+# oracle that goes with it.
+
+C_ARCHIVE = Path("data/raw/2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3.zip")
+MANIFEST = Path("data/manifest.json")
+
+needs_corpus = pytest.mark.skipif(
+    not (C_ARCHIVE.exists() and MANIFEST.exists()),
+    reason="archive or manifest absent",
+)
+
+
+@pytest.fixture(scope="module")
+def scrubbed_corpus(tmp_path_factory: pytest.TempPathFactory):
+    """Every sampled C/C++ case, scrubbed to a temp tree. (records, work, dest)."""
+    import json
+    import zipfile
+
+    from vulnlm.build.compile import SCRUB_SUPPORT_MEMBERS, scrub_corpus
+    from vulnlm.schema import Case
+
+    cases = [
+        Case.model_validate(c)
+        for c in json.loads(MANIFEST.read_text(encoding="utf-8"))["cases"]
+        if c["language"] != "java"
+    ]
+    root = tmp_path_factory.mktemp("scrub")
+    work, dest = root / "src", root / "out"
+    with zipfile.ZipFile(C_ARCHIVE) as zf:
+        wanted = {m for c in cases for m in c.files} | set(SCRUB_SUPPORT_MEMBERS)
+        for member in sorted(wanted):
+            zf.extract(member, work)
+    return scrub_corpus(cases, work, dest), cases, dest
+
+
+@needs_corpus
+class TestScrubCorpus:
+    def test_no_answer_key_survives_on_disk(self, scrubbed_corpus) -> None:
+        # The on-disk check, not the in-memory one: this is what a prompt reads,
+        # and a bug in the write path would be invisible to the scrubber's own
+        # tests.
+        from vulnlm.build.scrub import unresolved_leaks
+
+        _, _, dest = scrubbed_corpus
+        leaks = {
+            p: found
+            for p in dest.rglob("*")
+            if p.is_file() and (found := unresolved_leaks(p.read_text(encoding="utf-8")))
+        }
+        assert not leaks, f"answer key survives in {len(leaks)} file(s)"
+
+    def test_every_case_is_scrubbed_even_if_it_cannot_compile(
+        self, scrubbed_corpus
+    ) -> None:
+        # §7.1's exclusions are exclusions from the F2 arm. A case gcc refuses
+        # is still a case a model can be asked to read, and gating this on the
+        # compiler would silently shrink the control condition to match the
+        # treatment.
+        records, cases, _ = scrubbed_corpus
+        assert set(records) == {c.case_id for c in cases}
+
+    def test_every_case_has_a_bad_symbol(self, scrubbed_corpus) -> None:
+        records, _, _ = scrubbed_corpus
+        for case_id, record in records.items():
+            assert any(s.tail == "bad" for s in record.symbols), case_id
+
+    def test_every_symbol_comes_from_the_case_itself(self, scrubbed_corpus) -> None:
+        # The regression this exists for: `io.c` defines empty stubs
+        # `good1()`..`good9()`, and `good1`/`good2` are ALSO real Juliet variant
+        # names. Filtering on a flat declared-set across the whole scrub unit
+        # reported io.c's stubs as the good path of every one of the 44 cases.
+        # Only the declaring file separates them.
+        #
+        # Stated as "every symbol traces to a name the case's own sources
+        # declare" rather than as "no `good1`", because that is the actual
+        # invariant and it does not go vacuous if the sample changes.
+        from vulnlm.build.compile import SCRUB_SUPPORT_MEMBERS
+        from vulnlm.build.scrub import scrub_tree
+
+        records, cases, _ = scrubbed_corpus
+        root = Path(str(scrubbed_corpus[2])).parent / "src"
+        for case in cases:
+            sources = sorted(case.files)
+            members = sources + [
+                m for m in SCRUB_SUPPORT_MEMBERS if m not in sources
+            ]
+            result = scrub_tree(members, root, Path(str(scrubbed_corpus[2])) / "recheck")
+            own = result.declared_in(sources)
+            for symbol in records[case.case_id].symbols:
+                original = result.inverse[symbol.name]
+                assert original in own, (
+                    f"{case.case_id}: {symbol.name} -> {original} is not "
+                    f"declared by the case, only by its support files"
+                )
+
+    def test_paths_are_relative_and_flat(self, scrubbed_corpus) -> None:
+        # No package layout for C, so the archive directory — which names the
+        # CWE — is dropped rather than renamed.
+        records, _, _ = scrubbed_corpus
+        for record in records.values():
+            for path in record.paths.values():
+                assert "/" not in path

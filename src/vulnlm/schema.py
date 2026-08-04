@@ -353,6 +353,19 @@ class ScrubRecord(Strict):
     # have to know Juliet's variant vocabulary.
     symbols: list[ScrubbedSymbol] = Field(default_factory=list)
 
+    @property
+    def inverse(self) -> dict[str, str]:
+        """replacement -> original. The direction `eval` reads.
+
+        **A replacement identifies a NAME, not a method.** Renaming is by name,
+        so every method called `badSink` in a case maps to the same `func_2`,
+        and a stack frame decodes to `badSink` only once its class is decoded
+        too — `Class_3.func_2` and `Class_4.func_2` are different methods that
+        happened to share a name. Localisation therefore has to carry the
+        qualifier, never the bare replacement.
+        """
+        return {v: k for k, v in self.mapping.items()}
+
 
 class CaseBuild(Strict):
     """The build record for one sampled case."""
@@ -364,9 +377,16 @@ class CaseBuild(Strict):
     sources: list[str] = Field(default_factory=list)  # archive-relative, as compiled
     binaries: list[BinaryArtifact] = Field(default_factory=list)
     survival: FlawSurvival | None = None
-    # Java only. The C/C++ oracle is `BinaryArtifact.symbols`; this is its
-    # counterpart, and the two are deliberately not merged — one is addresses
-    # in a stripped ELF, the other is names in a renamed source tree.
+    # The F0 oracle, present for both languages. `BinaryArtifact.symbols` is
+    # its F2 counterpart, and the two are deliberately not merged: one is
+    # addresses in a stripped ELF, the other is names in a renamed source tree.
+    # A C/C++ case therefore carries BOTH — the binaries are built from
+    # unmodified source, so the address oracle and the scrub mapping describe
+    # two different artifacts of the same case.
+    #
+    # Populated even when `status` is COMPILE_FAILED or ERASED. Those are
+    # exclusions from the **F2** arm; a case gcc refuses is still a case a model
+    # can be asked to read at F0.
     scrub: ScrubRecord | None = None
     # The oracle lives on the artifacts (BinaryArtifact.symbols), not here:
     # addresses are per-binary and differ between -O0 and -O2, so a single

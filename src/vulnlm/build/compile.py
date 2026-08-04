@@ -20,10 +20,17 @@ Sources keep their archive layout; binaries are split by suite. A Juliet C/C++
 case can be either `.c` or `.cpp` and the two share one include tree, so the
 compiler is chosen per case rather than per directory:
 
-    src/C/        sources from the C/C++ archive
-    src/Java/     sources from the Java archive, plus the jars it ships
-    bin/c-cpp/    one directory per case: {bad,good}-O{0,2}.{sym,stripped}
-    bin/java/     one directory per case: the .class files javac emitted
+    src/C/             sources from the C/C++ archive
+    src/Java/          sources from the Java archive, plus the jars it ships
+    src-scrubbed/      the §4.1 F0 tree, one directory per case
+    bin/c-cpp/         one directory per case: {bad,good}-O{0,2}.{sym,stripped}
+    bin/java/          one directory per case: .class files, scrubbed/ and not
+
+`src-scrubbed/` is what the F0 condition reads, and the two arms need it for
+different reasons. For C/C++ the binaries are built from `src/` unmodified —
+`objcopy --strip-all` already anonymises them — so this tree exists purely to
+be read as text. For Java there is no `strip`, so the scrubbed tree is also
+what javac compiles.
 
 `src/` keeps each archive's own top-level directory rather than adding a suite
 layer of its own — `C/` and `Java/` already distinguish them, and preserving
@@ -47,6 +54,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from vulnlm.build.juliet import parse_name
+from vulnlm.build.scrub import CaseScrub, scrub_tree
 from vulnlm.build.suites import SUITES, Suite, find_archive, sha256_file
 from vulnlm.schema import (
     BinaryArtifact,
@@ -59,6 +67,8 @@ from vulnlm.schema import (
     FlawSymbol,
     Language,
     Manifest,
+    ScrubbedSymbol,
+    ScrubRecord,
 )
 
 # --------------------------------------------------------------------------- #
@@ -288,6 +298,107 @@ def path_sizes(
         sorted(bad, key=lambda s: s.address),
         sorted(good, key=lambda s: s.address),
     )
+
+
+# --------------------------------------------------------------------------- #
+# The scrub oracle
+# --------------------------------------------------------------------------- #
+#
+# The F0 counterpart of the symbol oracle above, and shared with the Java arm.
+# Same job — say which function holds the flaw — but the join is by name rather
+# than by address, because F0 text has names and a stripped binary does not.
+
+# Shared support scrubbed alongside each case. `testcases.h` is excluded: it is
+# a generated index declaring all 77,567 case functions, so scrubbing it 44
+# times would dominate the runtime and put every case name in every mapping.
+# Nothing here includes it — it belongs to the shared-main build mode, which
+# §7.1 does not use.
+SCRUB_SUPPORT_MEMBERS: tuple[str, ...] = tuple(
+    m for m in SUPPORT_MEMBERS if not m.endswith("testcases.h")
+)
+
+
+def variant_tail(name: str, case_id: str) -> str | None:
+    """The Juliet variant a declared name represents, or None.
+
+    Three spellings reach this, and only the first is what `symbol_tail` was
+    written for:
+
+        CWE121_..._01_bad      C, qualified by the case id   -> "bad"
+        CWE369_...::bad()      C++, qualified by namespace   -> "bad"
+        bad                    Java, and C's inner statics   -> "bad"
+
+    The bare form has to be accepted because a Java case declares `void bad()`
+    outright and a C case declares `static void goodG2B()` beside its qualified
+    `..._01_good`.
+    """
+    if name in BAD_TAILS | GOOD_TAILS:
+        return name
+    return symbol_tail(name, case_id)
+
+
+def scrub_symbols(
+    result: CaseScrub, sources: list[str], case_id: str
+) -> list[ScrubbedSymbol]:
+    """The flaw-carrying entries of a scrub mapping.
+
+    **Filtered on what the case's own sources DECLARE**, not on what the
+    mapping contains and not on the whole scrub unit. Two distinct ways the
+    looser readings go wrong, both found by running this over the sample:
+
+    * Every C case's mapping holds a bare `bad`, minted from the status string
+      `printLine("Calling bad()...")`. A legitimate rename, but not a function —
+      filtering on the mapping yields a second `bad` pointing at nothing, and
+      scoring cannot tell which of the two was the flaw.
+    * `io.c` defines empty stubs `good1()`..`good9()`, and `good1`/`good2` are
+      *also* real Juliet variant names for the flow-01 family. Only the
+      declaring file separates them, which is why `CaseScrub.declared` is per
+      file rather than a flat set.
+    """
+    found: list[ScrubbedSymbol] = []
+    for name in sorted(result.declared_in(sources)):
+        if name not in result.mapping:
+            continue  # declared but preserved — `main` and the RUNTIME_CONTRACT
+        tail = variant_tail(name, case_id)
+        if tail in BAD_TAILS | GOOD_TAILS:
+            found.append(ScrubbedSymbol(name=result.mapping[name], tail=tail))
+    return found
+
+
+def scrub_record(result: CaseScrub, sources: list[str], case_id: str) -> ScrubRecord:
+    """The F0 oracle for one case, narrowed to the case's own sources.
+
+    `paths` covers only the case's files. The scrubbed support tree is a build
+    input, not something `recover` or `eval` has to locate, and carrying ten
+    extra rows per case would bury the three that matter.
+    """
+    return ScrubRecord(
+        mapping=dict(result.mapping),
+        paths={s: result.paths[s] for s in sources if s in result.paths},
+        symbols=scrub_symbols(result, sources, case_id),
+    )
+
+
+def scrub_corpus(
+    cases: list[Case], work: Path, scrub_root: Path
+) -> dict[str, ScrubRecord]:
+    """Scrub every C/C++ case into `scrub_root`, keyed by case id.
+
+    Run over ALL cases, independently of whether they compile. §7.1's
+    exclusions — unbuildable, and erased by `-O2` — are exclusions from the
+    **F2** arm; the source is still perfectly good F0 material, and a case gcc
+    refuses is still a case a model can be asked to read. Gating this on the
+    compiler would silently shrink the control condition to match the treatment.
+    """
+    records: dict[str, ScrubRecord] = {}
+    for case in cases:
+        sources = sorted(case.files)
+        members = sources + [
+            m for m in SCRUB_SUPPORT_MEMBERS if m not in sources
+        ]
+        result = scrub_tree(members, work, scrub_root / case.case_id)
+        records[case.case_id] = scrub_record(result, sources, case.case_id)
+    return records
 
 
 def retained(o0: int, o2: int) -> float | None:
@@ -559,15 +670,25 @@ def build_corpus(
 
     work = (out_dir / "src").resolve()
     bin_root = (out_dir / "bin" / _CCPP_SUITE.key).resolve()
-    for directory in (work, bin_root):
+    scrub_root = (out_dir / "src-scrubbed" / _CCPP_SUITE.key).resolve()
+    for directory in (work, bin_root, scrub_root):
         if (problem := clear_dir(directory)) is not None and warn is not None:
             warn(problem)
 
     extract_sources(archive, cases, work)
     bin_root.mkdir(parents=True, exist_ok=True)
+    scrub_root.mkdir(parents=True, exist_ok=True)
+
+    # Scrubbing first, and separately. It is not a step of compiling — §4.1
+    # builds the C/C++ binaries from UNMODIFIED source, because stripping
+    # already anonymises them, so the scrubbed tree exists only to be read at
+    # F0. Keeping it out of `build_case` is what lets it cover the cases that
+    # fail to compile, which are still valid F0 material.
+    records = scrub_corpus(cases, work, scrub_root)
 
     with ThreadPoolExecutor(max_workers=jobs) as pool:
         builds = list(pool.map(lambda c: build_case(c, work, bin_root, out_dir), cases))
+    builds = [b.model_copy(update={"scrub": records.get(b.case_id)}) for b in builds]
 
     java_version: str | None = None
     classpath: list[str] = []
