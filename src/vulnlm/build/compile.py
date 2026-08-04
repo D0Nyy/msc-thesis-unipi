@@ -370,7 +370,7 @@ def clear_dir(path: Path) -> str | None:
     return None
 
 
-def _relative(path: Path) -> str:
+def relative_path(path: Path) -> str:
     """Repo-relative where possible, absolute otherwise.
 
     Run directories have to stay portable between the Windows checkout and the
@@ -431,7 +431,7 @@ def build_case(case: Case, work: Path, bin_root: Path) -> CaseBuild:
             for path, is_stripped in ((sym_path, False), (stripped_path, True)):
                 artifacts.append(
                     BinaryArtifact(
-                        path=_relative(path),
+                        path=relative_path(path),
                         variant=variant,
                         optimisation=opt,
                         stripped=is_stripped,
@@ -491,14 +491,26 @@ def build_corpus(
     out_dir: Path,
     jobs: int | None = None,
     warn: Callable[[str], None] | None = None,
+    java: bool = True,
 ) -> BuildReport:
-    """Build every C/C++ case in the manifest.
+    """Build every case in the manifest, C/C++ here and Java via `jvm`.
 
-    Java is skipped rather than failed: the manifest is one sample covering
-    three strata, and two of them are Java by design.
+    One report covers both languages. They share almost no build machinery —
+    see `jvm` for why — but they are one sample, and splitting the record would
+    make it possible to have a corpus where half the strata are stale.
     """
     cases = [c for c in manifest.cases if c.language in (Language.C, Language.CPP)]
+    java_cases = [c for c in manifest.cases if c.language is Language.JAVA]
     archive = find_archive(_CCPP_SUITE, raw_dir)
+
+    # Both toolchains are checked before either is used. The Java arm runs
+    # last, so without this a missing JDK would be reported only after several
+    # minutes of C/C++ compiling had already been done and thrown away.
+    compiler_version()
+    if java and java_cases:
+        from vulnlm.build import jvm
+
+        jvm.javac_version()
 
     work = (out_dir / "src").resolve()
     bin_root = (out_dir / "bin").resolve()
@@ -512,9 +524,23 @@ def build_corpus(
     with ThreadPoolExecutor(max_workers=jobs) as pool:
         builds = list(pool.map(lambda c: build_case(c, work, bin_root), cases))
 
+    java_version: str | None = None
+    classpath: list[str] = []
+    if java and java_cases:
+        # Imported here rather than at module scope: `jvm` imports from this
+        # module, and --no-java must not require a JDK to be discoverable.
+        from vulnlm.build import jvm
+
+        java_builds, java_version, classpath = jvm.build_java(
+            java_cases, raw_dir, out_dir, warn=warn
+        )
+        builds.extend(java_builds)
+
     return BuildReport(
         manifest_sha256=sha256_file(manifest_path),
         compiler_version=compiler_version(),
+        java_version=java_version,
+        classpath=classpath,
         common_flags=[
             f"-std={C_STANDARD}|{CXX_STANDARD}",
             *COMMON_FLAGS,

@@ -31,9 +31,10 @@ uv run vulnlm --help
 
 | Command | Module | Does |
 |---|---|---|
-| `vulnlm build --survey` | `build/` | report what the archives contain; verify the parse |
-| `vulnlm build` | `build/` | draw the stratified sample → `data/manifest.json` |
-| `vulnlm build --compile` | `build/` | compile the C/C++ cases, gate on flaw survival → `data/build-report.json` |
+| `vulnlm build` | `build/` | draw the sample, then compile it — the whole stage |
+| `vulnlm build --survey` | `build/` | report what the archives contain; verify the parse. Builds nothing |
+| `vulnlm build --sample` | `build/` | draw the stratified sample only → `data/manifest.json` |
+| `vulnlm build --compile` | `build/` | compile the existing manifest only → `data/build-report.json` |
 | `vulnlm recover` | `re/` | decompile, scrub, chunk → `chunks.jsonl` |
 | `vulnlm analyze` | `analysis/` | run the model tiers → `results/raw/` |
 | `vulnlm report` | `report/` | records → SARIF 2.1.0 + Markdown |
@@ -42,9 +43,22 @@ uv run vulnlm --help
 `recover`, `analyze` and `report` are the brief's three mandated stages
 (protocol §2); `build` prepares their input and `eval` scores their output.
 
-`--compile` needs gcc, g++ and binutils. It writes ~350 binaries, so on a
-Windows checkout point it at a native Linux path:
-`vulnlm build --compile --build-dir ~/vulnlm-build`.
+Building needs `gcc`, `g++`, `binutils` and a **JDK** — a JRE is not enough,
+since the Java arm runs `javac`. On Debian/Ubuntu that is `build-essential` and
+`default-jdk`. `--no-java` skips the Java half if you only want the ELF corpus.
+
+Redrawing the sample is safe to repeat: it is a pure function of the seed and
+the archives, so the default path regenerates a byte-identical manifest unless
+one of those changed. `--compile` exists for the reverse case — iterating on
+the toolchain without touching the sample.
+
+The build writes ~350 binaries, so on a Windows checkout point it at a native
+Linux path: `vulnlm build --build-dir ~/vulnlm-build`. Building across `/mnt/c`
+is slow and DrvFs will not let the tree be cleared between runs.
+
+The Juliet archives are not in the repo (`data/**` is gitignored). Put the
+three suite zips and `manifest.xml` in `data/raw/` first — see
+[samate.nist.gov/SARD/test-suites](https://samate.nist.gov/SARD/test-suites).
 
 ## Layout
 

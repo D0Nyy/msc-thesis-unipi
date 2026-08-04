@@ -1,8 +1,10 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-04T09:03:39.530936Z",
-  "manifest_sha256": "6ff3c9aadc85ff8df96cfe122873af561039ee50c5ede845bdb37c19c8f0acb3",
+  "generated_at": "2026-08-04T09:57:17.798350Z",
+  "manifest_sha256": "8fb7b6d111a684791eb0bbd8ee2de41dcf9c8c25d4b513ba89313d19b9c64b6a",
   "compiler_version": "gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+  "java_version": null,
+  "classpath": [],
   "common_flags": [
     "-std=gnu11|gnu++14",
     "-w",
@@ -28,67 +30,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "338c82069d7d2e7fe667272029a62d610e4039953ce175bfe94f387c0d8e513b",
+          "sha256": "397facf12e36d65685ccbeaa86e3ef58dec78432a9bfd1db1d024ed00b7ff55e",
           "text_bytes": 1999
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "656bc9bb74bbeaab19e32af9ba9e1cd1ff232ce13999c3919774b4bfdc04b2c3",
+          "sha256": "9c80bc74df96b48045631897f83d84165e77a4e52c650e94b96959f8761532fe",
           "text_bytes": 1999
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "c1ff8971afa385189c1129814c1e2b1cd819ad701b68e06142fffb4f17b0c872",
+          "sha256": "4d08043432dcef08adc213f4a96e3392a157db758b4989165b69bb8e92db9b1a",
           "text_bytes": 1637
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "ff2d637ab93a195b34d3969019176f4cef41bb600ca247a9ad7e55459c1f9c53",
+          "sha256": "cf8688cca2893a108ef0ddaad4cf817d4e5f1db432da85b90bff05a626b96f06",
           "text_bytes": 1637
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "79af7cb8073f9d55bff2e2f32a3d5aa5b992c80f0f7fd1df83e4769535f9a963",
+          "sha256": "dbfcdc433e82a6c5dfc859e129fae572e585b0fda3915c62a05b5712270b5f7c",
           "text_bytes": 2020
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "a334bfcd6cfeaa5f43a4b5dcc3430982ff9943b9c8a7ea26cc633db01f7abfd1",
+          "sha256": "e5f42b52b2a09e4398bac9a71b20d72ba6f35cbce13c1dee446dcd01f3acd111",
           "text_bytes": 2020
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "900e9b75f6a9d71639896f63b6c972217bca5fa827a3bc56f515922fc95389cb",
+          "sha256": "98a08f11288e7fe48ba55e1ec27ccfac295e014dfa1b35147cc04577f55c060b",
           "text_bytes": 1637
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_int_declare_memmove_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "e604e0fc922cc0c0286400b5a85fbf327604ba87a306bdf79dc1a4359b4b748b",
+          "sha256": "bef79abce88bd4d9787484d7a03760bf59261f3136f96d76b5ff5fe2d9a94ceb",
           "text_bytes": 1637
         }
       ],
@@ -121,67 +123,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "19cbe8b84bbec6b830b8d7461e5f7b573db53ad11b67aff7f314ee02965b4615",
+          "sha256": "d2722a56d7dceda56049bb9935fad5fe9caa0eb3f99ff523a84f9301f69fb213",
           "text_bytes": 10900
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "7e3b835f95c6817db69b8e053a14c81bbba38f7b945ba480c3b6b7acb698a067",
+          "sha256": "ed00213909f8fe61a014d410bff54a1af6bcf2ca74b5b9d2e2e509a1ad854a37",
           "text_bytes": 10900
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "e2147de48d52d60c19c4c8ec6b6de0df19a770b85d91bd322ab3cb4f700aca13",
+          "sha256": "fd342c1d79b254edb5551c121e1ce96a1187748e28174b8af2bfb0db90e1d803",
           "text_bytes": 4149
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "5b5c423b26129a34af00c8bdc27d1ea9dea79176b14d8004f10c8b742171f1b3",
+          "sha256": "c5e1070abcba716f9b48720a767a24a603d65b205fd532065d3a8e06edb2a802",
           "text_bytes": 4149
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "3ea603dc04fc7b9c1fda8597800487b9b6672122c1c4f0e32d0e1c52d1355c5a",
+          "sha256": "41f5a3630237c382f3666a3256b656bb5ebf2eca262cb0b1d2059d7227d22dbf",
           "text_bytes": 10916
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "bacb1e855d765a7cb897e51ad9d0aae45544d45ac8b95ac813550f4694d73f7c",
+          "sha256": "afb73c9aaca7bcdbb8808073145cbfd16089cb69051959cd92a5c0160b1f6e53",
           "text_bytes": 10916
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "00551320211cb3520e9a42dd0e297bb3199b121a3e97e8789389608eb9f0d2ba",
+          "sha256": "fd3a50239d009b5cca0bcc877016f8df3605a78639dca4f91c835c1e159b5e6c",
           "text_bytes": 4165
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE805_wchar_t_alloca_snprintf_74/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "140970f2d82a3adfeb1bd57d084746c736911a680eaf14db803edf80e40c8121",
+          "sha256": "ce1c44fd2bb2ae57d5487f63c4b51bfafa92a0826908abbf80df95c1a7ba5375",
           "text_bytes": 4165
         }
       ],
@@ -217,67 +219,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "1e9788faa784405cb4cfdf50ac88025c1e587c7505b4d2550a572ed6dd06ef4b",
+          "sha256": "ad09583b1c5141aa0ccb986c827fab3c7244a4c8d96430f4cc3dd729055c778f",
           "text_bytes": 2135
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "115c4cc061a8932144679630d8ebd9448595947e360190853530f0ccc9c3f5a6",
+          "sha256": "fa3390db59b3ea45365e29ed523089263172b70e53e9673cacb8a57aa7eb4d67",
           "text_bytes": 2135
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "a53e16f5bfab815e05eb86e572aab30d2a4628e5235ce5ca88b90be14e3f6237",
+          "sha256": "3d0423f64667f0c8995e862905a7bab66b4ff1b89a6f65d18d4acb47825b7565",
           "text_bytes": 1781
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "47278c948567eb9413e7e3fe98f8c57e9d0571f380217d8aeb943131880d70df",
+          "sha256": "e0e59c8e99e9764fa6551d80a7fe35782a4bb049663e44501cc45c3f1a5365a4",
           "text_bytes": 1781
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "b4faba4a9a554e05780461c965eb756e8a606a1a60ff29f8148295eca8a66e68",
+          "sha256": "bcd0def6819332a48bc4a74e500490e1c4d381bf937a8557490e6c5ef2e5fd6f",
           "text_bytes": 2156
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "c40a616778ca1c16b5cfc05eb37c1862473039c7845946211fd69042e0191c45",
+          "sha256": "767f2ad5797ceade8d04d335cdf8a37ef857e6ff4d59deba6c5724a5430ac92a",
           "text_bytes": 2156
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "4bcc39c23581ebeb4bc4f75ba04b7ce682f4d71202295a809b89bb8e96a26f6a",
+          "sha256": "0b969e5c2d2584d277ba669745500902bc98be01ffbbbf3666d2d57e2291b155",
           "text_bytes": 1845
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__CWE806_char_declare_ncpy_63/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "3d374fc2df70c791a2b0a629f521e0ecbdf7eeb501cc52c53f350feb88c86193",
+          "sha256": "9cbbbd5859d5aa1a57f1ba3c57502d81b61fe04df85a7347c3b6514860b95d00",
           "text_bytes": 1845
         }
       ],
@@ -309,67 +311,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "7ab1cce462f366805aeb73d46a68d7a4f0a5070671605df7ab8aa691fd8cb8db",
+          "sha256": "81256c0a78cf49d4198ca25041aeb415a59441d9b35ad31aa55ce9b336bce061",
           "text_bytes": 2015
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "99e65ff34aa5a460c28c27e12ac42130c391c9cdd6814f37e55c5d55ae656600",
+          "sha256": "a08b671ea63fc9efe14c46741f8488c5a261fc733aa655ae69c53a26d32fa03f",
           "text_bytes": 2015
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "c3ce5cbfc5b1d862048247bda8738d190dc6b4ea726ed2ec2954189078115824",
+          "sha256": "38a4310d8df716384049e53353e139629516f48f22fef606503db14751b50d1d",
           "text_bytes": 1765
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "8b4c733f31d100eb87c99e07879a81815059748661d69853b4db45699a80e7df",
+          "sha256": "e26c4780eeac827d264496ed6af953800bed4e4eb37335c991c1caf717e420e5",
           "text_bytes": 1765
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "71b00a46a452857fb0117ba1f8d3e72e9cf2a854c240818730f5db1f1645695e",
+          "sha256": "5d41e55688cf5582b8f271a7c6866b4a057a406717c052e3a25c1e7563dab3e9",
           "text_bytes": 2036
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "932cdd54befd78c74e840fb797b1c9475e093bd6ac758cea32762e186ddf0e17",
+          "sha256": "c1a3023377c7f97141bfcefcd1979238538077b5579c8c3734dcc73d1f139ad2",
           "text_bytes": 2036
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "c9cba262215278ca2e11a114ab3cf766f4c21f9d0a88c690c3339b5ace2b3d8e",
+          "sha256": "a4c9bff9cda006ec37dc9c2adb05f8aa250b5f8140930c61a3abade3e6d406c5",
           "text_bytes": 1781
         },
         {
-          "path": "/tmp/vbuild/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE121_Stack_Based_Buffer_Overflow__dest_wchar_t_declare_cat_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "e3c92a088eb8886701a08c9a74bd76e75d3dd52cc8641f3afc464b2ce483a687",
+          "sha256": "310ac6e35de2fd946d8e3ab95788c28560e6ffb73b7575e980ecd5e66b9f07d5",
           "text_bytes": 1781
         }
       ],
@@ -401,67 +403,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "b37f858444c3cac707cbb6c2a53eba4ee66c5ed4eab574950e1fd59cff87fec6",
+          "sha256": "ac8ddb5d7c3c647684839c60a00c7324ff6507bacef6c44de02403b05d008b2b",
           "text_bytes": 2044
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "85755d716827810d72c1816ce24cdfb5e777f18b2156f52240fad1bf5661fdf4",
+          "sha256": "71880930ef704568ead71e7a00472ebd7fa1144e3f0d83d08dbfb739e96a56b4",
           "text_bytes": 2044
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "716681d5029d10ccd09b619ebd16b8604a3c475abd12e2f1c89d5df0842ba4b8",
+          "sha256": "618a75c6c54700038dad20e59af910d5e9a1337518c5766de05daa2693bab58b",
           "text_bytes": 1797
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "676262f4a89a67b7baee7e069f8dd401971e9bc5b644b1446484ce11fb9a7dea",
+          "sha256": "53a2e550ee8508eba0f41f3b236b045540305a9c819a4cce040008feb2b68903",
           "text_bytes": 1797
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "ca6934e8998f3963ac44ec7d9d249ef3055a3a10a3bb5299eb91fd4ddf92bb17",
+          "sha256": "c00eef61a1381d09e4a609af9d1d1db5770397e61015a2a29026a22770188d73",
           "text_bytes": 2065
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "7ce773b3a1fde7b0b116b7486f74da17ef3276cb7483278520a7d75dcad909e2",
+          "sha256": "26146ccc3fdb9a2af7e438d768f9e4a15bd746fc54154ccfecf54ca1da4d39f3",
           "text_bytes": 2065
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "7c84b6ae450ca17b38eb0dee856d763f623285b2a4f4268c9f8bb2101d248e95",
+          "sha256": "7ef02a657f30ea02836684eb8c1901aa9576079f5f23b7f550cea2f09f7fda59",
           "text_bytes": 1813
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_ncpy_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "41f78c47005ea583b4c0f9cd0b3323363e2a4c629c4293f426ab6ccfd78b75c5",
+          "sha256": "85356a8e15287492837e6bbfabcc6af6d4a3678e4c3a14b88d93d60c2ffae561",
           "text_bytes": 1813
         }
       ],
@@ -493,67 +495,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "a99c3a27bc928ec71a3a34b3ef4543b5807afa11ba8366958ae102f5fceedafb",
+          "sha256": "e5f1f46df57fc2e2f6d3ae4dfb620ea355be48a24c8802e7085acbeb1d439574",
           "text_bytes": 1992
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "1fa70169e875ad260856e89bc7540c4cbc0bf8322db88d8565b10e314f8376fb",
+          "sha256": "4115c8a16bc62728478701fca63cf40df59141d62740b4d42dd85a3d83f2ad61",
           "text_bytes": 1992
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "c775e39b79734141f5aa89fea325a5724e5d652b3ec634ae0f7ae877d2763c74",
+          "sha256": "20792b3f12b5242cf4d1514a3b7e8ac201a2d34653f088e39db01d6d1012e23b",
           "text_bytes": 1781
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "539f23614033fa867aebcfd8b26dd1486b2e48829e0b0cdaf3697a5276dba7c1",
+          "sha256": "098f74dc30d5f6c2c5b3704931b97093c62bc2062b2140a01fa51a25533ab20d",
           "text_bytes": 1781
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "9d02df66ce1cf401bca99e60c4c18adb6118f3c13ea390787455d7a56818c3bd",
+          "sha256": "1439d382ab72cae482a9cb97d511d7180ae03583ce30c665f45fecad7cb244ad",
           "text_bytes": 2008
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "5ab62b583106b3c079e2128b0153021f31e99779949a58cba917f49898b2bcd5",
+          "sha256": "ed5b204178283cab4f56b740e65cee1a03d476ddd67b1f07519a36019a3acca3",
           "text_bytes": 2008
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "6933f92f3b4884379b0c7b99354a60c9bdf01640a655c4bb7ce64195907a417a",
+          "sha256": "5fe7951ffc3dd58a4dc25c27dcfbbf49bf2c470a4163d2482eeb6f22d4cb1323",
           "text_bytes": 1797
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE805_char_snprintf_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "b2d52918f5a9348af438ec00dd839a0889ff46366dfbb86457ca2f91cd7d8a7b",
+          "sha256": "57d86927901d10bee48d25c381af12f0ac954bc50b5a61eca363b0407cbabf0c",
           "text_bytes": 1797
         }
       ],
@@ -587,67 +589,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "01252d6d5451f0190f6b3a359754a707a0c6d09287d54af7129b275d651c1d19",
+          "sha256": "963bb2f0fb5cbbbe84738d837273e77b408c3dc2d050af7f0eb5a92931939359",
           "text_bytes": 2292
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "608480a76a5cbe7a57b43325a35d6b18e0e2de8fcba8edc5db21ceeb7000c082",
+          "sha256": "bf2885bb56d884675bb57239294ae5f88717f672aa69678db798bf4118b18188",
           "text_bytes": 2292
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "1dd6db15eaf39613a0929ede6e9f4ee892f6b0ba5398c00994a1afe25841d925",
+          "sha256": "d599a01f3247febd6a38726a39c7201caa32c8cbf79d14436474c73b9572a139",
           "text_bytes": 1877
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "e6a48069d6a9f2221cc6b0061e1ef1c190aa9c50ea2bda54d459aa8ae938c9e4",
+          "sha256": "e7654049c5e7d43518cfbf2721c810def11f6ca063890faa714e9e360d49fd72",
           "text_bytes": 1877
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "4ae2dd0d8f831147941ed817f79e203ae52e9d6eae4f633973531a10c5796a4b",
+          "sha256": "799ed6ac6cdeb19eccb1e1837d6408a2bae6b7f4a25b9c8b10abf2a8d707c9cf",
           "text_bytes": 2308
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "b094e954c5345bb9dc88f922fea3baf9be46e76dccc943c608da273fce0f901a",
+          "sha256": "484ed48d1c2224e5cee9955747b239de61e14030f84484e7c923d28ab27b37dc",
           "text_bytes": 2308
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "03e120d726a634d6337a44fc42d5375b5a0b06ffa067725570439ed57a986f50",
+          "sha256": "646af6709c343781e33fbb96d5200d0dd5219f89b87e649cf8bbf8710752ed6a",
           "text_bytes": 1893
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_ncpy_61/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "dbc52af2f42d2355d855f7dfb8b72121491463abe1feebc71f0f8516cc697d0f",
+          "sha256": "6247cb05c1419a1c8629e5efb3f51138a692bf0f21d1f53d74a9ccb553953d7f",
           "text_bytes": 1893
         }
       ],
@@ -685,67 +687,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "d496a2ab8bcb33afa43c96f17e3929990cad75ed0c8784d8c2686d7b98a756c6",
+          "sha256": "9816aa1e0c47b426d9982a485ce839497149876abdec601543461d73e0f7a957",
           "text_bytes": 2346
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "8b9ecc696caffa166dc0d84311d9e1961f6a96112b86a503b01045e7aa8b9335",
+          "sha256": "a33986ebcf6afa112b6d99f8ee00a132f354b6b74bfc5cf05b728a635b385a0f",
           "text_bytes": 2346
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "cf2bfaac93f5c7f598d6380093e609e74c9f769bbcbadf00e6906f99527a2b3e",
+          "sha256": "d65411ca4c1055cb690d52d710aec8d7e5e6d104b969394d20c09d1cd2a4a84d",
           "text_bytes": 1909
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "81ad7ffa0483864695d7a3959490598ef6b438fed5750276d8f42b1b35516bca",
+          "sha256": "eb5918288d58b78ab7be5a4fb49a4c1d48273bbd8735f25f7e1fb3c798ac4f8c",
           "text_bytes": 1909
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "38b6a301b639d3cda467752f53c14690ebab08cbd56470de6c60ef438b4a471c",
+          "sha256": "f5cb63a258555300d924879ea7fe1143de8eb0c9f69893466ab43485e598f62d",
           "text_bytes": 2362
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "275965e657140300df4e67dbf155a5414835f19cc6123160d5f12fa1db3346a9",
+          "sha256": "dc1b9a92a5f47f31bc361faf99a5ddd4b9d964a3efe084b975bcf97d0af24eeb",
           "text_bytes": 2362
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "0ab9f208ba24d7b7863d63f56f4414b11273b602872d549ca18f9aabd9bbd3b9",
+          "sha256": "38a17db3cab0a6eb9f198868583b8f1a585dfc354bff8a23f37b472572ee0144",
           "text_bytes": 1941
         },
         {
-          "path": "/tmp/vbuild/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE122_Heap_Based_Buffer_Overflow__cpp_CWE806_wchar_t_snprintf_53/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "231b96de61137ecf3660ac9746b8490090fa64699c2ae3918149b858c6d9074b",
+          "sha256": "4a8276a2f358c3473c49e84d4c500878c08dcee1cd9c98dd5e62edaaa4bbe165",
           "text_bytes": 1941
         }
       ],
@@ -779,67 +781,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "bc338dd0ed6535a3c1237b1a12e0e5cbdaf36899b8a501259c76078cec2bcacb",
+          "sha256": "a890f904fdf960330432ac2e39d4e5a11630cbf0f34d17a4ce1a7c17dc98b0f4",
           "text_bytes": 11110
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "3bcaad856950e773185ad28e65e7b8bfc128af603652fdfa8ccaebeb5c4a6b21",
+          "sha256": "e31380a6d1069d5e02a7f5e2374eb3ba03a0e69a3c8c40696b74b4dcb20883ef",
           "text_bytes": 11110
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "b5a726a9e93c2aced8e87ea95ec59dfc91025ac97086e4876590be2890b3c2d3",
+          "sha256": "811b48104fbe35d83a1647b40b7116aa8b641c2fba23d51378a1dc6db61b39e3",
           "text_bytes": 4389
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "0ea5777e7589028e96f197f4d425fa2d2c43eba4b680684c6a0b90d6a6e6e998",
+          "sha256": "11c49e585285c6a540d3e9a8ce1d8d82d40e51b747282861af409d79c1c53d95",
           "text_bytes": 4389
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "aadab097fb49af48cf623bfe59c93dec02e5c3689e525a0e4170c94ad772c4a4",
+          "sha256": "e90db684679d677a7f805a73c6607da17af1f4f4032ee54af91f1d532ff73f12",
           "text_bytes": 11735
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "8c8a427f5b6caada6c3a0d54d7f532b6a56510beb1d6a9b0c6a8fc38b5871468",
+          "sha256": "2046ee44c4fe73ba50caf7ac284e49c82647dc097355c678c876ada0ced6b4ca",
           "text_bytes": 11735
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "fd6663d37b06c3a5913c81fb52a16af518ffe3b0eeb489f6a4abdc79491c3f54",
+          "sha256": "b985cbf6dd048aa81e05645d78aef55f2d89b4ee1796e5e09cc6d3a82fdc5c7e",
           "text_bytes": 5557
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_connect_socket_fprintf_74/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "c30aac6e51ee77952ddc4f7e5f84f6c767a8cf33124c8f3096945129fb69c12d",
+          "sha256": "acf75f0f731a3406e81434ad6d8bf3f8333ecabc120532410f0dccbc4b713b73",
           "text_bytes": 5557
         }
       ],
@@ -876,67 +878,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "65c6d822e1d9150c0d6f5fdb1f3b70f7012457dbb20cc0d7e56d3bde84f94049",
+          "sha256": "fd71ba7d193ea35a873b7c2a9acb7bc3a648cf74dc02d6e8cefa8b48cd62c71a",
           "text_bytes": 2436
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "09857ccc427295b2deacb2586daf4d2c684ebe1c8b89b2b9464bfd8f939c1fc1",
+          "sha256": "9f8fb0a2e8fd0d8cdc185b500d9daf55d36b56aa2dd0b4441f9ed1ff6dde878f",
           "text_bytes": 2436
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "4120da09ba9b8e469181a9929bfa31069b0b9f8c4477698f4c658895f033d7e0",
+          "sha256": "6bddcb8472e256bc48b16bc36f3ee2c7be4c7ee1bb8fce5eacffd4598d0bf904",
           "text_bytes": 1925
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "dbfcbe00de5ffa290a04aa5696a645bceb4cf19d9021a45bc8d570660db069b1",
+          "sha256": "c269f8147148840e1cfafdf521c1627bce36fb580ed39c82090fe8798ebf1494",
           "text_bytes": 1925
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "08da296d27fc58928547375576d1a7333112afe9268f39a7d7f19f2afa27a0a8",
+          "sha256": "f2ae0799e4527b3fad2114c0ebfb687a4d3423b3f5fe9adf3a56e9c0ef4d5f5a",
           "text_bytes": 2861
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "0ae10ac67c3cf7937dc1eb79ee876166da8efd721135f968e8fe4d5aa6408f2d",
+          "sha256": "7b57d1979c8fb3e6139ed8188d3b411eec35aee39880a90890f18681313586cc",
           "text_bytes": 2861
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "f57ae6211a4a8c18e2e729237d930286089f68f0fb725d21e8f6e72f39acc388",
+          "sha256": "71c68b41db5cfbd51644f5effec108f078165cc54c4a7c4e7c3e8994f513fb16",
           "text_bytes": 2197
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_console_snprintf_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "a24e77bdbfdc42a14e91cf507016ebd9378f3b282af720ff392f673d002a0bbf",
+          "sha256": "411013470a04afb5be2c7586d886f6750ee05e817a9098a7cbd9e02a07103a20",
           "text_bytes": 2197
         }
       ],
@@ -968,67 +970,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "d9182f7e67f8ccfb3ccc2437baec16a8cbdc31557ee349054b51c48b54f4fd30",
+          "sha256": "e23444d1233145d02e500c610488bd4e2d6974a739f9597dde320bdb664ebda7",
           "text_bytes": 2433
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "cb443872985eae4ebfc8eb42ae4451935fe7f024f455a0371a6cbbf514c48e47",
+          "sha256": "72b4ea5fe6d43b9b3ab20d027def0f9a1e4704fd7e5f3ae6659cd27ad5a54b64",
           "text_bytes": 2433
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "12e1316000cb27b4a07d2ab462990ae75ac4e315b67f78b346627db750b4ce91",
+          "sha256": "5316849b976f3f99db57398c0e42cabd89f93df18c74d1027fe3f967eb8dec01",
           "text_bytes": 2021
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "5a16b5a78a326ad20b7bde5051ac27e29514910183dd90841c42aedf2c575151",
+          "sha256": "09cba2c18bf0213e21342034606f5581d48a80009be2d983dde64a296d4a79d2",
           "text_bytes": 2021
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "946b6403102c97266679436d22da3bb0bdda569050bb69afa9f9ef1ef3eaf61a",
+          "sha256": "387bd19596676fc88d130f250131872c78142720fa9b7cc8aa66baaefa95d93b",
           "text_bytes": 2887
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "631fb943fa50b447c3f2376777eae1cb12fb62724eb33a76b0e6d4fc7240f186",
+          "sha256": "ade927e7fc2b38d90bfa083cd541262a1fe74caedddc233e5845f16052a75ef8",
           "text_bytes": 2887
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "58a0d4f64a636ea9d959a8763663e6364354fa7fcf3627d179229471f175b0d8",
+          "sha256": "3cb0cfde312ced14a4ef75a473ca548ae2bf2cfcbfe8cd4a8832cfef017a3606",
           "text_bytes": 2453
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_console_vprintf_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "bdff8bb28d80987d7659c8819376fd2aa4abf028d8a733f456859ff7214cc536",
+          "sha256": "75a18197062a8f992a00c403fc085d9d680a6eaee44133dc6c52270511e8b463",
           "text_bytes": 2453
         }
       ],
@@ -1061,67 +1063,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "a9703afd414a6a66f892b5bfc538c98b50c2be42dfcac68d975a6ea660240343",
+          "sha256": "49f52eef112e424791ef03fd7216cb6065acb3e6c88da320a1310c526e4c4b50",
           "text_bytes": 2505
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "337ee82ffc3be561380d4ec6c87cf021b63f6a2f7570131ee09cfeba5903217b",
+          "sha256": "e95a058ef1e4fc206ae3185ed6bf5df238d3a9019619f62f3389d6beb61ce0d5",
           "text_bytes": 2505
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "84c67e0da1c3b6a8c330a417a77712b44020de03e7ed79b22942f7ea9caeaa16",
+          "sha256": "5baebb6c2c4714bc3cbbb3a77b72d07b99295b4de8fdc9a9d8c2320947b9b61d",
           "text_bytes": 2037
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "50d3a4c63fdfcfbf4c52a523389df7bb86f230819d62bd89425e4cdfa181d8a5",
+          "sha256": "a5f2230ac9cacdac5b2a79e7d3c0d18893a1fd94739800e482ba423546e72ba0",
           "text_bytes": 2037
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "91c57c5153c7b4327e6cd1ca777833438dd44c9b089293a888b9418f2db1cb85",
+          "sha256": "803a987c2747c4158a9aed2e3f74b37907a9749a96ee2d5993ec6770cb2de3e1",
           "text_bytes": 2774
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "ee8e64c6c79c4c248588df3e45e5b26affd45ce811b21b258ffccc416b374825",
+          "sha256": "e061dbcfb1a1a33a99ef15ee2609b4112039796f9c2a716dbdaf0c45ff9e285f",
           "text_bytes": 2774
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "d8255e6ff67374bdf7c00411368bbc6e5e1205b1fd392f023870f3eb1536533e",
+          "sha256": "4bd12330e55e0d35e2c533a9cf0c5dc5e7078519db27299b1814493ffd602008",
           "text_bytes": 2293
         },
         {
-          "path": "/tmp/vbuild/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE134_Uncontrolled_Format_String__char_listen_socket_printf_61/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "68047abd0381cec825f6feba6676d1be1ee5fc2e77483e64333e27f873c55125",
+          "sha256": "2ef1ece6e70640daaf5b5d9ef36ce659bec7ecd875a398c553f81be3dea68f3d",
           "text_bytes": 2293
         }
       ],
@@ -1153,67 +1155,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "3fd9dbee436193d7b596d33ec9f0fcc7007ea84d9d8f46471c6966f91812ebbc",
+          "sha256": "e706d3daae004616de33bddd921d494971471278fd9f5f7105005780683b6a61",
           "text_bytes": 1972
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "ab0ab95c3bee0da0e09a86cb4f4ad83832efe249a00d5efbdefda3fcd7f499d6",
+          "sha256": "d77a95ed2bc1d53b7ead9a9bbb95e8007dc5bd032a7987ccab2a40e88aad2e15",
           "text_bytes": 1972
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "d17f094532368fa6f09130ab4a97cd3234a00a0047840a743ead95bbe60cf5bc",
+          "sha256": "00f2bfc015f5a96f42fdc73ac0f7dc34ba86cd9861378ac25e38c7a26d9dcfed",
           "text_bytes": 1717
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__char_fscanf_add_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "52716d186bf29fa609b73e897379e2ef1ae26d1363b6c7aa5d79380e316d8106",
+          "sha256": "220c4b4f758c3cd3b0ee4e2add9d948c8f74bc955ade713d29060855e5ebf1a4",
           "text_bytes": 1717
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__char_fscanf_add_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__char_fscanf_add_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "9992d5cde588499fb74ec7f491f058a186c5e9dc8088103f71842718fe681a63",
+          "sha256": "eed4e2b5e1896aef7df3f8b4f9262b01458389e0fd698ccbb56fbb13bcced085",
           "text_bytes": 2072
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__char_fscanf_add_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__char_fscanf_add_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "07f97308db22291023a3bb87b3ad7d1f5276abedb36a4d36550a5705b25074e5",
+          "sha256": "f2aa46fa56c3de887656f34e5c667f060a96c982448355f59f9b8402f604502a",
           "text_bytes": 2072
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__char_fscanf_add_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__char_fscanf_add_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "8520e746e1a8836b56ccf437afa04f2ea76d61ffa8a11ece11a4ab859bdf9975",
+          "sha256": "c429f29ef291eb81a8cf0d6a5d3d4d4e597d0fafa7d9ac79634dcd70e14d2a22",
           "text_bytes": 1877
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__char_fscanf_add_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__char_fscanf_add_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "887a48baa6572c1adf63cb7bc54d6cbbce9d3e81c1b8185eb203815a84259581",
+          "sha256": "5163a0592c4b477079b3185235251f55fe36dac64f8f3cf39b35b228f0d0d311",
           "text_bytes": 1877
         }
       ],
@@ -1245,67 +1247,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "55b3c0bbc0aaa9cd3376ce17d199d163c1542fdb53d6226f55f3160e52fe1f33",
+          "sha256": "58f02665d974c89e02991ebd719d2dcaac85ffd0513fbe91c90d3d937efad382",
           "text_bytes": 1987
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "43a87eae19e2805917efcb1188f4272a4c7b7794d86a81cd1575fab50375c66d",
+          "sha256": "3672b1a0dc3a0e6f3ca01c000c6a8cf98d9de470629e5c7f0e47b3525b2bf056",
           "text_bytes": 1987
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "639a0a396fdfc7acc8b60f3a93d9dc9bf53dbd3a720e5282a353e32f2865a70c",
+          "sha256": "04127dd29a1d75742f2507a096897b08716d7f0c36a1d17b688260d2836a5b97",
           "text_bytes": 1733
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "5ca78ff3fdf1d9564e28af827d47a3e97f280c587d5ed4c44a9838a12a1c581b",
+          "sha256": "159398d8a4f16b092d9d91069612c430098b3d7cb0b6bf1dc70e0c24c1fc56dc",
           "text_bytes": 1733
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "107320e81cb24e7df3c69f699c6125bcf4813567d9b1edd59b1f43c2973b4a7e",
+          "sha256": "51e8a2b45917d711bdda25ae9ab75efa4a9bea4137731555fd1fc590ab42fbf5",
           "text_bytes": 2110
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "979f5a9d1df0e964b830a7dc7b0d6497b88ab7497330b9d0623aeb63fe1d2928",
+          "sha256": "4759d38e36a3f3500911c1bdfb3fcfe60cb9aac9d9751509dd666e618817651d",
           "text_bytes": 2110
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "1f46bef4ba1535e32d27d3bc23d463a603d9caa2575a0eb81b083d67a7ad7973",
+          "sha256": "d790e2db0396159649567c47f7f114cd927779eeaded4c5f5555294ae9dcd1c3",
           "text_bytes": 1909
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__int64_t_fscanf_preinc_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "651ca2ee0f645021f91ed2227f8612d9cc23aafb49090677779099e6b9e9e3e0",
+          "sha256": "093dc6b1beda1ee97ec23e5ba303ff9875f9d2c9928d09c18802cc8805fa854a",
           "text_bytes": 1909
         }
       ],
@@ -1338,67 +1340,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "aae8a4f59480ac3afc01d8fbd7edf5103b2975869df9a302ee0b29e6b7b91617",
+          "sha256": "de6c25e58c0dd6c13cb2572dffff4fa95303968119557aa0938720577a521caf",
           "text_bytes": 5329
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "66df1a09607b6abd059bf21124d2117b3fc002944f9cc420136b49e221db480c",
+          "sha256": "34405ae456fc474bbaf32f16bae1d3265f934e26164d12e3459bd3b31c26ed54",
           "text_bytes": 5329
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "3f0220a727e1c777e805067058dbde80158e1e0128faa379bda76716bec113f2",
+          "sha256": "40fa319b4e72d19548c5dba0b3383606fb4e202f786fb12dc652defa043875c6",
           "text_bytes": 2181
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "425186773357aabf2a56b4e12c5118a378282cd5eb89214db7620a857d0d4f17",
+          "sha256": "8eaa68feacea63d9b53feb87dd548ca5d80870f8cd91bd867dc32931bff13c82",
           "text_bytes": 2181
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "6d2b9be88df0aa2bd0a76a1a631eb47d4a9931c92c5a0da32f13aba1e55bf55b",
+          "sha256": "11457ef95f108a1e0e3cbf80b35c8485c82f8b37cc2adc3a89a581755c82a299",
           "text_bytes": 5709
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "58677bf528e87b88ab6030b045a592c1a6bf677132bf0dd2b7b5e49eea077d80",
+          "sha256": "58fd19ba7dadb2a01451bd327bcfebad545ccd8442dc354fd8e9e2a88a79eadd",
           "text_bytes": 5709
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "35ba5b1dc526d3ca633e4e6a0a8e245f3c92eacf43df30bf75d0e32fff2bfca2",
+          "sha256": "a581cd2358b690ba6fbd5c6729643a7c5756a80b411e9587d947ba2d03d1856d",
           "text_bytes": 2677
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__int64_t_fscanf_square_73/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "24756734cc175ad3c1fa3e00e39c39136d370d635d5d3a4c52cd6b7a54eddd60",
+          "sha256": "fc013ab07ea7c2626ad417a5c4c69bccc4e3f17f8903b3184d13d3c21d0eccfc",
           "text_bytes": 2677
         }
       ],
@@ -1436,67 +1438,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__short_max_preinc_68/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__short_max_preinc_68/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "887bad3e97770a11073633c4f9867befb53061f48c7f1f19f743d12fc45547fb",
+          "sha256": "427ac670fa0155d22570c4a26c6efc732a4259cb2fc23c79d6a0968111dce891",
           "text_bytes": 1967
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__short_max_preinc_68/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__short_max_preinc_68/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "ca591b45bc95825f96ba34bd787ef462467398dc7bcfdc6753b158af659ee83f",
+          "sha256": "bb909b7ce34cd2711e90fddd7c7d2d306cb471ae534dcc31f141b7eead75fd2d",
           "text_bytes": 1967
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__short_max_preinc_68/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__short_max_preinc_68/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "5b428bb5d7b40fe2f8443c6f2de793ff44d5e96c85a908ef8bd6ecd8c6369567",
+          "sha256": "d86a94681b1b3e8afc39cb416388dd938dee573d6c2672c0d4bb9bb6bc0e17bb",
           "text_bytes": 1701
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__short_max_preinc_68/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__short_max_preinc_68/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "430c604a4e5f6ac598b0cb7c87b6eeb8fd681fea39806bc45671956fb6603143",
+          "sha256": "d52f6f156432e12b65dd5d321bcfebc996b109bcf7c710b6ec04a0d5cf7a62cf",
           "text_bytes": 1701
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__short_max_preinc_68/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__short_max_preinc_68/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "df9624dc72433cd0cc0773277e3a7818ab7050f1446b111b01a9186fa0dca167",
+          "sha256": "62881563fc0ce7a1af65fd63139b38764743ba612f05459406222bb1463f0f92",
           "text_bytes": 2127
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__short_max_preinc_68/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__short_max_preinc_68/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "815486721a7608451ea8c421c5839bc2dfb13f1a8a249a404f0a9ba1131a8d95",
+          "sha256": "a4fcaf8ffc92841d3b29747ff2a294379c9af87cedafb0e892ff47cec14fc7e5",
           "text_bytes": 2127
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__short_max_preinc_68/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__short_max_preinc_68/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "b76a8f3503a4f02c060ab82de0de726ef9f04c0058cc3d26ce3f933b9fbf1c2b",
+          "sha256": "a8d8d96e2028615075f3ce8c3a1156feb5478356586a7f2ac7e84c11984b7438",
           "text_bytes": 1765
         },
         {
-          "path": "/tmp/vbuild/bin/CWE190_Integer_Overflow__short_max_preinc_68/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE190_Integer_Overflow__short_max_preinc_68/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "1228f2fa3e30b45d8f7de0ad321e18bd93972bd477de7f13fc09ec1a290a10c1",
+          "sha256": "c31f58d1f87f098caecda39a0ab8c30d2027e81c6c88392a6be31b077daf2140",
           "text_bytes": 1765
         }
       ],
@@ -1528,67 +1530,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "1ef765a3037519914e17e7a8bcd8c126a188a65152280acaf6c00a7d8ad450ec",
+          "sha256": "21de91b993307ac340b39d08d0143c0f324b64fc88fdecfeba4b4ca73b890652",
           "text_bytes": 2438
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "0771b9bd201b5df2f8e028af68e38fa1011046cc074ae423b4755cee56735b10",
+          "sha256": "383db54bbc3cb08eb507654a47c3c1b5821a46d852f375b83948cf66c553dab3",
           "text_bytes": 2438
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "9ec4f9ac997c0c97ba6adab6b5869b3d90650c94d63546b7db38d509f1c61604",
+          "sha256": "3cee4ae1c24cbe3213a3ae0dd01d860303e36d97b4badb2d5fd06f08ab3f3737",
           "text_bytes": 1957
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "146d2e00748d0351ea7268168b19d57acdd780e353e35e7268a074dd48904bd2",
+          "sha256": "8177333b151b16c9e760c478aa613f8f06b3ade5dcd5097f558e6ae8b50bbf15",
           "text_bytes": 1957
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "c8d82f65c013b3207d3e835d785a8b7184aa23f3df95ba28cb86134434d5d0fe",
+          "sha256": "3c0bb64933853c9a5e9a5d7360ea76b452fbdf9b35e07cf484dd6b7c7d564381",
           "text_bytes": 2077
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "5decaad318e99aeb18d9941d6d4d58dadf82bf65d8c08b90bed5d878c95475d9",
+          "sha256": "d8a92a7835af32db62245f4d050070005a0c62bfe3e7fe37390e16104c3f82d4",
           "text_bytes": 2077
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "e3ba553463fd8edfbbcb6c6abdc30731d58bf17497340f28ac45ec51c08a8337",
+          "sha256": "0daa451a75f87acea7cecdaa8f749b0bb7488034761e7a9588864ac3aa998bbc",
           "text_bytes": 1765
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "49200a7d3a0d7026c74e453d192ce9668d54fddc3c6252c6fe2e559ca4c36673",
+          "sha256": "239e40bdb6fa7442df3ba4aceedad0ca9d305ed331925e41d6a3e583485472e5",
           "text_bytes": 1765
         }
       ],
@@ -1622,67 +1624,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "aa733ab793718cba6bf11248ade7ffd1fd2dc9285c55d8620706aefee20c40d7",
+          "sha256": "7177bff156595b6959a43d0b51b8edcec94bb6daee72c6291761000fb8ac10ff",
           "text_bytes": 2479
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "398f76c5afa4957f457e4fcf62d59b999512e424768c018f6afe697799b835c4",
+          "sha256": "40cd4d3c6d690bdadb134b7bb1be4b4477d40552d8af86480ffb85e328648677",
           "text_bytes": 2479
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "6d80d6e6831fd7b6d09489138c28e8015a6866ca6856be4e9d03c390a0c77522",
+          "sha256": "92c559ef7cc31ada050dd40f3415d4da6f34639e3538ba7ee6cf23265f4e66d5",
           "text_bytes": 1989
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "a1a5684fba7c1b8fffd010a8fc7ded3588c379d1a3cbdc63bbe58f4dd8c1264c",
+          "sha256": "77ee294895ac1fc9f6d5ad91f73e743ea48e3d39a8e1104d6bc7d19fe07cab95",
           "text_bytes": 1989
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "95f8ee3fc9095d1e0d6ccb9154a722c27a6ffc3f13ab300506827db339f3255e",
+          "sha256": "59e92ea2221299dcd9e7c2ee4cd1fd225a005c99b9725a0efcfe01f1ab4454c8",
           "text_bytes": 2118
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "45635f06a42f6b31b01a8f81a0cdc36cf378145c1e3df99ac72794ba69eacd83",
+          "sha256": "1e6cb967fac7dc67388c7103aed6978f2d90991a43c323f1cb1426144ae1b5cf",
           "text_bytes": 2118
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "d7c6131d63a28090cf697462b9effa51640d520aba1c9b5c80793957697c8b01",
+          "sha256": "36a93d8d1c37c4c7a36384b16f843a652bdbd55bb4f8eccd8d613ea0011cb995",
           "text_bytes": 1797
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_connect_socket_fopen_67/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "cbabc5702e1324075a0b024da1d3115765a095a834820bec0384b9e25e1de4f8",
+          "sha256": "79f8011fb6dd7d8f68b60ccefcdd280d9a44f043eb8a08460e29d5a36014a353",
           "text_bytes": 1797
         }
       ],
@@ -1719,67 +1721,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "7dc38fa5c798013624c88092f08ffbaa67a5aa1b0cdff7c15e667e078fd748b4",
+          "sha256": "f3928ba047f9b01f9671b603601fe697d8db93244e5610492a9511b2b6757a45",
           "text_bytes": 2589
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "d6d031bbf14eb79429f63a7d894b240dbe03fecb57f3eec5296c633426114271",
+          "sha256": "cd169e6be871da5a115453b44650afebba2886fb720be63594ec76cb47bf1dbd",
           "text_bytes": 2589
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "b162832b73845aec0e6abf3648e3e84f4cf43c9ae97be2f48d379c68dcb40579",
+          "sha256": "be2a1777838076ad8ebf91d793d01cf030b726f42ba6376f2bf357af44c897d7",
           "text_bytes": 2021
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "065add12c6c923994752b3eab5cdacfb9acaefa4aa8cb9dd5a30cad22c823bc5",
+          "sha256": "e2b3b781b5c92b3c886900a5baf2625b4a43238a4afba66c3e4589b250cd8b5a",
           "text_bytes": 2021
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "4659bc7d6b43bfcf5d4217dcffc8cfbe386ea0a076b84743cc23b215fcb54228",
+          "sha256": "58cc5f6d98e6ba9cd9b5c8d65e80c9a608be67ac050f934d75c54ca8dcd645fb",
           "text_bytes": 2127
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "e366a8d2cafa4c424c1d189d8b9dd4e851ed648c3f3e93e774977a2fa0cd808b",
+          "sha256": "af196cb426f197b72a19ee79036944316b776b8c6e29692d27e7f678e326e09c",
           "text_bytes": 2127
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "f787c8cacac27b783f342ebc8c72a21845ef1b446dc430878657b78d1ef61fa2",
+          "sha256": "f7d755b8466982be451cc19b85138e2be474e5b31cfe353eda8f29a5cc60bf30",
           "text_bytes": 1813
         },
         {
-          "path": "/tmp/vbuild/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE23_Relative_Path_Traversal__char_listen_socket_fopen_52/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "76e8b12628e659b46f423801e33611744eb6d16b3c58569d5ede8e1a7b2920be",
+          "sha256": "964014615f71d388bfe278622de1ee75daa7f19c5586ba3001ace31f35a752d1",
           "text_bytes": 1813
         }
       ],
@@ -1826,67 +1828,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__float_fscanf_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__float_fscanf_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "4a1a7405d29ab0dd4cd8b026ff4b67341b2e51c1ffb44a952ce00bef4444f579",
+          "sha256": "1b09852f13bc06e4656500c6a1a301002ebea03b74991e034f20e9d666922e66",
           "text_bytes": 1998
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__float_fscanf_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__float_fscanf_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "9180f9a9091e54c13661a34fbdf5533cb57b9a94705aca779413a68dbbf4840a",
+          "sha256": "4be1ecccd72b4f150ff7f8b3b27b0a01f222d48dffa3a8b64b0d148317ee1ae8",
           "text_bytes": 1998
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__float_fscanf_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__float_fscanf_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "9cb5895b806a23758a07ce431d4233badf5429baf31a4307fd942329097657ed",
+          "sha256": "7b06cd7576afec58cc6fbd36cc470024c9f9efce8a8a8e0778deda2ee7afe786",
           "text_bytes": 1749
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__float_fscanf_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__float_fscanf_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "2c964c7d6a09cd2a35aa875c40fe9cdf837786c56fc3b42137ce0551a4b6b792",
+          "sha256": "287133ec1cd0566b7650a403aebcbeca98ccb511e3d63bf63b6ea65d85bc4f74",
           "text_bytes": 1749
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__float_fscanf_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__float_fscanf_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "c8f4082360873860a4dbf12ba81435c5a7c5c41b9f9848b3a76efb8b37ae2358",
+          "sha256": "7100badfdde2a4aa8bcdc3d6382c1cfb62613c41fdb967df0d9cfd9a880ff654",
           "text_bytes": 2151
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__float_fscanf_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__float_fscanf_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "08f1353276ce2d240b7fc9bef4f5d007c139f0429d9fcbca7482b029c14ca027",
+          "sha256": "bb29d2c46701f250c3103222835fc70f4f61af959db4858402c801f2e59f4435",
           "text_bytes": 2151
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__float_fscanf_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__float_fscanf_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "cfe44887e32de3d6d6c2c7cf5039372674f54ca31c983631d98a734862f38432",
+          "sha256": "0072bc0dd613b39aacc24ea91e06615302cb934e5730e0b23af88700d9e0afe2",
           "text_bytes": 1829
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__float_fscanf_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__float_fscanf_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "24788d6b408f4f44c43a44d2065a006fe19d53fc03830dd42ff7a24079ea2fc3",
+          "sha256": "0f2c85c6e199452bc994fcc323d0cb816cfd0c03294d2894f695303b44ac80e8",
           "text_bytes": 1829
         }
       ],
@@ -1919,67 +1921,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "10097f9987d9684ea6ee2f3af2a5d6e15320cd02ebec6539bb6739c78c4b30ce",
+          "sha256": "0694cbed2b9d2f7bb04d5c65b27889085f5a11e95cc9d14fad846f3666eab5b1",
           "text_bytes": 2178
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "b43738cf40285aa9582bac35e84e4da416159dd97f2f36a8e69704407c672df7",
+          "sha256": "f01b04aff3dc9f79cc382fcecf00aae6d8b52c6d0f565285d9e82532cc8dc940",
           "text_bytes": 2178
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "4fc03c8343dfe504daa6c4bcd0fbffbbb6f459d59eda6a5f885b676dc230e21c",
+          "sha256": "3248bef602070dcc5e89f2b5d009104c0ec9f178212ed3b8bd938a90467ba832",
           "text_bytes": 1909
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "4e2ce1c4bfe420695610885a172702cbfda98dfa9db573e712921b3172c8118f",
+          "sha256": "d468cb9e89bd064f15a2e9dfdcca6daa833bce372bdf68cccc610cfaee667220",
           "text_bytes": 1909
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "faeaa1a1856fd20133cda8584be364518d0252d4c6e11d9b2bdb6c8d351a7a7b",
+          "sha256": "09b9a956bc4a798882bc42a0412cd496f45db8d7f2c52102b72e2a889655f424",
           "text_bytes": 2370
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "086c82157c64d74361dc2d180ae96759d0ffd5cfe0659eb28cc16d4629d21bfc",
+          "sha256": "a065b735e8239eec3755369601c87c3664d9cfacd34583822759ecaccdd34605",
           "text_bytes": 2370
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "01fd76d317350cd1d837a28400de9d4c54f52f35ac338f2ba66df8dc8c32adfb",
+          "sha256": "6677214cac6498ad825b1a2a476198ee486b1f42aee3812baffbd6696f8fe440",
           "text_bytes": 1989
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_connect_socket_modulo_81/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "c0e5f52a4a746ad26fec3f23a5c56c41fb2fe5622e633d6a62e2e49768677c42",
+          "sha256": "b3bc8193aa95619d78b6fa04d745d400ecdbe13a02d21670bb4d73b6fc9a0f48",
           "text_bytes": 1989
         }
       ],
@@ -2014,67 +2016,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "4475bf2bdc88255db9497c382c9823e489a7e2b904f296cb6c0dc7ffbfc9b03f",
+          "sha256": "60e656d4be16fa61d25eece9a5f84549052b8c0663116e6a04a0106b6d6c9e5e",
           "text_bytes": 2036
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "30b5fdfb03c47b37f804a3e462bab5431de3d8af4507d9dc2180e38b2ed7aa12",
+          "sha256": "1ae9e123ff7c61f64c54bc0e1394c18ea21606c817f70dcd9f6f40daa6aeb9d8",
           "text_bytes": 2036
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "3f0c5a19c34a5fa5d102101642a27c4f734b58a69a6e303112b5304c6fb7424d",
+          "sha256": "51e14678f016c70a6c7e36a05ce6e7b314063b38b77fac6c94908a78d71c0cf2",
           "text_bytes": 1797
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_rand_divide_81/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "b907f347a4550cf6a27f301dc8303501ae4d048f8a368c013901a4d635b76407",
+          "sha256": "57ebe8518bd159a12a6894e755b8344f5faf42f9e3543004b7c2f488d2447dae",
           "text_bytes": 1797
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_rand_divide_81/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_rand_divide_81/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "2fecff9cfebf60d8e0c19f9ba431660283381737090652d6b67c6f4a44bd53de",
+          "sha256": "b9320e05a2c49fb8044d03fc1314bc98d2843122796a63d94958a10e4b848b0b",
           "text_bytes": 2226
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_rand_divide_81/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_rand_divide_81/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "d9df3d0fb61ae97a00ededd69e1f713be4f04d2f1bf44d3c166d553ba8ed3df1",
+          "sha256": "23283cf43b1e29068c969b5450d434123434ce23a13ed969fda084a55c1fed79",
           "text_bytes": 2226
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_rand_divide_81/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_rand_divide_81/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "35c81814a2c7151ece633a2fee3b3078737d1ef1e514ceb0cd7681a09fc096b0",
+          "sha256": "1feee3f8e916392648f15f582026c6c0c352e2b5fa23fb8fde875e2ad023067e",
           "text_bytes": 1861
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_rand_divide_81/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_rand_divide_81/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "1f3377717bb854d1a8467a3be0e994fa96b47b53f26c066451d40f748b11e8a1",
+          "sha256": "8342c43368520f1b98545c678290cb8bad36eca2d681a2a86818497e73801825",
           "text_bytes": 1861
         }
       ],
@@ -2108,67 +2110,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "0e3e7623ca814781fc107b8dec8987e2795d6c40fa837dd8eb4ac7dd4e095d27",
+          "sha256": "e5e7e70e26fd89fc0e24e72f9a2465b46a95c527c244888dd29f78fe0f738414",
           "text_bytes": 1908
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "dd2e8d7bda7bdefa614c9b975e9e06544c47559b0de20e11cb7a1bb29e72b93a",
+          "sha256": "788571fc6efaa3227ec93cc13fe9116bf4fbf2cee82a6b20600f1de1720affa3",
           "text_bytes": 1908
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "74c99ce7188a83d3255a958372616f739c1b5df213d35aa75c1ffacdc27cf6ed",
+          "sha256": "cf300a83fa730f1762004520c56a504a254fe7812c6e7c65f120f3e0baa404a4",
           "text_bytes": 1621
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_zero_divide_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "e62f675470b32526dac47659641135080ba43d1b70453e537ecb8e9aa919af89",
+          "sha256": "5c86b525218651f9a72d9227cde2f7b60a5ad097afdf9f0267372077d1c9e312",
           "text_bytes": 1621
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_zero_divide_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_zero_divide_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "06275cbccd86d52362b92134f97ef7bdd108ba29b2bbb68995b0c37c33ada63b",
+          "sha256": "11dc00cb150a922fbfc14df0a8314e89ba32fcc9092d6d0c45ea153c114096d0",
           "text_bytes": 2007
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_zero_divide_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_zero_divide_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "f0f83591f4a00a645e0f226a16b3278fe93ec9e2686df809c6eefdf29a46ef9d",
+          "sha256": "6df7472dde271435a4cc2b7156daec89e013ef85db0130bb93f567261e9c01af",
           "text_bytes": 2007
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_zero_divide_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_zero_divide_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "250f07affdbe79880e2d5617bf4a87416ce87d09f3a32ff6744b93d07f74f76b",
+          "sha256": "446afcba0466eb39fc4a509ba31bea4262509e9eb3c069bb17334b03a2cf8ac7",
           "text_bytes": 1669
         },
         {
-          "path": "/tmp/vbuild/bin/CWE369_Divide_by_Zero__int_zero_divide_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE369_Divide_by_Zero__int_zero_divide_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "0ce2aecb917b48e6c67816018110308c2b379d5db0ffc34f46c95809be9bf904",
+          "sha256": "d9ee5e6ac1c18c5cbfc0fcf600989b2fa42a71be712b87640ebc0ce194ca4352",
           "text_bytes": 1669
         }
       ],
@@ -2201,67 +2203,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__int_malloc_62/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__int_malloc_62/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "edf7b9ce4cf6b1b3c792ebd5db1e4308e371d0d91a1857c1221e78f4602e3ec3",
+          "sha256": "b5b38bf92d76892f1b9d41759374ab6c49b1a41d714aee7445a3f7d10883e4d8",
           "text_bytes": 1980
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__int_malloc_62/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__int_malloc_62/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "3f32314b1ed6b051b2b1742591bedf570041dc1a2223f65ee319a8903c19ee70",
+          "sha256": "51a0b3a2f92e8197e07fc9e9a7ce6680794cd0b440ff483b7770e84d96aab50e",
           "text_bytes": 1980
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__int_malloc_62/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__int_malloc_62/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "134bb91d680a35485c43b0a5aacac33b58691a10fca03565a981c602d0cda2f0",
+          "sha256": "be245835d580d7a9d105a43f1e080e40d65f4b6806a34f96ee5456aa7cf415d7",
           "text_bytes": 1797
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__int_malloc_62/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__int_malloc_62/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "498591b02fe98f03075e669d2cd41b29dbb6db3eac1a8d517136f55d46653f64",
+          "sha256": "9caa92d7e35d07df7c6857828d00789fc70b2023c651e95bb72e2212720a37d0",
           "text_bytes": 1797
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__int_malloc_62/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__int_malloc_62/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "b66c1d2c71c6851631a59755f3b37d018d0e737f5bd71ccf9de6e10e2f0ac61d",
+          "sha256": "f6188d687cf7bc6a42a0f94ad46803dcabd8813b61121e9f590fa4fe5b99cc99",
           "text_bytes": 2304
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__int_malloc_62/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__int_malloc_62/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "2308b2e80fd9ae6dcb5a5b6dedc011f5eba6c151bb98e7b23ac811ec5a37848d",
+          "sha256": "f0a5ea804d01a7e99ee0d5cde076a4c88ad548fede21729f3f7499dc943d13f7",
           "text_bytes": 2304
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__int_malloc_62/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__int_malloc_62/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "0d44fd82693dfcab5fb61ddf89b418127a7ad68e134815d5e5d24e3de2ffdb99",
+          "sha256": "b9cba50d9f98c8fe31fd0af748fc7305a5579854fb16204841654f8cd5e0570e",
           "text_bytes": 1893
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__int_malloc_62/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__int_malloc_62/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "80c2af771e6aa525a29f68dfe45397e8d3ba4ee0f159eb42491dd68f08acd5d2",
+          "sha256": "466db618f6459d77efb9458dbed91157a0452ef7980e60c119b4dd8922171c53",
           "text_bytes": 1893
         }
       ],
@@ -2298,67 +2300,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__new_array_int64_t_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__new_array_int64_t_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "f265b5af29dc7a2afea5923bd84050a84c181599cf78d9eb42a69fc0768eb1a4",
+          "sha256": "8c8e6cebbbbb8c81cd3cbdcf67d73dd3db38ccc4f62d38bb5332a9d485f00efc",
           "text_bytes": 1883
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__new_array_int64_t_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__new_array_int64_t_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "55e4da2b232e189e200051592e1f2a12edd276e4ba2f3034c006939e890dfe11",
+          "sha256": "6147f021ef6ed3c2c3a84a26eedfef5e78f7fa8111d66327488800d115aaae86",
           "text_bytes": 1883
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__new_array_int64_t_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__new_array_int64_t_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "e6d169038c745f7cc8d7b6be51301611d1dff5976651f8f3a88742769baf3cae",
+          "sha256": "bb797fe34e0fdfd5a2924e8481b89525c351f50a5622af3a1bcd37dcd3f2752d",
           "text_bytes": 1621
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__new_array_int64_t_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__new_array_int64_t_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "45f42c70c7a3a96fc71c05a292b6e74c9200adb9c7bc2f7e593b39b0043001b8",
+          "sha256": "8d6bd5ba917563e22b15b4bb50d22d081678f174b1b5e0e4938effb6d056b760",
           "text_bytes": 1621
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__new_array_int64_t_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__new_array_int64_t_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "2866dead181b202ae1675333c068ae1005de182c5c1bf27a277dc3f526f0960b",
+          "sha256": "9fdc02e51915f8befe92ec25821742e5301140b39a68ea78714ba7f09644b564",
           "text_bytes": 2033
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__new_array_int64_t_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__new_array_int64_t_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "d8a7c2e69e45596eea2599be698d4674b9f38ff51456d2163416632d9335f3d6",
+          "sha256": "171684079f2ee7de9dc85a0bda537eb028cda91f79092a1472e47aa18c85c075",
           "text_bytes": 2033
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__new_array_int64_t_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__new_array_int64_t_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "95ac2c9a933d577ebc36a1c38d2254602584c14cf8119177bca1fe5b9882300f",
+          "sha256": "f770283ba8537932a20176c4975e7ae9f328cc5ad83095d4a716b9e469001ae5",
           "text_bytes": 1637
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__new_array_int64_t_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__new_array_int64_t_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "3c74b436105d750a2b3253780ef60a7120488bf1d17f1bdd5b71a99fc5f393df",
+          "sha256": "c87eb5ba3035dcf20ef6230dfb2459674e4341389642d09432609a93e4198ede",
           "text_bytes": 1637
         }
       ],
@@ -2392,67 +2394,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "8f2783ff171a62ddacd6023dee18bd93e61041c89b53e6d6e3c916accb2da989",
+          "sha256": "2d8a38bbbe75f697e231aa3bf0ff362833d2b0c6a34eedbebf584a676859087a",
           "text_bytes": 1955
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "a58b98383f57bcf879495c02b241770e557f2d390b7d377eacb8753efd8b3964",
+          "sha256": "e2bf9b5fc92d75356e3120f58a699754f91527cfbb2a7d84abebce246761b7e9",
           "text_bytes": 1955
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "99c1603e412ca96a74bac2b35371af2cbff3433890befae979ec5510269c0b7b",
+          "sha256": "d1d8e6d03c9064aecd08d38ac863a1ddb52dbcd77611d0857a2adf2a107d1bc2",
           "text_bytes": 1669
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "2711fdb25f522797be564bd3dbf273b62b39038142e23c6b61147995ab28f144",
+          "sha256": "8708980dc817e8b6a8b4b84d5b0e0369c7fece52ac38ee612b077260c3390e20",
           "text_bytes": 1669
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "cb44d4495e038a7d1aaf5f5d7268428ca4b4acd8e56833e95dfd7bc02090d767",
+          "sha256": "e4e583655a379c3babe5eabde8bc4daeded2b4157ea1fd1e6095c3b6941d1b0e",
           "text_bytes": 2221
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "16c1f30001f360ad475a5778701b7b7e942707b0e12c9606e4151da357fccc0d",
+          "sha256": "f8f793a7376edaed00ea389a0d754f20753a7853ccc7f7b0ab6e38def6438f75",
           "text_bytes": 2221
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "52e123e08130b84b254b553b496a1234d08e9b1649f7abbebe1653409751696c",
+          "sha256": "871445be607c28aff175e5fa0828d59ebd599325337813fedd5aa4271c81b268",
           "text_bytes": 1845
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__twoIntsStruct_calloc_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "e1fdc7a2764a795ffe57d43916c4787a0e8e6bb3724bf0c54db3165fdc33f190",
+          "sha256": "44cc987fd699c3bda10dc94b787ffbb8338777a4ad3dc40f8cfc1af5910bbc5a",
           "text_bytes": 1845
         }
       ],
@@ -2485,67 +2487,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "5286582f3b87bfa8a93ca7e2c43033d88e02b7ba24fab6b27a406255102fb123",
+          "sha256": "5823f034eb68cb74a8c042434318ec8c3b6acaaa7970a363f33782c72b5d5785",
           "text_bytes": 10583
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "1bc0cb799ee7017071809aa23514048bfbd0cba3c69a990c4a11879637535713",
+          "sha256": "c537212510d35fc6efd95f7eb7c552032c6a79013247491003a31a7ff32b7fb2",
           "text_bytes": 10583
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "01e5a6ee32a0db92fc8a8b448cb6f97ca9be531b939dceec4e49c616e82f5f7f",
+          "sha256": "2d330521c0dc30fa8b98c1455d28596384ac917fa0735a193e2b1bd8e5a39282",
           "text_bytes": 4117
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__wchar_t_malloc_74/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "bd7933d1fb41a2936fd06532c92fe8e3d56498100b8dd0838dda8f19abd654e3",
+          "sha256": "8ce70b20dfbfaf1e35387ead505f0ef51d29a7f4ac2c06db234279105bf3f894",
           "text_bytes": 4117
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__wchar_t_malloc_74/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__wchar_t_malloc_74/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "b6e04cde8e3ee8ee3ceb8225f79b529d1286daab05729e712df2fa2078192518",
+          "sha256": "24d9d36822515c4f6fa485ddfd65c7f98fbc1503068dc559fa3e21759714a2ee",
           "text_bytes": 11174
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__wchar_t_malloc_74/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__wchar_t_malloc_74/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "095e0e86f624dead044ff7be37c14ca24a7ebc9646b26a4bdac90abe1ebb9ece",
+          "sha256": "2f02da210c9461f8b57b0b4dbb33a5def33fc88ec64506a1f8e94b30d3bfd276",
           "text_bytes": 11174
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__wchar_t_malloc_74/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__wchar_t_malloc_74/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "d2c32b670623db33389a0834b5f70c92eb0d67630fd0acce4a3c8ebcb3fcedeb",
+          "sha256": "135725714fd051415dd1624e0563aaebf6e044f02c4b2c2762f4fb219f87a2c5",
           "text_bytes": 5429
         },
         {
-          "path": "/tmp/vbuild/bin/CWE401_Memory_Leak__wchar_t_malloc_74/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE401_Memory_Leak__wchar_t_malloc_74/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "3785f29c22dacbcb21d7ea3f4d4e7c8b0cfb90761f5372fd2e336446496cd678",
+          "sha256": "5963b1589da36b0477bb9d2d02c91160065cdc4adfd8f5ba13163d40eb03a065",
           "text_bytes": 5429
         }
       ],
@@ -2582,67 +2584,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__malloc_free_int64_t_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__malloc_free_int64_t_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "c2c99a24738dc7583fd6c56446d371bfd2d4bb982252d4661c31f99b08d25e4b",
+          "sha256": "cbf7ba7b2e8ebc1e8fddcf95360d60f03ca3b7ebfc71f8ff316fd808b7d09be5",
           "text_bytes": 1941
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__malloc_free_int64_t_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__malloc_free_int64_t_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "a9156352da38bf461d8d5ceb728e8d7221cb2b8582bc7f04ad5a2c3a033ce112",
+          "sha256": "c945d6fbb0c73528af1aa1065f5c5e1da0dc9a13cda2d97b73f5fe5f7ac4970f",
           "text_bytes": 1941
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__malloc_free_int64_t_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__malloc_free_int64_t_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "a330126494d7e63a0b909192c76fe348e6777185ec17ed6fd231fee09da8126f",
+          "sha256": "5650c6429d5c29dd6c5b261d2fcc438b889ddb9f3d7c2e49a28bda15f4e103b1",
           "text_bytes": 1669
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__malloc_free_int64_t_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__malloc_free_int64_t_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "93589bb4e672560546196b0a3ef5d114b90f636dee150c8f53af6aecfdaa1328",
+          "sha256": "81c5ccf2151e1587d43daf2a32284abeba5580797c2ccede21356eb8fcdb818f",
           "text_bytes": 1669
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__malloc_free_int64_t_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__malloc_free_int64_t_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "f8209aa09b540b1f9c2c7dae3622677363ab32e20454d2cb35c3091f35fc704a",
+          "sha256": "cc4dfc108c7e768eb5934b45a376dc71de9bf66922057f55663675daed71f996",
           "text_bytes": 2026
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__malloc_free_int64_t_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__malloc_free_int64_t_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "8dccda16b8ed14eb1b58dc35ef85f9eb60292888e432b646c3829917c578f33b",
+          "sha256": "adbf4ee557d971e4ff9ea71c385e0a1c6c61695d03e943544a30c22bb32a23cd",
           "text_bytes": 2026
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__malloc_free_int64_t_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__malloc_free_int64_t_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "fc7a30ffd5d1fa2cfc6c393997c09ca352744e6a42b31b8a6bf948681ad3c70f",
+          "sha256": "1dddb0afb7c38be9bb35826ee2ad905040d4662078cadb0fd82bc3eaae46818a",
           "text_bytes": 1765
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__malloc_free_int64_t_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__malloc_free_int64_t_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "0566b2bb7beded40ab1f2da70893db180685f9b2e362185334cc6dc6578b81b9",
+          "sha256": "d5bb949cdfab8d8ce20a7afc5854109e8d65d74e2258dc16dc542e26d8f3cd31",
           "text_bytes": 1765
         }
       ],
@@ -2675,67 +2677,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_array_class_66/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_array_class_66/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "abf1ebcea5a81884c4c92fee92ff2e9f76106a463b79dba6d16f4ca3d18135b8",
+          "sha256": "70b9e7ee0f6026bc2a1005dbdb00673c468b5d6b429a3632ff65f7f3a52b0aee",
           "text_bytes": 1981
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_array_class_66/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_array_class_66/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "d725906420b0b272d398616081448910e6b36a7ec69b9a2313a6175abedd9f80",
+          "sha256": "c9628383d4f5962de603ce7b16dfd0b42daa02323c6bb97c2f81a60fe491cc63",
           "text_bytes": 1981
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_array_class_66/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_array_class_66/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "6317a4f34bf439c50b759416cbc03d0a6c62c1a45845f7b975e2bdcd836a63f0",
+          "sha256": "9fded804d4f3e6f17768d7f506868535f77f0558051b7e6ed1d092e33bc6e52d",
           "text_bytes": 1733
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_array_class_66/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_array_class_66/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "bac1ec74cb06e4a3f1fe0235490289c7967d9041b79bc8df5d4c8a26b215618d",
+          "sha256": "a63a4434e73a1239ea271118dec0ea7aca027f53c32d147b6ff043476e7f1f4d",
           "text_bytes": 1733
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_array_class_66/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_array_class_66/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "985d91f5e06f9435baa9e83de89f3a819af04f91bf575e24ffce86e8bb4b39a6",
+          "sha256": "7bcceba562ad2afc50e3282612efc84eb3480d08c2d80d9c80ab2b7e34cc295f",
           "text_bytes": 2121
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_array_class_66/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_array_class_66/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "3271ac2caa1f41a2dd5e395409b246ee31a8e65d4902f8f466aeb329577a54d6",
+          "sha256": "d2c4bbed4e9cc15ba23752e18fc9f9c2acb8afbe09cffe3663e6ceb52ef48ada",
           "text_bytes": 2121
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_array_class_66/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_array_class_66/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "58b69315229da86592bb0a2df9c5b2cd37f8434a8e60a0803b2b86915528972a",
+          "sha256": "2e03e2cd4eda20e7da761a9d0bb66ac081c5f811568a90ecd841fcb186fb4a0c",
           "text_bytes": 1877
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_array_class_66/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_array_class_66/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "a12221a3a47a742184f2d659fba749d0f754f3b5ee676198055c02def3d0b77f",
+          "sha256": "d41e97f95769330761fdf1b9b8f972b67e45f17bd576cfe4e693b06d6c11e03f",
           "text_bytes": 1877
         }
       ],
@@ -2772,67 +2774,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_int64_t_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_int64_t_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "1898837113c2d15d19fe7a2b19f669ad4d91f7f194618fd67f43301428ad32f8",
+          "sha256": "b580389317af272e28033284e19f96322e01f0de837285ae6c73bf6f8e446de9",
           "text_bytes": 1901
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_int64_t_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_int64_t_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "038fd9b24ed0104c5b42b429d5c7bee7aa796e734e373d5c239913d960840413",
+          "sha256": "c8338483867e2f89217c82321e229b5c6af948eafd2aa73e7de07cbcdd03f2f2",
           "text_bytes": 1901
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_int64_t_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_int64_t_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "eb621880e7ba82ad5e903a5d4d6a000b9392ae9218dc61e71e8e5311b280bb30",
+          "sha256": "c5bcd959f7aec53bd64927c65b5cb4a9dcfa372e436c4788cbc3343913a9b4e6",
           "text_bytes": 1621
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_int64_t_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_int64_t_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "c123a2a98dc1403769adf4757102c257649dc12d17820c6e14a2ad7a154c31c9",
+          "sha256": "c5c090b6693607595549edf366c72bc9b70187a6ddc7cf870bbf866fe454455a",
           "text_bytes": 1621
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_int64_t_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_int64_t_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "2afbba6cb98e2930ace7daa6a72ed1ec3d393c5e11dac894c611e1718448044b",
+          "sha256": "fbdc4dc7a3296091e630b4baba399b06ec11373ca373df1e0b2dbde6a13ff3e5",
           "text_bytes": 1959
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_int64_t_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_int64_t_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "0abef8968a4a4c3a51f768fef260ad5cd9a3bfc95ad45b8666956e787985808d",
+          "sha256": "25b6421dc96727d56e9b4cbc2e108d1cc46600a9674ebc72f752a1b2ca46f84f",
           "text_bytes": 1959
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_int64_t_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_int64_t_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "a3776fc46be094781cd0a043b66f4a282715f6ba74ba3617cbd97b4be9ea5dfd",
+          "sha256": "afab66b143f2612a6bead868ea85160d31b6f7547e80ed1e68b844572566e12e",
           "text_bytes": 1621
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_int64_t_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_int64_t_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "079d1470a8a84d6c7c6ccfa9b96fa30542b5b4476312304e9e45f850b82d7b88",
+          "sha256": "ee13047183ae72b0fdaf139a21099f5ba58385bb04733d6659fa5fb9cfc66ae8",
           "text_bytes": 1621
         }
       ],
@@ -2867,67 +2869,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_struct_83/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_struct_83/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "a3b59780a17ea2b89468eabe785aa9c02ff639e63e48e1bae37fbaec30ba45e5",
+          "sha256": "788c1c51f14005d441327902bb543ccf0a12f1028970eb717d34e35968d54411",
           "text_bytes": 2032
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_struct_83/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_struct_83/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "b9e3827c78a9812cf0e4832f8a114789d7db5e17b32f85576e187d97d10d91ba",
+          "sha256": "414d11e9d503fb4a3987e8e19a52236b782f2c04f6f7aaaeeda1591c8f0962ef",
           "text_bytes": 2032
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_struct_83/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_struct_83/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "50ff1051f2bd247b457afd5f4c72ab461a94b2b4afe12ed7cfde876b3ecc8909",
+          "sha256": "1fac20c8cea77ffaa0b84ba8337c773786797aac7f68afb2e3f6c3dd51527afa",
           "text_bytes": 1781
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_struct_83/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_struct_83/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "eca05cd65af411d2e00581df337dd7a524ea10d46a2c956c0ce002f6f75d233e",
+          "sha256": "639627ca7a19e688017483d16735844e27ff436a71d713a9fa95141aab82404f",
           "text_bytes": 1781
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_struct_83/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_struct_83/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "69ae7384ab0e4e3e3c2187f528d7e2628d69c23f925c07e01146243032389af4",
+          "sha256": "0411368f721ae392d762f5526160be7bec56279dbe0dc2a61b1a38d9653b35b0",
           "text_bytes": 2211
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_struct_83/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_struct_83/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "2e1f734a337c8a96f16ffcbb55d81c6f7a4d8c88c3a6d41b86af8e4c728df12c",
+          "sha256": "db2b99a8064da50f1ba475e4fc4ae38dbe1f021d7b7f90a6b59a683604c9614c",
           "text_bytes": 2211
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_struct_83/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_struct_83/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "46e54e159387b110e61092b2428221ce958ae83c7373a0ab6bb1a85b9ce50dbe",
+          "sha256": "e4cacaa0abb0f8ad4e6fb85d6af09425181e4e349d10fdbf9d526273a007cdce",
           "text_bytes": 1925
         },
         {
-          "path": "/tmp/vbuild/bin/CWE415_Double_Free__new_delete_struct_83/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE415_Double_Free__new_delete_struct_83/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "d13810fcd49698a6fc6792543ea7b1d76fd445d5d60565aaf6ea1c6ce2a44596",
+          "sha256": "4f20fbba4af33fffb58e553cbe14bd60f09ebdfe164f0d637d0efb16bbe44b94",
           "text_bytes": 1925
         }
       ],
@@ -2962,67 +2964,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_char_64/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_char_64/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "365cac1dc69ec05b89598a61d8960b70739d246a01eac43fb15c2ec8327c395b",
+          "sha256": "719610bf741f1edfc6f86c3b2277a7fb11d7bcaad7a74120666a00a383b4f976",
           "text_bytes": 2061
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_char_64/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_char_64/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "28b333e1e56cb4b1f97bb7462f377e30e9ab79b2d63e13d35aa1f5cdcb9e1169",
+          "sha256": "8c31d5a221756ae989c944189f1e0c4b2ee4d07900a04a15fa918fe3574c86a9",
           "text_bytes": 2061
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_char_64/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_char_64/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "7b520a4ff5b6ee223b194ee15c1fa01659488cede1b98cfd1ad203b456f5ebf4",
+          "sha256": "f0a33d6bc7d83e0dc3cf154e96f18f9bc7e8990ef748aa5b66da197b5e0b1a6a",
           "text_bytes": 1733
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_char_64/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_char_64/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "15c42f403d7b0403f487ef4318db37dfb3f5bc7386fe8de424900b5a0cbd7966",
+          "sha256": "8b851af38ca7884e42b169ff4ca51ac50c4da61b1b6efb1e6d3c04f5ebb71ee0",
           "text_bytes": 1733
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_char_64/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_char_64/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "73038dc4c92508007090e6d821b37ffdd595eb3595cb85410f4cac37d4bd7a53",
+          "sha256": "87ad9163df84968c093f484521deb024f3d2fba6ebf720cafa8ad7ce90825bc4",
           "text_bytes": 2262
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_char_64/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_char_64/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "4553f620f831aa990d81fe518b286431874ce7a0fa36b41591a22bfdeb9e6558",
+          "sha256": "f8f1144c1525983e6b6fe00229732fb2118178697397f0d7349b6a1a110e6f71",
           "text_bytes": 2262
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_char_64/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_char_64/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "f1e13dd36d148daeaaeb3245fcf78751f446eff73397394f314d46c78bba981c",
+          "sha256": "052f42c3b49aa084168f9609dc6990031be6ef235d1414049856e377341b4bf0",
           "text_bytes": 1989
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_char_64/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_char_64/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "c1d2bf8b9772ce7fd3edd5ee7d2bd7d17b1ccb16a08586917e9c84c1b5e2656b",
+          "sha256": "2c7cc63d26a7c1f97d853562da7234c50a5133fe2c3cd012dd6c6e5c0c30a41d",
           "text_bytes": 1989
         }
       ],
@@ -3054,67 +3056,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "5597a2edd66e93ec3db776cfa88f9a84504c159baa7d63a912752c061249f2b4",
+          "sha256": "dd5b63df8ecece5a77b950c896bf466cd77fa5e6617e55299283626febcb521e",
           "text_bytes": 1992
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "2a106725c6fe89730d9f25eaa7e07e8a1ada4ac5449ea178c1d471c93bcede11",
+          "sha256": "b0c7f23b8768f3c599923802e8be0181b8e5727fb36e964eab87fc116c97a7e7",
           "text_bytes": 1992
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "4353f391c41a58dd7161c769155ccf9efac5345a5565b703ab93153f88e217fd",
+          "sha256": "9ab1d0bf4802cf260d1d14aee1a15fda30edb7ac7398c15c7a861e96644c696e",
           "text_bytes": 1717
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "57e7de49c3af4a7bf9c566e25083d88dbb3b868a5cca09f9bf06f4889753b400",
+          "sha256": "6ec1321a776249aba7a0d32783d4864584522dcc88b9773bcd1b010b942524f4",
           "text_bytes": 1717
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "f63af1b8804a01cc633838095a979b81dc88f8b35f9b04201304373e988e42e3",
+          "sha256": "fe3f0c95d4181321d2b185abc0d2999bee9ffcd590d4f87489d89178d3da5507",
           "text_bytes": 2125
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "4a70e405a0162913eba35a72de8f6fcd4dd90fb23d890c28b6ccee4b39cddaa4",
+          "sha256": "24e08169772bbcf11bdfa782be1872fc325fae87e14d7c513e1491c5bb2db536",
           "text_bytes": 2125
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "7bc75b36f46e453aee7e10a8945c2b6bb1d5020e52386ea1d411655c91b2566b",
+          "sha256": "77f69632be3b794f80ee98d41cba4570032ed79602c6f07f567b522e307fa99c",
           "text_bytes": 1797
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_int64_t_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "1de71eb3bd08474013ccc30069bbd0cf7bf6a42a854e9aed3e0ffe7e78df215e",
+          "sha256": "68f82e2128b4ccb05a61adfbd4e148157356440e63ca0e283104e72cb6f50309",
           "text_bytes": 1797
         }
       ],
@@ -3146,67 +3148,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_int_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "cf5d82e7665bab31296c5bdce4a8595dbad463c5769062dabd2c986eb59dc6af",
+          "sha256": "0dd5fdbf46af0b31023ee11878a5f01952b58a2cdc12cc51315d218cd614b222",
           "text_bytes": 1989
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_int_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "bd6f3a26eb080f5d31099734c85ac1d3a643894babe9f09e6bb681f1b6905491",
+          "sha256": "3b3efbcc4f8110ce6f33ba060740e07ece8ec75e0b43c1e37ccbedbccfdd7b9f",
           "text_bytes": 1989
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_int_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "ace3f6d4cc18bba8abfaa723e3a5490ec58cc3353fb9d152ea3c47f90bccd0a7",
+          "sha256": "78bc1b23755ac850a8ee5edc23cd157656db2ea421a046e8841b95a27a06f822",
           "text_bytes": 1701
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_int_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "b043eb3c36f319815d67b4f12135378b09ecf94b058029ce95d8fe962e91c1c3",
+          "sha256": "96240324b67aacec74710ea7d0dc88549cfad71bfc57dbae1a75e48e2539c040",
           "text_bytes": 1701
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_int_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "f78dd1d1070bfa9d48c8a9c6e5e87e16eedd3c27102851a53a70bcacceb59c45",
+          "sha256": "8e7575984ca8b36dd2b9dc5e0bba716a349209c54670ff5595a978a3089726fa",
           "text_bytes": 2121
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_int_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "b44c9a86f191e083caa00e0d77dc23331a037984aca82386cec8298d7724c1aa",
+          "sha256": "62dec70daf877caa278f1281264ee7ae1b10d3d56f4b590327104005bc9a64ad",
           "text_bytes": 2121
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_int_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "e2a7efd39f160ee998e433bb8d7ba38b7960862bc92061265141e4e46c661b2b",
+          "sha256": "c267260b06870ec125f418bc431214e2b948803df2eb7b914839240133035aa2",
           "text_bytes": 1797
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__malloc_free_int_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__malloc_free_int_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "009a0068990f1888cb43a4f355be5189ce17a1e97e01e335eb7a3006d2868014",
+          "sha256": "09b38634063b30dc8e3ec1b33081be436cd2487506ecfcbdcc0d20801f5248fb",
           "text_bytes": 1797
         }
       ],
@@ -3239,67 +3241,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__new_delete_array_int_62/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__new_delete_array_int_62/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "216fc8fd4657365b2e2c005e69665678b9ebad95d62fb387dc30728fafdd401f",
+          "sha256": "4255cbf87cf2eada48f9ce818a7a92328d3bfca30a3a66602a54eaa4dfa0a654",
           "text_bytes": 2015
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__new_delete_array_int_62/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__new_delete_array_int_62/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "c53723c6c66cbfc04529f684dc65e2fe54582af992c64ba7648023d366344517",
+          "sha256": "5f275c1b112692b2820d824bb82f405382d25010ae603922a27d0177d0c7bba4",
           "text_bytes": 2015
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__new_delete_array_int_62/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__new_delete_array_int_62/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "9808d7be71d6844303afe3d6f7f85044177b8bb627ceeac778dfdb232f0e75eb",
+          "sha256": "3beaa62e16668af77872a2a5390225e862ec4168a9a469687c209a828f747a46",
           "text_bytes": 1749
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__new_delete_array_int_62/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__new_delete_array_int_62/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "2330ce572d3e7f553b720142495e48321d74870e38bea1f2006e2b2df51093df",
+          "sha256": "a2108c80d21d4046e9bbad383efc0c4b2741a68fdec085eb68441df0f8619127",
           "text_bytes": 1749
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__new_delete_array_int_62/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__new_delete_array_int_62/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "ba8b8c9001fd283d2e854a8b9057c0b2b150f0ce913cb36c537d31d61aa9d2a2",
+          "sha256": "bebddcd12cb1d0db46bcfb4c4c6ace4339d9627fc3349b4da885d529d8074b19",
           "text_bytes": 2192
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__new_delete_array_int_62/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__new_delete_array_int_62/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "bbe672f40d49e6c9cae90078c16467a15c592ce182f8aff351c0315b0b623c04",
+          "sha256": "455f0896c1b791e38404d37c3acee24d8f63994f3883be6a55ad5458a3b9acba",
           "text_bytes": 2192
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__new_delete_array_int_62/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__new_delete_array_int_62/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "5237c69360f1148e9c5c91638da8d84073f486387f451442c5f66e81db73c0ff",
+          "sha256": "b05478b8d0c9a740203b03b68160190eb0b1f64186758f5687e8af675afe0d6a",
           "text_bytes": 1845
         },
         {
-          "path": "/tmp/vbuild/bin/CWE416_Use_After_Free__new_delete_array_int_62/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE416_Use_After_Free__new_delete_array_int_62/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "4a73bf33a02b24390d55fc3904a4321a111e0c4736043e8319500f1f39fa1689",
+          "sha256": "ca39f42002c3d7534b915102f5af44e031820f33eb2a81f9eb532cb765570260",
           "text_bytes": 1845
         }
       ],
@@ -3337,67 +3339,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "c7296a96bdc11b8d29e09cd613c71bc5cd38e73666ec008643c936b205d21034",
+          "sha256": "c0954c00007247f3e5b4591ca4d0cd6066a2a2330f54b2bb9a92c425cb453f57",
           "text_bytes": 2191
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "e7c38c3ec2a28299957f5671736a81926f1087c860361dace690883753458c76",
+          "sha256": "e8c3bdd2bcfab3c6a97c30348e9f479785c57fefa07205b5165ce55c4c77f216",
           "text_bytes": 2191
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "d761984f0fc699638dd1af4266bdbf5589aca814df5256869e087115d2886b0f",
+          "sha256": "c34156235aced1dc9a63ff473491630e84c51ae95dabc4775fe21742fad00207",
           "text_bytes": 1893
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "ea3e7fc623c8bdef879a5cde3c37b53a6813689fa1e273b27dade2be7c154581",
+          "sha256": "df5425353df69b16da9ba5d5a589edde21a17f2443da4a706855d037a9c1b413",
           "text_bytes": 1893
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "c67f37b287bf7142aecb93ac7bca787e2285a63dd7eaacce3a19e04e91b034c8",
+          "sha256": "0a3ab2593ae23f7f9d5ea45c9ce14f66e40ab9c77299445d7cbde62626541fad",
           "text_bytes": 2429
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "a9762b05cb81b01465ae3fff9b86646723e8caa103779392157de0d28e2b2a0a",
+          "sha256": "30362432d533fc3a32d0aa38e5ffe3dfd9878604428f567e6148714155b2d73e",
           "text_bytes": 2429
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "11a3ee1800342e5a63eb20f00cd419ffdc7702236b699024c8329f15819abdf9",
+          "sha256": "44d0de151b7cd2ee8d7d11285c2968e96f9681fa1ecc2534b55f31603d3d346e",
           "text_bytes": 2021
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__malloc_wchar_t_fgets_67/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "d7847370e8fce15ace059ae8881ed8d4e3815646838ca6d7b1c0b51a9957e5b3",
+          "sha256": "15e313010dfbd5c129b827bf004637b1845567b589955b920f66f696dd283b45",
           "text_bytes": 2021
         }
       ],
@@ -3430,67 +3432,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "5c0ba04f583508d5c76d4fbaa0a016b31d323cf3ea33676e14134849a47a7604",
+          "sha256": "7a1b410964dff4c48b4720b74b72fafd32af0455f74861bef9119e7506ed23fd",
           "text_bytes": 2301
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "3bcb5506bd68c5b444e607262c5c1e0529b8837f50712e000cd5d561a1c3f2d0",
+          "sha256": "734c5c1f0c9de82fd31ccdb22a19af1ba5645184a61e66f9f90f9c2379199d8e",
           "text_bytes": 2301
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "11d26a81bfe9ca071f118a5b840ab658d6162102c320d9884a22dd7d18c40332",
+          "sha256": "1154056797447d8ae89b50c6cc8f2ec8ad599a3408604dfc6c495ae50ccacd9d",
           "text_bytes": 1973
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "998532ef72e04e298ec878cc3b6e2f2ddc096eed23fa089078acfeba9b90a510",
+          "sha256": "048733b0e6b9647a67771e1222efe60f4e18b46b2b291d998566c880bbbddc41",
           "text_bytes": 1973
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "0550ade1ab87837b448521a4e3c7562c5f8e01bac5cf78a1fc6aeb43a8de0c08",
+          "sha256": "6352f531d27830d891a20eab273a1d36e464d869aad221783f7921f454d0f020",
           "text_bytes": 2479
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "f55dddde6c1c2ec2bcbd66effb3619d5f52b04cb4abe691155c6b7beddf3b8e8",
+          "sha256": "d4dd5bfe35ac51d8acc0271d8805d4d16eea73bda490ed1d4d0d9ef5d2041bd5",
           "text_bytes": 2479
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "e7487f50f75e0295c6368fd70ae47f935863acb548d0e463a36b7cabedf616ac",
+          "sha256": "caa2d0a7aa4950885a5ad82186e8c01d3bdb54db2e35274763d3d393aaedea84",
           "text_bytes": 2085
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_char_listen_socket_51/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "7c73245e5334884b9fef7da1571e8549d24e58075003cb58bc40cf0fe23b10da",
+          "sha256": "b68addf42b258632b7c2da62720b6323cf81a40691d5efcde8893e436a79413c",
           "text_bytes": 2085
         }
       ],
@@ -3527,67 +3529,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "8c96a498de944696114cd624be76dfbdf183dc1f49e621db1337066f87ca6219",
+          "sha256": "f5921d41d91cd5ecba3f59dc15696f9463d78e736241b70ceccbe73a950e18c6",
           "text_bytes": 2118
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "cec00ccc8b27a5b72b202a80e86ad5d636e6fac26c333520f69c843bb52e1b5e",
+          "sha256": "0ad6c11c8fe8ba9ba37a88d8da8dae4adc1276976617418cc71d62b51d104e4f",
           "text_bytes": 2118
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "9498c7dc23d7f5fa0f7e25598a1d936da4ffedc32b6b66d9623d704a63ac41c1",
+          "sha256": "3aadffc25667081d3f074f972ab162afb9b163355afa88f4a23f49bf8bc6667b",
           "text_bytes": 1893
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "883013c4b3ca84d711d3d919e34f934b1b8b22abfc56b6fdde08c2dfc3418cb4",
+          "sha256": "6f42ccc0c66558185c141f3b25169f7fba09ba9fe35a983751a77ef7cf64ad81",
           "text_bytes": 1893
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "1814a1fcb63afaff2d13a2d4fa809279fe0a106780cc45d01fbee32acfdf34b2",
+          "sha256": "a504c07ae2d01ff40c773322d3a1029c97908db06f1a306abdea5b5cf7e15f42",
           "text_bytes": 2310
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "d935d5df4dcda630f374b8e1670d74a77801c0522653216f653259ae29add2c6",
+          "sha256": "d91889671380cbff326a66b18c4fa933e82fd03a863411ce7993ef79129b77a4",
           "text_bytes": 2310
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "ead254b71d3c1f1593aeaa04f6cf2043981e18d7fb331a66e2d13758b1112be9",
+          "sha256": "5bdf64887c1cfef9748b9677678326934e0f01babe7dbaf065db090e94303ab9",
           "text_bytes": 2005
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_fgets_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "c4a6d207f2e094af4f68f4d7c72a88029cee65ac611a2b989a3bb786c648379b",
+          "sha256": "0d71f405119e2f54f60cd27045d4264c42a2db7fa11fad77fd053e0ce27dd653",
           "text_bytes": 2005
         }
       ],
@@ -3621,67 +3623,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "3fa4c1b2346f119a74abd7f4ff0eb4cf46a026d75131aaf35d7c04c4300e70f7",
+          "sha256": "66fff305350c2b4835eed0cc1e0a9cb069f3427a4f924f607550d4569e646411",
           "text_bytes": 2316
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "c7f71b9815a4feeb4f5d61e87358009402c27d4cf9849f2728813984924ef9a4",
+          "sha256": "2259fba96c3304d2cb7db689a40d0956bcb85fc9461f115016acda773d88b1f8",
           "text_bytes": 2316
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "c5fc2296eff5a0da334141891d965a6c2b3df60eb5bb12ee759b78e1f2ad07a0",
+          "sha256": "8fa2db94b9953314f035ba5ff06f4a4e272d3d301395b4d1619fa04dd6a8d95f",
           "text_bytes": 2037
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "e4a49517462047bfa90c8027a4cb7db2d1ddc427aebe60d2f1c8ca7f2ec828b3",
+          "sha256": "36186b8d00435a64860480ebe5ea9b27af9030cc791246471f45f7b498ed9ce2",
           "text_bytes": 2037
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "9b5e708830acedadc8dbff71bddd2d0cca58b0744cc44261eb644d925df451bb",
+          "sha256": "e9a06d143994e17c94dbc95f4310b81c833a96c618c7d2730ab6f3a71d2d385c",
           "text_bytes": 2508
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "2646d570b354121c6a9854d7f4ff7154e61f1280b9f23e79caf03c65bbd21f0b",
+          "sha256": "01f34cd8480d2737d0431ad03de9dbf4f1014b5623a9f50aefd9f8bd25a6ece1",
           "text_bytes": 2508
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "df518ef8c7484c248e048f9a890d4b001e2ee7e8c359792f03d51d87b41c1614",
+          "sha256": "37616727c94df66d7bd26fcc199232b8ef6b823980eaf80034cee952f69de041",
           "text_bytes": 2133
         },
         {
-          "path": "/tmp/vbuild/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE789_Uncontrolled_Mem_Alloc__new_wchar_t_listen_socket_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "be52305c9cd75e0f908e63132798325b01aab438549e5828aa6f5c17b190e8bc",
+          "sha256": "1ab31f058b924184176ae943243d0f3d627ea9b1018fa973a41f00025983ee3b",
           "text_bytes": 2133
         }
       ],
@@ -3716,67 +3718,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "aa7b9426f7ffff17b6d6e218ad7722928cbe169f937d250ca1d551cf3d07b3a8",
+          "sha256": "bfa910e1e3425a423a8f1d0d11cf1f242c5458bdbcc5b8118f08e6bd6edd725b",
           "text_bytes": 2302
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "601d2cf84d3be3ee88635d291eb7c81ebd93829a99343cc972a7e180fb59f808",
+          "sha256": "3e233f9f9506c352a815829ec94ea89f593374183afe57b10fbf5775fab65e5b",
           "text_bytes": 2302
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "887e84384746247648821f0389e973c10a32ca0c94c995cb066329104521f126",
+          "sha256": "616a71314b27550afde7a6d1ae1cff56e08abdae996624188e716f464878d7c5",
           "text_bytes": 1877
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__char_console_execlp_68/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "fbed2b9f5e0803b04b70f7c96c4678814854bdcc5762a2e4b73e5f55b90c8ee1",
+          "sha256": "fda993708a47a16ad23554493e703d7326aa3860701d5eae8ce1ab813c4aca8b",
           "text_bytes": 1877
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_console_execlp_68/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__char_console_execlp_68/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "51b299ee931f15c2cc4d8b8cccfcc33e0b528f3d39ef2ff90f8e228be7272f49",
+          "sha256": "00af964891f77692f3bb0b52ce4716fd300ad02c4d61f124dd1d6ee20f2f4d14",
           "text_bytes": 2173
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_console_execlp_68/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__char_console_execlp_68/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "daabf245735eb6c44f0615ece0d09a7547339c3cc736aa2998ec90e4652c7bc9",
+          "sha256": "6f3b3796d93a39f19be0fd918e9802dddb05b261d48e650f9013f8db8946ab7b",
           "text_bytes": 2173
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_console_execlp_68/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__char_console_execlp_68/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "84cc3e906ea8f37203f890543b5e78e0fd1c1dae4ddcfd55c1dc70dd9cf40ce4",
+          "sha256": "9ff3b118d712508710e202fe1bccc4ec73c4892e05e7ec03dcb310377c11b038",
           "text_bytes": 1925
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_console_execlp_68/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__char_console_execlp_68/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "100ea34d5fb8d317dfa3945876b972f4794e8c2b1c584218d56be99c691a0321",
+          "sha256": "3ed0c254209a7f42a4f6214d55e756bc34ffabcdec60aca4df69a0c604a3fbd6",
           "text_bytes": 1925
         }
       ],
@@ -3811,67 +3813,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_file_execl_53/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__char_file_execl_53/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "928bff6645c465f366d8f243f4c2e26250337ebfe738940af0dac05ed0fbd548",
+          "sha256": "1a0c9f1341733aeef0a9024584fe8b6873c8919c0d4118086a06301305dc3133",
           "text_bytes": 2347
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_file_execl_53/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__char_file_execl_53/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "0908d8d5b5f50a5b45991e071280be44d5144ac3d3c3459b52e38756a38821f6",
+          "sha256": "472719b484bf5a6168f0ed27b32d38b57c66bacfd7cef9007a21a740e286a225",
           "text_bytes": 2347
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_file_execl_53/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__char_file_execl_53/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "6af2504983494cdeb850ca1d3bce7ccb605dedfd5244d16410da7503000b7ab5",
+          "sha256": "8b088eaff2ef4db2f68c314cdd4f70c716ad4542318fda54d19a25b468761e4d",
           "text_bytes": 1909
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_file_execl_53/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__char_file_execl_53/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "310c7785adc565ba735a2da56c4071e46a8f47527a30952d473f93cef8c75597",
+          "sha256": "9692c3abe0b0427453cc4648c7668b5b4cb18506aa4328daa0b3e4df3ddd13e5",
           "text_bytes": 1909
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_file_execl_53/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__char_file_execl_53/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "331de5cbd17340dbc9d1782b042ed647f594c4cfaecf975d605790baa2ea465d",
+          "sha256": "4541f10f55d794a7b6ed9b923de2c3cfc23606a96a676b24b00e38efa570c80d",
           "text_bytes": 2219
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_file_execl_53/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__char_file_execl_53/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "fc1eb2d4ba992a740083655008707fdb9b833a3672f5ab123d6965a485d6167c",
+          "sha256": "f152ff5e10b8f85c4070966a2c059d4265f4e77b2c1d24bdda7722154c06f1fd",
           "text_bytes": 2219
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_file_execl_53/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__char_file_execl_53/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "6ab56fe258d7dcbe860df8505cee989cf157e5e6c72c9ebd35be3a6762e5b999",
+          "sha256": "91b1f15e6bbbe087b29e45e15ce5c5edb1d891a2e519be85bde6a9295445315f",
           "text_bytes": 1925
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__char_file_execl_53/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__char_file_execl_53/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "8eade0d80c1f0ec3d57e082e22feb492f203cf8d350557d4afae3ae7fb9df97d",
+          "sha256": "26f6ed8f9948298ed31ed948ae46e84c9272f3f7299fced751f2b4afe1d346e6",
           "text_bytes": 1925
         }
       ],
@@ -3903,67 +3905,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "2f18f4d2411b6598c7e5ece621214d77fb59be7990eddbba6c56d82e1064ee5e",
+          "sha256": "495125721b6817ad5042d3d8d9efc2b492d0df10404abfe74d0a9148b59cc3e8",
           "text_bytes": 2492
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "6d8c391745ed1c75cd791d2877735be9d9bc3cd028932f44ec73d80a4026f624",
+          "sha256": "43d7e58a5971e856b46ff15e521fed48aea906e78d7236799feb13decb9e9c1c",
           "text_bytes": 2492
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "cf3388527e0b262e7aec9c1ffce3f27a60e14f5ebb453b7372ecea72a14c048b",
+          "sha256": "c900cc6422f400ba6e3f5f30a28b94c96f88ba0861ed907964abfa8fdd74decc",
           "text_bytes": 1989
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "f2b8036069ac60dfdca687a294893b97c5bb136092a47dc114a2d204e9d11f48",
+          "sha256": "162a1b206d03f8286f4a774abe304c381856b4e3800b17ec6bb04e32b1e74fbf",
           "text_bytes": 1989
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "b1c9fcd3ac632ff29214eb2bb0b20fb765cf84dc71ab10f551e140434b384766",
+          "sha256": "ed0fe95cf45650e416378a594bd4d454d771989db0d2959cdee9416af7d554c6",
           "text_bytes": 2085
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "1bd76fa72583b2c671214ce3b41acb17f706483b95812c41ca7642d7834a5508",
+          "sha256": "15d66a6fb1f37285eda145cf045d730d3087cc819211777faad2a1820ddc40ab",
           "text_bytes": 2085
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "72d3352cdfcc81ba85840ff14f7e9ec4b6f379860a9643ed49722f8c5a1bda60",
+          "sha256": "717c97a49434987967bd8275552f95820be2cbc85b32366dfadc6c287f094209",
           "text_bytes": 1781
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__wchar_t_connect_socket_popen_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "2659801ca60efef16a20d34c62d9a62fc27de4aa84b75072171f9186616ef46e",
+          "sha256": "b6593a9c7763b9cc34df9bb113059f56546e15a4d7c8e7ef6104e19275543fe8",
           "text_bytes": 1781
         }
       ],
@@ -3995,67 +3997,67 @@
       ],
       "binaries": [
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O0.sym",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O0.sym",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "d72d5a43c34449c8ba4741bf1d34e543ae3940a585d8f65d813cfb3e9c1bc6f8",
+          "sha256": "8dd6f8d7928ae2436a240311190d95c4a0f0e32fb97ef391d01c44edb4ec9877",
           "text_bytes": 2587
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O0.stripped",
           "variant": "bad",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "54cd0708e337b4e1c68c5764fb18388ac61625edd1d2b92d9a92545bc6810754",
+          "sha256": "c17c0c64c3c08c82ee44e59508b234c28b7edadfcd6db2e3af80ea7016a05713",
           "text_bytes": 2587
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O2.sym",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O2.sym",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "8df05f785922b25f3212906cc1265dff18ec0857c061c5ac355f4be69e48a564",
+          "sha256": "1805524f931531d23c41e8bbfe381fb80aa165341f130db339c25b0f7f03fc3e",
           "text_bytes": 2021
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/bad-O2.stripped",
           "variant": "bad",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "d9600ee63debcce97f05a44c53fd2d217a524935a1b81322380144225e06bc43",
+          "sha256": "e9528982f409c85fbfbb774a3652c9bd47100d5197c88c9004b70864ed5baa22",
           "text_bytes": 2021
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O0.sym",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O0.sym",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": false,
-          "sha256": "e5255d96ce65f9b4d865dcd60bbd2e544e9bb76eb58ca1b2e47b469c9f496ca0",
+          "sha256": "0b9c721c483aa72b3e126b988a0ba29dd205037aa9e67ae73e21a7e76e2df9e5",
           "text_bytes": 2084
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O0.stripped",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O0.stripped",
           "variant": "good",
           "optimisation": "-O0",
           "stripped": true,
-          "sha256": "06039d1777af1d7d54363a16a0952ab22f0cca719f9230edf0490322b0e787ba",
+          "sha256": "01a5756f7129171a304b640e07a220ed5fc6c4fa7aa2a42ac53fc4bd9dde915a",
           "text_bytes": 2084
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O2.sym",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O2.sym",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": false,
-          "sha256": "cde22499400e73df6311a0474d28698a9671c56c6d66b9c113a8832b519bdf4b",
+          "sha256": "7032807a2d25a4738efdcfb74ec232623c115c4b89958094154754bf7888540a",
           "text_bytes": 1781
         },
         {
-          "path": "/tmp/vbuild/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O2.stripped",
+          "path": "/tmp/vb2/bin/CWE78_OS_Command_Injection__wchar_t_listen_socket_execl_01/good-O2.stripped",
           "variant": "good",
           "optimisation": "-O2",
           "stripped": true,
-          "sha256": "d8c48d54105f00f1f9548d81bf085fae487c451bb8e0ae5f0c9e2f29b5c25f50",
+          "sha256": "2eeedf069e231ac6f238a5b106cc001ed2405f4ad90427c1d515a59b408a39dd",
           "text_bytes": 1781
         }
       ],

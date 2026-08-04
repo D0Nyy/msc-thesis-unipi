@@ -234,18 +234,26 @@ class BuildVariant(StrEnum):
 
 
 class BinaryArtifact(Strict):
-    """One built ELF. Four per case per variant: {-O0,-O2} x {symbols,stripped}."""
+    """One build output.
+
+    C/C++ produces four per variant: {-O0,-O2} x {symbols,stripped}. Java
+    produces one `.class` per case and leaves `variant` and `optimisation`
+    unset — javac has no optimisation levels, and Juliet's Java cases put
+    `bad()` and `good*()` in a single class with no preprocessor guards, so
+    the variants cannot be separated at build time the way `-DOMITGOOD` does
+    for C. For Java that separation is a chunking concern, not a build one.
+    """
 
     path: str  # repo-relative POSIX
-    variant: BuildVariant
-    optimisation: str  # "-O0" | "-O2"
+    variant: BuildVariant | None = None
+    optimisation: str | None = None  # "-O0" | "-O2"; None for bytecode
     # False = the oracle build, carrying symbols so the ground-truth function
     # mapping can be derived out of band. True = what the decompiler sees.
     # Both are produced from ONE compile and differ only by `objcopy`, so the
     # machine code is identical by construction rather than by assumption.
-    stripped: bool
+    stripped: bool = False
     sha256: str
-    text_bytes: int = Field(ge=0)
+    text_bytes: int = Field(ge=0)  # .text for ELF, file size for .class
 
 
 class FlawSurvival(Strict):
@@ -304,6 +312,8 @@ class BuildReport(Strict):
 
     manifest_sha256: str  # the sample this corpus was built from
     compiler_version: str  # full `gcc --version` first line
+    java_version: str | None = None  # `javac -version`; None if Java was skipped
+    classpath: list[str] = Field(default_factory=list)  # jars shipped by the suite
     # Every flag is a §7.1 decision, recorded so a rebuilt corpus that differs
     # can be traced to the flag that changed rather than to the compiler.
     common_flags: list[str] = Field(default_factory=list)

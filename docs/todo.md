@@ -49,7 +49,27 @@ settled move into `protocol.md` and out of this file.
       before changing anything — a high overflow rate is a §8.2 result, not
       automatically a bug.
 
-## Blocking the build — new, from implementing `--compile`
+## Blocking the build — new, from implementing `build`
+
+- [ ] **Run the Java arm once and confirm it compiles.** `build/jvm.py` is
+      written but has never been executed: the machine it was authored on has a
+      JRE and no `javac`, and no way to install one. Everything about it is
+      reasoned rather than measured, which is the opposite of how the C/C++ arm
+      was built. The classpath is verified against the archive (all four jars
+      ship inside it) and the support-source filter is tested, but the actual
+      `javac` invocation is not. Expect the servlet cases to be where it breaks
+      if anything does. One run of `vulnlm build --compile` on the WSL box
+      settles it.
+- [ ] **Java has no build-time variant split, and that changes `recover`.**
+      Juliet's Java cases put `bad()`, `good()`, `goodG2B()` and `goodB2G()` in
+      one class with no preprocessor guards, so a single `.class` file holds
+      both variants — there is no `-DOMITGOOD` equivalent. For C/C++ the
+      negative class is a *build* artifact; for Java it has to be carved out at
+      chunk time, per method. §4.2's chunker therefore needs a per-method entry
+      point for Java that the C/C++ path does not use, and `GroundTruth` gets
+      attached per method rather than per binary. Worth writing into §4.2
+      before implementing `recover`, because getting it wrong yields chunks
+      containing both the flaw and its fix.
 
 - [ ] **Which gcc?** §7.1 records the `-O2` measurements as gcc 11.4, and the
       numbers in it were reproduced exactly on gcc 11.4. The WSL2 box now has

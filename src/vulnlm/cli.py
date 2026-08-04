@@ -62,10 +62,17 @@ def build(
         Path,
         typer.Option("--json", help="Where to write the survey JSON."),
     ] = Path("results/survey.json"),
+    sample_only: Annotated[
+        bool,
+        typer.Option("--sample", help="Draw the sample and stop; compile nothing."),
+    ] = False,
     compile_: Annotated[
         bool,
-        typer.Option("--compile", help="Build the sampled C/C++ cases from the manifest."),
+        typer.Option("--compile", help="Compile the existing manifest; do not redraw."),
     ] = False,
+    java: Annotated[
+        bool, typer.Option("--java/--no-java", help="Include the Java arm. Needs a JDK.")
+    ] = True,
     jobs: Annotated[
         int | None, typer.Option("--jobs", "-j", help="Parallel compiles. Default: CPU count.")
     ] = None,
@@ -88,26 +95,39 @@ def build(
         int, typer.Option("--seed", help="RNG seed. Changing it changes the sample.")
     ] = DEFAULT_SEED,
 ) -> None:
-    """Prepare the dataset: draw the sample, then compile it.
+    """Prepare the dataset: draw the sample and build the corpus.
 
-    Three modes, in the order they are meant to be run:
+    With no flags this runs the whole stage — draw the stratified sample, then
+    compile it: C/C++ to ELF at two optimisation levels with the flaw-survival
+    gate, Java to bytecode. Each flag runs one step on its own instead:
 
       --survey    read-only precondition. Reports what the archives contain and
                   reconciles the filename parse against SARD's own manifest,
-                  exiting non-zero if either invariant fails.
-      (no flag)   draw the stratified sample and commit data/manifest.json
-      --compile   build the C/C++ half of that sample and gate on flaw survival
+                  exiting non-zero if either invariant fails. Builds nothing.
+      --sample    draw the sample and commit data/manifest.json, then stop
+      --compile   build from the existing manifest without redrawing it
+
+    Redrawing is safe to repeat: the sample is a pure function of the seed and
+    the archives, so the default path regenerates a byte-identical manifest
+    unless one of those actually changed. `--compile` exists for the reverse
+    case — iterating on the toolchain without touching the sample at all.
     """
     if survey:
         _run_survey(data_dir / "raw", json_out)
         return
-    if compile_:
-        _compile_corpus(data_dir, build_dir or data_dir / "processed", jobs)
-        return
-    _draw_sample(data_dir, per_stratum, seed)
+    if sample_only and compile_:
+        err.print("[red]--sample and --compile are mutually exclusive.[/red]")
+        raise typer.Exit(2)
+
+    if not compile_:
+        _draw_sample(data_dir, per_stratum, seed)
+    if not sample_only:
+        _compile_corpus(data_dir, build_dir or data_dir / "processed", jobs, java)
 
 
-def _compile_corpus(data_dir: Path, build_dir: Path, jobs: int | None) -> None:
+def _compile_corpus(
+    data_dir: Path, build_dir: Path, jobs: int | None, java: bool = True
+) -> None:
     """Build the sampled C/C++ cases and report the survival gate (§7.1)."""
     import statistics
 
@@ -129,13 +149,17 @@ def _compile_corpus(data_dir: Path, build_dir: Path, jobs: int | None) -> None:
             build_dir,
             jobs=jobs,
             warn=lambda msg: err.print(f"[yellow]{msg}[/yellow]"),
+            java=java,
         )
     except (ArchiveNotFound, ToolchainError) as exc:
         err.print(f"[red]{exc}[/red]")
         raise typer.Exit(2) from exc
 
     console.print(f"[dim]{report.compiler_version}[/dim]")
-    console.print(f"[dim]{' '.join(report.common_flags)}  {' '.join(report.optimisations)}[/dim]\n")
+    console.print(f"[dim]{' '.join(report.common_flags)}  {' '.join(report.optimisations)}[/dim]")
+    if report.java_version:
+        console.print(f"[dim]{report.java_version}  -release 8[/dim]")
+    console.print()
 
     by_status: dict[str, int] = {}
     for case in report.cases:
@@ -144,13 +168,20 @@ def _compile_corpus(data_dir: Path, build_dir: Path, jobs: int | None) -> None:
     # The gate, and the two ways a case can leave the corpus. Both are reported
     # rates rather than silent drops — an excluded case that nobody counted is
     # indistinguishable from a case the model failed on.
+    # Only the C/C++ arm has a survival column to show. Java is reported as a
+    # count below: javac has no optimisation levels, so there is nothing for
+    # the gate to measure and an empty row would imply a missing measurement
+    # rather than an inapplicable one.
+    native = [c for c in report.cases if c.language != "java"]
+    jvm_cases = [c for c in report.cases if c.language == "java"]
+
     table = Table(box=None, pad_edge=False)
     table.add_column("case", style="dim")
     table.add_column("bad -O0", justify="right")
     table.add_column("-O2", justify="right")
     table.add_column("kept", justify="right")
     table.add_column("good kept", justify="right")
-    for case in report.cases:
+    for case in native:
         s = case.survival
         if s is None:
             table.add_row(case.case_id[:58], "—", "—", "—", "—", style="red")
@@ -211,10 +242,21 @@ def _compile_corpus(data_dir: Path, build_dir: Path, jobs: int | None) -> None:
 
     out = data_dir / "build-report.json"
     out.write_text(report.model_dump_json(indent=2), encoding="utf-8")
+
+    native_ok = sum(1 for c in native if c.status == BuildStatus.OK)
     console.print(
-        f"[bold]{by_status.get('ok', 0)} of {len(report.cases)} cases[/bold] in the "
-        f"F2 corpus, {sum(len(c.binaries) for c in report.cases)} binaries"
+        f"[bold]C/C++[/bold] {native_ok} of {len(native)} cases in the F2 corpus, "
+        f"{sum(len(c.binaries) for c in native):,} binaries"
     )
+    if jvm_cases:
+        jvm_ok = sum(1 for c in jvm_cases if c.status == BuildStatus.OK)
+        console.print(
+            f"[bold]Java[/bold]  {jvm_ok} of {len(jvm_cases)} cases compiled, "
+            f"{sum(len(c.binaries) for c in jvm_cases):,} class files "
+            f"[dim](no gate — javac has no optimiser)[/dim]"
+        )
+    elif not java:
+        err.print("[dim]Java arm skipped (--no-java).[/dim]")
     err.print(f"wrote {out}")
 
     # Non-zero when anything left the corpus, so this can gate a pipeline the
